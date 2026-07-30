@@ -30,12 +30,72 @@ function initPasswordGate() {
   const input = document.getElementById('gateInput')
   const err = document.getElementById('gateErr')
   const btn = document.getElementById('gateBtn')
-  if (!gate || ls.get('auth')) { if(gate) gate.classList.add('hidden'); return }
+  const step1 = document.getElementById('gateStep1')
+  const step2 = document.getElementById('gateStep2')
+  const regFirst = document.getElementById('regFirst')
+  const regLast = document.getElementById('regLast')
+  const regAge = document.getElementById('regAge')
+  const regBtn = document.getElementById('regBtn')
+  const regErr = document.getElementById('regErr')
+  const ageNote = document.getElementById('ageNote')
+  const gateTitle = document.getElementById('gateTitle')
+  const gateDesc = document.getElementById('gateDesc')
+  const gateIcon = document.getElementById('gateIcon')
+
+  const saved = ls.get('student')
+  if (!gate || (ls.get('auth') && saved)) { if(gate) gate.classList.add('hidden'); document.body.style.overflow = ''; return }
+  document.body.style.overflow = 'hidden'
+
+  if (ls.get('auth') && !saved) {
+    showRegStep()
+  }
+
+  function showRegStep() {
+    step1.style.display = 'none'
+    step2.classList.add('active')
+    gateIcon.textContent = '📝'
+    gateTitle.textContent = 'Almost there!'
+    gateDesc.textContent = 'Tell us about yourself'
+    setTimeout(() => regFirst.focus(), 300)
+  }
+
+  function validateAge(age) {
+    const n = parseInt(age)
+    if (isNaN(n) || n < 1) return { valid: false, msg: 'Please enter a valid age' }
+    if (n < 18) return { valid: false, msg: 'You must be 18 or older to access this course' }
+    if (n > 120) return { valid: false, msg: 'Please enter a valid age' }
+    return { valid: true, msg: '' }
+  }
+
+  regAge.oninput = () => {
+    const res = validateAge(regAge.value)
+    ageNote.textContent = res.msg || (parseInt(regAge.value) >= 18 ? '✅ Age verified' : '')
+    ageNote.className = 'age-note' + (res.valid ? ' pass' : regAge.value ? ' fail' : '')
+  }
+
+  regBtn.onclick = () => {
+    const first = regFirst.value.trim()
+    const last = regLast.value.trim()
+    const age = regAge.value.trim()
+    if (!first || !last || !age) { regErr.textContent = 'Please fill in all fields'; return }
+    const res = validateAge(age)
+    if (!res.valid) { regErr.textContent = res.msg; return }
+    regErr.textContent = ''
+    ls.set('student', { first, last, age: parseInt(age) })
+    ls.set('auth', true)
+    gate.classList.add('hidden')
+    document.body.style.overflow = ''
+    setTimeout(() => showDeviceModal(), 500)
+  }
+
+  regFirst.onkeydown = e => { if (e.key === 'Enter') regLast.focus() }
+  regLast.onkeydown = e => { if (e.key === 'Enter') regAge.focus() }
+  regAge.onkeydown = e => { if (e.key === 'Enter') regBtn.click() }
+
   btn.onclick = () => {
     if (input.value === SITE_PASSWORD) {
-      ls.set('auth', true)
-      gate.classList.add('hidden')
-      setTimeout(() => showDeviceModal(), 500)
+      err.textContent = ''
+      showRegStep()
     } else {
       err.textContent = 'Wrong password. Try again.'
       input.value = ''
@@ -44,6 +104,7 @@ function initPasswordGate() {
     }
   }
   input.onkeydown = e => { if (e.key === 'Enter') btn.click() }
+  input.focus()
 }
 
 function showDeviceModal() {
@@ -322,7 +383,8 @@ function ensureElements() {
     const content = document.querySelector('.lesson-content')
     if (nav) content.insertBefore(q, nav)
   }
-  if (!document.querySelector('.whatsapp-fab')) {
+  /* WhatsApp is on the password gate now — only add FAB if gate is hidden and no FAB exists */
+  if (!document.querySelector('.whatsapp-fab') && document.getElementById('passwordGate')?.classList.contains('hidden')) {
     const w = document.createElement('div'); w.className = 'whatsapp-fab left'
     w.innerHTML = `<a class="whatsapp-btn" href="https://wa.me/2347046855205?text=${encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more.")}" target="_blank"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a><a class="whatsapp-btn" href="https://wa.me/2349121419046?text=${encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more.")}" target="_blank"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>`
     document.body.appendChild(w)

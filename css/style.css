@@ -39,50 +39,95 @@ body {
 }
 a { color:var(--gold); text-decoration:none }
 
-/* Password Gate */
+/* Password Gate — full screen, no scroll */
 .password-gate {
   position:fixed; inset:0; z-index:9999;
-  display:flex; align-items:center; justify-content:center;
-  background:radial-gradient(ellipse at center, #111 0%, #000 100%);
-  perspective:1000px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  background:radial-gradient(ellipse at center, #0a0a0a 0%, #000 100%);
+  height:100vh; width:100vw;
+  overflow:hidden;
 }
 .password-gate.hidden { display:none }
+.gate-inner {
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  flex:1; width:100%; padding:1rem;
+}
+.gate-logo {
+  font-size:2.5rem; font-weight:900;
+  background:linear-gradient(135deg, #FFD700, #FFA500, #2196F3);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  margin-bottom:.2rem;
+}
+.gate-sub {
+  color:#555; font-size:.85rem; margin-bottom:2rem;
+}
 .gate-card {
-  background:linear-gradient(145deg, #1a1a1a, #0a0a0a);
-  border:1px solid var(--card-border);
+  background:linear-gradient(145deg, #151515, #0a0a0a);
+  border:1px solid #222;
   border-radius:24px;
-  padding:3rem 2.5rem;
-  max-width:420px; width:90%;
+  padding:2.5rem 2rem;
+  max-width:400px; width:92%;
   text-align:center;
-  transform:rotateX(5deg) translateZ(30px);
-  box-shadow:0 20px 60px rgba(0,0,0,.8), 0 0 40px rgba(255,215,0,.05);
-  animation:gateEnter .8s ease-out;
+  box-shadow:0 20px 60px rgba(0,0,0,.9), 0 0 30px rgba(255,215,0,.03);
+  animation:gateEnter .7s ease-out;
 }
 @keyframes gateEnter {
-  from { opacity:0; transform:rotateX(15deg) translateZ(-50px) translateY(40px) }
-  to { opacity:1; transform:rotateX(5deg) translateZ(30px) translateY(0) }
+  from { opacity:0; transform:scale(.95) translateY(20px) }
+  to { opacity:1; transform:scale(1) translateY(0) }
 }
-.gate-card .logo { font-size:2.2rem; font-weight:900; background:linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.3rem }
-.gate-card p { color:var(--text2); font-size:.9rem; margin-bottom:1.8rem }
+.gate-card .lock { font-size:2rem; margin-bottom:.5rem; display:block }
+.gate-card .title { font-size:1.1rem; font-weight:700; margin-bottom:.3rem }
+.gate-card .desc { color:#666; font-size:.82rem; margin-bottom:1.5rem }
 .gate-input {
-  width:100%; padding:1rem 1.2rem;
-  background:#0a0a0a; border:1px solid #333;
-  border-radius:12px; color:#fff;
-  font-size:1.1rem; text-align:center;
+  width:100%; padding:.9rem 1rem;
+  background:#0a0a0a; border:1px solid #2a2a2a;
+  border-radius:10px; color:#fff;
+  font-size:1rem; text-align:center;
   transition:border-color .3s;
   outline:none;
+  font-family:var(--font);
 }
 .gate-input:focus { border-color:var(--gold) }
 .gate-btn {
-  width:100%; margin-top:1rem; padding:1rem;
+  width:100%; margin-top:.8rem; padding:.85rem;
   background:linear-gradient(135deg, #FFD700, #FFA500);
-  border:none; border-radius:12px;
-  color:#000; font-weight:700; font-size:1rem;
-  cursor:pointer; transition:transform .2s;
+  border:none; border-radius:10px;
+  color:#000; font-weight:700; font-size:.95rem;
+  cursor:pointer; transition:all .3s;
 }
+.gate-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(255,215,0,.2) }
 .gate-btn:active { transform:scale(.97) }
-.gate-err { color:#ff4444; font-size:.85rem; margin-top:.8rem; min-height:1.5rem }
-.gate-hint { color:var(--text2); font-size:.75rem; margin-top:1rem; opacity:.5 }
+.gate-err { color:#ff4444; font-size:.82rem; margin-top:.6rem; min-height:1.5rem }
+
+/* Gate step 2 — registration */
+.gate-register { display:none }
+.gate-register.active { display:block }
+.gate-row { display:flex; gap:.6rem; margin-bottom:.6rem }
+.gate-row .gate-input { text-align:left; font-size:.9rem }
+.gate-row .half { flex:1 }
+.age-wrap { position:relative }
+.age-note { font-size:.75rem; color:#666; margin-top:.3rem; text-align:left }
+.age-note.fail { color:#ff4444 }
+.age-note.pass { color:#4CAF50 }
+
+/* WhatsApp on gate */
+.gate-wa {
+  display:flex; gap:1rem;
+  padding:1rem 1rem 1.5rem;
+  justify-content:center;
+  flex-shrink:0;
+}
+.gate-wa a {
+  display:flex; align-items:center; gap:6px;
+  padding:8px 16px; border-radius:50px;
+  background:#25D366; color:#fff;
+  font-size:.8rem; font-weight:600;
+  text-decoration:none;
+  transition:all .3s;
+}
+.gate-wa a:hover { transform:scale(1.05); box-shadow:0 4px 16px rgba(37,211,102,.4) }
 
 /* Device Modal */
 .device-overlay {

@@ -7,37 +7,39 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Password Gate -->
+    <!-- Full-Screen Password Gate -->
     <div class="password-gate" id="passwordGate">
-        <div class="gate-card">
-            <div class="logo">✦ Nova Py-Hub</div>
-            <p>Enter password to access the course</p>
-            <input class="gate-input" id="gateInput" type="password" placeholder="Enter password" autofocus>
-            <button class="gate-btn" id="gateBtn">Unlock Access</button>
-            <div class="gate-err" id="gateErr"></div>
-            <div class="gate-hint">🔒 Student access only</div>
-        </div>
-    </div>
+        <div class="gate-inner">
+            <div class="gate-card" id="gateCard">
+                <span class="lock" id="gateIcon">🔒</span>
+                <div class="title" id="gateTitle">Welcome to Nova Py-Hub</div>
+                <div class="desc" id="gateDesc">Enter password to access your courses</div>
 
-    <!-- Device Modal -->
-    <div class="device-overlay" id="deviceModal">
-        <div class="device-modal">
-            <h2>📱 Select Your Device</h2>
-            <p>Lessons and tools vary by device — pick yours for tailored guidance</p>
-            <div class="device-grid">
-                <div class="device-opt" onclick="selectDevice('iphone')">
-                    <span class="icon">📱</span>
-                    <span class="label">iPhone</span>
+                <!-- Step 1: Password -->
+                <div id="gateStep1">
+                    <input class="gate-input" id="gateInput" type="password" placeholder="Enter password" autofocus>
+                    <button class="gate-btn" id="gateBtn">Unlock Access</button>
+                    <div class="gate-err" id="gateErr"></div>
                 </div>
-                <div class="device-opt" onclick="selectDevice('android')">
-                    <span class="icon">🤖</span>
-                    <span class="label">Android</span>
-                </div>
-                <div class="device-opt" onclick="selectDevice('pc')">
-                    <span class="icon">💻</span>
-                    <span class="label">PC / Laptop</span>
+
+                <!-- Step 2: Registration -->
+                <div class="gate-register" id="gateStep2">
+                    <div class="gate-row">
+                        <div class="half"><input class="gate-input" id="regFirst" type="text" placeholder="First name" style="text-align:left"></div>
+                        <div class="half"><input class="gate-input" id="regLast" type="text" placeholder="Last name" style="text-align:left"></div>
+                    </div>
+                    <div class="age-wrap">
+                        <input class="gate-input" id="regAge" type="number" placeholder="Your age" min="1" max="120">
+                        <div class="age-note" id="ageNote">You must be 18 or older to access this course</div>
+                    </div>
+                    <button class="gate-btn" id="regBtn">Continue →</button>
+                    <div class="gate-err" id="regErr"></div>
                 </div>
             </div>
+        </div>
+        <div class="gate-wa">
+            <a href="https://wa.me/2347046855205?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank">📞 Owner</a>
+            <a href="https://wa.me/2349121419046?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank">💬 Assistant</a>
         </div>
     </div>
 
@@ -289,27 +291,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp FAB -->
-    <div class="whatsapp-fab left">
-        <a class="whatsapp-btn" href="https://wa.me/${WA_OWNER}?text=${WA_MSG}" target="_blank" rel="noopener">
-            <span class="wa-icon">📞</span>
-            <span class="wa-label">Owner</span>
-        </a>
-        <a class="whatsapp-btn" href="https://wa.me/${WA_ASSISTANT}?text=${WA_MSG}" target="_blank" rel="noopener">
-            <span class="wa-icon">💬</span>
-            <span class="wa-label">Assistant</span>
-        </a>
-    </div>
-
-    <script>
-    const WA_OWNER = '2347046855205'
-    const WA_ASSISTANT = '2349121419046'
-    const WA_MSG = encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more about Python programming. Can you help me get started?")
-    document.querySelectorAll('.whatsapp-btn').forEach(btn => {
-        const href = btn.getAttribute('href')
-        btn.setAttribute('href', href.replace(/\$\{WA_OWNER\}/g, WA_OWNER).replace(/\$\{WA_ASSISTANT\}/g, WA_ASSISTANT).replace(/\$\{WA_MSG\}/g, WA_MSG))
-    })
-    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
