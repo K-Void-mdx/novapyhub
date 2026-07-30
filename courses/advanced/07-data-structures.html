@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Data Structures - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../advanced.html">Advanced</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 7: Advanced Data Structures</h1>
+        <p>Implement classic data structures in Python.</p>
+        <h2>Stack (LIFO)</h2>
+        <pre><code>class Stack:
+    def __init__(self): self.items = []
+    def push(self, item): self.items.append(item)
+    def pop(self): return self.items.pop()
+    def peek(self): return self.items[-1]
+    def is_empty(self): return len(self.items) == 0
+
+s = Stack()
+s.push(1); s.push(2); s.push(3)
+print(s.pop())  # 3</code></pre>
+        <h2>Queue (FIFO)</h2>
+        <pre><code>from collections import deque
+
+class Queue:
+    def __init__(self): self.items = deque()
+    def enqueue(self, item): self.items.append(item)
+    def dequeue(self): return self.items.popleft()
+    def is_empty(self): return len(self.items) == 0
+
+q = Queue()
+q.enqueue(1); q.enqueue(2); q.enqueue(3)
+print(q.dequeue())  # 1</code></pre>
+        <h2>Binary Tree</h2>
+        <pre><code>class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def inorder(node):
+    if node:
+        inorder(node.left)
+        print(node.val, end=" ")
+        inorder(node.right)
+
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+inorder(root)  # 1 2 3</code></pre>
+        <div class="lesson-nav"><a href="06-async-io.html" class="btn btn-secondary">← Previous</a><a href="08-algorithms.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

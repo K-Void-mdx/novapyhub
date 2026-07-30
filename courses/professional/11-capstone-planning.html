@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Planning - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 11: Capstone Project — Planning & Design</h1>
+        <p>Design a full-stack application from scratch. This is the culmination of everything you've learned.</p>
+        <h2>Project Idea: Task Management API</h2>
+        <p>Build a complete task management system with:</p>
+        <h3>Requirements</h3>
+        <ul>
+            <li>User registration and authentication (JWT)</li>
+            <li>CRUD operations for tasks</li>
+            <li>Task categories and tags</li>
+            <li>Search and filter tasks</li>
+            <li>RESTful API with FastAPI</li>
+            <li>SQLite/PostgreSQL database</li>
+            <li>Unit and integration tests</li>
+            <li>Docker containerization</li>
+            <li>CI/CD pipeline</li>
+        </ul>
+        <h3>Architecture</h3>
+        <pre><code>task_manager/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # FastAPI app
+│   ├── models.py        # SQLAlchemy models
+│   ├── schemas.py       # Pydantic schemas
+│   ├── crud.py          # Database operations
+│   ├── auth.py          # JWT authentication
+│   └── dependencies.py  # Dependency injection
+├── tests/
+│   ├── test_api.py
+│   └── test_models.py
+├── Dockerfile
+├── requirements.txt
+└── README.md</code></pre>
+        <h3>Database Schema</h3>
+        <pre><code>User: id, username, email, hashed_password, created_at
+Task: id, title, description, status, priority, user_id (FK), category_id (FK), created_at, updated_at
+Category: id, name, user_id (FK)</code></pre>
+        <p>Your task this lesson is to design the complete system and start implementing models and schemas.</p>
+        <div class="lesson-nav"><a href="10-machine-learning.html" class="btn btn-secondary">← Previous</a><a href="12-capstone-build.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules & Packages - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../intermediate.html">Intermediate</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 7: Working with Modules and Packages</h1>
+        <p>Learn to organize code into modules and packages, manage imports, and use pip for third-party packages.</p>
+        <h2>Creating Packages</h2>
+        <p>A package is a folder with an <code>__init__.py</code> file containing multiple modules:</p>
+        <pre><code>my_package/
+    __init__.py
+    math_ops.py
+    string_ops.py</code></pre>
+        <h2>Import Types</h2>
+        <pre><code>import my_package.math_ops
+from my_package import math_ops
+from my_package.math_ops import add, subtract</code></pre>
+        <h2>Using pip</h2>
+        <pre><code>pip install requests
+pip install numpy pandas matplotlib
+pip freeze > requirements.txt</code></pre>
+        <h2>Practice</h2>
+        <ol>
+            <li>Create a package with 3 modules and import them in different ways</li>
+            <li>Install requests and make a GET request to an API</li>
+            <li>Create a requirements.txt for a project</li>
+        </ol>
+        <div class="lesson-nav"><a href="06-oop-advanced.html" class="btn btn-secondary">← Previous</a><a href="08-working-with-data.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

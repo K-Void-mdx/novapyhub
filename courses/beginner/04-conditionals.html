@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 4: Conditional Statements</h1>
+
+        <h2>What are Conditionals?</h2>
+        <p>Conditional statements let your program make decisions. They execute different code based on whether a condition is <code>True</code> or <code>False</code>.</p>
+
+        <h2>The if Statement</h2>
+        <p>The simplest conditional: if the condition is True, the indented code runs:</p>
+        <pre><code>age = 18
+
+if age >= 18:
+    print("You are an adult.")
+    print("You can vote!")
+
+print("This always runs.")</code></pre>
+        <p><strong>Important:</strong> Python uses indentation (4 spaces) to define blocks of code.</p>
+
+        <h2>Comparison Operators</h2>
+        <pre><code>==    # Equal to
+!=    # Not equal to
+<     # Less than
+>     # Greater than
+<=    # Less than or equal to
+>=    # Greater than or equal to</code></pre>
+        <pre><code>x = 10
+print(x == 10)   # True
+print(x != 5)    # True
+print(x > 20)    # False
+print(x <= 10)   # True</code></pre>
+
+        <h2>if-else Statements</h2>
+        <p>Run one block if True, another if False:</p>
+        <pre><code>temperature = 30
+
+if temperature > 25:
+    print("It's hot outside!")
+else:
+    print("It's cool outside.")</code></pre>
+
+        <h2>if-elif-else Chains</h2>
+        <p>For multiple conditions, use <code>elif</code> (short for "else if"):</p>
+        <pre><code>score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print(f"Your grade is: {grade}")</code></pre>
+
+        <h2>Logical Operators</h2>
+        <p>Combine multiple conditions with <code>and</code>, <code>or</code>, and <code>not</code>:</p>
+        <pre><code>age = 22
+has_license = True
+
+# Both conditions must be True
+if age >= 18 and has_license:
+    print("You can drive!")
+
+# At least one must be True
+if age < 12 or age > 80:
+    print("Special rate applies.")
+
+# Negate a condition
+if not has_license:
+    print("You need a license to drive.")</code></pre>
+
+        <h2>The in Operator</h2>
+        <p>Check if a value exists in a collection:</p>
+        <pre><code>fruits = ["apple", "banana", "orange"]
+if "banana" in fruits:
+    print("Banana is in the list!")
+
+name = "David"
+if "Dav" in name:
+    print("Name contains 'Dav'")</code></pre>
+
+        <h2>Truthy and Falsy Values</h2>
+        <p>In Python, some values are considered "falsy" (False-like):</p>
+        <pre><code># These are FALSY:
+bool(0)       # False
+bool("")      # False (empty string)
+bool([])      # False (empty list)
+bool(None)    # False (none)
+bool(False)   # False
+
+# Everything else is TRUTHY:
+bool(1)       # True
+bool("abc")   # True
+bool([1, 2])  # True
+
+# Useful pattern:
+name = ""
+if name:  # Only runs if name is not empty
+    print(f"Hello, {name}!")
+else:
+    print("Name is empty!")</code></pre>
+
+        <h2>Nested Conditionals</h2>
+        <p>You can put conditionals inside conditionals:</p>
+        <pre><code>age = 20
+has_ticket = True
+
+if age >= 18:
+    if has_ticket:
+        print("Welcome to the concert!")
+    else:
+        print("You need a ticket.")
+else:
+    print("You are too young.")</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Write a program that checks if a number is positive, negative, or zero</li>
+            <li>Create a simple login system: ask for a username and password, check if they match stored values</li>
+            <li>Write a program that tells someone if they can ride a roller coaster (height >= 120cm AND age >= 10)</li>
+            <li>Use and/or/not to check if a number is between 10 and 20 (inclusive)</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="03-strings.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="05-loops.html" class="btn btn-primary">Next: Loops →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

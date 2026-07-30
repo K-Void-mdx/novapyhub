@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 4: Error Handling and Exceptions</h1>
+
+        <h2>What are Exceptions?</h2>
+        <p>Exceptions are errors that occur during program execution. Instead of crashing your program, you can catch and handle them gracefully.</p>
+
+        <h2>Common Exception Types</h2>
+        <pre><code># ZeroDivisionError
+print(10 / 0)  # ZeroDivisionError: division by zero
+
+# ValueError
+int("hello")  # ValueError: invalid literal for int()
+
+# TypeError
+"5" + 3  # TypeError: can only concatenate str (not "int") to str
+
+# IndexError
+nums = [1, 2, 3]
+print(nums[10])  # IndexError: list index out of range
+
+# KeyError
+person = {"name": "Alice"}
+print(person["age"])  # KeyError: 'age'
+
+# FileNotFoundError
+open("nonexistent.txt")  # FileNotFoundError</code></pre>
+
+        <h2>Try/Except Blocks</h2>
+        <pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Please enter a valid number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")</code></pre>
+
+        <h2>Catching Multiple Exceptions</h2>
+        <pre><code># Multiple except blocks
+try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+    print(result)
+except (ValueError, ZeroDivisionError):
+    print("Invalid input or division by zero!")
+
+# Catching all exceptions (use carefully!)
+try:
+    x = int("hello")
+except Exception as e:
+    print(f"An error occurred: {e}")</code></pre>
+
+        <h2>Else and Finally</h2>
+        <p><code>else</code> runs if no exception occurred. <code>finally</code> always runs:</p>
+        <pre><code>try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+except ValueError:
+    print("Not a number!")
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+else:
+    print(f"Result: {result}")  # Runs only if no error
+finally:
+    print("This always runs.")  # Cleanup code</code></pre>
+
+        <h2>Raising Exceptions</h2>
+        <p>You can manually raise exceptions with <code>raise</code>:</p>
+        <pre><code>def withdraw(balance, amount):
+    if amount <= 0:
+        raise ValueError("Amount must be positive!")
+    if amount > balance:
+        raise ValueError("Insufficient funds!")
+    return balance - amount
+
+try:
+    new_balance = withdraw(100, 150)
+except ValueError as e:
+    print(f"Error: {e}")
+
+# Re-raising
+def safe_divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        print("Logging error...")
+        raise  # Re-raise the same exception</code></pre>
+
+        <h2>Creating Custom Exceptions</h2>
+        <pre><code>class InsufficientFundsError(Exception):
+    """Raised when account balance is insufficient."""
+    pass
+
+class NegativeAmountError(Exception):
+    """Raised when amount is negative."""
+    def __init__(self, amount):
+        self.amount = amount
+        super().__init__(f"Amount cannot be negative: {amount}")
+
+def transfer(balance, amount):
+    if amount < 0:
+        raise NegativeAmountError(amount)
+    if amount > balance:
+        raise InsufficientFundsError("Not enough money!")
+    return balance - amount
+
+try:
+    transfer(500, -50)
+except NegativeAmountError as e:
+    print(e)
+except InsufficientFundsError as e:
+    print(e)</code></pre>
+
+        <h2>Assertions</h2>
+        <p>Use <code>assert</code> for debugging — it raises AssertionError if the condition is False:</p>
+        <pre><code>def calculate_bmi(weight, height):
+    assert weight > 0, "Weight must be positive"
+    assert height > 0, "Height must be positive"
+    return weight / (height ** 2)
+
+# Can be disabled with -O flag when running Python</code></pre>
+
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Catch specific exceptions, not generic <code>Exception</code></li>
+            <li>Don't hide errors with empty except blocks</li>
+            <li>Use finally for cleanup (closing files, releasing resources)</li>
+            <li>Log exceptions rather than just printing them</li>
+            <li>Raise exceptions early when detecting invalid state</li>
+        </ul>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Write a safe division function that handles both invalid input and division by zero</li>
+            <li>Create a function that reads a file and handles FileNotFoundError gracefully</li>
+            <li>Create a custom exception class for a bank account system</li>
+            <li>Write a program that keeps asking for a valid number until one is entered</li>
+            <li>Use try/except/else/finally to demonstrate all four blocks working</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="03-file-handling.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="05-oop-basics.html" class="btn btn-primary">Next: OOP Basics →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

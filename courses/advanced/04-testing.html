@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing in Python - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../advanced.html">Advanced</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 4: Testing in Python</h1>
+        <p>Testing ensures your code works correctly and keeps working as you make changes.</p>
+        <h2>Unit Testing with unittest</h2>
+        <pre><code>import unittest
+
+def add(a, b):
+    return a + b
+
+class TestMath(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, 1), 0)
+
+    def test_add_floats(self):
+        self.assertAlmostEqual(add(0.1, 0.2), 0.3)
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+        <h2>Testing with pytest (Better)</h2>
+        <pre><code># test_calc.py
+def add(a, b): return a + b
+def divide(a, b):
+    if b == 0: raise ValueError("Can't divide by zero")
+    return a / b
+
+def test_add():
+    assert add(2, 3) == 5
+    assert add(-1, 1) == 0
+
+def test_divide():
+    assert divide(10, 2) == 5
+    import pytest
+    with pytest.raises(ValueError):
+        divide(10, 0)
+
+# Run: pytest test_calc.py -v</code></pre>
+        <h2>Test Fixtures</h2>
+        <pre><code>import pytest
+
+@pytest.fixture
+def sample_data():
+    return {"name": "Alice", "numbers": [1, 2, 3]}
+
+def test_sample(sample_data):
+    assert sample_data["name"] == "Alice"
+    assert sum(sample_data["numbers"]) == 6</code></pre>
+        <h2>Mocking</h2>
+        <pre><code>from unittest.mock import Mock, patch
+import requests
+
+def get_user_data(user_id):
+    response = requests.get(f"https://api.example.com/users/{user_id}")
+    return response.json()
+
+# Test without actual HTTP call
+@patch("requests.get")
+def test_get_user_data(mock_get):
+    mock_get.return_value.json.return_value = {"id": 1, "name": "Alice"}
+    result = get_user_data(1)
+    assert result["name"] == "Alice"
+    mock_get.assert_called_once_with("https://api.example.com/users/1")</code></pre>
+        <h2>Practice</h2>
+        <ol>
+            <li>Write tests for the calculator from the beginner project</li>
+            <li>Use pytest fixtures to set up test data</li>
+            <li>Mock an external API call in your tests</li>
+            <li>Aim for >80% test coverage</li>
+        </ol>
+        <div class="lesson-nav"><a href="03-regular-expressions.html" class="btn btn-secondary">← Previous</a><a href="05-multithreading.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

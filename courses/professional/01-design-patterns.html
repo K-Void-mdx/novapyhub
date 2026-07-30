@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Patterns - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 1: Design Patterns in Python</h1>
+        <p>Design patterns are reusable solutions to common software design problems. Here are the most important Gang of Four patterns implemented in Python.</p>
+        <h2>Singleton Pattern</h2>
+        <pre><code>class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+s1 = Singleton()
+s2 = Singleton()
+print(s1 is s2)  # True</code></pre>
+        <h2>Factory Pattern</h2>
+        <pre><code>from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def speak(self): pass
+
+class Dog(Animal):
+    def speak(self): return "Woof!"
+
+class Cat(Animal):
+    def speak(self): return "Meow!"
+
+class AnimalFactory:
+    @staticmethod
+    def create(animal_type):
+        types = {"dog": Dog, "cat": Cat}
+        return types.get(animal_type.lower(), Animal)()
+
+factory = AnimalFactory()
+animal = factory.create("dog")
+print(animal.speak())  # Woof!</code></pre>
+        <h2>Observer Pattern</h2>
+        <pre><code>class Subject:
+    def __init__(self):
+        self._observers = []
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def notify(self, message):
+        for obs in self._observers:
+            obs.update(message)
+
+class Observer:
+    def update(self, message):
+        print(f"Received: {message}")
+
+sub = Subject()
+obs1 = Observer()
+obs2 = Observer()
+sub.attach(obs1)
+sub.attach(obs2)
+sub.notify("Hello!")  # Both observers receive</code></pre>
+        <h2>Strategy Pattern</h2>
+        <pre><code>from abc import ABC, abstractmethod
+
+class SortingStrategy(ABC):
+    @abstractmethod
+    def sort(self, data): pass
+
+class BubbleSort(SortingStrategy):
+    def sort(self, data):
+        return sorted(data)  # Simplified
+
+class QuickSort(SortingStrategy):
+    def sort(self, data):
+        return sorted(data)  # Simplified
+
+class Sorter:
+    def __init__(self, strategy):
+        self.strategy = strategy
+    def sort(self, data):
+        return self.strategy.sort(data)
+
+sorter = Sorter(QuickSort())
+print(sorter.sort([3, 1, 4, 1, 5]))</code></pre>
+        <div class="lesson-nav"><a href="../professional.html" class="btn btn-secondary">← Back</a><a href="02-solid-principles.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

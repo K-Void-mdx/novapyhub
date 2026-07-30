@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Build - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 12: Capstone Project — Build & Deploy</h1>
+        <p>Implement, test, and deploy your capstone project to production.</p>
+        <h2>Implementation Steps</h2>
+        <ol>
+            <li>Set up FastAPI project structure</li>
+            <li>Implement database models (SQLAlchemy)</li>
+            <li>Create Pydantic schemas for validation</li>
+            <li>Implement CRUD operations</li>
+            <li>Add JWT authentication</li>
+            <li>Write tests (unit + integration)</li>
+            <li>Dockerize the application</li>
+            <li>Set up CI/CD with GitHub Actions</li>
+            <li>Deploy to Render/Railway/Fly.io</li>
+        </ol>
+        <h2>Starting Code</h2>
+        <pre><code># app/main.py
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="Task Manager API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def root():
+    return {"message": "Task Manager API"}
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}</code></pre>
+        <h2>Deployment Checklist</h2>
+        <ul>
+            <li>Set environment variables (DATABASE_URL, SECRET_KEY)</li>
+            <li>Use gunicorn + uvicorn for production</li>
+            <li>Add database migration system (Alembic)</li>
+            <li>Set up monitoring and logging</li>
+            <li>Configure domain and SSL</li>
+        </ul>
+        <p>🎉 Congratulations! You've completed the full Nova Py-Hub curriculum from beginner to professional level.</p>
+        <p>Visit the Certificate page to generate your official completion certificate.</p>
+        <div class="lesson-nav">
+            <a href="11-capstone-planning.html" class="btn btn-secondary">← Previous</a>
+            <a href="../../certificate/index.html" class="btn btn-primary">Get Your Certificate →</a>
+        </div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

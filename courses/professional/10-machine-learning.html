@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 10: Machine Learning Fundamentals</h1>
+        <p>Introduction to ML with scikit-learn: regression, classification, clustering.</p>
+        <h2>Linear Regression</h2>
+        <pre><code>from sklearn.linear_model import LinearRegression
+import numpy as np
+
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 4, 6, 8, 10])
+
+model = LinearRegression()
+model.fit(X, y)
+print(model.predict([[6]]))  # ~12
+print(f"Slope: {model.coef_[0]:.2f}")</code></pre>
+        <h2>Classification</h2>
+        <pre><code>from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(
+    iris.data, iris.target, test_size=0.2
+)
+
+clf = RandomForestClassifier()
+clf.fit(X_train, y_train)
+predictions = clf.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")</code></pre>
+        <h2>K-Means Clustering</h2>
+        <pre><code>from sklearn.cluster import KMeans
+X = np.array([[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]])
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(X)
+print(kmeans.labels_)  # [0 0 0 1 1 1]</code></pre>
+        <div class="lesson-nav"><a href="09-data-science-intro.html" class="btn btn-secondary">← Previous</a><a href="11-capstone-planning.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

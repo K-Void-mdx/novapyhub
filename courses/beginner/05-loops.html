@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 5: Loops — For and While</h1>
+
+        <h2>Why Loops?</h2>
+        <p>Loops let you repeat code multiple times without writing it over and over. They are essential for working with collections of data.</p>
+
+        <h2>The for Loop</h2>
+        <p>The <code>for</code> loop iterates over a sequence (list, string, range, etc.):</p>
+        <pre><code># Loop through a list
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+# Loop through a string
+for char in "Python":
+    print(char)</code></pre>
+
+        <h2>The range() Function</h2>
+        <p><code>range()</code> generates a sequence of numbers:</p>
+        <pre><code># range(stop) — 0 to stop-1
+for i in range(5):
+    print(i)  # 0, 1, 2, 3, 4
+
+# range(start, stop)
+for i in range(2, 7):
+    print(i)  # 2, 3, 4, 5, 6
+
+# range(start, stop, step)
+for i in range(0, 10, 2):
+    print(i)  # 0, 2, 4, 6, 8
+
+# Counting down
+for i in range(10, 0, -1):
+    print(i)  # 10, 9, 8, ... 1
+print("Blast off!")</code></pre>
+
+        <h2>Looping with enumerate()</h2>
+        <p>When you need both index and value:</p>
+        <pre><code>fruits = ["apple", "banana", "orange"]
+for index, fruit in enumerate(fruits):
+    print(f"{index + 1}. {fruit}")
+
+# Output:
+# 1. apple
+# 2. banana
+# 3. orange</code></pre>
+
+        <h2>The while Loop</h2>
+        <p>The <code>while</code> loop repeats as long as a condition is True:</p>
+        <pre><code># Count from 1 to 5
+count = 1
+while count <= 5:
+    print(count)
+    count += 1  # IMPORTANT: don't forget this!
+
+# User input loop
+secret = "python"
+guess = ""
+while guess != secret:
+    guess = input("Guess the secret word: ")
+print("You got it!")</code></pre>
+        <p><strong>Warning:</strong> Make sure the condition eventually becomes False, or you'll get an infinite loop!</p>
+
+        <h2>break and continue</h2>
+        <p><code>break</code> exits the loop immediately. <code>continue</code> skips to the next iteration:</p>
+        <pre><code># break — stop the loop
+for i in range(10):
+    if i == 5:
+        break  # Stop when i is 5
+    print(i)   # Prints: 0, 1, 2, 3, 4
+
+# continue — skip this iteration
+for i in range(10):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)      # Prints: 1, 3, 5, 7, 9
+
+# Practical: find first even number
+numbers = [3, 7, 9, 12, 15, 18]
+for num in numbers:
+    if num % 2 == 0:
+        print(f"First even: {num}")
+        break</code></pre>
+
+        <h2>The else Clause with Loops</h2>
+        <p>Loops can have an <code>else</code> that runs when the loop finishes normally (not via break):</p>
+        <pre><code># else runs when NO break happened
+numbers = [1, 3, 5, 7, 9]
+for num in numbers:
+    if num % 2 == 0:
+        print("Found even number!")
+        break
+else:
+    print("No even numbers found.")  # This runs</code></pre>
+
+        <h2>Nested Loops</h2>
+        <p>Loops inside loops:</p>
+        <pre><code># Multiplication table
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} x {j} = {i * j}")
+    print()  # Blank line after each row</code></pre>
+
+        <h2>Looping Through Dictionaries</h2>
+        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+
+# Loop through keys
+for key in student:
+    print(key)
+
+# Loop through values
+for value in student.values():
+    print(value)
+
+# Loop through both
+for key, value in student.items():
+    print(f"{key}: {value}")</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Print all even numbers from 1 to 20 using a for loop</li>
+            <li>Write a while loop that keeps asking for a password until the correct one is entered</li>
+            <li>Use enumerate to print a numbered shopping list</li>
+            <li>Write a program that sums all numbers from 1 to 100</li>
+            <li>Create a multiplication table for 5 (5x1 through 5x12)</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="04-conditionals.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="06-lists.html" class="btn btn-primary">Next: Lists and Tuples →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

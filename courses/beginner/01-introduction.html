@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Python - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 1: Introduction to Python</h1>
+
+        <h2>What is Python?</h2>
+        <p>Python is a high-level, interpreted programming language created by Guido van Rossum in 1991. It is known for its readability and simplicity — often described as "executable pseudocode." Python is used everywhere: web development, data science, artificial intelligence, automation, and more.</p>
+
+        <h2>Why Learn Python?</h2>
+        <ul>
+            <li><strong>Easy to read and write</strong> — Python's syntax is clean and intuitive</li>
+            <li><strong>Huge community</strong> — millions of developers, endless resources</li>
+            <li><strong>Versatile</strong> — web, data, AI, games, automation, and more</li>
+            <li><strong>Job opportunities</strong> — one of the most in-demand skills</li>
+            <li><strong>Free and open source</strong> — zero cost to start</li>
+        </ul>
+
+        <h2>Installing Python</h2>
+        <p>Before writing Python code, you need Python installed. Here's how:</p>
+
+        <h3>On PC (Windows/Mac/Linux)</h3>
+        <p>Go to <code>python.org</code> and download the latest version. Run the installer and check "Add Python to PATH" during installation. Verify installation by opening a terminal/command prompt and typing:</p>
+        <pre><code>python --version</code></pre>
+
+        <h3>On Phone (Android)</h3>
+        <p>Install <strong>Termux</strong> from F-Droid (not Google Play — it's outdated). Open Termux and run:</p>
+        <pre><code>pkg update && pkg upgrade
+pkg install python
+python --version</code></pre>
+
+        <h3>On iPhone/iPad</h3>
+        <p>Install <strong>Pythonista</strong> or <strong>Pyto</strong> from the App Store. These include a code editor and Python interpreter right on your device.</p>
+
+        <h2>Your First Python Program</h2>
+        <p>Open a Python REPL (interactive shell) by typing <code>python</code> in your terminal, or create a file called <code>hello.py</code>. Write:</p>
+        <pre><code>print("Hello, World!")
+print("Welcome to Nova Py-Hub!")</code></pre>
+        <p>Run it with:</p>
+        <pre><code>python hello.py</code></pre>
+
+        <h2>Understanding the Code</h2>
+        <p><code>print()</code> is a built-in Python function that displays output to the screen. The text inside quotes <code>" "</code> is called a <strong>string</strong>. Python executes code line by line from top to bottom.</p>
+
+        <h2>Python as a Calculator</h2>
+        <p>Python can do math right away. Try these in the REPL:</p>
+        <pre><code>>>> 2 + 3
+5
+>>> 10 - 4
+6
+>>> 3 * 7
+21
+>>> 15 / 3
+5.0
+>>> 2 ** 10
+1024
+>>> 17 % 3
+2</code></pre>
+
+        <h2>Comments in Python</h2>
+        <p>Comments are notes in your code that Python ignores. Use <code>#</code> for single-line comments:</p>
+        <pre><code># This is a comment
+print("Hello")  # This is also a comment</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Print your name and age using print()</li>
+            <li>Calculate the area of a rectangle (width * height) using Python as a calculator</li>
+            <li>Use comments to describe what each line of your code does</li>
+            <li>Print the result of 5 + 3 * 2 — what do you notice?</li>
+        </ol>
+
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li>Python is a beginner-friendly, powerful programming language</li>
+            <li>You can run Python on PC or phone</li>
+            <li><code>print()</code> displays output to the screen</li>
+            <li>Python can work as a calculator with standard math operators</li>
+            <li>Comments (<code>#</code>) help document your code</li>
+        </ul>
+
+        <div class="lesson-nav">
+            <a href="../beginner.html" class="btn btn-secondary">← Back to Lessons</a>
+            <a href="02-variables.html" class="btn btn-primary">Next: Variables and Data Types →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

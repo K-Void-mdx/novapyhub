@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLID Principles - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 2: SOLID Principles</h1>
+        <p>SOLID is an acronym for five design principles that make software more maintainable and scalable.</p>
+        <h2>S — Single Responsibility</h2>
+        <p>A class should have only one reason to change:</p>
+        <pre><code># BAD — mixed responsibilities
+class Report:
+    def generate(self): pass
+    def save_to_file(self): pass
+    def send_email(self): pass
+
+# GOOD — separated
+class ReportGenerator:
+    def generate(self): pass
+class ReportSaver:
+    def save(self, report): pass
+class EmailService:
+    def send(self, report): pass</code></pre>
+        <h2>O — Open/Closed</h2>
+        <p>Open for extension, closed for modification:</p>
+        <pre><code>from abc import ABC, abstractmethod
+
+class PaymentMethod(ABC):
+    @abstractmethod
+    def pay(self, amount): pass
+
+class CreditCard(PaymentMethod):
+    def pay(self, amount): print(f"CC: ${amount}")
+
+class PayPal(PaymentMethod):
+    def pay(self, amount): print(f"PayPal: ${amount}")
+
+# New methods can be added without changing existing code
+class Crypto(PaymentMethod):
+    def pay(self, amount): print(f"Crypto: ${amount}")</code></pre>
+        <h2>L — Liskov Substitution</h2>
+        <p>Subtypes must be substitutable for their base types:</p>
+        <pre><code>class Rectangle:
+    def __init__(self, w, h):
+        self.w, self.h = w, h
+
+class Square(Rectangle):
+    def __init__(self, size):
+        super().__init__(size, size)
+
+# Square IS a Rectangle, so it works
+def area(rect):
+    return rect.w * rect.h
+
+print(area(Rectangle(4, 5)))  # 20
+print(area(Square(4)))        # 16</code></pre>
+        <h2>I — Interface Segregation</h2>
+        <p>Don't force classes to implement interfaces they don't use.</p>
+        <h2>D — Dependency Inversion</h2>
+        <p>Depend on abstractions, not concretions.</p>
+        <div class="lesson-nav"><a href="01-design-patterns.html" class="btn btn-secondary">← Previous</a><a href="03-advanced-algorithms.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

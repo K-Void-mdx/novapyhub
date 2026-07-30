@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules and Imports - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 9: Modules and Imports</h1>
+
+        <h2>What are Modules?</h2>
+        <p>Modules are Python files containing functions, classes, and variables that you can reuse. Python's standard library includes hundreds of modules for everything from math to web development.</p>
+
+        <h2>Importing Modules</h2>
+        <pre><code># Import the whole module
+import math
+print(math.pi)       # 3.141592653589793
+print(math.sqrt(16)) # 4.0
+print(math.floor(3.7))  # 3
+print(math.ceil(3.2))   # 4
+
+# Import specific items
+from math import pi, sqrt
+print(pi)           # 3.141592653589793
+print(sqrt(25))     # 5.0
+
+# Import with alias
+import math as m
+print(m.sin(m.pi/2))  # 1.0
+
+# Import everything (not recommended)
+from math import *</code></pre>
+
+        <h2>Useful Standard Library Modules</h2>
+
+        <h3>random — Random Numbers</h3>
+        <pre><code>import random
+
+print(random.random())       # Random float 0.0 to 1.0
+print(random.randint(1, 10))  # Random integer between 1 and 10
+print(random.choice(["a", "b", "c"]))  # Random choice from list
+
+# Shuffle a list
+cards = ["A", "K", "Q", "J", "10"]
+random.shuffle(cards)
+print(cards)
+
+# Generate a random password
+import string
+chars = string.ascii_letters + string.digits
+password = ''.join(random.choice(chars) for _ in range(8))
+print(password)</code></pre>
+
+        <h3>datetime — Dates and Times</h3>
+        <pre><code>from datetime import datetime, date, timedelta
+
+# Current date and time
+now = datetime.now()
+print(now)          # 2026-07-30 15:30:00...
+print(now.year)     # 2026
+print(now.month)    # 7
+
+# Formatting dates
+print(now.strftime("%Y-%m-%d"))         # 2026-07-30
+print(now.strftime("%B %d, %Y"))        # July 30, 2026
+
+# Date arithmetic
+today = date.today()
+tomorrow = today + timedelta(days=1)
+print(tomorrow)</code></pre>
+
+        <h3>os and sys — System Operations</h3>
+        <pre><code>import os
+import sys
+
+# Get current directory
+print(os.getcwd())
+
+# List files in directory
+print(os.listdir("."))
+
+# Create directory
+# os.mkdir("new_folder")
+
+# System info
+print(sys.version)       # Python version
+print(sys.platform)      # Operating system
+
+# Command line arguments
+# print(sys.argv)</code></pre>
+
+        <h3>json — Working with JSON</h3>
+        <pre><code>import json
+
+# Convert Python to JSON string
+data = {"name": "Alice", "age": 25, "city": "New York"}
+json_string = json.dumps(data, indent=2)
+print(json_string)
+
+# Convert JSON string to Python
+parsed = json.loads(json_string)
+print(parsed["name"])  # Alice</code></pre>
+
+        <h2>Creating Your Own Module</h2>
+        <p>Create a file <code>my_utils.py</code>:</p>
+        <pre><code># my_utils.py
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+PI = 3.14159</code></pre>
+
+        <p>Then use it in another file:</p>
+        <pre><code># main.py
+import my_utils
+
+print(my_utils.add(10, 5))      # 15
+print(my_utils.PI)              # 3.14159
+
+# Or
+from my_utils import add, PI
+print(add(3, 4))  # 7</code></pre>
+
+        <h2>The if __name__ Block</h2>
+        <p>This pattern lets a file be both imported as a module AND run as a script:</p>
+        <pre><code># calculator.py
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+if __name__ == "__main__":
+    # This only runs when the file is executed directly
+    print("Testing calculator:")
+    print(f"5 + 3 = {add(5, 3)}")
+    print(f"10 - 4 = {subtract(10, 4)}")</code></pre>
+
+        <h2>Installing Third-Party Modules</h2>
+        <p>Use <code>pip</code> to install packages from PyPI:</p>
+        <pre><code>pip install requests
+pip install flask
+pip install numpy pandas matplotlib</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Use the <code>math</code> module to calculate the area of a circle (πr²)</li>
+            <li>Use <code>random</code> to simulate rolling a six-sided die</li>
+            <li>Use <code>datetime</code> to display today's date and calculate the date 30 days from now</li>
+            <li>Create a simple module with a greeting function and use it from another script</li>
+            <li>Use <code>json</code> to convert a dictionary to JSON and back</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="08-functions.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="10-mini-project.html" class="btn btn-primary">Next: Mini Project →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

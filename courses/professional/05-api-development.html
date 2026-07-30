@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Development - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 5: API Development with FastAPI</h1>
+        <p>Build production-ready REST APIs with FastAPI.</p>
+        <h2>Full CRUD API</h2>
+        <pre><code>from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List
+
+app = FastAPI(title="Nova Py-Hub API")
+
+class Item(BaseModel):
+    id: int
+    name: str
+    price: float
+
+db: List[Item] = []
+
+@app.get("/items", response_model=List[Item])
+def list_items():
+    return db
+
+@app.get("/items/{item_id}", response_model=Item)
+def get_item(item_id: int):
+    for item in db:
+        if item.id == item_id:
+            return item
+    raise HTTPException(404, "Item not found")
+
+@app.post("/items", response_model=Item)
+def create_item(item: Item):
+    db.append(item)
+    return item
+
+@app.put("/items/{item_id}", response_model=Item)
+def update_item(item_id: int, item: Item):
+    for i, existing in enumerate(db):
+        if existing.id == item_id:
+            db[i] = item
+            return item
+    raise HTTPException(404, "Item not found")
+
+@app.delete("/items/{item_id}")
+def delete_item(item_id: int):
+    for i, item in enumerate(db):
+        if item.id == item_id:
+            db.pop(i)
+            return {"message": "Deleted"}
+    raise HTTPException(404, "Item not found")
+
+# Run: uvicorn main:app --reload
+# Docs: http://localhost:8000/docs</code></pre>
+        <div class="lesson-nav"><a href="04-system-design.html" class="btn btn-secondary">← Previous</a><a href="06-database-design.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

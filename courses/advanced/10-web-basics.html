@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Basics - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../advanced.html">Advanced</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 10: Web Basics with Python</h1>
+        <p>Make HTTP requests and build a simple API with FastAPI.</p>
+        <h2>HTTP Requests with requests</h2>
+        <pre><code>import requests
+
+response = requests.get("https://api.github.com/users/python")
+print(response.status_code)  # 200
+print(response.json()["login"])
+
+# POST
+data = {"title": "Hello", "body": "World"}
+response = requests.post("https://jsonplaceholder.typicode.com/posts", json=data)
+print(response.json())</code></pre>
+        <h2>Building a FastAPI</h2>
+        <pre><code>from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+items = []
+
+@app.get("/")
+def root():
+    return {"message": "Nova Py-Hub API"}
+
+@app.get("/items")
+def get_items():
+    return items
+
+@app.post("/items")
+def create_item(item: Item):
+    items.append(item)
+    return item
+
+# Run: uvicorn main:app --reload</code></pre>
+        <div class="lesson-nav"><a href="09-databases.html" class="btn btn-secondary">← Previous</a><a href="../professional.html" class="btn btn-primary">Continue to Professional →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

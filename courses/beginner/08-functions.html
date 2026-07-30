@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions Basics - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 8: Functions Basics</h1>
+
+        <h2>What is a Function?</h2>
+        <p>A function is a reusable block of code that performs a specific task. Functions help you organize code, avoid repetition, and make your programs easier to read and maintain.</p>
+
+        <h2>Defining and Calling Functions</h2>
+        <pre><code># Define a function
+def greet():
+    print("Hello!")
+    print("Welcome to Nova Py-Hub!")
+
+# Call the function
+greet()
+greet()</code></pre>
+
+        <h2>Function Parameters</h2>
+        <p>Pass data into functions using parameters:</p>
+        <pre><code>def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")  # Hello, Alice!
+greet("Bob")    # Hello, Bob!</code></pre>
+
+        <h2>Multiple Parameters</h2>
+        <pre><code>def introduce(name, age, city):
+    print(f"I'm {name}, {age} years old, from {city}.")
+
+introduce("Alice", 25, "New York")
+introduce(city="London", name="Bob", age=30)  # Keyword arguments</code></pre>
+
+        <h2>Return Values</h2>
+        <p>Functions can return results using <code>return</code>:</p>
+        <pre><code>def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # 8
+
+# Multiple return values
+def get_min_max(numbers):
+    return min(numbers), max(numbers)
+
+low, high = get_min_max([3, 1, 7, 2, 9])
+print(f"Low: {low}, High: {high}")</code></pre>
+
+        <h2>Default Parameters</h2>
+        <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")          # Hello, Alice!
+greet("Bob", "Hi")      # Hi, Bob!
+greet("Charlie", "Hey")  # Hey, Charlie!</code></pre>
+
+        <h2>Scope — Local vs Global Variables</h2>
+        <pre><code># Global variable
+message = "Hello"
+
+def greet(name):
+    # Local variable
+    greeting = f"{message}, {name}!"
+    print(greeting)
+
+greet("Alice")  # Hello, Alice!
+print(message)  # Works (global)
+# print(greeting)  # Error! (local variable)</code></pre>
+
+        <h2>Docstrings</h2>
+        <p>Document what your function does with a docstring:</p>
+        <pre><code>def calculate_bmi(weight, height):
+    """Calculate BMI given weight (kg) and height (m)."""
+    return weight / (height ** 2)
+
+print(calculate_bmi(70, 1.75))
+print(calculate_bmi.__doc__)  # Access the docstring</code></pre>
+
+        <h2>Function Examples</h2>
+        <pre><code># Check if a number is even
+def is_even(n):
+    return n % 2 == 0
+
+print(is_even(4))   # True
+print(is_even(7))   # False
+
+# Convert temperature
+def celsius_to_fahrenheit(c):
+    return (c * 9/5) + 32
+
+print(celsius_to_fahrenheit(0))    # 32.0
+print(celsius_to_fahrenheit(100))  # 212.0
+
+# Validate password length
+def is_valid_password(password):
+    return len(password) >= 8
+
+print(is_valid_password("short"))      # False
+print(is_valid_password("longenough")) # True</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Write a function that takes a name and prints a personalized greeting</li>
+            <li>Write a function that takes two numbers and returns their sum, difference, product, and quotient</li>
+            <li>Write a function that checks if a number is positive, negative, or zero</li>
+            <li>Write a function that takes a list and returns the largest number</li>
+            <li>Write a function with a default parameter and call it with and without the default</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="07-dicts-sets.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="09-modules.html" class="btn btn-primary">Next: Modules and Imports →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

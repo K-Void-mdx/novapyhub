@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Comprehensions - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 2: List Comprehensions and Generator Expressions</h1>
+
+        <h2>What are List Comprehensions?</h2>
+        <p>List comprehensions provide a concise way to create lists. Instead of writing a for loop with append(), you can do it in one line.</p>
+
+        <h2>Basic List Comprehension</h2>
+        <pre><code># Traditional way
+squares = []
+for x in range(10):
+    squares.append(x ** 2)
+print(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# List comprehension (same result)
+squares = [x ** 2 for x in range(10)]
+print(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+
+        <h2>Syntax Pattern</h2>
+        <pre><code>[expression for item in iterable if condition]</code></pre>
+
+        <h2>With Conditionals</h2>
+        <pre><code># Even squares only
+even_squares = [x ** 2 for x in range(10) if x % 2 == 0]
+print(even_squares)  # [0, 4, 16, 36, 64]
+
+# If-else in expression
+labels = ["even" if x % 2 == 0 else "odd" for x in range(5)]
+print(labels)  # ['even', 'odd', 'even', 'odd', 'even']</code></pre>
+
+        <h2>Nested Loops in Comprehensions</h2>
+        <pre><code># Flatten a matrix
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flat = [num for row in matrix for num in row]
+print(flat)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Multiplication table
+pairs = [(i, j) for i in range(1, 4) for j in range(1, 4)]
+print(pairs)
+# [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]</code></pre>
+
+        <h2>Practical Examples</h2>
+        <pre><code># Convert strings to uppercase
+names = ["alice", "bob", "charlie"]
+upper_names = [name.upper() for name in names]
+print(upper_names)  # ['ALICE', 'BOB', 'CHARLIE']
+
+# Extract emails from list of dicts
+users = [
+    {"name": "Alice", "email": "alice@email.com"},
+    {"name": "Bob", "email": "bob@email.com"}
+]
+emails = [user["email"] for user in users]
+print(emails)  # ['alice@email.com', 'bob@email.com']
+
+# Remove vowels from text
+text = "hello world"
+no_vowels = "".join(c for c in text if c not in "aeiou")
+print(no_vowels)  # "hll wrld"</code></pre>
+
+        <h2>Generator Expressions</h2>
+        <p>Generator expressions use <code>()</code> instead of <code>[]</code> and produce items lazily (one at a time), saving memory:</p>
+        <pre><code># List comprehension — creates the entire list in memory
+squares_list = [x ** 2 for x in range(1000)]
+
+# Generator expression — produces items on demand
+squares_gen = (x ** 2 for x in range(1000))
+
+print(type(squares_list))  # <class 'list'>
+print(type(squares_gen))   # <class 'generator'>
+
+# Using a generator
+for x in squares_gen:
+    print(x)
+    if x > 10:  # Only generates what we need
+        break
+
+# Generator as function argument
+total = sum(x ** 2 for x in range(10))
+print(total)  # 285 (sum of squares 0-9)</code></pre>
+
+        <h2>Dict Comprehensions</h2>
+        <pre><code># Create a dictionary mapping numbers to their squares
+squares_dict = {x: x ** 2 for x in range(5)}
+print(squares_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+# Invert a dictionary
+original = {"a": 1, "b": 2, "c": 3}
+inverted = {v: k for k, v in original.items()}
+print(inverted)  # {1: 'a', 2: 'b', 3: 'c'}</code></pre>
+
+        <h2>Set Comprehensions</h2>
+        <pre><code># Get unique squares modulo 5
+unique = {x ** 2 % 5 for x in range(20)}
+print(unique)  # {0, 1, 4}
+
+# Extract unique first letters
+names = ["Alice", "Bob", "Charlie", "Anna"]
+first_letters = {name[0] for name in names}
+print(first_letters)  # {'A', 'B', 'C'}</code></pre>
+
+        <h2>When NOT to Use List Comprehensions</h2>
+        <p>Keep it readable. If the logic is complex, use a regular loop:</p>
+        <pre><code># Too complex — hard to read
+result = [func(x) for x in data if check(x) for y in x if y > 0]
+
+# Better as regular loop
+result = []
+for x in data:
+    if check(x):
+        for y in x:
+            if y > 0:
+                result.append(func(x))</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Use a list comprehension to create a list of all even numbers from 1 to 50</li>
+            <li>Use a dict comprehension to create a mapping of characters to their ASCII values for "Python"</li>
+            <li>Use a generator expression to find the sum of squares of numbers 1-100</li>
+            <li>Convert: <code>[[1, 2], [3, 4], [5, 6]]</code> into <code>[1, 2, 3, 4, 5, 6]</code></li>
+            <li>Use a set comprehension to find unique character lengths in a list of words</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="01-advanced-functions.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="03-file-handling.html" class="btn btn-primary">Next: File Handling →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

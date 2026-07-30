@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Basics - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 5: Object-Oriented Programming Basics</h1>
+
+        <h2>What is OOP?</h2>
+        <p>Object-Oriented Programming is a paradigm that organizes code around <strong>objects</strong> (data + behavior) rather than functions and logic. Key concepts: classes, objects, attributes, methods, and inheritance.</p>
+
+        <h2>Classes and Objects</h2>
+        <p>A <strong>class</strong> is a blueprint. An <strong>object</strong> is an instance of that blueprint.</p>
+        <pre><code># Define a class
+class Dog:
+    # Class attribute (shared by all instances)
+    species = "Canis familiaris"
+
+    # Initializer (constructor)
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age    # Instance attribute
+
+    # Instance method
+    def bark(self):
+        return f"{self.name} says Woof!"
+
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+# Create objects (instances)
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+
+print(dog1.name)         # Buddy
+print(dog1.bark())       # Buddy says Woof!
+print(dog2.description()) # Max is 5 years old
+print(dog1.species)      # Canis familiaris</code></pre>
+
+        <h2>Instance Methods vs Class Methods</h2>
+        <pre><code>class Student:
+    school = "Nova Py-Hub"
+
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+    # Instance method — uses self
+    def info(self):
+        return f"{self.name} - Grade: {self.grade}"
+
+    # Class method — uses cls
+    @classmethod
+    def from_string(cls, data):
+        name, grade = data.split(",")
+        return cls(name.strip(), int(grade.strip()))
+
+    # Static method — no self or cls
+    @staticmethod
+    def is_passing(grade):
+        return grade >= 60
+
+# Using class method as alternative constructor
+s = Student.from_string("Alice, 85")
+print(s.info())  # Alice - Grade: 85</code></pre>
+
+        <h2>Inheritance</h2>
+        <pre><code># Parent class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        pass  # To be overridden
+
+# Child class
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} says Meow!"
+
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} says Woof!"
+
+animals = [Cat("Whiskers"), Dog("Buddy")]
+for animal in animals:
+    print(animal.speak())</code></pre>
+
+        <h2>Practice</h2>
+        <ol>
+            <li>Create a `Book` class with title, author, year attributes</li>
+            <li>Add a method that returns the book's age (current_year - year)</li>
+            <li>Create a `Library` class that stores books and can add/remove/list them</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="04-error-handling.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="06-oop-advanced.html" class="btn btn-primary">Next: Advanced OOP →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

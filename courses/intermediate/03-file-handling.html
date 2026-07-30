@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 3: File Handling</h1>
+
+        <h2>Reading and Writing Files</h2>
+        <p>Python makes file operations simple. The built-in <code>open()</code> function is your gateway to file I/O.</p>
+
+        <h2>Opening Files</h2>
+        <pre><code># Different modes:
+# "r" — read (default)
+# "w" — write (overwrites!)
+# "a" — append
+# "r+" — read and write
+# "b" — binary mode (add to another mode: "rb", "wb")
+
+file = open("example.txt", "r")
+content = file.read()
+file.close()</code></pre>
+
+        <h2>The with Statement</h2>
+        <p>Always use <code>with</code> to automatically close files:</p>
+        <pre><code># Read entire file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# File is automatically closed when block exits</code></pre>
+
+        <h2>Reading Methods</h2>
+        <pre><code># read all
+with open("example.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+# read line by line
+with open("example.txt", "r") as f:
+    for line in f:
+        print(line.strip())  # strip removes \n
+
+# read all lines into list
+with open("example.txt", "r") as f:
+    lines = f.readlines()
+    print(lines)  # ['line1\n', 'line2\n', ...]
+
+# read specific number of chars
+with open("example.txt", "r") as f:
+    chunk = f.read(100)  # Read 100 characters</code></pre>
+
+        <h2>Writing to Files</h2>
+        <pre><code># Write (overwrites if file exists)
+with open("output.txt", "w") as f:
+    f.write("Hello, World!\n")
+    f.write("This is a new line.\n")
+
+# Append (adds to existing content)
+with open("output.txt", "a") as f:
+    f.write("This line is appended.\n")
+
+# Write multiple lines
+lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+with open("output.txt", "w") as f:
+    f.writelines(lines)</code></pre>
+
+        <h2>Working with Different File Formats</h2>
+
+        <h3>CSV Files</h3>
+        <pre><code>import csv
+
+# Reading CSV
+with open("data.csv", "r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+# Writing CSV
+with open("output.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Name", "Age", "City"])
+    writer.writerow(["Alice", 25, "NYC"])
+    writer.writerow(["Bob", 30, "LA"])</code></pre>
+
+        <h3>JSON Files</h3>
+        <pre><code>import json
+
+# Reading JSON
+with open("data.json", "r") as f:
+    data = json.load(f)
+    print(data)
+
+# Writing JSON
+data = {
+    "name": "Alice",
+    "age": 25,
+    "hobbies": ["reading", "coding"]
+}
+with open("output.json", "w") as f:
+    json.dump(data, f, indent=2)</code></pre>
+
+        <h2>Checking if Files Exist</h2>
+        <pre><code>import os
+
+if os.path.exists("example.txt"):
+    print("File exists!")
+
+if os.path.isfile("example.txt"):
+    print("It's a file!")
+
+if os.path.isdir("my_folder"):
+    print("It's a directory!")
+
+# Get file size
+size = os.path.getsize("example.txt")
+print(f"File size: {size} bytes")</code></pre>
+
+        <h2>Working with File Paths</h2>
+        <pre><code>import os
+
+# Join paths safely
+path = os.path.join("folder", "subfolder", "file.txt")
+print(path)  # folder/subfolder/file.txt
+
+# Get directory name
+dir_name = os.path.dirname("/home/user/file.txt")
+print(dir_name)  # /home/user
+
+# Get file name
+file_name = os.path.basename("/home/user/file.txt")
+print(file_name)  # file.txt
+
+# Split extension
+name, ext = os.path.splitext("image.jpg")
+print(f"Name: {name}, Extension: {ext}")  # Name: image, Extension: .jpg</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Write a program that creates a file with your name and age, then reads it back</li>
+            <li>Read a text file and count the number of lines, words, and characters</li>
+            <li>Write a program that appends the current date and time to a log file</li>
+            <li>Read a CSV file and print the data formatted as a table</li>
+            <li>Create a JSON file with information about 3 favorite books and read it back</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="02-list-comprehensions.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="04-error-handling.html" class="btn btn-primary">Next: Error Handling →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

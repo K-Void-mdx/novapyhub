@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 1: Advanced Functions</h1>
+
+        <h2>What You'll Learn</h2>
+        <p>Go beyond basic functions with *args, **kwargs, lambda (anonymous) functions, and higher-order functions like map, filter, and reduce.</p>
+
+        <h2>*args — Variable Positional Arguments</h2>
+        <p><code>*args</code> allows a function to accept any number of positional arguments. The <code>*</code> collects them into a tuple:</p>
+        <pre><code>def sum_all(*args):
+    return sum(args)
+
+print(sum_all(1, 2, 3))        # 6
+print(sum_all(10, 20, 30, 40)) # 100
+print(sum_all())                # 0</code></pre>
+
+        <h2>**kwargs — Variable Keyword Arguments</h2>
+        <p><code>**kwargs</code> collects keyword arguments into a dictionary:</p>
+        <pre><code>def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, city="New York")
+# Output:
+# name: Alice
+# age: 25
+# city: New York</code></pre>
+
+        <h2>Using Both Together</h2>
+        <pre><code>def display(*args, **kwargs):
+    print("Positional:", args)
+    print("Keyword:", kwargs)
+
+display(1, 2, 3, name="Alice", age=25)
+# Positional: (1, 2, 3)
+# Keyword: {'name': 'Alice', 'age': 25}</code></pre>
+
+        <h2>Lambda Functions</h2>
+        <p>Lambda functions are small, anonymous functions defined with <code>lambda</code> instead of <code>def</code>. They can only have one expression:</p>
+        <pre><code># Regular function
+def square(x):
+    return x ** 2
+
+# Lambda equivalent
+square_lambda = lambda x: x ** 2
+
+print(square(5))        # 25
+print(square_lambda(5)) # 25
+
+# Lambda is often used inline without assigning to a variable
+result = (lambda x, y: x + y)(3, 4)
+print(result)  # 7</code></pre>
+
+        <h2>map() — Apply Function to Every Item</h2>
+        <p><code>map()</code> applies a function to every item in an iterable:</p>
+        <pre><code>numbers = [1, 2, 3, 4, 5]
+
+# Using a regular function
+def double(x):
+    return x * 2
+
+doubled = list(map(double, numbers))
+print(doubled)  # [2, 4, 6, 8, 10]
+
+# Using lambda (cleaner)
+doubled = list(map(lambda x: x * 2, numbers))
+print(doubled)  # [2, 4, 6, 8, 10]
+
+# Convert strings to integers
+str_nums = ["1", "2", "3"]
+int_nums = list(map(int, str_nums))
+print(int_nums)  # [1, 2, 3]</code></pre>
+
+        <h2>filter() — Filter Items by Condition</h2>
+        <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Keep only even numbers
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4, 6, 8, 10]
+
+# Keep names longer than 5 characters
+names = ["Alice", "Bob", "Charlie", "David", "Eve"]
+long_names = list(filter(lambda name: len(name) > 5, names))
+print(long_names)  # ['Charlie']</code></pre>
+
+        <h2>reduce() — Accumulate Values</h2>
+        <p><code>reduce()</code> is in the <code>functools</code> module. It repeatedly applies a function to accumulate a result:</p>
+        <pre><code>from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+
+# Sum all numbers
+total = reduce(lambda x, y: x + y, numbers)
+print(total)  # 15
+
+# Find the maximum
+maximum = reduce(lambda x, y: x if x > y else y, numbers)
+print(maximum)  # 5
+
+# Factorial
+factorial = reduce(lambda x, y: x * y, range(1, 6))
+print(factorial)  # 120</code></pre>
+
+        <h2>Higher-Order Functions</h2>
+        <p>Functions that take other functions as arguments or return functions:</p>
+        <pre><code>def apply_twice(func, value):
+    return func(func(value))
+
+result = apply_twice(lambda x: x + 3, 5)
+print(result)  # 11 (5+3=8, 8+3=11)
+
+# Function returning a function
+def make_multiplier(n):
+    return lambda x: x * n
+
+double = make_multiplier(2)
+triple = make_multiplier(3)
+
+print(double(10))  # 20
+print(triple(10))  # 30</code></pre>
+
+        <h2>sorted() with Key</h2>
+        <pre><code>students = [
+    {"name": "Alice", "grade": 85},
+    {"name": "Bob", "grade": 92},
+    {"name": "Charlie", "grade": 78}
+]
+
+# Sort by grade
+sorted_students = sorted(students, key=lambda s: s["grade"])
+print(sorted_students)
+
+# Sort by name
+sorted_by_name = sorted(students, key=lambda s: s["name"])
+print(sorted_by_name)</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Write a function that accepts any number of numbers and returns their product</li>
+            <li>Use map and lambda to convert a list of temperatures in Celsius to Fahrenheit</li>
+            <li>Use filter to get all positive numbers from a list</li>
+            <li>Use reduce to find the product of all numbers in a list</li>
+            <li>Create a function that takes a list and returns a new list with only unique items (using a lambda and filter approach)</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="../intermediate.html" class="btn btn-secondary">← Back to List</a>
+            <a href="02-list-comprehensions.html" class="btn btn-primary">Next: List Comprehensions →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

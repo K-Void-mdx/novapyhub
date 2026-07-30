@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expressions - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../advanced.html">Advanced</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 3: Regular Expressions</h1>
+        <p>Regular expressions (regex) are patterns for matching, searching, and manipulating text.</p>
+        <h2>Basic Patterns</h2>
+        <pre><code>import re
+
+# Match literal
+re.search(r"Python", "I love Python")  # Match object
+
+# Character classes
+re.search(r"[aeiou]", "hello")     # 'e'
+re.search(r"[0-9]", "abc123")      # '1'
+re.search(r"[a-z]", "ABC")         # None
+
+# Meta characters
+.   # Any character except newline
+^   # Start of string
+$   # End of string
+*   # 0 or more
++   # 1 or more
+?   # 0 or 1
+\d  # Digit [0-9]
+\w  # Word character [a-zA-Z0-9_]
+\s  # Whitespace</code></pre>
+        <h2>Common Functions</h2>
+        <pre><code>text = "Email: alice@email.com, Phone: 555-1234"
+
+# search — find first match
+email = re.search(r"\w+@\w+\.\w+", text)
+print(email.group())  # alice@email.com
+
+# findall — find all matches
+phones = re.findall(r"\d{3}-\d{4}", text)
+print(phones)  # ['555-1234']
+
+# sub — replace
+censored = re.sub(r"\w+@\w+\.\w+", "[HIDDEN]", text)
+print(censored)  # Email: [HIDDEN], Phone: 555-1234
+
+# split
+parts = re.split(r"[,:]", text)
+print(parts)</code></pre>
+        <h2>Groups</h2>
+        <pre><code>date_str = "2026-07-30"
+pattern = r"(\d{4})-(\d{2})-(\d{2})"
+match = re.search(pattern, date_str)
+print(match.group(1))  # 2026
+print(match.group(2))  # 07
+print(match.group(3))  # 30
+
+# Named groups
+pattern = r"(?P<year>\d{4})-(?P<month>\d{2})"
+match = re.search(pattern, date_str)
+print(match.group("year"))   # 2026
+print(match.group("month"))  # 07</code></pre>
+        <h2>Practice</h2>
+        <ol>
+            <li>Write a regex to validate email addresses</li>
+            <li>Extract all URLs from a text</li>
+            <li>Replace all phone numbers with "[REDACTED]"</li>
+            <li>Parse a log file using regex groups</li>
+        </ol>
+        <div class="lesson-nav"><a href="02-context-managers.html" class="btn btn-secondary">← Previous</a><a href="04-testing.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

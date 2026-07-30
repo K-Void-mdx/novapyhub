@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables and Data Types - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 2: Variables and Data Types</h1>
+
+        <h2>What is a Variable?</h2>
+        <p>A variable is a container for storing data. Think of it as a labeled box where you put a value. In Python, you create a variable by giving it a name and assigning a value with <code>=</code>:</p>
+        <pre><code>name = "Alice"
+age = 25
+height = 5.6
+is_student = True</code></pre>
+
+        <h2>Basic Data Types</h2>
+        <p>Python has several built-in data types:</p>
+
+        <table style="width:100%;border-collapse:collapse;margin:1rem 0;color:var(--text-secondary)">
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <th style="text-align:left;padding:0.5rem;color:var(--text-primary)">Type</th>
+                <th style="text-align:left;padding:0.5rem;color:var(--text-primary)">Example</th>
+                <th style="text-align:left;padding:0.5rem;color:var(--text-primary)">Description</th>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <td style="padding:0.5rem"><code>int</code></td>
+                <td style="padding:0.5rem"><code>42</code></td>
+                <td style="padding:0.5rem">Whole numbers</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <td style="padding:0.5rem"><code>float</code></td>
+                <td style="padding:0.5rem"><code>3.14</code></td>
+                <td style="padding:0.5rem">Decimal numbers</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <td style="padding:0.5rem"><code>str</code></td>
+                <td style="padding:0.5rem"><code>"Hello"</code></td>
+                <td style="padding:0.5rem">Text (strings)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color)">
+                <td style="padding:0.5rem"><code>bool</code></td>
+                <td style="padding:0.5rem"><code>True</code> / <code>False</code></td>
+                <td style="padding:0.5rem">Boolean (true/false)</td>
+            </tr>
+            <tr>
+                <td style="padding:0.5rem"><code>NoneType</code></td>
+                <td style="padding:0.5rem"><code>None</code></td>
+                <td style="padding:0.5rem">Represents "no value"</td>
+            </tr>
+        </table>
+
+        <h2>Checking Types</h2>
+        <p>Use <code>type()</code> to check the data type of any value:</p>
+        <pre><code>print(type(42))        # <class 'int'>
+print(type(3.14))      # <class 'float'>
+print(type("Hello"))   # <class 'str'>
+print(type(True))      # <class 'bool'></code></pre>
+
+        <h2>Variable Naming Rules</h2>
+        <ul>
+            <li>Names can contain letters, numbers, and underscores</li>
+            <li>Names cannot start with a number</li>
+            <li>Names are case-sensitive (<code>age</code> and <code>Age</code> are different)</li>
+            <li>Use descriptive names: <code>student_name</code> not <code>sn</code></li>
+            <li>Use lowercase with underscores (snake_case) by convention</li>
+        </ul>
+        <pre><code># Good variable names
+first_name = "David"
+total_score = 95
+is_logged_in = False
+
+# Bad variable names
+x = "David"       # Not descriptive
+1st_place = "Ali"  # Starts with number (ERROR)
+class = "Math"     # Reserved keyword (ERROR)</code></pre>
+
+        <h2>Type Conversion</h2>
+        <p>You can convert between types using conversion functions:</p>
+        <pre><code># String to int
+age_str = "25"
+age_int = int(age_str)     # 25 (integer)
+
+# Int to string
+score = 95
+score_str = str(score)     # "95" (string)
+
+# String to float
+pi_str = "3.14"
+pi_float = float(pi_str)   # 3.14 (float)
+
+# Int to float
+x = 10
+y = float(x)               # 10.0 (float)</code></pre>
+
+        <h2>Dynamic Typing</h2>
+        <p>Python is dynamically typed — a variable can change type:</p>
+        <pre><code>value = 42          # value is an int
+print(type(value))
+
+value = "Now I'm text"  # value is now a string
+print(type(value))
+
+value = 3.14        # value is now a float
+print(type(value))</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Create variables for your name, age, height, and whether you're a student</li>
+            <li>Print each variable along with its type using <code>print()</code> and <code>type()</code></li>
+            <li>Convert your age (int) to a string and print "I am X years old" using it</li>
+            <li>Try creating variables with invalid names and see the error messages</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="01-introduction.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="03-strings.html" class="btn btn-primary">Next: Strings and Text Processing →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

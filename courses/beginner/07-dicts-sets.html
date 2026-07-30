@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionaries and Sets - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 7: Dictionaries and Sets</h1>
+
+        <h2>What is a Dictionary?</h2>
+        <p>A dictionary stores data in <strong>key-value pairs</strong>. Each key maps to a value — like a real dictionary where a word (key) has a definition (value).</p>
+        <pre><code># Creating dictionaries
+student = {
+    "name": "Alice",
+    "age": 25,
+    "grade": "A",
+    "subjects": ["Math", "Physics"]
+}
+
+# Alternative creation
+empty_dict = {}
+grades = dict(alice=95, bob=87, charlie=92)</code></pre>
+
+        <h2>Accessing Dictionary Values</h2>
+        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+
+# Using square brackets
+print(student["name"])     # "Alice"
+# print(student["city"])   # KeyError!
+
+# Using .get() (safe — returns None if missing)
+print(student.get("name"))     # "Alice"
+print(student.get("city"))     # None
+print(student.get("city", "N/A"))  # "N/A" (default value)</code></pre>
+
+        <h2>Modifying Dictionaries</h2>
+        <pre><code>student = {"name": "Alice", "age": 25}
+
+# Add or update
+student["grade"] = "A"        # Add new key
+student["age"] = 26           # Update existing
+
+# Remove items
+del student["grade"]          # Delete by key
+age = student.pop("age")      # Remove and return value
+student.clear()               # Remove all items</code></pre>
+
+        <h2>Dictionary Methods</h2>
+        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+
+# Get all keys
+print(student.keys())    # dict_keys(['name', 'age', 'grade'])
+
+# Get all values
+print(student.values())  # dict_values(['Alice', 25, 'A'])
+
+# Get all pairs
+print(student.items())   # dict_items([('name', 'Alice'), ...])
+
+# Loop through dictionary
+for key, value in student.items():
+    print(f"{key}: {value}")
+
+# Check if key exists
+print("name" in student)     # True
+print("city" in student)     # False
+
+# Merge dictionaries
+a = {"x": 1, "y": 2}
+b = {"y": 3, "z": 4}
+a.update(b)
+print(a)  # {'x': 1, 'y': 3, 'z': 4}</code></pre>
+
+        <h2>Dictionary Use Cases</h2>
+        <pre><code># Counting items
+text = "hello world"
+count = {}
+for char in text:
+    if char in count:
+        count[char] += 1
+    else:
+        count[char] = 1
+print(count)
+# {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+
+# Phone book
+phone_book = {
+    "Alice": "555-1234",
+    "Bob": "555-5678",
+    "Charlie": "555-9012"
+}
+
+# Nested dictionaries
+users = {
+    "alice123": {"name": "Alice", "age": 25, "email": "alice@email.com"},
+    "bob456": {"name": "Bob", "age": 30, "email": "bob@email.com"}
+}
+print(users["alice123"]["email"])  # "alice@email.com"</code></pre>
+
+        <h2>What is a Set?</h2>
+        <p>A set is an <strong>unordered</strong> collection of <strong>unique</strong> items. Use curly braces <code>{}</code> but without key-value pairs:</p>
+        <pre><code># Creating sets
+fruits = {"apple", "banana", "orange", "apple"}
+print(fruits)  # {'banana', 'orange', 'apple'} (no duplicates!)
+
+# From a list
+numbers = set([1, 2, 3, 2, 1])
+print(numbers)  # {1, 2, 3}
+
+# Empty set (not {} — that's a dict!)
+empty = set()</code></pre>
+
+        <h2>Set Operations</h2>
+        <pre><code>a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7, 8}
+
+# Union — all items from both sets
+print(a | b)  # {1, 2, 3, 4, 5, 6, 7, 8}
+
+# Intersection — items in both
+print(a & b)  # {4, 5}
+
+# Difference — items in a but not in b
+print(a - b)  # {1, 2, 3}
+
+# Symmetric difference — items in either but not both
+print(a ^ b)  # {1, 2, 3, 6, 7, 8}
+
+# Adding and removing
+fruits = {"apple", "banana"}
+fruits.add("orange")
+fruits.remove("banana")
+print(fruits)  # {'apple', 'orange'}</code></pre>
+
+        <h2>Set Use Cases</h2>
+        <pre><code># Removing duplicates
+names = ["Alice", "Bob", "Alice", "Charlie", "Bob"]
+unique_names = list(set(names))
+print(unique_names)  # ['Bob', 'Alice', 'Charlie']
+
+# Finding common items
+users_a = {"Alice", "Bob", "Charlie"}
+users_b = {"Bob", "David", "Eve"}
+common = users_a & users_b
+print(common)  # {'Bob'}</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Create a dictionary for yourself with name, age, city, and hobbies</li>
+            <li>Add a new key, update one value, then loop through and print all items</li>
+            <li>Create a set of numbers and find the unique items from a list with duplicates</li>
+            <li>Use a dictionary to count word frequencies in a sentence</li>
+            <li>Find the common friends between two sets of friend names</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="06-lists.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="08-functions.html" class="btn btn-primary">Next: Functions Basics →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

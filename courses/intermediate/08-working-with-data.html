@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Data - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../intermediate.html">Intermediate</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 8: Working with Data</h1>
+        <p>Master JSON, CSV, and the powerful collections module.</p>
+        <h2>JSON</h2>
+        <pre><code>import json
+data = '{"name": "Alice", "age": 25}'
+parsed = json.loads(data)
+print(parsed["name"])  # Alice</code></pre>
+        <h2>CSV</h2>
+        <pre><code>import csv
+with open("data.csv") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        print(row["Name"], row["Age"])</code></pre>
+        <h2>Collections Module</h2>
+        <pre><code>from collections import Counter, defaultdict, namedtuple
+
+# Counter
+counts = Counter("hello world")
+print(counts)  # Counter({'l': 3, 'o': 2, ...})
+
+# defaultdict
+groups = defaultdict(list)
+groups["a"].append(1)  # No KeyError!
+
+# namedtuple
+Point = namedtuple("Point", ["x", "y"])
+p = Point(10, 20)
+print(p.x, p.y)  # 10 20</code></pre>
+        <h2>Practice</h2>
+        <ol>
+            <li>Read a JSON file and extract specific fields</li>
+            <li>Use Counter to find the most common word in a text</li>
+            <li>Create a namedtuple for a Student with name, age, grade</li>
+        </ol>
+        <div class="lesson-nav"><a href="07-modules-packages.html" class="btn btn-secondary">← Previous</a><a href="09-iterators-generators.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project: Calculator - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 10: Mini Project — Build a Calculator</h1>
+
+        <h2>Project Overview</h2>
+        <p>In this lesson, you'll build a fully functional command-line calculator. This project brings together everything you've learned: variables, conditionals, loops, functions, error handling, and user input.</p>
+
+        <h2>What We're Building</h2>
+        <p>A calculator that:</p>
+        <ul>
+            <li>Supports addition (+), subtraction (-), multiplication (*), division (/)</li>
+            <li>Handles invalid input gracefully</li>
+            <li>Lets the user continue or exit</li>
+            <li>Displays a clean, user-friendly interface</li>
+        </ul>
+
+        <h2>Step 1: Basic Structure</h2>
+        <pre><code>def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error: Division by zero!"
+    return a / b</code></pre>
+
+        <h2>Step 2: Display Menu</h2>
+        <pre><code>def show_menu():
+    print("\n" + "="*30)
+    print("    NOVA PY-HUB CALCULATOR")
+    print("="*30)
+    print("1. Add (+)")
+    print("2. Subtract (-)")
+    print("3. Multiply (*)")
+    print("4. Divide (/)")
+    print("5. Exit")
+    print("="*30)</code></pre>
+
+        <h2>Step 3: Get User Input</h2>
+        <pre><code>def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input! Please enter a number.")</code></pre>
+
+        <h2>Step 4: Main Program Loop</h2>
+        <pre><code>def main():
+    while True:
+        show_menu()
+        choice = input("Choose an option (1-5): ")
+
+        if choice == "5":
+            print("Thank you for using Nova Py-Hub Calculator!")
+            print("Goodbye!")
+            break
+
+        if choice in ("1", "2", "3", "4"):
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("Enter second number: ")
+
+            if choice == "1":
+                result = add(num1, num2)
+                operation = "+"
+            elif choice == "2":
+                result = subtract(num1, num2)
+                operation = "-"
+            elif choice == "3":
+                result = multiply(num1, num2)
+                operation = "*"
+            elif choice == "4":
+                result = divide(num1, num2)
+                operation = "/"
+
+            print(f"\n{num1} {operation} {num2} = {result}")
+        else:
+            print("Invalid choice! Please select 1-5.")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+        <h2>Complete Program</h2>
+        <p>Save this as <code>calculator.py</code> and run it:</p>
+        <pre><code>def add(a, b): return a + b
+def subtract(a, b): return a - b
+def multiply(a, b): return a * b
+def divide(a, b):
+    if b == 0: return "Error: Division by zero!"
+    return a / b
+
+def show_menu():
+    print("\n" + "="*30)
+    print("    NOVA PY-HUB CALCULATOR")
+    print("="*30)
+    print("1. Add (+)")
+    print("2. Subtract (-)")
+    print("3. Multiply (*)")
+    print("4. Divide (/)")
+    print("5. Exit")
+    print("="*30)
+
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+
+def main():
+    while True:
+        show_menu()
+        choice = input("Choose an option (1-5): ")
+        if choice == "5":
+            print("Goodbye!")
+            break
+        if choice in ("1", "2", "3", "4"):
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("Enter second number: ")
+            ops = {"1": ("+", add), "2": ("-", subtract),
+                   "3": ("*", multiply), "4": ("/", divide)}
+            op, func = ops[choice]
+            print(f"\n{num1} {op} {num2} = {func(num1, num2)}")
+        else:
+            print("Invalid choice! Select 1-5.")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+        <h2>Challenge Extensions</h2>
+        <p>Once your basic calculator works, try adding:</p>
+        <ul>
+            <li><strong>Power/exponent</strong> — add option 6 for <code>^</code></li>
+            <li><strong>Modulo (remainder)</strong> — add option 7 for <code>%</code></li>
+            <li><strong>Calculation history</strong> — store results in a list and show them</li>
+            <li><strong>Colorful output</strong> — use ANSI escape codes for colored text</li>
+            <li><strong>Save to file</strong> — log all calculations to a file</li>
+        </ul>
+
+        <h2>What You've Learned</h2>
+        <p>Congratulations! By building this calculator, you've used:</p>
+        <ul>
+            <li>Functions to organize code</li>
+            <li>Conditionals (if/elif/else) for menu choices</li>
+            <li>Loops (while True) for the main program</li>
+            <li>Try/except for error handling</li>
+            <li>Dictionaries for clean operation mapping</li>
+            <li>User input with input()</li>
+            <li>The if __name__ pattern</li>
+        </ul>
+
+        <div class="lesson-nav">
+            <a href="09-modules.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="../intermediate.html" class="btn btn-primary">Continue to Intermediate →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

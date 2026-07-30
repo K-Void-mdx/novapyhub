@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Design - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 4: System Design Basics</h1>
+        <p>Learn architecture patterns, scalability concepts, and how to design large-scale systems.</p>
+        <h2>Architecture Patterns</h2>
+        <ul>
+            <li><strong>Monolithic</strong> — Single deployable unit (simple, fine for small apps)</li>
+            <li><strong>Microservices</strong> — Independent services communicating via APIs (scalable, complex)</li>
+            <li><strong>Event-Driven</strong> — Components communicate through events (decoupled, async)</li>
+            <li><strong>Layered (n-tier)</strong> — Presentation, Business Logic, Data layers (organized)</li>
+        </ul>
+        <h2>Scalability Concepts</h2>
+        <pre><code># Horizontal Scaling — add more machines
+# Vertical Scaling — upgrade existing machine
+
+# Load Balancing — distribute traffic
+# Caching — store frequently accessed data
+#   - Redis / Memcached for in-memory cache
+
+# Database Sharding — split data across databases
+# Database Replication — read replicas for scaling reads
+
+# CDN — serve static content from edge locations</code></pre>
+        <h2>Caching Strategy</h2>
+        <pre><code># Cache-Aside Pattern
+def get_user(user_id):
+    # Try cache first
+    user = cache.get(f"user:{user_id}")
+    if user:
+        return user
+    # Fall back to database
+    user = db.query(User).filter(id=user_id).first()
+    cache.set(f"user:{user_id}", user)
+    return user</code></pre>
+        <h2>CAP Theorem</h2>
+        <p>In a distributed system, you can have at most 2 of 3: Consistency, Availability, Partition Tolerance.</p>
+        <ul>
+            <li>CP (Consistency + Partition Tolerance) — Traditional databases</li>
+            <li>AP (Availability + Partition Tolerance) — NoSQL like Cassandra</li>
+        </ul>
+        <div class="lesson-nav"><a href="03-advanced-algorithms.html" class="btn btn-secondary">← Previous</a><a href="05-api-development.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

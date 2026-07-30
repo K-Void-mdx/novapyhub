@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../intermediate.html">Intermediate</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 10: Mini Project — To-Do Application</h1>
+        <p>Build a command-line to-do list manager with file persistence.</p>
+        <pre><code>import json, os
+
+TODO_FILE = "todos.json"
+
+def load_todos():
+    if not os.path.exists(TODO_FILE):
+        return []
+    with open(TODO_FILE) as f:
+        return json.load(f)
+
+def save_todos(todos):
+    with open(TODO_FILE, "w") as f:
+        json.dump(todos, f, indent=2)
+
+def show_todos(todos):
+    if not todos:
+        print("No tasks!")
+        return
+    for i, todo in enumerate(todos, 1):
+        status = "✓" if todo["done"] else " "
+        print(f"{i}. [{status}] {todo['task']}")
+
+def main():
+    todos = load_todos()
+    while True:
+        print("\n1. Show tasks  2. Add  3. Done  4. Delete  5. Exit")
+        choice = input("Choose: ")
+        if choice == "1":
+            show_todos(todos)
+        elif choice == "2":
+            task = input("Task: ")
+            todos.append({"task": task, "done": False})
+        elif choice == "3":
+            show_todos(todos)
+            idx = int(input("Task # to mark done: ")) - 1
+            if 0 <= idx < len(todos):
+                todos[idx]["done"] = True
+        elif choice == "4":
+            show_todos(todos)
+            idx = int(input("Task # to delete: ")) - 1
+            if 0 <= idx < len(todos):
+                todos.pop(idx)
+        elif choice == "5":
+            save_todos(todos)
+            print("Goodbye!")
+            break
+
+if __name__ == "__main__":
+    main()</code></pre>
+        <div class="lesson-nav"><a href="09-iterators-generators.html" class="btn btn-secondary">← Previous</a><a href="../advanced.html" class="btn btn-primary">Continue to Advanced →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

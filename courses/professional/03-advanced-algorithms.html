@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Algorithms - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav><div class="nav-container"><a href="../../index.html" class="nav-logo">Nova Py-Hub</a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="../../index.html">Home</a><a href="../professional.html">Professional</a><a href="../../certificate/index.html">Certificate</a></div></div></nav>
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 3: Advanced Algorithms</h1>
+        <p>Graph algorithms, dynamic programming, greedy algorithms.</p>
+        <h2>Graph BFS/DFS</h2>
+        <pre><code>from collections import deque
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+def bfs(start):
+    visited = set()
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            visited.add(node)
+            queue.extend(graph[node])
+    return visited
+
+def dfs(start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            dfs(neighbor, visited)
+    return visited
+
+print(bfs('A'))
+print(dfs('A'))</code></pre>
+        <h2>Dijkstra's Algorithm</h2>
+        <pre><code>import heapq
+
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    pq = [(0, start)]
+
+    while pq:
+        current_dist, current = heapq.heappop(pq)
+        if current_dist > distances[current]:
+            continue
+        for neighbor, weight in graph[current].items():
+            distance = current_dist + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(pq, (distance, neighbor))
+    return distances
+
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'A': 1, 'D': 2, 'E': 5},
+    'C': {'A': 4, 'F': 3},
+    'D': {'B': 2},
+    'E': {'B': 5, 'F': 1},
+    'F': {'C': 3, 'E': 1}
+}
+print(dijkstra(graph, 'A'))</code></pre>
+        <h2>Dynamic Programming: Knapsack</h2>
+        <pre><code>def knapsack(weights, values, capacity):
+    n = len(weights)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        for w in range(1, capacity + 1):
+            if weights[i-1] <= w:
+                dp[i][w] = max(values[i-1] + dp[i-1][w-weights[i-1]], dp[i-1][w])
+            else:
+                dp[i][w] = dp[i-1][w]
+    return dp[n][capacity]
+
+print(knapsack([2, 3, 4, 5], [3, 4, 5, 6], 5))  # 7</code></pre>
+        <div class="lesson-nav"><a href="02-solid-principles.html" class="btn btn-secondary">← Previous</a><a href="04-system-design.html" class="btn btn-primary">Next →</a></div>
+    </div>
+    <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings and Text Processing - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 3: Strings and Text Processing</h1>
+
+        <h2>Creating Strings</h2>
+        <p>Strings are sequences of characters. You can create them with single or double quotes:</p>
+        <pre><code>name = 'Alice'
+message = "Hello, World!"
+multiline = """This is a
+multi-line string."""</code></pre>
+
+        <h2>String Concatenation</h2>
+        <p>Combine strings with <code>+</code>:</p>
+        <pre><code>first = "John"
+last = "Doe"
+full = first + " " + last
+print(full)  # John Doe</code></pre>
+
+        <h2>String Repetition</h2>
+        <p>Repeat strings with <code>*</code>:</p>
+        <pre><code>line = "-" * 50
+print(line)  # Prints 50 dashes
+
+echo = "Hello! " * 3
+print(echo)  # Hello! Hello! Hello!</code></pre>
+
+        <h2>String Indexing</h2>
+        <p>Each character in a string has an index (position), starting from 0:</p>
+        <pre><code>text = "Python"
+#      P y t h o n
+#      0 1 2 3 4 5
+
+print(text[0])  # P
+print(text[3])  # h
+print(text[-1]) # n (last character)
+print(text[-2]) # o (second from last)</code></pre>
+
+        <h2>String Slicing</h2>
+        <p>Extract parts of a string using <code>[start:end:step]</code>:</p>
+        <pre><code>text = "Python Programming"
+
+print(text[0:6])      # "Python" (start to index 5)
+print(text[7:18])     # "Programming"
+print(text[:6])       # "Python" (from start)
+print(text[7:])       # "Programming" (to end)
+print(text[::2])      # "Pto rgamn" (every 2nd char)
+print(text[::-1])     # "gnimmargorP nohtyP" (reversed!)</code></pre>
+
+        <h2>String Methods</h2>
+        <p>Python provides many built-in string methods:</p>
+        <pre><code>text = "  Hello, Python World!  "
+
+print(text.lower())          # "  hello, python world!  "
+print(text.upper())          # "  HELLO, PYTHON WORLD!  "
+print(text.strip())          # "Hello, Python World!" (removes spaces)
+print(text.replace("Python", "Code"))  # "  Hello, Code World!  "
+
+# Finding and counting
+print(text.find("Python"))   # 9 (index where "Python" starts)
+print(text.count("o"))       # 3 (how many times "o" appears)
+
+# Checking content
+print("Hello".startswith("He"))  # True
+print("Hello".endswith("lo"))    # True
+print("abc123".isalpha())        # False (has numbers)
+print("abc".isalpha())           # True
+print("123".isdigit())           # True</code></pre>
+
+        <h2>String Formatting</h2>
+        <p>There are several ways to format strings. F-strings (Python 3.6+) are the best:</p>
+        <pre><code>name = "Alice"
+age = 25
+score = 92.5
+
+# F-strings (recommended)
+print(f"My name is {name} and I am {age} years old.")
+print(f"Score: {score:.1f}%")  # "Score: 92.5%"
+
+# .format() method
+print("My name is {} and I am {} years old.".format(name, age))
+
+# % formatting (older style)
+print("My name is %s and I am %d years old." % (name, age))</code></pre>
+
+        <h2>Escape Sequences</h2>
+        <p>Special characters in strings use backslash <code>\</code>:</p>
+        <pre><code>print("Line 1\nLine 2")     # New line
+print("Tab\tseparated")     # Tab
+print("She said \"Hello\"") # Double quote inside string
+print("Backslash: \\")      # Actual backslash
+print(r"Raw string \n")     # Raw string (ignores escape)</code></pre>
+
+        <h2>len() Function</h2>
+        <p>Get the length of a string with <code>len()</code>:</p>
+        <pre><code>text = "Hello"
+print(len(text))  # 5</code></pre>
+
+        <h2>Practice Exercises</h2>
+        <ol>
+            <li>Create a string with your full name and print it in uppercase and lowercase</li>
+            <li>Take a sentence and print it reversed</li>
+            <li>Use f-strings to print "My name is X and I am Y years old" with variables</li>
+            <li>Count how many times the letter "a" appears in "Nova Py-Hub"</li>
+            <li>Create a string " Python " and print it after stripping whitespace</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="02-variables.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="04-conditionals.html" class="btn btn-primary">Next: Conditional Statements →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../beginner.html">Beginner</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

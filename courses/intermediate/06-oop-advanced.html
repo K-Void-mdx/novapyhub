@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced OOP - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page lesson-content">
+        <h1>Lesson 6: Advanced OOP</h1>
+
+        <h2>Polymorphism</h2>
+        <p>Same interface, different implementations:</p>
+        <pre><code>class Shape:
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14159 * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, w, h):
+        self.w, self.h = w, h
+    def area(self):
+        return self.w * self.h
+
+shapes = [Circle(5), Rectangle(4, 6)]
+for s in shapes:
+    print(s.area())</code></pre>
+
+        <h2>Encapsulation and Properties</h2>
+        <pre><code>class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self._balance = balance  # "Protected" by convention
+
+    @property
+    def balance(self):
+        return self._balance
+
+    @balance.setter
+    def balance(self, value):
+        if value < 0:
+            raise ValueError("Balance can't be negative!")
+        self._balance = value
+
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+
+acc = BankAccount("Alice", 1000)
+print(acc.balance)   # 1000
+acc.deposit(500)
+print(acc.balance)   # 1500
+# acc.balance = -500  # ValueError!</code></pre>
+
+        <h2>Magic Methods (Dunder Methods)</h2>
+        <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+v1 = Vector(2, 3)
+v2 = Vector(1, 4)
+print(v1 + v2)     # Vector(3, 7)
+print(v1 == Vector(2, 3))  # True</code></pre>
+
+        <h2>Practice</h2>
+        <ol>
+            <li>Create a `Temperature` class with Celsius and Fahrenheit properties</li>
+            <li>Add __lt__, __gt__, __le__ methods to compare vectors</li>
+        </ol>
+
+        <div class="lesson-nav">
+            <a href="05-oop-basics.html" class="btn btn-secondary">← Previous Lesson</a>
+            <a href="07-modules-packages.html" class="btn btn-primary">Next: Modules & Packages →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../intermediate.html">Intermediate</a>
+                <a href="../../certificate/index.html">Certificate</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+</body>
+</html>

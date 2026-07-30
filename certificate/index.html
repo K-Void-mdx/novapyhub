@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate - Nova Py-Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../courses/beginner.html">Courses</a>
+                <a href="../index.html#faq">FAQ</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="certificate-page">
+        <h1>🎓 Get Your Certificate</h1>
+        <p style="color:var(--text-secondary);max-width:500px;margin:1rem auto 2rem">Complete a course level and generate your free certificate of completion.</p>
+
+        <div class="certificate-form">
+            <div class="form-group">
+                <label for="certName">Your Full Name *</label>
+                <input type="text" id="certName" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="certCourse">Course Level *</label>
+                <select id="certCourse" style="width:100%;padding:0.9rem 1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;color:var(--text-primary);font-size:1rem">
+                    <option value="Beginner Python">Beginner Python</option>
+                    <option value="Intermediate Python">Intermediate Python</option>
+                    <option value="Advanced Python">Advanced Python</option>
+                    <option value="Professional Python">Professional / University Python</option>
+                    <option value="Complete Python Mastery">Complete Python Mastery (All Levels)</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" style="width:100%;margin-top:0.5rem" onclick="generateCertificate()">Generate Certificate</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="color:var(--text-secondary)">Generating your certificate...</p>
+        </div>
+
+        <div class="certificate-preview" id="certPreview">
+            <div class="certificate-box" id="certBox">
+                <h2>Nova Py-Hub</h2>
+                <p class="cert-subtitle">Certificate of Completion</p>
+                <div style="font-size:3rem;margin:1rem 0">🎓</div>
+                <p style="color:#666;font-size:0.95rem">This certifies that</p>
+                <div class="cert-name" id="displayName">Student Name</div>
+                <p style="color:#666;font-size:0.95rem">has successfully completed the</p>
+                <div class="cert-course" id="displayCourse">Course Level</div>
+                <p style="color:#666;font-size:0.85rem;margin:0.5rem 0">with all required lessons and practical exercises.</p>
+                <div class="cert-date" id="displayDate">July 30, 2026</div>
+                <div style="margin-top:1.5rem;padding-top:1rem;border-top:2px solid #eee;font-size:0.75rem;color:#999">
+                    Nova Py-Hub — Master Python Step-by-Step
+                </div>
+            </div>
+            <div class="certificate-actions">
+                <button class="btn btn-primary" onclick="printCertificate()">🖨 Print Certificate</button>
+                <button class="btn btn-secondary" onclick="downloadCertificate()">💾 Save as Image</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../courses/beginner.html">Courses</a>
+                <a href="../index.html#faq">FAQ</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>© 2026 Nova Py-Hub</p>
+        </div>
+    </footer>
+
+    <script>
+    function generateCertificate() {
+        const name = document.getElementById('certName').value.trim();
+        const course = document.getElementById('certCourse').value;
+
+        if (!name) {
+            alert('Please enter your full name.');
+            return;
+        }
+
+        const loading = document.getElementById('loading');
+        loading.classList.add('show');
+
+        setTimeout(() => {
+            loading.classList.remove('show');
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayCourse').textContent = course;
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('displayDate').textContent = dateStr;
+            document.getElementById('certPreview').classList.add('show');
+            document.getElementById('certPreview').scrollIntoView({ behavior: 'smooth' });
+        }, 1500);
+    }
+
+    function printCertificate() {
+        const content = document.getElementById('certBox').innerHTML;
+        const win = window.open('', '', 'width=800,height=600');
+        win.document.write(`
+            <html>
+            <head>
+                <title>Certificate - Nova Py-Hub</title>
+                <style>
+                    body { font-family: Georgia, serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #fff; }
+                    .box { background: white; padding: 3rem 2rem; border-radius: 16px; text-align: center; max-width: 600px; width: 90%; position: relative; overflow: hidden; border: 3px double #8b5cf6; }
+                    .box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 8px; background: linear-gradient(90deg, #8b5cf6, #d946ef); }
+                    h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #1a1a2e; }
+                    .sub { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+                    .name { font-size: 2rem; font-weight: 800; margin: 1rem 0; color: #1a1a2e; }
+                    .course { color: #8b5cf6; font-weight: 600; margin-bottom: 1rem; }
+                    .date { color: #666; font-size: 0.85rem; margin-top: 1.5rem; }
+                    .footer-text { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #eee; font-size: 0.75rem; color: #999; }
+                </style>
+            </head>
+            <body>
+                <div class="box">
+                    <h2>Nova Py-Hub</h2>
+                    <p class="sub">Certificate of Completion</p>
+                    <div style="font-size:3rem;margin:1rem 0">🎓</div>
+                    <p style="color:#666;font-size:0.95rem">This certifies that</p>
+                    <div class="name">${document.getElementById('displayName').textContent}</div>
+                    <p style="color:#666;font-size:0.95rem">has successfully completed the</p>
+                    <div class="course">${document.getElementById('displayCourse').textContent}</div>
+                    <p style="color:#666;font-size:0.85rem;margin:0.5rem 0">with all required lessons and practical exercises.</p>
+                    <div class="date">${document.getElementById('displayDate').textContent}</div>
+                    <div class="footer-text">Nova Py-Hub — Master Python Step-by-Step</div>
+                </div>
+                <script>
+                    window.onload = function() { window.print(); window.close(); }
+                <\/script>
+            </body>
+            </html>
+        `);
+        win.document.close();
+    }
+
+    function downloadCertificate() {
+        const name = document.getElementById('displayName').textContent;
+        const course = document.getElementById('displayCourse').textContent;
+        const date = document.getElementById('displayDate').textContent;
+        alert('On phone: take a screenshot of the certificate above.\nOn desktop: right-click the certificate and select "Save as image" or use Print → Save as PDF.\n\nYour certificate is ready to share!');
+    }
+    </script>
+</body>
+</html>
