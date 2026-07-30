@@ -7,66 +7,103 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Password Gate -->
+    <div class="password-gate" id="passwordGate">
+        <div class="gate-card">
+            <div class="logo">✦ Nova Py-Hub</div>
+            <p>Enter password to access the course</p>
+            <input class="gate-input" id="gateInput" type="password" placeholder="Enter password" autofocus>
+            <button class="gate-btn" id="gateBtn">Unlock Access</button>
+            <div class="gate-err" id="gateErr"></div>
+            <div class="gate-hint">🔒 Student access only</div>
+        </div>
+    </div>
+
+    <!-- Device Modal -->
+    <div class="device-overlay" id="deviceModal">
+        <div class="device-modal">
+            <h2>📱 Select Your Device</h2>
+            <p>Lessons and tools vary by device — pick yours for tailored guidance</p>
+            <div class="device-grid">
+                <div class="device-opt" onclick="selectDevice('iphone')">
+                    <span class="icon">📱</span>
+                    <span class="label">iPhone</span>
+                </div>
+                <div class="device-opt" onclick="selectDevice('android')">
+                    <span class="icon">🤖</span>
+                    <span class="label">Android</span>
+                </div>
+                <div class="device-opt" onclick="selectDevice('pc')">
+                    <span class="icon">💻</span>
+                    <span class="label">PC / Laptop</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
+                <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="courses/beginner.html">Courses</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
-                <a href="certificate/index.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem">Get Certified</a>
+                <a href="certificate/index.html" class="btn btn-gold" style="padding:.5rem 1rem;font-size:.8rem">Certificate</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">Free Python Course</div>
+            <div class="hero-badge">✦ Free Python Course</div>
             <h1>Code Your Future,<br>One Step at a Time</h1>
-            <p>Join Nova Py-Hub for a complete free Python course designed for beginners to intermediate learners. Experience hands-on lessons and practical work on both PC and phone.</p>
+            <p>Join Nova Py-Hub for a complete free Python course — beginner to professional. Hands-on lessons that work on your phone or PC.</p>
             <div class="hero-buttons">
-                <a href="courses/beginner.html" class="btn btn-primary">Start Learning Free</a>
-                <a href="#services" class="btn btn-secondary">Explore Courses</a>
-                <a href="certificate/index.html" class="btn btn-secondary">Get Certificate</a>
+                <a href="courses/beginner.html" class="btn btn-gold">Start Learning Free</a>
+                <a href="#services" class="btn btn-outline">Explore Courses</a>
+                <a href="certificate/index.html" class="btn btn-blue">Get Certified</a>
             </div>
+            <div id="deviceTips" class="device-tips" style="margin-top:2rem;text-align:left;max-width:500px;margin-left:auto;margin-right:auto"></div>
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" style="background:var(--bg2)">
         <div class="section-container about-grid">
             <div class="about-text">
-                <h2>Master Python<br>Step-by-Step</h2>
+                <h2 style="color:var(--gold)">Master Python<br>Step-by-Step</h2>
                 <p>Nova Py-Hub provides a complete Python learning journey from absolute beginner through university-level concepts. No prior experience needed — start coding today from your phone or PC.</p>
-                <p>Every lesson includes real code examples, practical exercises, and progressive difficulty to ensure deep understanding.</p>
-                <a href="courses/beginner.html" class="btn btn-primary">View Curriculum</a>
+                <p>Every lesson includes real code examples, practical exercises, quizzes, and progressive difficulty to ensure deep understanding.</p>
+                <a href="courses/beginner.html" class="btn btn-gold">View Curriculum</a>
             </div>
             <div class="about-stats">
-                <div class="stat-card">
+                <div class="stat-card card-3d">
                     <div class="stat-number">4</div>
                     <div class="stat-label">Course Levels</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card card-3d">
                     <div class="stat-number">40+</div>
                     <div class="stat-label">Lessons</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card card-3d">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">Free Access</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">Cert</div>
+                <div class="stat-card card-3d">
+                    <div class="stat-number">🎓</div>
                     <div class="stat-label">Certificate on Completion</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" style="background:var(--bg-secondary)">
+    <section id="services">
         <div class="section-container">
-            <h2 class="section-title">Nova Py-Hub Course Offerings</h2>
+            <h2 class="section-title">✦ Course Offerings</h2>
             <p class="section-subtitle">Three pillars of our learning approach</p>
             <div class="offerings-grid">
                 <div class="offering-card">
@@ -76,8 +113,8 @@
                 </div>
                 <div class="offering-card">
                     <div class="offering-icon">💬</div>
-                    <h3>Interactive Support and Q&A</h3>
-                    <p>Get help and feedback through interactive support sessions and Q&A to clarify concepts and troubleshoot your code efficiently.</p>
+                    <h3>Interactive Support &amp; Q&amp;A</h3>
+                    <p>Get help and feedback through interactive support sessions and Q&amp;A to clarify concepts and troubleshoot your code efficiently.</p>
                 </div>
                 <div class="offering-card">
                     <div class="offering-icon">🛠</div>
@@ -88,42 +125,51 @@
         </div>
     </section>
 
-    <section id="courses">
+    <section id="courses" style="background:var(--bg2)">
         <div class="section-container">
-            <h2 class="section-title">Learning Path</h2>
+            <h2 class="section-title">✦ Learning Path</h2>
             <p class="section-subtitle">From zero to professional — follow the path</p>
             <div class="offerings-grid">
                 <a href="courses/beginner.html" class="offering-card" style="text-decoration:none;color:inherit">
                     <div class="offering-icon">🌱</div>
                     <h3>Beginner</h3>
                     <p>Python basics, variables, data types, conditionals, loops, strings, lists, and your first programs.</p>
-                    <span style="color:var(--accent-purple);font-size:0.85rem;margin-top:1rem;display:block">10 lessons →</span>
+                    <span style="color:var(--gold);font-size:.85rem;margin-top:.8rem;display:block">10 lessons →</span>
                 </a>
                 <a href="courses/intermediate.html" class="offering-card" style="text-decoration:none;color:inherit">
                     <div class="offering-icon">📈</div>
                     <h3>Intermediate</h3>
                     <p>Functions, modules, file I/O, error handling, dictionaries, sets, list comprehensions, and more.</p>
-                    <span style="color:var(--accent-purple);font-size:0.85rem;margin-top:1rem;display:block">10 lessons →</span>
+                    <span style="color:var(--gold);font-size:.85rem;margin-top:.8rem;display:block">10 lessons →</span>
                 </a>
                 <a href="courses/advanced.html" class="offering-card" style="text-decoration:none;color:inherit">
                     <div class="offering-icon">🔥</div>
                     <h3>Advanced</h3>
                     <p>OOP, decorators, generators, context managers, regular expressions, testing, and advanced data structures.</p>
-                    <span style="color:var(--accent-purple);font-size:0.85rem;margin-top:1rem;display:block">10 lessons →</span>
+                    <span style="color:var(--gold);font-size:.85rem;margin-top:.8rem;display:block">10 lessons →</span>
                 </a>
                 <a href="courses/professional.html" class="offering-card" style="text-decoration:none;color:inherit">
                     <div class="offering-icon">🎓</div>
                     <h3>Professional / University</h3>
                     <p>Algorithms, design patterns, async programming, databases, APIs, packaging, and capstone projects.</p>
-                    <span style="color:var(--accent-purple);font-size:0.85rem;margin-top:1rem;display:block">10+ lessons →</span>
+                    <span style="color:var(--gold);font-size:.85rem;margin-top:.8rem;display:block">12 lessons →</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="gallery" style="background:var(--bg-secondary)">
+    <!-- Progress Display -->
+    <section>
         <div class="section-container">
-            <h2 class="section-title">Gallery</h2>
+            <h2 class="section-title">✦ Your Progress</h2>
+            <p class="section-subtitle">Track your learning journey</p>
+            <div id="progressDisplay"></div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background:var(--bg2)">
+        <div class="section-container">
+            <h2 class="section-title">✦ Gallery</h2>
             <p class="section-subtitle">Moments from our coding journey</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
@@ -156,8 +202,8 @@
 
     <section id="partners">
         <div class="section-container">
-            <h2 class="section-title">Logo Grid</h2>
-            <p class="section-subtitle">Trusted by developers worldwide</p>
+            <h2 class="section-title">✦ Trusted By</h2>
+            <p class="section-subtitle">Developers worldwide</p>
             <div class="logo-grid">
                 <div class="logo-item">Placeholder Logo 1</div>
                 <div class="logo-item">Placeholder Logo 2</div>
@@ -167,34 +213,34 @@
         </div>
     </section>
 
-    <section id="faq" style="background:var(--bg-secondary)">
+    <section id="faq" style="background:var(--bg2)">
         <div class="section-container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+            <h2 class="section-title">✦ FAQ</h2>
             <p class="section-subtitle">Everything you need to know</p>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What is Nova Py-Hub?</div>
-                    <div class="faq-answer">Nova Py-Hub is a completely free Python learning platform built for beginners through professional developers. We provide structured lessons, hands-on projects, and certificate upon completion — all accessible from your phone or PC.</div>
+                    <div class="faq-question">What is Nova Py-Hub?</div>
+                    <div class="faq-answer">Nova Py-Hub is a completely free Python learning platform built for beginners through professional developers. We provide structured lessons, hands-on projects, quizzes, and certificate upon completion — all accessible from your phone or PC.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How are the lessons structured?</div>
-                    <div class="faq-answer">Lessons are organized into four levels: Beginner, Intermediate, Advanced, and Professional. Each level contains 10+ lessons with code examples, explanations, and practical exercises. You progress at your own pace.</div>
+                    <div class="faq-question">How are the lessons structured?</div>
+                    <div class="faq-answer">Lessons are organized into four levels: Beginner, Intermediate, Advanced, and Professional. Each level contains 10-12 lessons with code examples, explanations, practical exercises, and quizzes. You progress at your own pace.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is there any support available if I have questions?</div>
-                    <div class="faq-answer">Yes! We provide interactive support through our Q&A system. You can ask questions on any lesson and get help from instructors and the community.</div>
+                    <div class="faq-question">Is there support available?</div>
+                    <div class="faq-answer">Yes! You can reach out via WhatsApp — tap the buttons on the bottom of the page. The owner and assistant are available to help with your questions.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can I learn on my phone?</div>
-                    <div class="faq-answer">Absolutely. Every lesson is designed to be readable and interactive on both PC and phone. You can write and test Python code on your phone using free apps like Termux (Android) or Pythonista (iOS).</div>
+                    <div class="faq-question">Can I learn on my phone?</div>
+                    <div class="faq-answer">Absolutely. Every lesson is designed for both PC and phone. The device selector at the start gives you tailored instructions for iPhone, Android, or PC.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is the certificate really free?</div>
-                    <div class="faq-answer">Yes. Once you complete all lessons in a level, you can generate your certificate of completion instantly — completely free. It includes your name, course level, and completion date.</div>
+                    <div class="faq-question">How does the certificate work?</div>
+                    <div class="faq-answer">Complete all lessons in a level (pass the quizzes with 60%+) and your certificate is automatically updated. No extra steps needed — just learn and achieve.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long does it take to complete?</div>
-                    <div class="faq-answer">The full path from beginner to professional typically takes 3-6 months with consistent study (30 minutes to 1 hour daily). You can go faster or slower depending on your schedule.</div>
+                    <div class="faq-question">How long does it take?</div>
+                    <div class="faq-answer">The full path typically takes 3-6 months with consistent study (30 min to 1 hour daily). Go at your own pace — there's no deadline.</div>
                 </div>
             </div>
         </div>
@@ -202,8 +248,8 @@
 
     <section id="contact">
         <div class="section-container">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Have questions? Reach out to us</p>
+            <h2 class="section-title">✦ Contact</h2>
+            <p class="section-subtitle">Have questions? Reach out</p>
             <form class="contact-form" id="contactForm" onsubmit="event.preventDefault();alert('Message received! We will get back to you soon.');this.reset()">
                 <div class="form-group">
                     <label for="email">Email address *</label>
@@ -221,7 +267,7 @@
                     <label for="message">Message *</label>
                     <textarea id="message" placeholder="Enter your message here" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+                <button type="submit" class="btn btn-gold" style="width:100%">Send Message</button>
             </form>
         </div>
     </section>
@@ -237,11 +283,33 @@
                 <a href="#contact">Contact</a>
                 <a href="certificate/index.html">Certificate</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p style="font-size:.9rem;color:var(--gold);margin-bottom:.3rem">✦ Nova Py-Hub</p>
+            <p>Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
 
+    <!-- WhatsApp FAB -->
+    <div class="whatsapp-fab left">
+        <a class="whatsapp-btn" href="https://wa.me/${WA_OWNER}?text=${WA_MSG}" target="_blank" rel="noopener">
+            <span class="wa-icon">📞</span>
+            <span class="wa-label">Owner</span>
+        </a>
+        <a class="whatsapp-btn" href="https://wa.me/${WA_ASSISTANT}?text=${WA_MSG}" target="_blank" rel="noopener">
+            <span class="wa-icon">💬</span>
+            <span class="wa-label">Assistant</span>
+        </a>
+    </div>
+
+    <script>
+    const WA_OWNER = '2347046855205'
+    const WA_ASSISTANT = '2349121419046'
+    const WA_MSG = encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more about Python programming. Can you help me get started?")
+    document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+        const href = btn.getAttribute('href')
+        btn.setAttribute('href', href.replace(/\$\{WA_OWNER\}/g, WA_OWNER).replace(/\$\{WA_ASSISTANT\}/g, WA_ASSISTANT).replace(/\$\{WA_MSG\}/g, WA_MSG))
+    })
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

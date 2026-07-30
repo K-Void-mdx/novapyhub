@@ -9,29 +9,37 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="../index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="../courses/beginner.html">Courses</a>
                 <a href="../index.html#faq">FAQ</a>
                 <a href="../index.html#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
 
-    <div class="certificate-page">
-        <h1>🎓 Get Your Certificate</h1>
-        <p style="color:var(--text-secondary);max-width:500px;margin:1rem auto 2rem">Complete a course level and generate your free certificate of completion.</p>
+    <div class="certificate-page" style="padding-top:6rem;min-height:100vh;text-align:center;padding:8rem 1.2rem 4rem;max-width:800px;margin:0 auto">
+        <h1 style="color:var(--gold)">🎓 Your Certificates</h1>
+        <p style="color:var(--text2);margin-bottom:2rem">Complete all lessons in a level to unlock your certificate. Progress is saved automatically.</p>
 
-        <div class="certificate-form">
+        <!-- Progress status -->
+        <div id="progressStatus" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-bottom:3rem"></div>
+
+        <hr style="border-color:var(--card-border);margin:2rem 0">
+
+        <h2 style="font-size:1.3rem;margin-bottom:1.5rem">Generate Certificate</h2>
+
+        <div style="max-width:500px;margin:0 auto">
             <div class="form-group">
                 <label for="certName">Your Full Name *</label>
                 <input type="text" id="certName" placeholder="John Doe" required>
             </div>
             <div class="form-group">
                 <label for="certCourse">Course Level *</label>
-                <select id="certCourse" style="width:100%;padding:0.9rem 1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;color:var(--text-primary);font-size:1rem">
+                <select id="certCourse" style="width:100%;padding:.85rem 1rem;background:var(--bg3);border:1px solid var(--card-border);border-radius:10px;color:var(--text);font-size:.95rem">
                     <option value="Beginner Python">Beginner Python</option>
                     <option value="Intermediate Python">Intermediate Python</option>
                     <option value="Advanced Python">Advanced Python</option>
@@ -39,32 +47,32 @@
                     <option value="Complete Python Mastery">Complete Python Mastery (All Levels)</option>
                 </select>
             </div>
-            <button class="btn btn-primary" style="width:100%;margin-top:0.5rem" onclick="generateCertificate()">Generate Certificate</button>
+            <button class="btn btn-gold" style="width:100%;margin-top:.5rem" onclick="generateCert()">Generate Certificate</button>
+            <p id="levelStatus" style="color:var(--text2);font-size:.85rem;margin-top:.8rem"></p>
         </div>
 
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p style="color:var(--text-secondary)">Generating your certificate...</p>
+        <div class="loading" id="loading" style="display:none;text-align:center;padding:2rem">
+            <div style="width:40px;height:40px;border:3px solid var(--card-border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem"></div>
+            <p style="color:var(--text2)">Generating your certificate...</p>
         </div>
 
-        <div class="certificate-preview" id="certPreview">
-            <div class="certificate-box" id="certBox">
-                <h2>Nova Py-Hub</h2>
-                <p class="cert-subtitle">Certificate of Completion</p>
+        <div id="certPreview" style="display:none;margin-top:2rem">
+            <div id="certBox" style="background:#fff;color:#1a1a2e;padding:3rem 2rem;border-radius:16px;position:relative;overflow:hidden;max-width:600px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+                <div style="position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#FFD700,#2196F3)"></div>
+                <h2 style="font-size:1.8rem;margin-bottom:.3rem;color:#1a1a2e">✦ Nova Py-Hub</h2>
+                <p style="color:#666;font-size:.9rem;margin-bottom:1.5rem">Certificate of Completion</p>
                 <div style="font-size:3rem;margin:1rem 0">🎓</div>
-                <p style="color:#666;font-size:0.95rem">This certifies that</p>
-                <div class="cert-name" id="displayName">Student Name</div>
-                <p style="color:#666;font-size:0.95rem">has successfully completed the</p>
-                <div class="cert-course" id="displayCourse">Course Level</div>
-                <p style="color:#666;font-size:0.85rem;margin:0.5rem 0">with all required lessons and practical exercises.</p>
-                <div class="cert-date" id="displayDate">July 30, 2026</div>
-                <div style="margin-top:1.5rem;padding-top:1rem;border-top:2px solid #eee;font-size:0.75rem;color:#999">
-                    Nova Py-Hub — Master Python Step-by-Step
-                </div>
+                <p style="color:#666;font-size:.95rem">This certifies that</p>
+                <div id="displayName" style="font-size:2rem;font-weight:800;margin:1rem 0;color:#1a1a2e">Student Name</div>
+                <p style="color:#666;font-size:.95rem">has successfully completed the</p>
+                <div id="displayCourse" style="color:#B8860B;font-weight:600;font-size:1.1rem;margin-bottom:.5rem">Course Level</div>
+                <p style="color:#666;font-size:.85rem;margin:.5rem 0">with all required lessons and practical exercises.</p>
+                <div id="displayDate" style="color:#666;font-size:.85rem;margin-top:1.5rem">Date</div>
+                <div style="margin-top:1.5rem;padding-top:1rem;border-top:2px solid #eee;font-size:.75rem;color:#999">Nova Py-Hub — Master Python Step-by-Step</div>
             </div>
-            <div class="certificate-actions">
-                <button class="btn btn-primary" onclick="printCertificate()">🖨 Print Certificate</button>
-                <button class="btn btn-secondary" onclick="downloadCertificate()">💾 Save as Image</button>
+            <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.5rem">
+                <button class="btn btn-gold" onclick="printCert()">🖨 Print</button>
+                <button class="btn btn-outline" onclick="downloadCert()">💾 Save</button>
             </div>
         </div>
     </div>
@@ -75,85 +83,99 @@
                 <a href="../index.html">Home</a>
                 <a href="../courses/beginner.html">Courses</a>
                 <a href="../index.html#faq">FAQ</a>
-                <a href="../index.html#contact">Contact</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>✦ Nova Py-Hub — Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
 
     <script>
-    function generateCertificate() {
-        const name = document.getElementById('certName').value.trim();
-        const course = document.getElementById('certCourse').value;
+    const LEVELS = [
+        { key:'beginner', name:'Beginner', total:10 },
+        { key:'intermediate', name:'Intermediate', total:10 },
+        { key:'advanced', name:'Advanced', total:10 },
+        { key:'professional', name:'Professional', total:12 }
+    ]
 
-        if (!name) {
-            alert('Please enter your full name.');
-            return;
-        }
-
-        const loading = document.getElementById('loading');
-        loading.classList.add('show');
-
-        setTimeout(() => {
-            loading.classList.remove('show');
-            document.getElementById('displayName').textContent = name;
-            document.getElementById('displayCourse').textContent = course;
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('displayDate').textContent = dateStr;
-            document.getElementById('certPreview').classList.add('show');
-            document.getElementById('certPreview').scrollIntoView({ behavior: 'smooth' });
-        }, 1500);
+    function getProgress() {
+        try { return JSON.parse(localStorage.getItem('nph_progress')) || {} } catch { return {} }
     }
 
-    function printCertificate() {
-        const content = document.getElementById('certBox').innerHTML;
-        const win = window.open('', '', 'width=800,height=600');
-        win.document.write(`
-            <html>
-            <head>
-                <title>Certificate - Nova Py-Hub</title>
-                <style>
-                    body { font-family: Georgia, serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #fff; }
-                    .box { background: white; padding: 3rem 2rem; border-radius: 16px; text-align: center; max-width: 600px; width: 90%; position: relative; overflow: hidden; border: 3px double #8b5cf6; }
-                    .box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 8px; background: linear-gradient(90deg, #8b5cf6, #d946ef); }
-                    h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #1a1a2e; }
-                    .sub { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
-                    .name { font-size: 2rem; font-weight: 800; margin: 1rem 0; color: #1a1a2e; }
-                    .course { color: #8b5cf6; font-weight: 600; margin-bottom: 1rem; }
-                    .date { color: #666; font-size: 0.85rem; margin-top: 1.5rem; }
-                    .footer-text { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #eee; font-size: 0.75rem; color: #999; }
-                </style>
-            </head>
-            <body>
-                <div class="box">
-                    <h2>Nova Py-Hub</h2>
-                    <p class="sub">Certificate of Completion</p>
-                    <div style="font-size:3rem;margin:1rem 0">🎓</div>
-                    <p style="color:#666;font-size:0.95rem">This certifies that</p>
-                    <div class="name">${document.getElementById('displayName').textContent}</div>
-                    <p style="color:#666;font-size:0.95rem">has successfully completed the</p>
-                    <div class="course">${document.getElementById('displayCourse').textContent}</div>
-                    <p style="color:#666;font-size:0.85rem;margin:0.5rem 0">with all required lessons and practical exercises.</p>
-                    <div class="date">${document.getElementById('displayDate').textContent}</div>
-                    <div class="footer-text">Nova Py-Hub — Master Python Step-by-Step</div>
+    function renderProgress() {
+        const p = getProgress()
+        const el = document.getElementById('progressStatus')
+        el.innerHTML = LEVELS.map(l => {
+            const done = (p[l.key]||[]).length
+            const complete = done >= l.total
+            return `<div style="background:var(--card-bg);border:1px solid ${complete?'var(--gold)':'var(--card-border)'};border-radius:16px;padding:1.5rem;text-align:center">
+                <div style="font-size:2rem;margin-bottom:.5rem">${complete?'🎉':'📚'}</div>
+                <div style="font-weight:700;margin-bottom:.3rem">${l.name}</div>
+                <div style="font-size:1.3rem;font-weight:800;color:${complete?'var(--gold)':'var(--text2)'}">${done}/${l.total}</div>
+                <div style="height:6px;background:var(--bg3);border-radius:3px;margin-top:.8rem;overflow:hidden">
+                    <div style="height:100%;width:${(done/l.total)*100}%;background:linear-gradient(90deg,#FFD700,#2196F3);border-radius:3px;transition:width .8s"></div>
                 </div>
-                <script>
-                    window.onload = function() { window.print(); window.close(); }
-                <\/script>
-            </body>
-            </html>
-        `);
-        win.document.close();
+                <div style="font-size:.8rem;color:${complete?'var(--gold)':'var(--text2)'};margin-top:.5rem">${complete?'✅ Completed':`${l.total - done} remaining`}</div>
+            </div>`
+        }).join('')
     }
 
-    function downloadCertificate() {
-        const name = document.getElementById('displayName').textContent;
-        const course = document.getElementById('displayCourse').textContent;
-        const date = document.getElementById('displayDate').textContent;
-        alert('On phone: take a screenshot of the certificate above.\nOn desktop: right-click the certificate and select "Save as image" or use Print → Save as PDF.\n\nYour certificate is ready to share!');
+    function generateCert() {
+        const name = document.getElementById('certName').value.trim()
+        const course = document.getElementById('certCourse').value
+        const status = document.getElementById('levelStatus')
+        if (!name) { alert('Please enter your full name.'); return }
+
+        const p = getProgress()
+        const levelMap = { 'Beginner Python':'beginner','Intermediate Python':'intermediate','Advanced Python':'advanced','Professional Python':'professional' }
+        const level = levelMap[course]
+        const totalMap = { 'Beginner Python':10,'Intermediate Python':10,'Advanced Python':10,'Professional Python':10 }
+        const needed = level ? totalMap[course] : 999
+        const done = level ? (p[level]||[]).length : 0
+
+        if (level && done < needed) {
+            status.textContent = `⚠️ You've completed ${done}/${needed} ${course} lessons. Complete all to unlock this certificate.`
+            status.style.color = '#ff8a80'
+            return
+        }
+        status.textContent = ''
+
+        document.getElementById('loading').style.display = 'block'
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none'
+            document.getElementById('displayName').textContent = name
+            document.getElementById('displayCourse').textContent = course
+            const now = new Date()
+            document.getElementById('displayDate').textContent = now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})
+            document.getElementById('certPreview').style.display = 'block'
+            document.getElementById('certPreview').scrollIntoView({behavior:'smooth'})
+        }, 1200)
     }
+
+    function printCert() {
+        const box = document.getElementById('certBox').innerHTML
+        const w = window.open('','','width=800,height=600')
+        w.document.write(`<html><head><title>Certificate</title><style>
+            body{font-family:Georgia,serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#fff}
+            .box{background:#fff;padding:3rem 2rem;border-radius:16px;text-align:center;max-width:600px;width:90%;position:relative;overflow:hidden;border:3px double #FFD700}
+            .box::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#FFD700,#2196F3)}
+            h2{font-size:1.8rem;margin-bottom:.3rem;color:#1a1a2e}
+            .sub{color:#666;font-size:.9rem;margin-bottom:1.5rem}
+            .name{font-size:2rem;font-weight:800;margin:1rem 0;color:#1a1a2e}
+            .course{color:#B8860B;font-weight:600;margin-bottom:.5rem}
+            .date{color:#666;font-size:.85rem;margin-top:1.5rem}
+            .ft{margin-top:1.5rem;padding-top:1rem;border-top:2px solid #eee;font-size:.75rem;color:#999}
+        </style></head><body><div class="box">${box}</div><script>window.onload=function(){window.print();window.close()}<\\/script></body></html>`)
+        w.document.close()
+    }
+
+    function downloadCert() {
+        const name = document.getElementById('displayName').textContent
+        const course = document.getElementById('displayCourse').textContent
+        alert('📱 Take a screenshot of your certificate above.\n💾 Or use Print → Save as PDF.\n\nYour certificate is ready to share!')
+    }
+
+    renderProgress()
     </script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

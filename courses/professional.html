@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional / University Python - Nova Py-Hub</title>
+    <title>Professional Python - Nova Py-Hub</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="../index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
-                <a href="../index.html#gallery">Gallery</a>
-                <a href="../index.html#faq">FAQ</a>
-                <a href="../index.html#contact">Contact</a>
-                <a href="../certificate/index.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem">Get Certified</a>
+                <a href="beginner.html">Beginner</a>
+                <a href="intermediate.html">Intermediate</a>
+                <a href="advanced.html">Advanced</a>
+                <a href="../certificate/index.html">Certificate</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
@@ -29,131 +29,39 @@
 
     <div class="lesson-list">
         <h2 style="margin-bottom:2rem">Course Outline (12 Lessons)</h2>
-
-        <a href="professional/01-design-patterns.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">01</div>
-            <div class="lesson-info">
-                <h3>Design Patterns in Python</h3>
-                <p>Singleton, Factory, Observer, Strategy, and other Gang of Four patterns implemented in Python.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/02-solid-principles.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">02</div>
-            <div class="lesson-info">
-                <h3>SOLID Principles</h3>
-                <p>Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/03-advanced-algorithms.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">03</div>
-            <div class="lesson-info">
-                <h3>Advanced Algorithms</h3>
-                <p>Graph algorithms (BFS, DFS, Dijkstra), dynamic programming, greedy algorithms, NP-completeness.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/04-system-design.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">04</div>
-            <div class="lesson-info">
-                <h3>System Design Basics</h3>
-                <p>Architecture patterns, scalability, microservices, message queues, caching strategies.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/05-api-development.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">05</div>
-            <div class="lesson-info">
-                <h3>API Development with FastAPI</h3>
-                <p>RESTful APIs, request validation, authentication, documentation with Swagger, deployment.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/06-database-design.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">06</div>
-            <div class="lesson-info">
-                <h3>Database Design and SQL</h3>
-                <p>Normalization, indexing, transactions, joins, subqueries, and performance optimization.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/07-testing-advanced.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">07</div>
-            <div class="lesson-info">
-                <h3>Advanced Testing and CI/CD</h3>
-                <p>Integration testing, property-based testing, continuous integration, GitHub Actions.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/08-packaging-deployment.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">08</div>
-            <div class="lesson-info">
-                <h3>Packaging and Deployment</h3>
-                <p>Creating distributable packages, PyPI publishing, Docker containers, cloud deployment.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/09-data-science-intro.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">09</div>
-            <div class="lesson-info">
-                <h3>Introduction to Data Science</h3>
-                <p>NumPy, pandas, data visualization with matplotlib, basic data analysis pipeline.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/10-machine-learning.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">10</div>
-            <div class="lesson-info">
-                <h3>Machine Learning Fundamentals</h3>
-                <p>Scikit-learn, regression, classification, clustering, train/test split, model evaluation.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/11-capstone-planning.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">11</div>
-            <div class="lesson-info">
-                <h3>Capstone Project: Planning & Design</h3>
-                <p>Design a full-stack application: requirements, architecture, database schema, API design.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="professional/12-capstone-build.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">12</div>
-            <div class="lesson-info">
-                <h3>Capstone Project: Build & Deploy</h3>
-                <p>Implement, test, and deploy your capstone project to production.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
+        <a href="professional/01-design-patterns.html" class="lesson-item"><div class="lesson-number">01</div><div class="lesson-info"><h3>Design Patterns in Python</h3><p>Singleton, Factory, Observer, Strategy, and other Gang of Four patterns implemented in Python.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/02-solid-principles.html" class="lesson-item"><div class="lesson-number">02</div><div class="lesson-info"><h3>SOLID Principles</h3><p>Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/03-advanced-algorithms.html" class="lesson-item"><div class="lesson-number">03</div><div class="lesson-info"><h3>Advanced Algorithms</h3><p>Graph algorithms (BFS, DFS, Dijkstra), dynamic programming, greedy algorithms, NP-completeness.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/04-system-design.html" class="lesson-item"><div class="lesson-number">04</div><div class="lesson-info"><h3>System Design Basics</h3><p>Architecture patterns, scalability, microservices, message queues, caching strategies.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/05-api-development.html" class="lesson-item"><div class="lesson-number">05</div><div class="lesson-info"><h3>API Development with FastAPI</h3><p>RESTful APIs, request validation, authentication, documentation with Swagger, deployment.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/06-database-design.html" class="lesson-item"><div class="lesson-number">06</div><div class="lesson-info"><h3>Database Design and SQL</h3><p>Normalization, indexing, transactions, joins, subqueries, and performance optimization.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/07-testing-advanced.html" class="lesson-item"><div class="lesson-number">07</div><div class="lesson-info"><h3>Advanced Testing and CI/CD</h3><p>Integration testing, property-based testing, continuous integration, GitHub Actions.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/08-packaging-deployment.html" class="lesson-item"><div class="lesson-number">08</div><div class="lesson-info"><h3>Packaging and Deployment</h3><p>Creating distributable packages, PyPI publishing, Docker containers, cloud deployment.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/09-data-science-intro.html" class="lesson-item"><div class="lesson-number">09</div><div class="lesson-info"><h3>Introduction to Data Science</h3><p>NumPy, pandas, data visualization with matplotlib, basic data analysis pipeline.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/10-machine-learning.html" class="lesson-item"><div class="lesson-number">10</div><div class="lesson-info"><h3>Machine Learning Fundamentals</h3><p>Scikit-learn, regression, classification, clustering, train/test split, model evaluation.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/11-capstone-planning.html" class="lesson-item"><div class="lesson-number">11</div><div class="lesson-info"><h3>Capstone Project: Planning & Design</h3><p>Design a full-stack application: requirements, architecture, database schema, API design.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="professional/12-capstone-build.html" class="lesson-item"><div class="lesson-number">12</div><div class="lesson-info"><h3>Capstone Project: Build & Deploy</h3><p>Implement, test, and deploy your capstone project to production.</p></div><span class="lesson-link">Start →</span></a>
     </div>
 
     <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
                 <a href="beginner.html">Beginner</a>
                 <a href="intermediate.html">Intermediate</a>
                 <a href="advanced.html">Advanced</a>
                 <a href="professional.html">Professional</a>
                 <a href="../certificate/index.html">Certificate</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>✦ Nova Py-Hub — Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
+
+    <div class="whatsapp-fab left">
+        <a class="whatsapp-btn" href="https://wa.me/2347046855205?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a>
+        <a class="whatsapp-btn" href="https://wa.me/2349121419046?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>

@@ -9,15 +9,15 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="../index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
-                <a href="../index.html#gallery">Gallery</a>
-                <a href="../index.html#faq">FAQ</a>
-                <a href="../index.html#contact">Contact</a>
-                <a href="../certificate/index.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem">Get Certified</a>
+                <a href="beginner.html">Beginner</a>
+                <a href="intermediate.html">Intermediate</a>
+                <a href="professional.html">Professional</a>
+                <a href="../certificate/index.html">Certificate</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
@@ -29,113 +29,37 @@
 
     <div class="lesson-list">
         <h2 style="margin-bottom:2rem">Course Outline (10 Lessons)</h2>
-
-        <a href="advanced/01-decorators.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">01</div>
-            <div class="lesson-info">
-                <h3>Decorators</h3>
-                <p>Function and class decorators, parameterized decorators, built-in decorators like @staticmethod.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/02-context-managers.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">02</div>
-            <div class="lesson-info">
-                <h3>Context Managers</h3>
-                <p>The with statement, implementing context managers with classes and contextlib.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/03-regular-expressions.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">03</div>
-            <div class="lesson-info">
-                <h3>Regular Expressions</h3>
-                <p>Pattern matching, re module, groups, lookaheads, and practical text extraction.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/04-testing.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">04</div>
-            <div class="lesson-info">
-                <h3>Testing in Python</h3>
-                <p>Unit testing with unittest and pytest, test fixtures, mocking, and TDD basics.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/05-multithreading.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">05</div>
-            <div class="lesson-info">
-                <h3>Multithreading and Concurrency</h3>
-                <p>Threading, thread safety, GIL, multiprocessing, and concurrent.futures.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/06-async-io.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">06</div>
-            <div class="lesson-info">
-                <h3>Async IO with asyncio</h3>
-                <p>async/await syntax, event loops, coroutines, tasks, and aiohttp basics.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/07-data-structures.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">07</div>
-            <div class="lesson-info">
-                <h3>Advanced Data Structures</h3>
-                <p>Stacks, queues, linked lists, trees, graphs, and heaps in Python.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/08-algorithms.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">08</div>
-            <div class="lesson-info">
-                <h3>Algorithms and Complexity</h3>
-                <p>Sorting, searching, recursion, dynamic programming, Big O notation.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/09-databases.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">09</div>
-            <div class="lesson-info">
-                <h3>Working with Databases</h3>
-                <p>SQLite, basic SQL queries, sqlite3 module, and ORM concepts with SQLAlchemy.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="advanced/10-web-basics.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">10</div>
-            <div class="lesson-info">
-                <h3>Web Basics with Python</h3>
-                <p>HTTP requests with requests library, building a simple API with FastAPI, JSON APIs.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
+        <a href="advanced/01-decorators.html" class="lesson-item"><div class="lesson-number">01</div><div class="lesson-info"><h3>Decorators</h3><p>Function and class decorators, parameterized decorators, built-in decorators.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/02-context-managers.html" class="lesson-item"><div class="lesson-number">02</div><div class="lesson-info"><h3>Context Managers</h3><p>The with statement, implementing context managers with classes and contextlib.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/03-regular-expressions.html" class="lesson-item"><div class="lesson-number">03</div><div class="lesson-info"><h3>Regular Expressions</h3><p>Pattern matching, re module, groups, lookaheads, and practical text extraction.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/04-testing.html" class="lesson-item"><div class="lesson-number">04</div><div class="lesson-info"><h3>Testing in Python</h3><p>Unit testing with unittest and pytest, test fixtures, mocking, and TDD basics.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/05-multithreading.html" class="lesson-item"><div class="lesson-number">05</div><div class="lesson-info"><h3>Multithreading and Concurrency</h3><p>Threading, thread safety, GIL, multiprocessing, and concurrent.futures.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/06-async-io.html" class="lesson-item"><div class="lesson-number">06</div><div class="lesson-info"><h3>Async IO with asyncio</h3><p>async/await syntax, event loops, coroutines, tasks, and aiohttp basics.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/07-data-structures.html" class="lesson-item"><div class="lesson-number">07</div><div class="lesson-info"><h3>Advanced Data Structures</h3><p>Stacks, queues, linked lists, trees, graphs, and heaps in Python.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/08-algorithms.html" class="lesson-item"><div class="lesson-number">08</div><div class="lesson-info"><h3>Algorithms and Complexity</h3><p>Sorting, searching, recursion, dynamic programming, Big O notation.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/09-databases.html" class="lesson-item"><div class="lesson-number">09</div><div class="lesson-info"><h3>Working with Databases</h3><p>SQLite, basic SQL queries, sqlite3 module, and ORM concepts with SQLAlchemy.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="advanced/10-web-basics.html" class="lesson-item"><div class="lesson-number">10</div><div class="lesson-info"><h3>Web Basics with Python</h3><p>HTTP requests with requests library, building a simple API with FastAPI, JSON APIs.</p></div><span class="lesson-link">Start →</span></a>
     </div>
 
     <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
                 <a href="beginner.html">Beginner</a>
                 <a href="intermediate.html">Intermediate</a>
                 <a href="advanced.html">Advanced</a>
                 <a href="professional.html">Professional</a>
                 <a href="../certificate/index.html">Certificate</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>✦ Nova Py-Hub — Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
+
+    <div class="whatsapp-fab left">
+        <a class="whatsapp-btn" href="https://wa.me/2347046855205?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a>
+        <a class="whatsapp-btn" href="https://wa.me/2349121419046?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>

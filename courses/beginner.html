@@ -9,15 +9,16 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="../index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="../index.html#services">Services</a>
                 <a href="../index.html#gallery">Gallery</a>
                 <a href="../index.html#faq">FAQ</a>
                 <a href="../index.html#contact">Contact</a>
-                <a href="../certificate/index.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem">Get Certified</a>
+                <a href="../certificate/index.html">Certificate</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
@@ -27,10 +28,12 @@
         <p>Start your Python journey here. No experience needed — just curiosity and a desire to learn.</p>
     </div>
 
+    <div id="deviceTips" class="section-container" style="padding:0 1.2rem"></div>
+
     <div class="lesson-list">
         <h2 style="margin-bottom:2rem">Course Outline (10 Lessons)</h2>
 
-        <a href="beginner/01-introduction.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/01-introduction.html" class="lesson-item">
             <div class="lesson-number">01</div>
             <div class="lesson-info">
                 <h3>Introduction to Python</h3>
@@ -38,8 +41,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/02-variables.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/02-variables.html" class="lesson-item">
             <div class="lesson-number">02</div>
             <div class="lesson-info">
                 <h3>Variables and Data Types</h3>
@@ -47,8 +49,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/03-strings.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/03-strings.html" class="lesson-item">
             <div class="lesson-number">03</div>
             <div class="lesson-info">
                 <h3>Strings and Text Processing</h3>
@@ -56,8 +57,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/04-conditionals.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/04-conditionals.html" class="lesson-item">
             <div class="lesson-number">04</div>
             <div class="lesson-info">
                 <h3>Conditional Statements</h3>
@@ -65,8 +65,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/05-loops.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/05-loops.html" class="lesson-item">
             <div class="lesson-number">05</div>
             <div class="lesson-info">
                 <h3>Loops: For and While</h3>
@@ -74,8 +73,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/06-lists.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/06-lists.html" class="lesson-item">
             <div class="lesson-number">06</div>
             <div class="lesson-info">
                 <h3>Lists and Tuples</h3>
@@ -83,8 +81,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/07-dicts-sets.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/07-dicts-sets.html" class="lesson-item">
             <div class="lesson-number">07</div>
             <div class="lesson-info">
                 <h3>Dictionaries and Sets</h3>
@@ -92,8 +89,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/08-functions.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/08-functions.html" class="lesson-item">
             <div class="lesson-number">08</div>
             <div class="lesson-info">
                 <h3>Functions Basics</h3>
@@ -101,8 +97,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/09-modules.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/09-modules.html" class="lesson-item">
             <div class="lesson-number">09</div>
             <div class="lesson-info">
                 <h3>Modules and Imports</h3>
@@ -110,8 +105,7 @@
             </div>
             <span class="lesson-link">Start →</span>
         </a>
-
-        <a href="beginner/10-mini-project.html" class="lesson-item" style="text-decoration:none;color:inherit">
+        <a href="beginner/10-mini-project.html" class="lesson-item">
             <div class="lesson-number">10</div>
             <div class="lesson-info">
                 <h3>Mini Project: Build a Calculator</h3>
@@ -125,17 +119,21 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
                 <a href="beginner.html">Beginner</a>
                 <a href="intermediate.html">Intermediate</a>
                 <a href="advanced.html">Advanced</a>
                 <a href="professional.html">Professional</a>
                 <a href="../certificate/index.html">Certificate</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>✦ Nova Py-Hub — Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
+
+    <div class="whatsapp-fab left">
+        <a class="whatsapp-btn" href="https://wa.me/2347046855205?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming.%20Can%20you%20help%20me%20get%20started%3F" target="_blank" rel="noopener"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a>
+        <a class="whatsapp-btn" href="https://wa.me/2349121419046?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming.%20Can%20you%20help%20me%20get%20started%3F" target="_blank" rel="noopener"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>

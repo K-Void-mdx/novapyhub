@@ -9,15 +9,15 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nova Py-Hub</a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <a href="../index.html" class="nav-logo">✦ Nova Py-Hub</a>
+            <button class="nav-toggle">☰</button>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
-                <a href="../index.html#gallery">Gallery</a>
-                <a href="../index.html#faq">FAQ</a>
-                <a href="../index.html#contact">Contact</a>
-                <a href="../certificate/index.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem">Get Certified</a>
+                <a href="beginner.html">Beginner</a>
+                <a href="advanced.html">Advanced</a>
+                <a href="professional.html">Professional</a>
+                <a href="../certificate/index.html">Certificate</a>
+                <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>
     </nav>
@@ -29,113 +29,37 @@
 
     <div class="lesson-list">
         <h2 style="margin-bottom:2rem">Course Outline (10 Lessons)</h2>
-
-        <a href="intermediate/01-advanced-functions.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">01</div>
-            <div class="lesson-info">
-                <h3>Advanced Functions</h3>
-                <p>*args, **kwargs, lambda functions, higher-order functions, map, filter, reduce.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/02-list-comprehensions.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">02</div>
-            <div class="lesson-info">
-                <h3>List Comprehensions and Generators</h3>
-                <p>Concise list creation, generator expressions, and memory-efficient iteration.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/03-file-handling.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">03</div>
-            <div class="lesson-info">
-                <h3>File Handling</h3>
-                <p>Reading/writing files, working with different file formats, and the with statement.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/04-error-handling.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">04</div>
-            <div class="lesson-info">
-                <h3>Error Handling and Exceptions</h3>
-                <p>Try/except blocks, raising exceptions, custom exceptions, and debugging techniques.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/05-oop-basics.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">05</div>
-            <div class="lesson-info">
-                <h3>Object-Oriented Programming Basics</h3>
-                <p>Classes, objects, attributes, methods, self, init, and basic inheritance.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/06-oop-advanced.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">06</div>
-            <div class="lesson-info">
-                <h3>Advanced OOP</h3>
-                <p>Polymorphism, encapsulation, property decorators, class methods, static methods.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/07-modules-packages.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">07</div>
-            <div class="lesson-info">
-                <h3>Working with Modules and Packages</h3>
-                <p>Creating packages, __init__.py, relative imports, third-party packages with pip.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/08-working-with-data.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">08</div>
-            <div class="lesson-info">
-                <h3>Working with Data</h3>
-                <p>JSON, CSV, dates and times, collections module (Counter, defaultdict, namedtuple).</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/09-iterators-generators.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">09</div>
-            <div class="lesson-info">
-                <h3>Iterators and Generators Deep Dive</h3>
-                <p>Custom iterators, yield keyword, generator pipelines, infinite sequences.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
-
-        <a href="intermediate/10-mini-project.html" class="lesson-item" style="text-decoration:none;color:inherit">
-            <div class="lesson-number">10</div>
-            <div class="lesson-info">
-                <h3>Mini Project: To-Do Application</h3>
-                <p>Build a command-line to-do app with file persistence, error handling, and user interface.</p>
-            </div>
-            <span class="lesson-link">Start →</span>
-        </a>
+        <a href="intermediate/01-advanced-functions.html" class="lesson-item"><div class="lesson-number">01</div><div class="lesson-info"><h3>Advanced Functions</h3><p>*args, **kwargs, lambda functions, higher-order functions, map, filter, reduce.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/02-list-comprehensions.html" class="lesson-item"><div class="lesson-number">02</div><div class="lesson-info"><h3>List Comprehensions and Generators</h3><p>Concise list creation, generator expressions, and memory-efficient iteration.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/03-file-handling.html" class="lesson-item"><div class="lesson-number">03</div><div class="lesson-info"><h3>File Handling</h3><p>Reading/writing files, working with different file formats, and the with statement.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/04-error-handling.html" class="lesson-item"><div class="lesson-number">04</div><div class="lesson-info"><h3>Error Handling and Exceptions</h3><p>Try/except blocks, raising exceptions, custom exceptions, and debugging techniques.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/05-oop-basics.html" class="lesson-item"><div class="lesson-number">05</div><div class="lesson-info"><h3>Object-Oriented Programming Basics</h3><p>Classes, objects, attributes, methods, self, init, and basic inheritance.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/06-oop-advanced.html" class="lesson-item"><div class="lesson-number">06</div><div class="lesson-info"><h3>Advanced OOP</h3><p>Polymorphism, encapsulation, property decorators, class methods, static methods.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/07-modules-packages.html" class="lesson-item"><div class="lesson-number">07</div><div class="lesson-info"><h3>Working with Modules and Packages</h3><p>Creating packages, __init__.py, relative imports, third-party packages with pip.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/08-working-with-data.html" class="lesson-item"><div class="lesson-number">08</div><div class="lesson-info"><h3>Working with Data</h3><p>JSON, CSV, dates and times, collections module (Counter, defaultdict, namedtuple).</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/09-iterators-generators.html" class="lesson-item"><div class="lesson-number">09</div><div class="lesson-info"><h3>Iterators and Generators Deep Dive</h3><p>Custom iterators, yield keyword, generator pipelines, infinite sequences.</p></div><span class="lesson-link">Start →</span></a>
+        <a href="intermediate/10-mini-project.html" class="lesson-item"><div class="lesson-number">10</div><div class="lesson-info"><h3>Mini Project: To-Do Application</h3><p>Build a command-line to-do app with file persistence, error handling, and user interface.</p></div><span class="lesson-link">Start →</span></a>
     </div>
 
     <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
                 <a href="beginner.html">Beginner</a>
                 <a href="intermediate.html">Intermediate</a>
                 <a href="advanced.html">Advanced</a>
                 <a href="professional.html">Professional</a>
                 <a href="../certificate/index.html">Certificate</a>
             </div>
-            <p>Nova Py-Hub — Master Python Step-by-Step</p>
+            <p>✦ Nova Py-Hub — Master Python Step-by-Step</p>
             <p>© 2026 Nova Py-Hub</p>
         </div>
     </footer>
+
+    <div class="whatsapp-fab left">
+        <a class="whatsapp-btn" href="https://wa.me/2347046855205?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a>
+        <a class="whatsapp-btn" href="https://wa.me/2349121419046?text=Hello%20there!%20I%20just%20came%20across%20Nova%20Py-Hub%2C%20it%20looks%20great!%20I'd%20love%20to%20learn%20more%20about%20Python%20programming." target="_blank"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>
