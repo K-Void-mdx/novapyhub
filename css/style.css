@@ -386,7 +386,7 @@ footer p { color:var(--text2); font-size:.8rem }
 
 /* Lesson Content */
 .lesson-page { padding-top:4.5rem }
-.lesson-content { max-width:800px; margin:0 auto; padding:2rem 1.2rem 4rem }
+.lesson-content { max-width:800px; margin:0 auto; padding:4.5rem 1.2rem 4rem }
 .lesson-content h1 { font-size:1.8rem; margin-bottom:1rem }
 .lesson-content h2 { font-size:1.3rem; margin:1.8rem 0 .8rem; color:var(--gold) }
 .lesson-content h3 { font-size:1.1rem; margin:1.2rem 0 .6rem }
