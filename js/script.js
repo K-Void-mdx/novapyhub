@@ -202,27 +202,30 @@ function initCodeBlocks() {
 
 function addCopyButtons() {
   document.querySelectorAll('.code-block-wrap').forEach(wrap => {
-    if (wrap.querySelector('.copy-btn')) return
+    if (wrap.querySelector('.code-block-header')) return
+    const pre = wrap.querySelector('pre')
+    const header = document.createElement('div')
+    header.className = 'code-block-header'
     const btn = document.createElement('button')
     btn.className = 'copy-btn'
     btn.textContent = 'Copy'
     btn.onclick = () => {
-      const code = wrap.querySelector('pre').textContent
+      const code = pre.textContent
       navigator.clipboard.writeText(code).then(() => {
         btn.textContent = 'Copied!'
         btn.classList.add('copied')
         setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000)
       }).catch(() => {
         const ta = document.createElement('textarea')
-        ta.value = code; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove()
+        ta.value = code; document.body.appendChild(ta); ta.select(); execCommand('copy'); ta.remove()
         btn.textContent = 'Copied!'; btn.classList.add('copied')
         setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000)
       })
     }
-    wrap.appendChild(btn)
+    header.appendChild(btn)
+    wrap.insertBefore(header, pre)
   })
 }
-
 /* Quiz Engine */
 class QuizEngine {
   constructor(containerId, questions) {
