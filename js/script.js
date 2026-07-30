@@ -156,6 +156,7 @@ function highlightPython(code) {
   const str = /("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g
   const cm = /(#.*)$/gm
   const op = /([+\-*/%=<>!&|^~]+)/g
+  const sep = /([\(\)\[\]\{\},:;])/g
 
   let h = code
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -167,6 +168,7 @@ function highlightPython(code) {
   h = h.replace(fn, '<span class="fn">$1</span>(')
   h = h.replace(num, '<span class="num">$1</span>')
   h = h.replace(op, '<span class="op">$1</span>')
+  h = h.replace(sep, '<span class="sep">$1</span>')
   return h
 }
 

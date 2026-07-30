@@ -112,22 +112,24 @@ a { color:var(--gold); text-decoration:none }
 .age-note.fail { color:#ff4444 }
 .age-note.pass { color:#4CAF50 }
 
-/* WhatsApp on gate */
+/* WhatsApp on gate — featherlight */
 .gate-wa {
-  display:flex; gap:1rem;
-  padding:1rem 1rem 1.5rem;
+  display:flex; gap:.5rem;
+  padding:.8rem 1rem 1.2rem;
   justify-content:center;
   flex-shrink:0;
 }
 .gate-wa a {
-  display:flex; align-items:center; gap:6px;
-  padding:8px 16px; border-radius:50px;
-  background:#25D366; color:#fff;
-  font-size:.8rem; font-weight:600;
-  text-decoration:none;
-  transition:all .3s;
+  display:flex; align-items:center; gap:4px;
+  padding:5px 12px; border-radius:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  color:#888; font-size:.72rem;
+  text-decoration:none; letter-spacing:.3px;
+  transition:all .25s; backdrop-filter:blur(4px);
 }
-.gate-wa a:hover { transform:scale(1.05); box-shadow:0 4px 16px rgba(37,211,102,.4) }
+.gate-wa a:hover { background:rgba(37,211,102,.1); border-color:rgba(37,211,102,.2); color:#25D366 }
+.gate-wa a .wa-icon { font-size:.85rem }
 
 /* Device Modal */
 .device-overlay {
@@ -404,31 +406,34 @@ footer p { color:var(--text2); font-size:.8rem }
 .light .code-block-wrap { background:#f8f8f5; border-color:#ddd }
 
 .code-block-wrap pre {
-  padding:1.2rem 1.3rem; overflow-x:auto;
-  font-family:var(--font-mono); font-size:.85rem;
-  line-height:1.6; tab-size:4;
+  padding:1.2rem 1.3rem; overflow-x:hidden;
+  font-family:var(--font-mono); font-size:.82rem;
+  line-height:1.7; tab-size:4;
+  white-space:pre-wrap; word-break:break-word;
   scrollbar-width:thin;
 }
 .light .code-block-wrap pre { color:#1a1a1a }
 
-/* Syntax colors */
-.light .code-block-wrap pre .kw { color:#d73a49; font-weight:600 }
-.light .code-block-wrap pre .str { color:#032f62 }
-.light .code-block-wrap pre .cm { color:#6a737d; font-style:italic }
-.light .code-block-wrap pre .num { color:#005cc5 }
-.light .code-block-wrap pre .dec { color:#6f42c1 }
-.light .code-block-wrap pre .fn { color:#6f42c1 }
-.light .code-block-wrap pre .bu { color:#005cc5 }
-.light .code-block-wrap pre .op { color:#d73a49 }
+/* Syntax colors — Acode-inspired vibrant */
+.light .code-block-wrap pre .kw { color:#8250df; font-weight:600 }
+.light .code-block-wrap pre .str { color:#0a7b3c }
+.light .code-block-wrap pre .cm { color:#8b949e; font-style:italic }
+.light .code-block-wrap pre .num { color:#cf222e }
+.light .code-block-wrap pre .dec { color:#6639ba }
+.light .code-block-wrap pre .fn { color:#0550ae }
+.light .code-block-wrap pre .bu { color:#cf222e }
+.light .code-block-wrap pre .op { color:#cf222e }
+.light .code-block-wrap pre .sep { color:#57606a }
 
-.code-block-wrap pre .kw { color:#c792ea; font-weight:600 }
-.code-block-wrap pre .str { color:#c3e88d }
-.code-block-wrap pre .cm { color:#546e7a; font-style:italic }
-.code-block-wrap pre .num { color:#f78c6c }
-.code-block-wrap pre .dec { color:#82aaff }
-.code-block-wrap pre .fn { color:#82aaff }
-.code-block-wrap pre .bu { color:#ffcb6b }
-.code-block-wrap pre .op { color:#89ddff }
+.code-block-wrap pre .kw { color:#c678dd; font-weight:600 }
+.code-block-wrap pre .str { color:#98c379 }
+.code-block-wrap pre .cm { color:#5c6370; font-style:italic }
+.code-block-wrap pre .num { color:#d19a66 }
+.code-block-wrap pre .dec { color:#61afef }
+.code-block-wrap pre .fn { color:#61afef }
+.code-block-wrap pre .bu { color:#e5c07b }
+.code-block-wrap pre .op { color:#56b6c2 }
+.code-block-wrap pre .sep { color:#3e4451 }
 
 .copy-btn {
   position:absolute; top:8px; right:8px;
