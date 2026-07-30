@@ -333,9 +333,10 @@ function initDeviceTips() {
   const tips = document.getElementById('deviceTips')
   if (!tips) return
   const msgs = {
-    iphone: { title: '📱 iPhone User', msg: 'Install Pythonista or Pyto from the App Store to write and run Python code. You can also use online REPLs like Replit.' },
-    android: { title: '📱 Android User', msg: 'Install Termux from F-Droid (not Google Play — it\'s outdated). Then run: pkg install python. You have a full Linux environment!' },
-    pc: { title: '💻 PC User', msg: 'Download Python from python.org. Install VS Code or PyCharm for the best coding experience.' }
+    pc: { title: '🖥 PC User', msg: 'Download Python from python.org. Install VS Code or PyCharm for the best coding experience. Use the terminal to run your scripts with "python filename.py".' },
+    android: { title: '📱 Android User', msg: 'Install Termux from F-Droid (not Google Play — it\'s outdated). Open Termux and run: pkg update && pkg install python. You get a full Linux terminal on your phone!' },
+    iphone: { title: '🍎 iPhone User', msg: 'Install Pythonista or Pyto from the App Store. Both include a built-in code editor and Python interpreter. You can also use online REPLs like Replit or Google Colab.' },
+    tablet: { title: '📟 Tablet User', msg: 'Use the browser-based REPL at replit.com or install PyDroid 3 (Android) / Pythonista (iPad). Tablets work great with a Bluetooth keyboard for coding.' }
   }
   const m = msgs[device] || msgs.pc
   tips.innerHTML = `<h3>${m.title}</h3><p>${m.msg}</p>`
@@ -399,8 +400,9 @@ function ensureElements() {
     const content = document.querySelector('.lesson-content')
     if (nav) content.insertBefore(q, nav)
   }
-  /* WhatsApp is on the password gate now — only add FAB if gate is hidden and no FAB exists */
-  if (!document.querySelector('.whatsapp-fab') && document.getElementById('passwordGate')?.classList.contains('hidden')) {
+  /* Add WhatsApp FAB if on non-index page and no FAB exists */
+  const gate = document.getElementById('passwordGate')
+  if (!document.querySelector('.whatsapp-fab') && (!gate || gate.classList.contains('hidden'))) {
     const w = document.createElement('div'); w.className = 'whatsapp-fab left'
     w.innerHTML = `<a class="whatsapp-btn" href="https://wa.me/2347046855205?text=${encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more.")}" target="_blank"><span class="wa-icon">📞</span><span class="wa-label">Owner</span></a><a class="whatsapp-btn" href="https://wa.me/2349121419046?text=${encodeURIComponent("Hello there! I just came across Nova Py-Hub, it looks great! I'd love to learn more.")}" target="_blank"><span class="wa-icon">💬</span><span class="wa-label">Assistant</span></a>`
     document.body.appendChild(w)

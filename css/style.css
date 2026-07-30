@@ -153,16 +153,16 @@ a { color:var(--gold); text-decoration:none }
 }
 .device-modal h2 { font-size:1.5rem; margin-bottom:.5rem; color:var(--gold) }
 .device-modal p { color:var(--text2); font-size:.9rem; margin-bottom:1.8rem }
-.device-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem }
+.device-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem }
 .device-opt {
   background:var(--bg3); border:2px solid var(--card-border);
-  border-radius:16px; padding:1.5rem .8rem;
+  border-radius:14px; padding:1.2rem .5rem;
   cursor:pointer; transition:all .3s;
   text-align:center;
 }
 .device-opt:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 8px 24px rgba(255,215,0,.15) }
-.device-opt .icon { font-size:2rem; margin-bottom:.5rem; display:block }
-.device-opt .label { color:var(--text); font-weight:600; font-size:.9rem }
+.device-opt .icon { font-size:1.6rem; margin-bottom:.3rem; display:block }
+.device-opt .label { color:var(--text); font-weight:600; font-size:.82rem }
 
 /* Nav */
 nav {
@@ -549,7 +549,7 @@ footer p { color:var(--text2); font-size:.8rem }
   .btn { width:100%; max-width:260px; text-align:center }
   .lesson-item { flex-direction:column; text-align:center; gap:.6rem }
   .lesson-nav { flex-direction:column; gap:.8rem }
-  .device-grid { grid-template-columns:repeat(3,1fr); gap:.6rem }
+  .device-grid { grid-template-columns:repeat(4,1fr); gap:.4rem }
   .gate-card { padding:2rem 1.5rem }
   .offering-card { padding:1.8rem 1.3rem }
   .whatsapp-fab.left { left:10px; bottom:10px }
@@ -563,7 +563,7 @@ footer p { color:var(--text2); font-size:.8rem }
   .gallery-grid { grid-template-columns:repeat(2,1fr) }
   .about-stats { grid-template-columns:1fr }
   .code-block-wrap pre { font-size:.78rem; padding:1rem .8rem }
-  .device-grid { grid-template-columns:repeat(3,1fr) }
+  .device-grid { grid-template-columns:repeat(2,1fr) }
   .device-opt { padding:1rem .5rem }
   .device-opt .icon { font-size:1.5rem }
 }
