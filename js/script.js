@@ -187,18 +187,16 @@ function highlightPython(code) {
 }
 
 function initCodeBlocks() {
-  document.querySelectorAll('pre').forEach(pre => {
-    if (pre.closest('.code-block-wrap')) return
-    const wrap = document.createElement('div')
-    wrap.className = 'code-block-wrap'
-    pre.parentNode.insertBefore(wrap, pre)
-    wrap.appendChild(pre)
-    const code = pre.innerHTML
+  document.querySelectorAll('pre:not([data-highlighted])').forEach(pre => {
+    const code = pre.textContent
     pre.innerHTML = highlightPython(code)
-  })
-  document.querySelectorAll('.code-block-wrap pre').forEach(pre => {
-    const code = pre.innerHTML
-    if (!code.includes('<span')) pre.innerHTML = highlightPython(code)
+    pre.dataset.highlighted = 'true'
+    if (!pre.closest('.code-block-wrap')) {
+      const wrap = document.createElement('div')
+      wrap.className = 'code-block-wrap'
+      pre.parentNode.insertBefore(wrap, pre)
+      wrap.appendChild(pre)
+    }
   })
 }
 
