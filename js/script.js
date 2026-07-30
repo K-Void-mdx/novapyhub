@@ -109,14 +109,28 @@ function initPasswordGate() {
 
 function showDeviceModal() {
   const m = document.getElementById('deviceModal')
-  if (!m || ls.get('device')) return
+  if (!m) return
+  if (ls.get('device')) { showDeviceSwitcher(); return }
   m.classList.add('active')
 }
+
+function showDeviceSwitcher() {
+  const m = document.getElementById('deviceModal')
+  if (!m) return
+  m.classList.add('active')
+}
+
+window.showDeviceSwitcher = showDeviceSwitcher
 
 function selectDevice(type) {
   ls.set('device', type)
   document.getElementById('deviceModal').classList.remove('active')
+  initDeviceTips()
+  const tips = document.getElementById('deviceTips')
+  if (tips) tips.style.display = 'block'
 }
+
+window.selectDevice = selectDevice
 
 function getDeviceType() { return ls.get('device', 'pc') }
 

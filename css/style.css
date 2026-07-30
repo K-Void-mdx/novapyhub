@@ -414,26 +414,29 @@ footer p { color:var(--text2); font-size:.8rem }
 }
 .light .code-block-wrap pre { color:#1a1a1a }
 
-/* Syntax colors — Acode-inspired vibrant */
-.light .code-block-wrap pre .kw { color:#8250df; font-weight:600 }
-.light .code-block-wrap pre .str { color:#0a7b3c }
-.light .code-block-wrap pre .cm { color:#8b949e; font-style:italic }
-.light .code-block-wrap pre .num { color:#cf222e }
-.light .code-block-wrap pre .dec { color:#6639ba }
-.light .code-block-wrap pre .fn { color:#0550ae }
-.light .code-block-wrap pre .bu { color:#cf222e }
-.light .code-block-wrap pre .op { color:#cf222e }
-.light .code-block-wrap pre .sep { color:#57606a }
+/* Syntax colors — Acode-inspired — !important to override any inheritance */
+.light .code-block-wrap pre .kw { color:#8250df !important; font-weight:600 !important }
+.light .code-block-wrap pre .str { color:#0a7b3c !important }
+.light .code-block-wrap pre .cm { color:#8b949e !important; font-style:italic !important }
+.light .code-block-wrap pre .num { color:#cf222e !important }
+.light .code-block-wrap pre .dec { color:#6639ba !important }
+.light .code-block-wrap pre .fn { color:#0550ae !important }
+.light .code-block-wrap pre .bu { color:#cf222e !important }
+.light .code-block-wrap pre .op { color:#cf222e !important }
+.light .code-block-wrap pre .sep { color:#57606a !important }
 
-.code-block-wrap pre .kw { color:#c678dd; font-weight:600 }
-.code-block-wrap pre .str { color:#98c379 }
-.code-block-wrap pre .cm { color:#5c6370; font-style:italic }
-.code-block-wrap pre .num { color:#d19a66 }
-.code-block-wrap pre .dec { color:#61afef }
-.code-block-wrap pre .fn { color:#61afef }
-.code-block-wrap pre .bu { color:#e5c07b }
-.code-block-wrap pre .op { color:#56b6c2 }
-.code-block-wrap pre .sep { color:#3e4451 }
+.code-block-wrap pre .kw { color:#c678dd !important; font-weight:600 !important }
+.code-block-wrap pre .str { color:#98c379 !important }
+.code-block-wrap pre .cm { color:#5c6370 !important; font-style:italic !important }
+.code-block-wrap pre .num { color:#d19a66 !important }
+.code-block-wrap pre .dec { color:#61afef !important }
+.code-block-wrap pre .fn { color:#61afef !important }
+.code-block-wrap pre .bu { color:#e5c07b !important }
+.code-block-wrap pre .op { color:#56b6c2 !important }
+.code-block-wrap pre .sep { color:#3e4451 !important }
+
+/* Force code block base color to not interfere */
+.code-block-wrap pre { color:#abb2bf !important }
 
 .copy-btn {
   position:absolute; top:8px; right:8px;
