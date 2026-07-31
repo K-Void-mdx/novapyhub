@@ -13,22 +13,22 @@
         <h1>Lesson 7: Advanced Testing and CI/CD</h1>
         <p>Integration testing, property-based testing, and continuous integration.</p>
         <h2>Property-Based Testing with Hypothesis</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> hypothesis <span class="kw">import</span> given<span class="sep">,</span> strategies <span class="kw">as</span> st
+        <pre><code><span class="kw">from</span> hypothesis <span class="kw">import</span> given<span class="sep">,</span> strategies <span class="kw">as</span> st
 
 <span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
 <span class="dec">
 @given</span><span class="sep">(</span>st.integers<span class="sep">(</span><span class="sep">)</span><span class="sep">,</span> st.integers<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
 <span class="kw">def</span> test_add_commutative<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
-    <span class="kw">assert</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span> <span class="op">==</span> add<span class="sep">(</span>b<span class="sep">,</span> a<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">assert</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span> <span class="op">==</span> add<span class="sep">(</span>b<span class="sep">,</span> a<span class="sep">)</span></code></pre>
         <h2>Integration Tests</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Test database interaction</span>
+        <pre><code><span class="cm"># Test database interaction</span>
 <span class="kw">def</span> test_create_user<span class="sep">(</span>client<span class="sep">)</span><span class="sep">:</span>
     response <span class="op">=</span> client.post<span class="sep">(</span><span class="str">"/users"</span><span class="sep">,</span> json<span class="op">=</span><span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">}</span><span class="sep">)</span>
     <span class="kw">assert</span> response.status_code <span class="op">==</span> <span class="num">201</span>
-    <span class="kw">assert</span> response.json<span class="sep">(</span><span class="sep">)</span><span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span> <span class="op">==</span> <span class="str">"Alice"</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">assert</span> response.json<span class="sep">(</span><span class="sep">)</span><span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span> <span class="op">==</span> <span class="str">"Alice"</span></code></pre>
         <h2>GitHub Actions CI</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># .github/workflows/test.yml</span>
+        <pre><code><span class="cm"># .github/workflows/test.yml</span>
 name<span class="sep">:</span> Test
 on<span class="sep">:</span> <span class="sep">[</span>push<span class="sep">]</span>
 jobs<span class="sep">:</span>
@@ -40,7 +40,7 @@ jobs<span class="sep">:</span>
         <span class="kw">with</span><span class="sep">:</span>
           python<span class="op">-</span>version<span class="sep">:</span> <span class="str">"3.12"</span>
       <span class="op">-</span> run<span class="sep">:</span> pip install pytest
-      <span class="op">-</span> run<span class="sep">:</span> pytest tests<span class="op">/&lt;/</span>code<span class="op">&gt;</span></pre>
+      <span class="op">-</span> run<span class="sep">:</span> pytest tests<span class="op">/</span></code></pre>
         <div class="lesson-nav"><a href="06-database-design.html" class="btn btn-secondary">← Previous</a><a href="08-packaging-deployment.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

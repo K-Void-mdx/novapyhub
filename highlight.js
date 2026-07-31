@@ -62,11 +62,20 @@ for (const level of levels) {
 
     html = html.replace(
       /(<pre[^>]*>)([\s\S]*?)(<\/pre>)/g,
-      (match, open, code, close) => {
-        if (code.includes('<span')) return match
-        const decoded = decodeEntities(code)
+      (match, preOpen, inner, preClose) => {
+        if (inner.includes('<span')) return match
+        let codeContent, wrapper
+        const m = inner.match(/^\s*<code>([\s\S]*)<\/code>\s*$/)
+        if (m) {
+          codeContent = m[1]
+          wrapper = '<code>'
+        } else {
+          codeContent = inner
+          wrapper = ''
+        }
+        const decoded = decodeEntities(codeContent)
         const highlighted = highlightPython(decoded)
-        return open + highlighted + close
+        return preOpen + wrapper + highlighted + (wrapper ? '</code>' : '') + preClose
       }
     )
 

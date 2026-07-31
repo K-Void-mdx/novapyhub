@@ -27,7 +27,7 @@
         <p>Python makes file operations simple. The built-in <code>open()</code> function is your gateway to file I/O.</p>
 
         <h2>Opening Files</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Different modes:</span>
+        <pre><code><span class="cm"># Different modes:</span>
 <span class="cm"># "r" — read (default)</span>
 <span class="cm"># "w" — write (overwrites!)</span>
 <span class="cm"># "a" — append</span>
@@ -36,19 +36,19 @@
 
 file <span class="op">=</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span>
 content <span class="op">=</span> file.read<span class="sep">(</span><span class="sep">)</span>
-file.close<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+file.close<span class="sep">(</span><span class="sep">)</span></code></pre>
 
         <h2>The with Statement</h2>
         <p>Always use <code>with</code> to automatically close files:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Read entire file</span>
+        <pre><code><span class="cm"># Read entire file</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> file<span class="sep">:</span>
     content <span class="op">=</span> file.read<span class="sep">(</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span>content<span class="sep">)</span>
 
-<span class="cm"># File is automatically closed when block exits&lt;/code&gt;</span></pre>
+<span class="cm"># File is automatically closed when block exits</span></code></pre>
 
         <h2>Reading Methods</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># read all</span>
+        <pre><code><span class="cm"># read all</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
     content <span class="op">=</span> f.read<span class="sep">(</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span>content<span class="sep">)</span>
@@ -65,10 +65,10 @@ file.close<span class="sep">(</span><span class="sep">)</span><span class="op">&
 
 <span class="cm"># read specific number of chars</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
-    chunk <span class="op">=</span> f.read<span class="sep">(</span><span class="num">100</span><span class="sep">)</span>  <span class="cm"># Read 100 characters&lt;/code&gt;</span></pre>
+    chunk <span class="op">=</span> f.read<span class="sep">(</span><span class="num">100</span><span class="sep">)</span>  <span class="cm"># Read 100 characters</span></code></pre>
 
         <h2>Writing to Files</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Write (overwrites if file exists)</span>
+        <pre><code><span class="cm"># Write (overwrites if file exists)</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
     f.write<span class="sep">(</span><span class="str">"Hello, World!\n"</span><span class="sep">)</span>
     f.write<span class="sep">(</span><span class="str">"This is a new line.\n"</span><span class="sep">)</span>
@@ -80,12 +80,12 @@ file.close<span class="sep">(</span><span class="sep">)</span><span class="op">&
 <span class="cm"># Write multiple lines</span>
 lines <span class="op">=</span> <span class="sep">[</span><span class="str">"Line 1\n"</span><span class="sep">,</span> <span class="str">"Line 2\n"</span><span class="sep">,</span> <span class="str">"Line 3\n"</span><span class="sep">]</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
-    f.writelines<span class="sep">(</span>lines<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    f.writelines<span class="sep">(</span>lines<span class="sep">)</span></code></pre>
 
         <h2>Working with Different File Formats</h2>
 
         <h3>CSV Files</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> csv
+        <pre><code><span class="kw">import</span> csv
 
 <span class="cm"># Reading CSV</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"data.csv"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
@@ -98,10 +98,10 @@ lines <span class="op">=</span> <span class="sep">[</span><span class="str">"Lin
     writer <span class="op">=</span> csv.writer<span class="sep">(</span>f<span class="sep">)</span>
     writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Name"</span><span class="sep">,</span> <span class="str">"Age"</span><span class="sep">,</span> <span class="str">"City"</span><span class="sep">]</span><span class="sep">)</span>
     writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"NYC"</span><span class="sep">]</span><span class="sep">)</span>
-    writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="num">30</span><span class="sep">,</span> <span class="str">"LA"</span><span class="sep">]</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="num">30</span><span class="sep">,</span> <span class="str">"LA"</span><span class="sep">]</span><span class="sep">)</span></code></pre>
 
         <h3>JSON Files</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json
+        <pre><code><span class="kw">import</span> json
 
 <span class="cm"># Reading JSON</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"data.json"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
@@ -115,10 +115,10 @@ data <span class="op">=</span> <span class="sep">{</span>
     <span class="str">"hobbies"</span><span class="sep">:</span> <span class="sep">[</span><span class="str">"reading"</span><span class="sep">,</span> <span class="str">"coding"</span><span class="sep">]</span>
 <span class="sep">}</span>
 <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.json"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
-    json.dump<span class="sep">(</span>data<span class="sep">,</span> f<span class="sep">,</span> indent<span class="op">=</span><span class="num">2</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    json.dump<span class="sep">(</span>data<span class="sep">,</span> f<span class="sep">,</span> indent<span class="op">=</span><span class="num">2</span><span class="sep">)</span></code></pre>
 
         <h2>Checking if Files Exist</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
+        <pre><code><span class="kw">import</span> os
 
 <span class="kw">if</span> os.path.exists<span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"File exists!"</span><span class="sep">)</span>
@@ -131,10 +131,10 @@ data <span class="op">=</span> <span class="sep">{</span>
 
 <span class="cm"># Get file size</span>
 size <span class="op">=</span> os.path.getsize<span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>f<span class="str">"File size: {size} bytes"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"File size: {size} bytes"</span><span class="sep">)</span></code></pre>
 
         <h2>Working with File Paths</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
+        <pre><code><span class="kw">import</span> os
 
 <span class="cm"># Join paths safely</span>
 path <span class="op">=</span> os.path.join<span class="sep">(</span><span class="str">"folder"</span><span class="sep">,</span> <span class="str">"subfolder"</span><span class="sep">,</span> <span class="str">"file.txt"</span><span class="sep">)</span>
@@ -150,7 +150,7 @@ file_name <span class="op">=</span> os.path.basename<span class="sep">(</span><s
 
 <span class="cm"># Split extension</span>
 name<span class="sep">,</span> ext <span class="op">=</span> os.path.splitext<span class="sep">(</span><span class="str">"image.jpg"</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Name: {name}, Extension: {ext}"</span><span class="sep">)</span>  <span class="cm"># Name: image, Extension: .jpg&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Name: {name}, Extension: {ext}"</span><span class="sep">)</span>  <span class="cm"># Name: image, Extension: .jpg</span></code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

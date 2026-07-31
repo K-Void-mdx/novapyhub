@@ -25,22 +25,22 @@
 
         <h2>What is a List?</h2>
         <p>A list is an ordered, mutable collection of items. Lists can hold items of any type, and you can change them after creation.</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating lists</span>
+        <pre><code><span class="cm"># Creating lists</span>
 numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span>
 mixed <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="str">"hello"</span><span class="sep">,</span> <span class="num">3.14</span><span class="sep">,</span> <span class="kw">True</span><span class="sep">]</span>
 empty <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
-nested <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">]</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+nested <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">]</span></code></pre>
 
         <h2>Accessing List Items</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">,</span> <span class="str">"grape"</span><span class="sep">]</span>
+        <pre><code>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">,</span> <span class="str">"grape"</span><span class="sep">]</span>
 
 <span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="num">0</span><span class="sep">]</span><span class="sep">)</span>    <span class="cm"># "apple"</span>
 <span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span>   <span class="cm"># "grape" (last item)</span>
 <span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="num">1</span><span class="sep">:</span><span class="num">3</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># ["banana", "orange"] (slicing)</span>
-<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># reversed list&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># reversed list</span></code></pre>
 
         <h2>Modifying Lists</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
+        <pre><code>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
 
 <span class="cm"># Change an item</span>
 fruits<span class="sep">[</span><span class="num">1</span><span class="sep">]</span> <span class="op">=</span> <span class="str">"blueberry"</span>
@@ -56,10 +56,10 @@ fruits.remove<span class="sep">(</span><span class="str">"apple"</span><span cla
 last <span class="op">=</span> fruits.pop<span class="sep">(</span><span class="sep">)</span>          <span class="cm"># Remove and return last</span>
 first <span class="op">=</span> fruits.pop<span class="sep">(</span><span class="num">0</span><span class="sep">)</span>        <span class="cm"># Remove and return first</span>
 <span class="kw">del</span> fruits<span class="sep">[</span><span class="num">0</span><span class="sep">]</span>               <span class="cm"># Delete by index</span>
-fruits.clear<span class="sep">(</span><span class="sep">)</span>               <span class="cm"># Remove all items&lt;/code&gt;</span></pre>
+fruits.clear<span class="sep">(</span><span class="sep">)</span>               <span class="cm"># Remove all items</span></code></pre>
 
         <h2>List Methods</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>numbers <span class="op">=</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">9</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span>
+        <pre><code>numbers <span class="op">=</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">9</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span>
 
 numbers.sort<span class="sep">(</span><span class="sep">)</span>           <span class="cm"># Sort in place</span>
 <span class="bu">print</span><span class="sep">(</span>numbers<span class="sep">)</span>           <span class="cm"># [1, 1, 2, 3, 4, 5, 6, 9]</span>
@@ -72,10 +72,10 @@ numbers.reverse<span class="sep">(</span><span class="sep">)</span>        <span
 <span class="bu">print</span><span class="sep">(</span><span class="bu">min</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 1</span>
 <span class="bu">print</span><span class="sep">(</span><span class="bu">sum</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 31</span>
 <span class="bu">print</span><span class="sep">(</span>numbers.count<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 2 (how many times 1 appears)</span>
-<span class="bu">print</span><span class="sep">(</span><span class="num">5</span> <span class="kw">in</span> numbers<span class="sep">)</span>      <span class="cm"># True (check if exists)&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="num">5</span> <span class="kw">in</span> numbers<span class="sep">)</span>      <span class="cm"># True (check if exists)</span></code></pre>
 
         <h2>List Operations</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Concatenation</span>
+        <pre><code><span class="cm"># Concatenation</span>
 a <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">]</span>
 b <span class="op">=</span> <span class="sep">[</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span>
 c <span class="op">=</span> a <span class="op">+</span> b
@@ -87,11 +87,11 @@ d <span class="op">=</span> <span class="sep">[</span><span class="num">0</span>
 
 <span class="cm"># Unpacking</span>
 first<span class="sep">,</span> second<span class="sep">,</span> third <span class="op">=</span> <span class="sep">[</span><span class="num">10</span><span class="sep">,</span> <span class="num">20</span><span class="sep">,</span> <span class="num">30</span><span class="sep">]</span>
-<span class="bu">print</span><span class="sep">(</span>first<span class="sep">,</span> second<span class="sep">,</span> third<span class="sep">)</span>  <span class="cm"># 10 20 30&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>first<span class="sep">,</span> second<span class="sep">,</span> third<span class="sep">)</span>  <span class="cm"># 10 20 30</span></code></pre>
 
         <h2>Tuples</h2>
         <p>Tuples are like lists but <strong>immutable</strong> — you cannot change them after creation. Use parentheses <code>()</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating tuples</span>
+        <pre><code><span class="cm"># Creating tuples</span>
 point <span class="op">=</span> <span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span>
 colors <span class="op">=</span> <span class="sep">(</span><span class="str">"red"</span><span class="sep">,</span> <span class="str">"green"</span><span class="sep">,</span> <span class="str">"blue"</span><span class="sep">)</span>
 single <span class="op">=</span> <span class="sep">(</span><span class="num">1</span><span class="sep">,</span><span class="sep">)</span>  <span class="cm"># Comma needed for single-item tuple</span>
@@ -110,7 +110,7 @@ x<span class="sep">,</span> y <span class="op">=</span> point
 <span class="cm"># Why use tuples?</span>
 <span class="cm"># - Faster than lists</span>
 <span class="cm"># - Used as dictionary keys</span>
-<span class="cm"># - Data that shouldn't change&lt;/code&gt;</span></pre>
+<span class="cm"># - Data that shouldn't change</span></code></pre>
 
         <h2>When to Use Lists vs Tuples</h2>
         <ul>
@@ -119,9 +119,9 @@ x<span class="sep">,</span> y <span class="op">=</span> point
         </ul>
 
         <h2>Lists with Different Types</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="num">3.8</span><span class="sep">,</span> <span class="kw">True</span><span class="sep">]</span>
+        <pre><code>student <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="num">3.8</span><span class="sep">,</span> <span class="kw">True</span><span class="sep">]</span>
 name<span class="sep">,</span> age<span class="sep">,</span> gpa<span class="sep">,</span> is_enrolled <span class="op">=</span> student
-<span class="bu">print</span><span class="sep">(</span>f<span class="str">"{name} is {age}, GPA: {gpa}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"{name} is {age}, GPA: {gpa}"</span><span class="sep">)</span></code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

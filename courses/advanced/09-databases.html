@@ -13,7 +13,7 @@
         <h1>Lesson 9: Working with Databases</h1>
         <p>Use SQLite and SQLAlchemy to persist data.</p>
         <h2>SQLite</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> sqlite3
+        <pre><code><span class="kw">import</span> sqlite3
 
 conn <span class="op">=</span> sqlite3.connect<span class="sep">(</span><span class="str">"example.db"</span><span class="sep">)</span>
 cursor <span class="op">=</span> conn.cursor<span class="sep">(</span><span class="sep">)</span>
@@ -24,9 +24,9 @@ cursor.execute<span class="sep">(</span><span class="str">"SELECT * FROM users"<
 <span class="bu">print</span><span class="sep">(</span>cursor.fetchall<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># [(1, 'Alice', 25)]</span>
 
 conn.commit<span class="sep">(</span><span class="sep">)</span>
-conn.close<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+conn.close<span class="sep">(</span><span class="sep">)</span></code></pre>
         <h2>SQLAlchemy ORM</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> sqlalchemy <span class="kw">import</span> create_engine<span class="sep">,</span> Column<span class="sep">,</span> Integer<span class="sep">,</span> String
+        <pre><code><span class="kw">from</span> sqlalchemy <span class="kw">import</span> create_engine<span class="sep">,</span> Column<span class="sep">,</span> Integer<span class="sep">,</span> String
 <span class="kw">from</span> sqlalchemy.orm <span class="kw">import</span> declarative_base<span class="sep">,</span> Session
 
 Base <span class="op">=</span> declarative_base<span class="sep">(</span><span class="sep">)</span>
@@ -46,7 +46,7 @@ Base.metadata.create_all<span class="sep">(</span>engine<span class="sep">)</spa
     session.commit<span class="sep">(</span><span class="sep">)</span>
     users <span class="op">=</span> session.query<span class="sep">(</span>User<span class="sep">)</span>.all<span class="sep">(</span><span class="sep">)</span>
     <span class="kw">for</span> u <span class="kw">in</span> users<span class="sep">:</span>
-        <span class="bu">print</span><span class="sep">(</span>u.name<span class="sep">,</span> u.age<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+        <span class="bu">print</span><span class="sep">(</span>u.name<span class="sep">,</span> u.age<span class="sep">)</span></code></pre>
         <div class="lesson-nav"><a href="08-algorithms.html" class="btn btn-secondary">← Previous</a><a href="10-web-basics.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

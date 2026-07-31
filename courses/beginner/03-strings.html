@@ -25,51 +25,51 @@
 
         <h2>Creating Strings</h2>
         <p>Strings are sequences of characters. You can create them with single or double quotes:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>name <span class="op">=</span> <span class="str">'Alice'</span>
+        <pre><code>name <span class="op">=</span> <span class="str">'Alice'</span>
 message <span class="op">=</span> <span class="str">"Hello, World!"</span>
 multiline <span class="op">=</span> <span class="str">""</span><span class="str">"This is a
-multi-line string."</span><span class="str">""</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+multi-line string."</span><span class="str">""</span></code></pre>
 
         <h2>String Concatenation</h2>
         <p>Combine strings with <code>+</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>first <span class="op">=</span> <span class="str">"John"</span>
+        <pre><code>first <span class="op">=</span> <span class="str">"John"</span>
 last <span class="op">=</span> <span class="str">"Doe"</span>
 full <span class="op">=</span> first <span class="op">+</span> <span class="str">" "</span> <span class="op">+</span> last
-<span class="bu">print</span><span class="sep">(</span>full<span class="sep">)</span>  <span class="cm"># John Doe&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>full<span class="sep">)</span>  <span class="cm"># John Doe</span></code></pre>
 
         <h2>String Repetition</h2>
         <p>Repeat strings with <code>*</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>line <span class="op">=</span> <span class="str">"-"</span> <span class="op">*</span> <span class="num">50</span>
+        <pre><code>line <span class="op">=</span> <span class="str">"-"</span> <span class="op">*</span> <span class="num">50</span>
 <span class="bu">print</span><span class="sep">(</span>line<span class="sep">)</span>  <span class="cm"># Prints 50 dashes</span>
 
 echo <span class="op">=</span> <span class="str">"Hello! "</span> <span class="op">*</span> <span class="num">3</span>
-<span class="bu">print</span><span class="sep">(</span>echo<span class="sep">)</span>  <span class="cm"># Hello! Hello! Hello!&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>echo<span class="sep">)</span>  <span class="cm"># Hello! Hello! Hello!</span></code></pre>
 
         <h2>String Indexing</h2>
         <p>Each character in a string has an index (position), starting from 0:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>text <span class="op">=</span> <span class="str">"Python"</span>
+        <pre><code>text <span class="op">=</span> <span class="str">"Python"</span>
 <span class="cm">#      P y t h o n</span>
 <span class="cm">#      0 1 2 3 4 5</span>
 
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="num">0</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># P</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="num">3</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># h</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># n (last character)</span>
-<span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="op">-</span><span class="num">2</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># o (second from last)&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="op">-</span><span class="num">2</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># o (second from last)</span></code></pre>
 
         <h2>String Slicing</h2>
         <p>Extract parts of a string using <code>[start:end:step]</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>text <span class="op">=</span> <span class="str">"Python Programming"</span>
+        <pre><code>text <span class="op">=</span> <span class="str">"Python Programming"</span>
 
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="num">0</span><span class="sep">:</span><span class="num">6</span><span class="sep">]</span><span class="sep">)</span>      <span class="cm"># "Python" (start to index 5)</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="num">7</span><span class="sep">:</span><span class="num">18</span><span class="sep">]</span><span class="sep">)</span>     <span class="cm"># "Programming"</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="sep">:</span><span class="num">6</span><span class="sep">]</span><span class="sep">)</span>       <span class="cm"># "Python" (from start)</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="num">7</span><span class="sep">:</span><span class="sep">]</span><span class="sep">)</span>       <span class="cm"># "Programming" (to end)</span>
 <span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="num">2</span><span class="sep">]</span><span class="sep">)</span>      <span class="cm"># "Pto rgamn" (every 2nd char)</span>
-<span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span>     <span class="cm"># "gnimmargorP nohtyP" (reversed!)&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>text<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span>     <span class="cm"># "gnimmargorP nohtyP" (reversed!)</span></code></pre>
 
         <h2>String Methods</h2>
         <p>Python provides many built-in string methods:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>text <span class="op">=</span> <span class="str">"  Hello, Python World!  "</span>
+        <pre><code>text <span class="op">=</span> <span class="str">"  Hello, Python World!  "</span>
 
 <span class="bu">print</span><span class="sep">(</span>text.lower<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>          <span class="cm"># "  hello, python world!  "</span>
 <span class="bu">print</span><span class="sep">(</span>text.upper<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>          <span class="cm"># "  HELLO, PYTHON WORLD!  "</span>
@@ -85,11 +85,11 @@ echo <span class="op">=</span> <span class="str">"Hello! "</span> <span class="o
 <span class="bu">print</span><span class="sep">(</span><span class="str">"Hello"</span>.endswith<span class="sep">(</span><span class="str">"lo"</span><span class="sep">)</span><span class="sep">)</span>    <span class="cm"># True</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"abc123"</span>.isalpha<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># False (has numbers)</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"abc"</span>.isalpha<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>           <span class="cm"># True</span>
-<span class="bu">print</span><span class="sep">(</span><span class="str">"123"</span>.isdigit<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>           <span class="cm"># True&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"123"</span>.isdigit<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>           <span class="cm"># True</span></code></pre>
 
         <h2>String Formatting</h2>
         <p>There are several ways to format strings. F-strings (Python 3.6+) are the best:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>name <span class="op">=</span> <span class="str">"Alice"</span>
+        <pre><code>name <span class="op">=</span> <span class="str">"Alice"</span>
 age <span class="op">=</span> <span class="num">25</span>
 score <span class="op">=</span> <span class="num">92.5</span>
 
@@ -101,20 +101,20 @@ score <span class="op">=</span> <span class="num">92.5</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"My name is {} and I am {} years old."</span>.format<span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">)</span><span class="sep">)</span>
 
 <span class="cm"># % formatting (older style)</span>
-<span class="bu">print</span><span class="sep">(</span><span class="str">"My name is %s and I am %d years old."</span> <span class="op">%</span> <span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"My name is %s and I am %d years old."</span> <span class="op">%</span> <span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">)</span><span class="sep">)</span></code></pre>
 
         <h2>Escape Sequences</h2>
         <p>Special characters in strings use backslash <code>\</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="bu">print</span><span class="sep">(</span><span class="str">"Line 1\nLine 2"</span><span class="sep">)</span>     <span class="cm"># New line</span>
+        <pre><code><span class="bu">print</span><span class="sep">(</span><span class="str">"Line 1\nLine 2"</span><span class="sep">)</span>     <span class="cm"># New line</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"Tab\tseparated"</span><span class="sep">)</span>     <span class="cm"># Tab</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"She said \"Hello\""</span><span class="sep">)</span> <span class="cm"># Double quote inside string</span>
 <span class="bu">print</span><span class="sep">(</span><span class="str">"Backslash: \\"</span><span class="sep">)</span>      <span class="cm"># Actual backslash</span>
-<span class="bu">print</span><span class="sep">(</span>r<span class="str">"Raw string \n"</span><span class="sep">)</span>     <span class="cm"># Raw string (ignores escape)&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>r<span class="str">"Raw string \n"</span><span class="sep">)</span>     <span class="cm"># Raw string (ignores escape)</span></code></pre>
 
         <h2>len() Function</h2>
         <p>Get the length of a string with <code>len()</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>text <span class="op">=</span> <span class="str">"Hello"</span>
-<span class="bu">print</span><span class="sep">(</span><span class="bu">len</span><span class="sep">(</span>text<span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 5&lt;/code&gt;</span></pre>
+        <pre><code>text <span class="op">=</span> <span class="str">"Hello"</span>
+<span class="bu">print</span><span class="sep">(</span><span class="bu">len</span><span class="sep">(</span>text<span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 5</span></code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

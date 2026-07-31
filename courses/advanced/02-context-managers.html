@@ -13,7 +13,7 @@
         <h1>Lesson 2: Context Managers</h1>
         <p>Context managers let you set up and tear down resources automatically using the <code>with</code> statement.</p>
         <h2>Class-based Context Manager</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> FileManager<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> FileManager<span class="sep">:</span>
     <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> filename<span class="sep">,</span> mode<span class="sep">)</span><span class="sep">:</span>
         self.filename <span class="op">=</span> filename
         self.mode <span class="op">=</span> mode
@@ -29,9 +29,9 @@
 
 <span class="kw">with</span> FileManager<span class="sep">(</span><span class="str">"test.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
     f.write<span class="sep">(</span><span class="str">"Hello, World!"</span><span class="sep">)</span>
-<span class="cm"># File automatically closed&lt;/code&gt;</span></pre>
+<span class="cm"># File automatically closed</span></code></pre>
         <h2>contextlib — @contextmanager</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> contextlib <span class="kw">import</span> contextmanager
+        <pre><code><span class="kw">from</span> contextlib <span class="kw">import</span> contextmanager
 <span class="dec">
 @contextmanager</span>
 <span class="kw">def</span> open_file<span class="sep">(</span>filename<span class="sep">,</span> mode<span class="sep">)</span><span class="sep">:</span>
@@ -42,9 +42,9 @@
         f.close<span class="sep">(</span><span class="sep">)</span>
 
 <span class="kw">with</span> open_file<span class="sep">(</span><span class="str">"test.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span>f.read<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span>f.read<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <h2>Practical Examples</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>@contextmanager
+        <pre><code><span class="dec">@contextmanager</span>
 <span class="kw">def</span> timer<span class="sep">(</span>message<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">import</span> time
     start <span class="op">=</span> time.time<span class="sep">(</span><span class="sep">)</span>
@@ -64,7 +64,7 @@
         <span class="kw">yield</span>
     <span class="kw">finally</span><span class="sep">:</span>
         sys.stdout.close<span class="sep">(</span><span class="sep">)</span>
-        sys.stdout <span class="op">=</span> old<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+        sys.stdout <span class="op">=</span> old</code></pre>
         <div class="lesson-nav"><a href="01-decorators.html" class="btn btn-secondary">← Previous</a><a href="03-regular-expressions.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

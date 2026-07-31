@@ -27,33 +27,33 @@
         <p>A function is a reusable block of code that performs a specific task. Functions help you organize code, avoid repetition, and make your programs easier to read and maintain.</p>
 
         <h2>Defining and Calling Functions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Define a function</span>
+        <pre><code><span class="cm"># Define a function</span>
 <span class="kw">def</span> greet<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"Hello!"</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"Welcome to Nova Py-Hub!"</span><span class="sep">)</span>
 
 <span class="cm"># Call the function</span>
 greet<span class="sep">(</span><span class="sep">)</span>
-greet<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+greet<span class="sep">(</span><span class="sep">)</span></code></pre>
 
         <h2>Function Parameters</h2>
         <p>Pass data into functions using parameters:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Hello, {name}!"</span><span class="sep">)</span>
 
 greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>  <span class="cm"># Hello, Alice!</span>
-greet<span class="sep">(</span><span class="str">"Bob"</span><span class="sep">)</span>    <span class="cm"># Hello, Bob!&lt;/code&gt;</span></pre>
+greet<span class="sep">(</span><span class="str">"Bob"</span><span class="sep">)</span>    <span class="cm"># Hello, Bob!</span></code></pre>
 
         <h2>Multiple Parameters</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> introduce<span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">,</span> city<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> introduce<span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">,</span> city<span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"I'm {name}, {age} years old, from {city}."</span><span class="sep">)</span>
 
 introduce<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"New York"</span><span class="sep">)</span>
-introduce<span class="sep">(</span>city<span class="op">=</span><span class="str">"London"</span><span class="sep">,</span> name<span class="op">=</span><span class="str">"Bob"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">30</span><span class="sep">)</span>  <span class="cm"># Keyword arguments&lt;/code&gt;</span></pre>
+introduce<span class="sep">(</span>city<span class="op">=</span><span class="str">"London"</span><span class="sep">,</span> name<span class="op">=</span><span class="str">"Bob"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">30</span><span class="sep">)</span>  <span class="cm"># Keyword arguments</span></code></pre>
 
         <h2>Return Values</h2>
         <p>Functions can return results using <code>return</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
 
 result <span class="op">=</span> add<span class="sep">(</span><span class="num">5</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span>
@@ -64,18 +64,18 @@ result <span class="op">=</span> add<span class="sep">(</span><span class="num">
     <span class="kw">return</span> <span class="bu">min</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">,</span> <span class="bu">max</span><span class="sep">(</span>numbers<span class="sep">)</span>
 
 low<span class="sep">,</span> high <span class="op">=</span> get_min_max<span class="sep">(</span><span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Low: {low}, High: {high}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Low: {low}, High: {high}"</span><span class="sep">)</span></code></pre>
 
         <h2>Default Parameters</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">,</span> greeting<span class="op">=</span><span class="str">"Hello"</span><span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">,</span> greeting<span class="op">=</span><span class="str">"Hello"</span><span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{greeting}, {name}!"</span><span class="sep">)</span>
 
 greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>          <span class="cm"># Hello, Alice!</span>
 greet<span class="sep">(</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Hi"</span><span class="sep">)</span>      <span class="cm"># Hi, Bob!</span>
-greet<span class="sep">(</span><span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"Hey"</span><span class="sep">)</span>  <span class="cm"># Hey, Charlie!&lt;/code&gt;</span></pre>
+greet<span class="sep">(</span><span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"Hey"</span><span class="sep">)</span>  <span class="cm"># Hey, Charlie!</span></code></pre>
 
         <h2>Scope — Local vs Global Variables</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Global variable</span>
+        <pre><code><span class="cm"># Global variable</span>
 message <span class="op">=</span> <span class="str">"Hello"</span>
 
 <span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">)</span><span class="sep">:</span>
@@ -85,19 +85,19 @@ message <span class="op">=</span> <span class="str">"Hello"</span>
 
 greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>  <span class="cm"># Hello, Alice!</span>
 <span class="bu">print</span><span class="sep">(</span>message<span class="sep">)</span>  <span class="cm"># Works (global)</span>
-<span class="cm"># print(greeting)  # Error! (local variable)&lt;/code&gt;</span></pre>
+<span class="cm"># print(greeting)  # Error! (local variable)</span></code></pre>
 
         <h2>Docstrings</h2>
         <p>Document what your function does with a docstring:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
     <span class="str">""</span><span class="str">"Calculate BMI given weight (kg) and height (m)."</span><span class="str">""</span>
     <span class="kw">return</span> weight <span class="op">/</span> <span class="sep">(</span>height <span class="op">**</span> <span class="num">2</span><span class="sep">)</span>
 
 <span class="bu">print</span><span class="sep">(</span>calculate_bmi<span class="sep">(</span><span class="num">70</span><span class="sep">,</span> <span class="num">1.75</span><span class="sep">)</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>calculate_bmi.__doc__<span class="sep">)</span>  <span class="cm"># Access the docstring&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>calculate_bmi.__doc__<span class="sep">)</span>  <span class="cm"># Access the docstring</span></code></pre>
 
         <h2>Function Examples</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Check if a number is even</span>
+        <pre><code><span class="cm"># Check if a number is even</span>
 <span class="kw">def</span> is_even<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> n <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>
 
@@ -116,7 +116,7 @@ greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep"
     <span class="kw">return</span> <span class="bu">len</span><span class="sep">(</span>password<span class="sep">)</span> <span class="op">&gt;=</span> <span class="num">8</span>
 
 <span class="bu">print</span><span class="sep">(</span>is_valid_password<span class="sep">(</span><span class="str">"short"</span><span class="sep">)</span><span class="sep">)</span>      <span class="cm"># False</span>
-<span class="bu">print</span><span class="sep">(</span>is_valid_password<span class="sep">(</span><span class="str">"longenough"</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># True&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>is_valid_password<span class="sep">(</span><span class="str">"longenough"</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># True</span></code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

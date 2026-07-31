@@ -27,7 +27,7 @@
             <li>CI/CD pipeline</li>
         </ul>
         <h3>Architecture</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>task_manager<span class="op">/</span>
+        <pre><code>task_manager<span class="op">/</span>
 ├── app<span class="op">/</span>
 │   ├── <span class="bu">__init__</span>.py
 │   ├── main.py          <span class="cm"># FastAPI app</span>
@@ -41,11 +41,11 @@
 │   └── test_models.py
 ├── Dockerfile
 ├── requirements.txt
-└── README.md<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+└── README.md</code></pre>
         <h3>Database Schema</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>User<span class="sep">:</span> id<span class="sep">,</span> username<span class="sep">,</span> email<span class="sep">,</span> hashed_password<span class="sep">,</span> created_at
+        <pre><code>User<span class="sep">:</span> id<span class="sep">,</span> username<span class="sep">,</span> email<span class="sep">,</span> hashed_password<span class="sep">,</span> created_at
 Task<span class="sep">:</span> id<span class="sep">,</span> title<span class="sep">,</span> description<span class="sep">,</span> status<span class="sep">,</span> priority<span class="sep">,</span> user_id <span class="sep">(</span>FK<span class="sep">)</span><span class="sep">,</span> category_id <span class="sep">(</span>FK<span class="sep">)</span><span class="sep">,</span> created_at<span class="sep">,</span> updated_at
-Category<span class="sep">:</span> id<span class="sep">,</span> name<span class="sep">,</span> user_id <span class="sep">(</span>FK<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+Category<span class="sep">:</span> id<span class="sep">,</span> name<span class="sep">,</span> user_id <span class="sep">(</span>FK<span class="sep">)</span></code></pre>
         <p>Your task this lesson is to design the complete system and start implementing models and schemas.</p>
         <div class="lesson-nav"><a href="10-machine-learning.html" class="btn btn-secondary">← Previous</a><a href="12-capstone-build.html" class="btn btn-primary">Next →</a></div>
     </div>

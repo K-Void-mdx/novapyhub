@@ -27,7 +27,7 @@
         <p>Modules are Python files containing functions, classes, and variables that you can reuse. Python's standard library includes hundreds of modules for everything from math to web development.</p>
 
         <h2>Importing Modules</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Import the whole module</span>
+        <pre><code><span class="cm"># Import the whole module</span>
 <span class="kw">import</span> math
 <span class="bu">print</span><span class="sep">(</span>math.pi<span class="sep">)</span>       <span class="cm"># 3.141592653589793</span>
 <span class="bu">print</span><span class="sep">(</span>math.sqrt<span class="sep">(</span><span class="num">16</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># 4.0</span>
@@ -44,12 +44,12 @@
 <span class="bu">print</span><span class="sep">(</span>m.sin<span class="sep">(</span>m.pi<span class="op">/</span><span class="num">2</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 1.0</span>
 
 <span class="cm"># Import everything (not recommended)</span>
-<span class="kw">from</span> math <span class="kw">import</span> <span class="op">*&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="kw">from</span> math <span class="kw">import</span> <span class="op">*</span></code></pre>
 
         <h2>Useful Standard Library Modules</h2>
 
         <h3>random — Random Numbers</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> random
+        <pre><code><span class="kw">import</span> random
 
 <span class="bu">print</span><span class="sep">(</span>random.random<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>       <span class="cm"># Random float 0.0 to 1.0</span>
 <span class="bu">print</span><span class="sep">(</span>random.randint<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">10</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Random integer between 1 and 10</span>
@@ -64,10 +64,10 @@ random.shuffle<span class="sep">(</span>cards<span class="sep">)</span>
 <span class="kw">import</span> string
 chars <span class="op">=</span> string.ascii_letters <span class="op">+</span> string.digits
 password <span class="op">=</span> <span class="str">''</span>.join<span class="sep">(</span>random.choice<span class="sep">(</span>chars<span class="sep">)</span> <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">8</span><span class="sep">)</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>password<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>password<span class="sep">)</span></code></pre>
 
         <h3>datetime — Dates and Times</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> datetime <span class="kw">import</span> datetime<span class="sep">,</span> date<span class="sep">,</span> timedelta
+        <pre><code><span class="kw">from</span> datetime <span class="kw">import</span> datetime<span class="sep">,</span> date<span class="sep">,</span> timedelta
 
 <span class="cm"># Current date and time</span>
 now <span class="op">=</span> datetime.now<span class="sep">(</span><span class="sep">)</span>
@@ -82,10 +82,10 @@ now <span class="op">=</span> datetime.now<span class="sep">(</span><span class=
 <span class="cm"># Date arithmetic</span>
 today <span class="op">=</span> date.today<span class="sep">(</span><span class="sep">)</span>
 tomorrow <span class="op">=</span> today <span class="op">+</span> timedelta<span class="sep">(</span>days<span class="op">=</span><span class="num">1</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>tomorrow<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>tomorrow<span class="sep">)</span></code></pre>
 
         <h3>os and sys — System Operations</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
+        <pre><code><span class="kw">import</span> os
 <span class="kw">import</span> sys
 
 <span class="cm"># Get current directory</span>
@@ -102,10 +102,10 @@ tomorrow <span class="op">=</span> today <span class="op">+</span> timedelta<spa
 <span class="bu">print</span><span class="sep">(</span>sys.platform<span class="sep">)</span>      <span class="cm"># Operating system</span>
 
 <span class="cm"># Command line arguments</span>
-<span class="cm"># print(sys.argv)&lt;/code&gt;</span></pre>
+<span class="cm"># print(sys.argv)</span></code></pre>
 
         <h3>json — Working with JSON</h3>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json
+        <pre><code><span class="kw">import</span> json
 
 <span class="cm"># Convert Python to JSON string</span>
 data <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"city"</span><span class="sep">:</span> <span class="str">"New York"</span><span class="sep">}</span>
@@ -114,21 +114,21 @@ json_string <span class="op">=</span> json.dumps<span class="sep">(</span>data<s
 
 <span class="cm"># Convert JSON string to Python</span>
 parsed <span class="op">=</span> json.loads<span class="sep">(</span>json_string<span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>parsed<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># Alice&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>parsed<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># Alice</span></code></pre>
 
         <h2>Creating Your Own Module</h2>
         <p>Create a file <code>my_utils.py</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># my_utils.py</span>
+        <pre><code><span class="cm"># my_utils.py</span>
 <span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
 
 <span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">-</span> b
 
-PI <span class="op">=</span> <span class="num">3.14159</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+PI <span class="op">=</span> <span class="num">3.14159</span></code></pre>
 
         <p>Then use it in another file:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># main.py</span>
+        <pre><code><span class="cm"># main.py</span>
 <span class="kw">import</span> my_utils
 
 <span class="bu">print</span><span class="sep">(</span>my_utils.add<span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 15</span>
@@ -136,11 +136,11 @@ PI <span class="op">=</span> <span class="num">3.14159</span><span class="op">&l
 
 <span class="cm"># Or</span>
 <span class="kw">from</span> my_utils <span class="kw">import</span> add<span class="sep">,</span> PI
-<span class="bu">print</span><span class="sep">(</span>add<span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>add<span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7</span></code></pre>
 
         <h2>The if __name__ Block</h2>
         <p>This pattern lets a file be both imported as a module AND run as a script:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># calculator.py</span>
+        <pre><code><span class="cm"># calculator.py</span>
 <span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
 
@@ -151,13 +151,13 @@ PI <span class="op">=</span> <span class="num">3.14159</span><span class="op">&l
     <span class="cm"># This only runs when the file is executed directly</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"Testing calculator:"</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"5 + 3 = {add(5, 3)}"</span><span class="sep">)</span>
-    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"10 - 4 = {subtract(10, 4)}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"10 - 4 = {subtract(10, 4)}"</span><span class="sep">)</span></code></pre>
 
         <h2>Installing Third-Party Modules</h2>
         <p>Use <code>pip</code> to install packages from PyPI:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>pip install requests
+        <pre><code>pip install requests
 pip install flask
-pip install numpy pandas matplotlib<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+pip install numpy pandas matplotlib</code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

@@ -13,7 +13,7 @@
         <h1>Lesson 3: Advanced Algorithms</h1>
         <p>Graph algorithms, dynamic programming, greedy algorithms.</p>
         <h2>Graph BFS/DFS</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> collections <span class="kw">import</span> deque
+        <pre><code><span class="kw">from</span> collections <span class="kw">import</span> deque
 
 graph <span class="op">=</span> <span class="sep">{</span>
     <span class="str">'A'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'B'</span><span class="sep">,</span> <span class="str">'C'</span><span class="sep">]</span><span class="sep">,</span>
@@ -44,9 +44,9 @@ graph <span class="op">=</span> <span class="sep">{</span>
     <span class="kw">return</span> visited
 
 <span class="bu">print</span><span class="sep">(</span>bfs<span class="sep">(</span><span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>dfs<span class="sep">(</span><span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>dfs<span class="sep">(</span><span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <h2>Dijkstra's Algorithm</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> heapq
+        <pre><code><span class="kw">import</span> heapq
 
 <span class="kw">def</span> dijkstra<span class="sep">(</span>graph<span class="sep">,</span> start<span class="sep">)</span><span class="sep">:</span>
     distances <span class="op">=</span> <span class="sep">{</span>node<span class="sep">:</span> <span class="bu">float</span><span class="sep">(</span><span class="str">'inf'</span><span class="sep">)</span> <span class="kw">for</span> node <span class="kw">in</span> graph<span class="sep">}</span>
@@ -72,9 +72,9 @@ graph <span class="op">=</span> <span class="sep">{</span>
     <span class="str">'E'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'B'</span><span class="sep">:</span> <span class="num">5</span><span class="sep">,</span> <span class="str">'F'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">}</span><span class="sep">,</span>
     <span class="str">'F'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'C'</span><span class="sep">:</span> <span class="num">3</span><span class="sep">,</span> <span class="str">'E'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">}</span>
 <span class="sep">}</span>
-<span class="bu">print</span><span class="sep">(</span>dijkstra<span class="sep">(</span>graph<span class="sep">,</span> <span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>dijkstra<span class="sep">(</span>graph<span class="sep">,</span> <span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <h2>Dynamic Programming: Knapsack</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> knapsack<span class="sep">(</span>weights<span class="sep">,</span> values<span class="sep">,</span> capacity<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> knapsack<span class="sep">(</span>weights<span class="sep">,</span> values<span class="sep">,</span> capacity<span class="sep">)</span><span class="sep">:</span>
     n <span class="op">=</span> <span class="bu">len</span><span class="sep">(</span>weights<span class="sep">)</span>
     dp <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">0</span><span class="sep">]</span> <span class="op">*</span> <span class="sep">(</span>capacity <span class="op">+</span> <span class="num">1</span><span class="sep">)</span> <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span>n <span class="op">+</span> <span class="num">1</span><span class="sep">)</span><span class="sep">]</span>
     <span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> n <span class="op">+</span> <span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
@@ -85,7 +85,7 @@ graph <span class="op">=</span> <span class="sep">{</span>
                 dp<span class="sep">[</span>i<span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span> <span class="op">=</span> dp<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span>
     <span class="kw">return</span> dp<span class="sep">[</span>n<span class="sep">]</span><span class="sep">[</span>capacity<span class="sep">]</span>
 
-<span class="bu">print</span><span class="sep">(</span>knapsack<span class="sep">(</span><span class="sep">[</span><span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>knapsack<span class="sep">(</span><span class="sep">[</span><span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7</span></code></pre>
         <div class="lesson-nav"><a href="02-solid-principles.html" class="btn btn-secondary">← Previous</a><a href="04-system-design.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

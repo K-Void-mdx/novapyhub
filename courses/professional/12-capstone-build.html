@@ -25,7 +25,7 @@
             <li>Deploy to Render/Railway/Fly.io</li>
         </ol>
         <h2>Starting Code</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># app/main.py</span>
+        <pre><code><span class="cm"># app/main.py</span>
 <span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
 <span class="kw">from</span> fastapi.middleware.cors <span class="kw">import</span> CORSMiddleware
 
@@ -45,7 +45,7 @@ app.add_middleware<span class="sep">(</span>
 <span class="dec">
 @app</span>.get<span class="sep">(</span><span class="str">"/health"</span><span class="sep">)</span>
 <span class="kw">def</span> health<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
-    <span class="kw">return</span> <span class="sep">{</span><span class="str">"status"</span><span class="sep">:</span> <span class="str">"healthy"</span><span class="sep">}</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">return</span> <span class="sep">{</span><span class="str">"status"</span><span class="sep">:</span> <span class="str">"healthy"</span><span class="sep">}</span></code></pre>
         <h2>Deployment Checklist</h2>
         <ul>
             <li>Set environment variables (DATABASE_URL, SECRET_KEY)</li>

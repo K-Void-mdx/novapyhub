@@ -27,7 +27,7 @@
         <p>Exceptions are errors that occur during program execution. Instead of crashing your program, you can catch and handle them gracefully.</p>
 
         <h2>Common Exception Types</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># ZeroDivisionError</span>
+        <pre><code><span class="cm"># ZeroDivisionError</span>
 <span class="bu">print</span><span class="sep">(</span><span class="num">10</span> <span class="op">/</span> <span class="num">0</span><span class="sep">)</span>  <span class="cm"># ZeroDivisionError: division by zero</span>
 
 <span class="cm"># ValueError</span>
@@ -45,20 +45,20 @@ person <span class="op">=</span> <span class="sep">{</span><span class="str">"na
 <span class="bu">print</span><span class="sep">(</span>person<span class="sep">[</span><span class="str">"age"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># KeyError: 'age'</span>
 
 <span class="cm"># FileNotFoundError</span>
-<span class="bu">open</span><span class="sep">(</span><span class="str">"nonexistent.txt"</span><span class="sep">)</span>  <span class="cm"># FileNotFoundError&lt;/code&gt;</span></pre>
+<span class="bu">open</span><span class="sep">(</span><span class="str">"nonexistent.txt"</span><span class="sep">)</span>  <span class="cm"># FileNotFoundError</span></code></pre>
 
         <h2>Try/Except Blocks</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">try</span><span class="sep">:</span>
+        <pre><code><span class="kw">try</span><span class="sep">:</span>
     number <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
     result <span class="op">=</span> <span class="num">10</span> <span class="op">/</span> number
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Result: {result}"</span><span class="sep">)</span>
 <span class="kw">except</span> ValueError<span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"Please enter a valid number!"</span><span class="sep">)</span>
 <span class="kw">except</span> ZeroDivisionError<span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span><span class="str">"Cannot divide by zero!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Cannot divide by zero!"</span><span class="sep">)</span></code></pre>
 
         <h2>Catching Multiple Exceptions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Multiple except blocks</span>
+        <pre><code><span class="cm"># Multiple except blocks</span>
 <span class="kw">try</span><span class="sep">:</span>
     num <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
     result <span class="op">=</span> <span class="num">100</span> <span class="op">/</span> num
@@ -70,11 +70,11 @@ person <span class="op">=</span> <span class="sep">{</span><span class="str">"na
 <span class="kw">try</span><span class="sep">:</span>
     x <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="str">"hello"</span><span class="sep">)</span>
 <span class="kw">except</span> Exception <span class="kw">as</span> e<span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"An error occurred: {e}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"An error occurred: {e}"</span><span class="sep">)</span></code></pre>
 
         <h2>Else and Finally</h2>
         <p><code>else</code> runs if no exception occurred. <code>finally</code> always runs:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">try</span><span class="sep">:</span>
+        <pre><code><span class="kw">try</span><span class="sep">:</span>
     num <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
     result <span class="op">=</span> <span class="num">100</span> <span class="op">/</span> num
 <span class="kw">except</span> ValueError<span class="sep">:</span>
@@ -84,11 +84,11 @@ person <span class="op">=</span> <span class="sep">{</span><span class="str">"na
 <span class="kw">else</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Result: {result}"</span><span class="sep">)</span>  <span class="cm"># Runs only if no error</span>
 <span class="kw">finally</span><span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span><span class="str">"This always runs."</span><span class="sep">)</span>  <span class="cm"># Cleanup code&lt;/code&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"This always runs."</span><span class="sep">)</span>  <span class="cm"># Cleanup code</span></code></pre>
 
         <h2>Raising Exceptions</h2>
         <p>You can manually raise exceptions with <code>raise</code>:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> withdraw<span class="sep">(</span>balance<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> withdraw<span class="sep">(</span>balance<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">if</span> amount <span class="op">&lt;=</span> <span class="num">0</span><span class="sep">:</span>
         <span class="kw">raise</span> ValueError<span class="sep">(</span><span class="str">"Amount must be positive!"</span><span class="sep">)</span>
     <span class="kw">if</span> amount <span class="op">&gt;</span> balance<span class="sep">:</span>
@@ -106,10 +106,10 @@ person <span class="op">=</span> <span class="sep">{</span><span class="str">"na
         <span class="kw">return</span> a <span class="op">/</span> b
     <span class="kw">except</span> ZeroDivisionError<span class="sep">:</span>
         <span class="bu">print</span><span class="sep">(</span><span class="str">"Logging error..."</span><span class="sep">)</span>
-        <span class="kw">raise</span>  <span class="cm"># Re-raise the same exception&lt;/code&gt;</span></pre>
+        <span class="kw">raise</span>  <span class="cm"># Re-raise the same exception</span></code></pre>
 
         <h2>Creating Custom Exceptions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> InsufficientFundsError<span class="sep">(</span>Exception<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">class</span> InsufficientFundsError<span class="sep">(</span>Exception<span class="sep">)</span><span class="sep">:</span>
     <span class="str">""</span><span class="str">"Raised when account balance is insufficient."</span><span class="str">""</span>
     <span class="kw">pass</span>
 
@@ -131,16 +131,16 @@ person <span class="op">=</span> <span class="sep">{</span><span class="str">"na
 <span class="kw">except</span> NegativeAmountError <span class="kw">as</span> e<span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span>e<span class="sep">)</span>
 <span class="kw">except</span> InsufficientFundsError <span class="kw">as</span> e<span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span>e<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span>e<span class="sep">)</span></code></pre>
 
         <h2>Assertions</h2>
         <p>Use <code>assert</code> for debugging — it raises AssertionError if the condition is False:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">assert</span> weight <span class="op">&gt;</span> <span class="num">0</span><span class="sep">,</span> <span class="str">"Weight must be positive"</span>
     <span class="kw">assert</span> height <span class="op">&gt;</span> <span class="num">0</span><span class="sep">,</span> <span class="str">"Height must be positive"</span>
     <span class="kw">return</span> weight <span class="op">/</span> <span class="sep">(</span>height <span class="op">**</span> <span class="num">2</span><span class="sep">)</span>
 
-<span class="cm"># Can be disabled with -O flag when running Python&lt;/code&gt;</span></pre>
+<span class="cm"># Can be disabled with -O flag when running Python</span></code></pre>
 
         <h2>Best Practices</h2>
         <ul>

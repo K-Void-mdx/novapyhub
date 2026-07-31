@@ -13,7 +13,7 @@
         <h1>Lesson 10: Web Basics with Python</h1>
         <p>Make HTTP requests and build a simple API with FastAPI.</p>
         <h2>HTTP Requests with requests</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> requests
+        <pre><code><span class="kw">import</span> requests
 
 response <span class="op">=</span> requests.get<span class="sep">(</span><span class="str">"https://api.github.com/users/python"</span><span class="sep">)</span>
 <span class="bu">print</span><span class="sep">(</span>response.status_code<span class="sep">)</span>  <span class="cm"># 200</span>
@@ -22,9 +22,9 @@ response <span class="op">=</span> requests.get<span class="sep">(</span><span c
 <span class="cm"># POST</span>
 data <span class="op">=</span> <span class="sep">{</span><span class="str">"title"</span><span class="sep">:</span> <span class="str">"Hello"</span><span class="sep">,</span> <span class="str">"body"</span><span class="sep">:</span> <span class="str">"World"</span><span class="sep">}</span>
 response <span class="op">=</span> requests.post<span class="sep">(</span><span class="str">"https://jsonplaceholder.typicode.com/posts"</span><span class="sep">,</span> json<span class="op">=</span>data<span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>response.json<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>response.json<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <h2>Building a FastAPI</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
+        <pre><code><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
 <span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
 
 app <span class="op">=</span> FastAPI<span class="sep">(</span><span class="sep">)</span>
@@ -48,7 +48,7 @@ items <span class="op">=</span> <span class="sep">[</span><span class="sep">]</s
     items.append<span class="sep">(</span>item<span class="sep">)</span>
     <span class="kw">return</span> item
 
-<span class="cm"># Run: uvicorn main:app --reload&lt;/code&gt;</span></pre>
+<span class="cm"># Run: uvicorn main:app --reload</span></code></pre>
         <div class="lesson-nav"><a href="09-databases.html" class="btn btn-secondary">← Previous</a><a href="../professional.html" class="btn btn-primary">Continue to Professional →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

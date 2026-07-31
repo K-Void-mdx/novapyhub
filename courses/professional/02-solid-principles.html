@@ -14,7 +14,7 @@
         <p>SOLID is an acronym for five design principles that make software more maintainable and scalable.</p>
         <h2>S — Single Responsibility</h2>
         <p>A class should have only one reason to change:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># BAD — mixed responsibilities</span>
+        <pre><code><span class="cm"># BAD — mixed responsibilities</span>
 <span class="kw">class</span> Report<span class="sep">:</span>
     <span class="kw">def</span> generate<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
     <span class="kw">def</span> save_to_file<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
@@ -26,10 +26,10 @@
 <span class="kw">class</span> ReportSaver<span class="sep">:</span>
     <span class="kw">def</span> save<span class="sep">(</span>self<span class="sep">,</span> report<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
 <span class="kw">class</span> EmailService<span class="sep">:</span>
-    <span class="kw">def</span> send<span class="sep">(</span>self<span class="sep">,</span> report<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">def</span> send<span class="sep">(</span>self<span class="sep">,</span> report<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span></code></pre>
         <h2>O — Open/Closed</h2>
         <p>Open for extension, closed for modification:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
+        <pre><code><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
 <span class="kw">class</span> PaymentMethod<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
 <span class="dec">    @abstractmethod</span>
@@ -43,10 +43,10 @@
 
 <span class="cm"># New methods can be added without changing existing code</span>
 <span class="kw">class</span> Crypto<span class="sep">(</span>PaymentMethod<span class="sep">)</span><span class="sep">:</span>
-    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Crypto: ${amount}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Crypto: ${amount}"</span><span class="sep">)</span></code></pre>
         <h2>L — Liskov Substitution</h2>
         <p>Subtypes must be substitutable for their base types:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Rectangle<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> Rectangle<span class="sep">:</span>
     <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> w<span class="sep">,</span> h<span class="sep">)</span><span class="sep">:</span>
         self.w<span class="sep">,</span> self.h <span class="op">=</span> w<span class="sep">,</span> h
 
@@ -59,7 +59,7 @@
     <span class="kw">return</span> rect.w <span class="op">*</span> rect.h
 
 <span class="bu">print</span><span class="sep">(</span>area<span class="sep">(</span>Rectangle<span class="sep">(</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 20</span>
-<span class="bu">print</span><span class="sep">(</span>area<span class="sep">(</span>Square<span class="sep">(</span><span class="num">4</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># 16&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>area<span class="sep">(</span>Square<span class="sep">(</span><span class="num">4</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># 16</span></code></pre>
         <h2>I — Interface Segregation</h2>
         <p>Don't force classes to implement interfaces they don't use.</p>
         <h2>D — Dependency Inversion</h2>

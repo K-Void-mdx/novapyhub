@@ -28,7 +28,7 @@
 
         <h2>Classes and Objects</h2>
         <p>A <strong>class</strong> is a blueprint. An <strong>object</strong> is an instance of that blueprint.</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Define a class</span>
+        <pre><code><span class="cm"># Define a class</span>
 <span class="kw">class</span> Dog<span class="sep">:</span>
     <span class="cm"># Class attribute (shared by all instances)</span>
     species <span class="op">=</span> <span class="str">"Canis familiaris"</span>
@@ -52,10 +52,10 @@ dog2 <span class="op">=</span> Dog<span class="sep">(</span><span class="str">"M
 <span class="bu">print</span><span class="sep">(</span>dog1.name<span class="sep">)</span>         <span class="cm"># Buddy</span>
 <span class="bu">print</span><span class="sep">(</span>dog1.bark<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>       <span class="cm"># Buddy says Woof!</span>
 <span class="bu">print</span><span class="sep">(</span>dog2.description<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># Max is 5 years old</span>
-<span class="bu">print</span><span class="sep">(</span>dog1.species<span class="sep">)</span>      <span class="cm"># Canis familiaris&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>dog1.species<span class="sep">)</span>      <span class="cm"># Canis familiaris</span></code></pre>
 
         <h2>Instance Methods vs Class Methods</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Student<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> Student<span class="sep">:</span>
     school <span class="op">=</span> <span class="str">"Nova Py-Hub"</span>
 
     <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> name<span class="sep">,</span> grade<span class="sep">)</span><span class="sep">:</span>
@@ -79,10 +79,10 @@ dog2 <span class="op">=</span> Dog<span class="sep">(</span><span class="str">"M
 
 <span class="cm"># Using class method as alternative constructor</span>
 s <span class="op">=</span> Student.from_string<span class="sep">(</span><span class="str">"Alice, 85"</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>s.info<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Alice - Grade: 85&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>s.info<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Alice - Grade: 85</span></code></pre>
 
         <h2>Inheritance</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Parent class</span>
+        <pre><code><span class="cm"># Parent class</span>
 <span class="kw">class</span> Animal<span class="sep">:</span>
     <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> name<span class="sep">)</span><span class="sep">:</span>
         self.name <span class="op">=</span> name
@@ -101,7 +101,7 @@ s <span class="op">=</span> Student.from_string<span class="sep">(</span><span c
 
 animals <span class="op">=</span> <span class="sep">[</span>Cat<span class="sep">(</span><span class="str">"Whiskers"</span><span class="sep">)</span><span class="sep">,</span> Dog<span class="sep">(</span><span class="str">"Buddy"</span><span class="sep">)</span><span class="sep">]</span>
 <span class="kw">for</span> animal <span class="kw">in</span> animals<span class="sep">:</span>
-    <span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span></code></pre>
 
         <h2>Practice</h2>
         <ol>

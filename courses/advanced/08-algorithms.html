@@ -13,7 +13,7 @@
         <h1>Lesson 8: Algorithms and Complexity</h1>
         <p>Learn sorting, searching, recursion, dynamic programming, and Big O notation.</p>
         <h2>Binary Search</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> binary_search<span class="sep">(</span>arr<span class="sep">,</span> target<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> binary_search<span class="sep">(</span>arr<span class="sep">,</span> target<span class="sep">)</span><span class="sep">:</span>
     left<span class="sep">,</span> right <span class="op">=</span> <span class="num">0</span><span class="sep">,</span> <span class="bu">len</span><span class="sep">(</span>arr<span class="sep">)</span> <span class="op">-</span> <span class="num">1</span>
     <span class="kw">while</span> left <span class="op">&lt;=</span> right<span class="sep">:</span>
         mid <span class="op">=</span> <span class="sep">(</span>left <span class="op">+</span> right<span class="sep">)</span> <span class="op">//</span> <span class="num">2</span>
@@ -22,9 +22,9 @@
         <span class="kw">else</span><span class="sep">:</span> right <span class="op">=</span> mid <span class="op">-</span> <span class="num">1</span>
     <span class="kw">return</span> <span class="op">-</span><span class="num">1</span>
 
-<span class="bu">print</span><span class="sep">(</span>binary_search<span class="sep">(</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 2&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>binary_search<span class="sep">(</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 2</span></code></pre>
         <h2>Bubble Sort</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> bubble_sort<span class="sep">(</span>arr<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> bubble_sort<span class="sep">(</span>arr<span class="sep">)</span><span class="sep">:</span>
     n <span class="op">=</span> <span class="bu">len</span><span class="sep">(</span>arr<span class="sep">)</span>
     <span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
         <span class="kw">for</span> j <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">0</span><span class="sep">,</span> n <span class="op">-</span> i <span class="op">-</span> <span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
@@ -32,9 +32,9 @@
                 arr<span class="sep">[</span>j<span class="sep">]</span><span class="sep">,</span> arr<span class="sep">[</span>j <span class="op">+</span> <span class="num">1</span><span class="sep">]</span> <span class="op">=</span> arr<span class="sep">[</span>j <span class="op">+</span> <span class="num">1</span><span class="sep">]</span><span class="sep">,</span> arr<span class="sep">[</span>j<span class="sep">]</span>
     <span class="kw">return</span> arr
 
-<span class="bu">print</span><span class="sep">(</span>bubble_sort<span class="sep">(</span><span class="sep">[</span><span class="num">64</span><span class="sep">,</span> <span class="num">34</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="num">12</span><span class="sep">,</span> <span class="num">22</span><span class="sep">,</span> <span class="num">11</span><span class="sep">,</span> <span class="num">90</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>bubble_sort<span class="sep">(</span><span class="sep">[</span><span class="num">64</span><span class="sep">,</span> <span class="num">34</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="num">12</span><span class="sep">,</span> <span class="num">22</span><span class="sep">,</span> <span class="num">11</span><span class="sep">,</span> <span class="num">90</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <h2>Recursion: Fibonacci</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> fib<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> fib<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span><span class="sep">:</span> <span class="kw">return</span> n
     <span class="kw">return</span> fib<span class="sep">(</span>n<span class="op">-</span><span class="num">1</span><span class="sep">)</span> <span class="op">+</span> fib<span class="sep">(</span>n<span class="op">-</span><span class="num">2</span><span class="sep">)</span>
 
@@ -45,7 +45,7 @@
     <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span><span class="sep">:</span> <span class="kw">return</span> n
     <span class="kw">return</span> fib_fast<span class="sep">(</span>n<span class="op">-</span><span class="num">1</span><span class="sep">)</span> <span class="op">+</span> fib_fast<span class="sep">(</span>n<span class="op">-</span><span class="num">2</span><span class="sep">)</span>
 
-<span class="bu">print</span><span class="sep">(</span>fib_fast<span class="sep">(</span><span class="num">100</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 354224848179261915075&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>fib_fast<span class="sep">(</span><span class="num">100</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 354224848179261915075</span></code></pre>
         <div class="lesson-nav"><a href="07-data-structures.html" class="btn btn-secondary">← Previous</a><a href="09-databases.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

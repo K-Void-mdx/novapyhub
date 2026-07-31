@@ -27,7 +27,7 @@
         <p>List comprehensions provide a concise way to create lists. Instead of writing a for loop with append(), you can do it in one line.</p>
 
         <h2>Basic List Comprehension</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Traditional way</span>
+        <pre><code><span class="cm"># Traditional way</span>
 squares <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
 <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">:</span>
     squares.append<span class="sep">(</span>x <span class="op">**</span> <span class="num">2</span><span class="sep">)</span>
@@ -35,22 +35,22 @@ squares <span class="op">=</span> <span class="sep">[</span><span class="sep">]<
 
 <span class="cm"># List comprehension (same result)</span>
 squares <span class="op">=</span> <span class="sep">[</span>x <span class="op">**</span> <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">]</span>
-<span class="bu">print</span><span class="sep">(</span>squares<span class="sep">)</span>  <span class="cm"># [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>squares<span class="sep">)</span>  <span class="cm"># [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span></code></pre>
 
         <h2>Syntax Pattern</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="sep">[</span>expression <span class="kw">for</span> item <span class="kw">in</span> iterable <span class="kw">if</span> condition<span class="sep">]</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+        <pre><code><span class="sep">[</span>expression <span class="kw">for</span> item <span class="kw">in</span> iterable <span class="kw">if</span> condition<span class="sep">]</span></code></pre>
 
         <h2>With Conditionals</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Even squares only</span>
+        <pre><code><span class="cm"># Even squares only</span>
 even_squares <span class="op">=</span> <span class="sep">[</span>x <span class="op">**</span> <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span> <span class="kw">if</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span><span class="sep">]</span>
 <span class="bu">print</span><span class="sep">(</span>even_squares<span class="sep">)</span>  <span class="cm"># [0, 4, 16, 36, 64]</span>
 
 <span class="cm"># If-else in expression</span>
 labels <span class="op">=</span> <span class="sep">[</span><span class="str">"even"</span> <span class="kw">if</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span> <span class="kw">else</span> <span class="str">"odd"</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">]</span>
-<span class="bu">print</span><span class="sep">(</span>labels<span class="sep">)</span>  <span class="cm"># ['even', 'odd', 'even', 'odd', 'even']&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>labels<span class="sep">)</span>  <span class="cm"># ['even', 'odd', 'even', 'odd', 'even']</span></code></pre>
 
         <h2>Nested Loops in Comprehensions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Flatten a matrix</span>
+        <pre><code><span class="cm"># Flatten a matrix</span>
 matrix <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">7</span><span class="sep">,</span> <span class="num">8</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span><span class="sep">]</span>
 flat <span class="op">=</span> <span class="sep">[</span>num <span class="kw">for</span> row <span class="kw">in</span> matrix <span class="kw">for</span> num <span class="kw">in</span> row<span class="sep">]</span>
 <span class="bu">print</span><span class="sep">(</span>flat<span class="sep">)</span>  <span class="cm"># [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
@@ -58,10 +58,10 @@ flat <span class="op">=</span> <span class="sep">[</span>num <span class="kw">fo
 <span class="cm"># Multiplication table</span>
 pairs <span class="op">=</span> <span class="sep">[</span><span class="sep">(</span>i<span class="sep">,</span> j<span class="sep">)</span> <span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span> <span class="kw">for</span> j <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">]</span>
 <span class="bu">print</span><span class="sep">(</span>pairs<span class="sep">)</span>
-<span class="cm"># [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]&lt;/code&gt;</span></pre>
+<span class="cm"># [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]</span></code></pre>
 
         <h2>Practical Examples</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Convert strings to uppercase</span>
+        <pre><code><span class="cm"># Convert strings to uppercase</span>
 names <span class="op">=</span> <span class="sep">[</span><span class="str">"alice"</span><span class="sep">,</span> <span class="str">"bob"</span><span class="sep">,</span> <span class="str">"charlie"</span><span class="sep">]</span>
 upper_names <span class="op">=</span> <span class="sep">[</span>name.upper<span class="sep">(</span><span class="sep">)</span> <span class="kw">for</span> name <span class="kw">in</span> names<span class="sep">]</span>
 <span class="bu">print</span><span class="sep">(</span>upper_names<span class="sep">)</span>  <span class="cm"># ['ALICE', 'BOB', 'CHARLIE']</span>
@@ -77,11 +77,11 @@ emails <span class="op">=</span> <span class="sep">[</span>user<span class="sep"
 <span class="cm"># Remove vowels from text</span>
 text <span class="op">=</span> <span class="str">"hello world"</span>
 no_vowels <span class="op">=</span> <span class="str">""</span>.join<span class="sep">(</span>c <span class="kw">for</span> c <span class="kw">in</span> text <span class="kw">if</span> c <span class="kw">not</span> <span class="kw">in</span> <span class="str">"aeiou"</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>no_vowels<span class="sep">)</span>  <span class="cm"># "hll wrld"&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>no_vowels<span class="sep">)</span>  <span class="cm"># "hll wrld"</span></code></pre>
 
         <h2>Generator Expressions</h2>
         <p>Generator expressions use <code>()</code> instead of <code>[]</code> and produce items lazily (one at a time), saving memory:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># List comprehension — creates the entire list in memory</span>
+        <pre><code><span class="cm"># List comprehension — creates the entire list in memory</span>
 squares_list <span class="op">=</span> <span class="sep">[</span>x <span class="op">**</span> <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1000</span><span class="sep">)</span><span class="sep">]</span>
 
 <span class="cm"># Generator expression — produces items on demand</span>
@@ -98,31 +98,31 @@ squares_gen <span class="op">=</span> <span class="sep">(</span>x <span class="o
 
 <span class="cm"># Generator as function argument</span>
 total <span class="op">=</span> <span class="bu">sum</span><span class="sep">(</span>x <span class="op">**</span> <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>total<span class="sep">)</span>  <span class="cm"># 285 (sum of squares 0-9)&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>total<span class="sep">)</span>  <span class="cm"># 285 (sum of squares 0-9)</span></code></pre>
 
         <h2>Dict Comprehensions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Create a dictionary mapping numbers to their squares</span>
+        <pre><code><span class="cm"># Create a dictionary mapping numbers to their squares</span>
 squares_dict <span class="op">=</span> <span class="sep">{</span>x<span class="sep">:</span> x <span class="op">**</span> <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">}</span>
 <span class="bu">print</span><span class="sep">(</span>squares_dict<span class="sep">)</span>  <span class="cm"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span>
 
 <span class="cm"># Invert a dictionary</span>
 original <span class="op">=</span> <span class="sep">{</span><span class="str">"a"</span><span class="sep">:</span> <span class="num">1</span><span class="sep">,</span> <span class="str">"b"</span><span class="sep">:</span> <span class="num">2</span><span class="sep">,</span> <span class="str">"c"</span><span class="sep">:</span> <span class="num">3</span><span class="sep">}</span>
 inverted <span class="op">=</span> <span class="sep">{</span>v<span class="sep">:</span> k <span class="kw">for</span> k<span class="sep">,</span> v <span class="kw">in</span> original.items<span class="sep">(</span><span class="sep">)</span><span class="sep">}</span>
-<span class="bu">print</span><span class="sep">(</span>inverted<span class="sep">)</span>  <span class="cm"># {1: 'a', 2: 'b', 3: 'c'}&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>inverted<span class="sep">)</span>  <span class="cm"># {1: 'a', 2: 'b', 3: 'c'}</span></code></pre>
 
         <h2>Set Comprehensions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Get unique squares modulo 5</span>
+        <pre><code><span class="cm"># Get unique squares modulo 5</span>
 unique <span class="op">=</span> <span class="sep">{</span>x <span class="op">**</span> <span class="num">2</span> <span class="op">%</span> <span class="num">5</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">20</span><span class="sep">)</span><span class="sep">}</span>
 <span class="bu">print</span><span class="sep">(</span>unique<span class="sep">)</span>  <span class="cm"># {0, 1, 4}</span>
 
 <span class="cm"># Extract unique first letters</span>
 names <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"Anna"</span><span class="sep">]</span>
 first_letters <span class="op">=</span> <span class="sep">{</span>name<span class="sep">[</span><span class="num">0</span><span class="sep">]</span> <span class="kw">for</span> name <span class="kw">in</span> names<span class="sep">}</span>
-<span class="bu">print</span><span class="sep">(</span>first_letters<span class="sep">)</span>  <span class="cm"># {'A', 'B', 'C'}&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>first_letters<span class="sep">)</span>  <span class="cm"># {'A', 'B', 'C'}</span></code></pre>
 
         <h2>When NOT to Use List Comprehensions</h2>
         <p>Keep it readable. If the logic is complex, use a regular loop:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Too complex — hard to read</span>
+        <pre><code><span class="cm"># Too complex — hard to read</span>
 result <span class="op">=</span> <span class="sep">[</span>func<span class="sep">(</span>x<span class="sep">)</span> <span class="kw">for</span> x <span class="kw">in</span> data <span class="kw">if</span> check<span class="sep">(</span>x<span class="sep">)</span> <span class="kw">for</span> y <span class="kw">in</span> x <span class="kw">if</span> y <span class="op">&gt;</span> <span class="num">0</span><span class="sep">]</span>
 
 <span class="cm"># Better as regular loop</span>
@@ -131,7 +131,7 @@ result <span class="op">=</span> <span class="sep">[</span><span class="sep">]</
     <span class="kw">if</span> check<span class="sep">(</span>x<span class="sep">)</span><span class="sep">:</span>
         <span class="kw">for</span> y <span class="kw">in</span> x<span class="sep">:</span>
             <span class="kw">if</span> y <span class="op">&gt;</span> <span class="num">0</span><span class="sep">:</span>
-                result.append<span class="sep">(</span>func<span class="sep">(</span>x<span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+                result.append<span class="sep">(</span>func<span class="sep">(</span>x<span class="sep">)</span><span class="sep">)</span></code></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

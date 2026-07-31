@@ -13,7 +13,7 @@
         <h1>Lesson 1: Design Patterns in Python</h1>
         <p>Design patterns are reusable solutions to common software design problems. Here are the most important Gang of Four patterns implemented in Python.</p>
         <h2>Singleton Pattern</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Singleton<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> Singleton<span class="sep">:</span>
     _instance <span class="op">=</span> <span class="kw">None</span>
 
     <span class="kw">def</span> __new__<span class="sep">(</span>cls<span class="sep">)</span><span class="sep">:</span>
@@ -23,9 +23,9 @@
 
 s1 <span class="op">=</span> Singleton<span class="sep">(</span><span class="sep">)</span>
 s2 <span class="op">=</span> Singleton<span class="sep">(</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>s1 <span class="kw">is</span> s2<span class="sep">)</span>  <span class="cm"># True&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>s1 <span class="kw">is</span> s2<span class="sep">)</span>  <span class="cm"># True</span></code></pre>
         <h2>Factory Pattern</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
+        <pre><code><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
 <span class="kw">class</span> Animal<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
 <span class="dec">    @abstractmethod</span>
@@ -45,9 +45,9 @@ s2 <span class="op">=</span> Singleton<span class="sep">(</span><span class="sep
 
 factory <span class="op">=</span> AnimalFactory<span class="sep">(</span><span class="sep">)</span>
 animal <span class="op">=</span> factory.create<span class="sep">(</span><span class="str">"dog"</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Woof!&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Woof!</span></code></pre>
         <h2>Observer Pattern</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Subject<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> Subject<span class="sep">:</span>
     <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
         self._observers <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
 
@@ -67,9 +67,9 @@ obs1 <span class="op">=</span> Observer<span class="sep">(</span><span class="se
 obs2 <span class="op">=</span> Observer<span class="sep">(</span><span class="sep">)</span>
 sub.attach<span class="sep">(</span>obs1<span class="sep">)</span>
 sub.attach<span class="sep">(</span>obs2<span class="sep">)</span>
-sub.notify<span class="sep">(</span><span class="str">"Hello!"</span><span class="sep">)</span>  <span class="cm"># Both observers receive&lt;/code&gt;</span></pre>
+sub.notify<span class="sep">(</span><span class="str">"Hello!"</span><span class="sep">)</span>  <span class="cm"># Both observers receive</span></code></pre>
         <h2>Strategy Pattern</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
+        <pre><code><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
 <span class="kw">class</span> SortingStrategy<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
 <span class="dec">    @abstractmethod</span>
@@ -90,7 +90,7 @@ sub.notify<span class="sep">(</span><span class="str">"Hello!"</span><span class
         <span class="kw">return</span> self.strategy.sort<span class="sep">(</span>data<span class="sep">)</span>
 
 sorter <span class="op">=</span> Sorter<span class="sep">(</span>QuickSort<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>sorter.sort<span class="sep">(</span><span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>sorter.sort<span class="sep">(</span><span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span></code></pre>
         <div class="lesson-nav"><a href="../professional.html" class="btn btn-secondary">← Back</a><a href="02-solid-principles.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

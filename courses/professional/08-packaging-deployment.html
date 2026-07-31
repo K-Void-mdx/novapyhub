@@ -13,7 +13,7 @@
         <h1>Lesson 8: Packaging and Deployment</h1>
         <p>Package your Python projects and deploy them to production.</p>
         <h2>Creating a Package</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>my_package<span class="op">/</span>
+        <pre><code>my_package<span class="op">/</span>
     pyproject.toml
     src<span class="op">/</span>
         my_package<span class="op">/</span>
@@ -31,9 +31,9 @@ version <span class="op">=</span> <span class="str">"0.1.0"</span>
 dependencies <span class="op">=</span> <span class="sep">[</span><span class="str">"requests&gt;=2.0"</span><span class="sep">]</span>
 
 <span class="cm"># Install locally</span>
-pip install <span class="op">-</span>e .<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+pip install <span class="op">-</span>e .</code></pre>
         <h2>Docker</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Dockerfile</span>
+        <pre><code><span class="cm"># Dockerfile</span>
 FROM python<span class="sep">:</span><span class="num">3.12</span><span class="op">-</span>slim
 WORKDIR <span class="op">/</span>app
 COPY requirements.txt .
@@ -43,7 +43,7 @@ CMD <span class="sep">[</span><span class="str">"python"</span><span class="sep"
 
 <span class="cm"># Build &amp; run</span>
 <span class="cm"># docker build -t myapp .</span>
-<span class="cm"># docker run myapp&lt;/code&gt;</span></pre>
+<span class="cm"># docker run myapp</span></code></pre>
         <h2>Cloud Deployment</h2>
         <ul>
             <li><strong>Render</strong> — Free tier, connect GitHub repo</li>

@@ -36,7 +36,7 @@
         </ul>
 
         <h2>Step 1: Basic Structure</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
 
 <span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
@@ -48,10 +48,10 @@
 <span class="kw">def</span> divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span><span class="sep">:</span>
         <span class="kw">return</span> <span class="str">"Error: Division by zero!"</span>
-    <span class="kw">return</span> a <span class="op">/</span> b<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">return</span> a <span class="op">/</span> b</code></pre>
 
         <h2>Step 2: Display Menu</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> show_menu<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> show_menu<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"\n"</span> <span class="op">+</span> <span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"    NOVA PY-HUB CALCULATOR"</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
@@ -60,18 +60,18 @@
     <span class="bu">print</span><span class="sep">(</span><span class="str">"3. Multiply (*)"</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"4. Divide (/)"</span><span class="sep">)</span>
     <span class="bu">print</span><span class="sep">(</span><span class="str">"5. Exit"</span><span class="sep">)</span>
-    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span></code></pre>
 
         <h2>Step 3: Get User Input</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> get_number<span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> get_number<span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
         <span class="kw">try</span><span class="sep">:</span>
             <span class="kw">return</span> <span class="bu">float</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">)</span>
         <span class="kw">except</span> ValueError<span class="sep">:</span>
-            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid input! Please enter a number."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid input! Please enter a number."</span><span class="sep">)</span></code></pre>
 
         <h2>Step 4: Main Program Loop</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
     <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
         show_menu<span class="sep">(</span><span class="sep">)</span>
         choice <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Choose an option (1-5): "</span><span class="sep">)</span>
@@ -103,11 +103,11 @@
             <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid choice! Please select 1-5."</span><span class="sep">)</span>
 
 <span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
-    main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    main<span class="sep">(</span><span class="sep">)</span></code></pre>
 
         <h2>Complete Program</h2>
         <p>Save this as <code>calculator.py</code> and run it:</p>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">+</span> b
+        <pre><code><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">+</span> b
 <span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">-</span> b
 <span class="kw">def</span> multiply<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">*</span> b
 <span class="kw">def</span> divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
@@ -150,7 +150,7 @@
             <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid choice! Select 1-5."</span><span class="sep">)</span>
 
 <span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
-    main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    main<span class="sep">(</span><span class="sep">)</span></code></pre>
 
         <h2>Challenge Extensions</h2>
         <p>Once your basic calculator works, try adding:</p>

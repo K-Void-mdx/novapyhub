@@ -13,7 +13,7 @@
         <h1>Lesson 3: Regular Expressions</h1>
         <p>Regular expressions (regex) are patterns for matching, searching, and manipulating text.</p>
         <h2>Basic Patterns</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> re
+        <pre><code><span class="kw">import</span> re
 
 <span class="cm"># Match literal</span>
 re.search<span class="sep">(</span>r<span class="str">"Python"</span><span class="sep">,</span> <span class="str">"I love Python"</span><span class="sep">)</span>  <span class="cm"># Match object</span>
@@ -32,9 +32,9 @@ $   <span class="cm"># End of string</span>
 ?   <span class="cm"># 0 or 1</span>
 \d  <span class="cm"># Digit [0-9]</span>
 \w  <span class="cm"># Word character [a-zA-Z0-9_]</span>
-\s  <span class="cm"># Whitespace&lt;/code&gt;</span></pre>
+\s  <span class="cm"># Whitespace</span></code></pre>
         <h2>Common Functions</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>text <span class="op">=</span> <span class="str">"Email: alice@email.com, Phone: 555-1234"</span>
+        <pre><code>text <span class="op">=</span> <span class="str">"Email: alice@email.com, Phone: 555-1234"</span>
 
 <span class="cm"># search — find first match</span>
 email <span class="op">=</span> re.search<span class="sep">(</span>r<span class="str">"\w+@\w+\.\w+"</span><span class="sep">,</span> text<span class="sep">)</span>
@@ -50,9 +50,9 @@ censored <span class="op">=</span> re.sub<span class="sep">(</span>r<span class=
 
 <span class="cm"># split</span>
 parts <span class="op">=</span> re.split<span class="sep">(</span>r<span class="str">"[,:]"</span><span class="sep">,</span> text<span class="sep">)</span>
-<span class="bu">print</span><span class="sep">(</span>parts<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>parts<span class="sep">)</span></code></pre>
         <h2>Groups</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>date_str <span class="op">=</span> <span class="str">"2026-07-30"</span>
+        <pre><code>date_str <span class="op">=</span> <span class="str">"2026-07-30"</span>
 pattern <span class="op">=</span> r<span class="str">"(\d{4})-(\d{2})-(\d{2})"</span>
 match <span class="op">=</span> re.search<span class="sep">(</span>pattern<span class="sep">,</span> date_str<span class="sep">)</span>
 <span class="bu">print</span><span class="sep">(</span>match.group<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 2026</span>
@@ -63,7 +63,7 @@ match <span class="op">=</span> re.search<span class="sep">(</span>pattern<span 
 pattern <span class="op">=</span> r<span class="str">"(?P&lt;year&gt;\d{4})-(?P&lt;month&gt;\d{2})"</span>
 match <span class="op">=</span> re.search<span class="sep">(</span>pattern<span class="sep">,</span> date_str<span class="sep">)</span>
 <span class="bu">print</span><span class="sep">(</span>match.group<span class="sep">(</span><span class="str">"year"</span><span class="sep">)</span><span class="sep">)</span>   <span class="cm"># 2026</span>
-<span class="bu">print</span><span class="sep">(</span>match.group<span class="sep">(</span><span class="str">"month"</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 07&lt;/code&gt;</span></pre>
+<span class="bu">print</span><span class="sep">(</span>match.group<span class="sep">(</span><span class="str">"month"</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 07</span></code></pre>
         <h2>Practice</h2>
         <ol>
             <li>Write a regex to validate email addresses</li>

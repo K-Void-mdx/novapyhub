@@ -13,7 +13,7 @@
         <h1>Lesson 4: Testing in Python</h1>
         <p>Testing ensures your code works correctly and keeps working as you make changes.</p>
         <h2>Unit Testing with unittest</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> unittest
+        <pre><code><span class="kw">import</span> unittest
 
 <span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">return</span> a <span class="op">+</span> b
@@ -27,9 +27,9 @@
         self.assertAlmostEqual<span class="sep">(</span>add<span class="sep">(</span><span class="num">0.1</span><span class="sep">,</span> <span class="num">0.2</span><span class="sep">)</span><span class="sep">,</span> <span class="num">0.3</span><span class="sep">)</span>
 
 <span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
-    unittest.main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    unittest.main<span class="sep">(</span><span class="sep">)</span></code></pre>
         <h2>Testing with pytest (Better)</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># test_calc.py</span>
+        <pre><code><span class="cm"># test_calc.py</span>
 <span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">+</span> b
 <span class="kw">def</span> divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span><span class="sep">:</span> <span class="kw">raise</span> ValueError<span class="sep">(</span><span class="str">"Can't divide by zero"</span><span class="sep">)</span>
@@ -45,9 +45,9 @@
     <span class="kw">with</span> pytest.raises<span class="sep">(</span>ValueError<span class="sep">)</span><span class="sep">:</span>
         divide<span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">0</span><span class="sep">)</span>
 
-<span class="cm"># Run: pytest test_calc.py -v&lt;/code&gt;</span></pre>
+<span class="cm"># Run: pytest test_calc.py -v</span></code></pre>
         <h2>Test Fixtures</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> pytest
+        <pre><code><span class="kw">import</span> pytest
 <span class="dec">
 @pytest</span>.fixture
 <span class="kw">def</span> sample_data<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
@@ -55,9 +55,9 @@
 
 <span class="kw">def</span> test_sample<span class="sep">(</span>sample_data<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">assert</span> sample_data<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span> <span class="op">==</span> <span class="str">"Alice"</span>
-    <span class="kw">assert</span> <span class="bu">sum</span><span class="sep">(</span>sample_data<span class="sep">[</span><span class="str">"numbers"</span><span class="sep">]</span><span class="sep">)</span> <span class="op">==</span> <span class="num">6</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    <span class="kw">assert</span> <span class="bu">sum</span><span class="sep">(</span>sample_data<span class="sep">[</span><span class="str">"numbers"</span><span class="sep">]</span><span class="sep">)</span> <span class="op">==</span> <span class="num">6</span></code></pre>
         <h2>Mocking</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> unittest.mock <span class="kw">import</span> Mock<span class="sep">,</span> patch
+        <pre><code><span class="kw">from</span> unittest.mock <span class="kw">import</span> Mock<span class="sep">,</span> patch
 <span class="kw">import</span> requests
 
 <span class="kw">def</span> get_user_data<span class="sep">(</span>user_id<span class="sep">)</span><span class="sep">:</span>
@@ -70,7 +70,7 @@
     mock_get.return_value.json.return_value <span class="op">=</span> <span class="sep">{</span><span class="str">"id"</span><span class="sep">:</span> <span class="num">1</span><span class="sep">,</span> <span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">}</span>
     result <span class="op">=</span> get_user_data<span class="sep">(</span><span class="num">1</span><span class="sep">)</span>
     <span class="kw">assert</span> result<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span> <span class="op">==</span> <span class="str">"Alice"</span>
-    mock_get.assert_called_once_with<span class="sep">(</span><span class="str">"https://api.example.com/users/1"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+    mock_get.assert_called_once_with<span class="sep">(</span><span class="str">"https://api.example.com/users/1"</span><span class="sep">)</span></code></pre>
         <h2>Practice</h2>
         <ol>
             <li>Write tests for the calculator from the beginner project</li>

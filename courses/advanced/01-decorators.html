@@ -13,7 +13,7 @@
         <h1>Lesson 1: Decorators</h1>
         <p>Decorators are functions that modify the behavior of other functions. They're a powerful feature for adding cross-cutting concerns like logging, timing, and access control.</p>
         <h2>Basic Decorator</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> my_decorator<span class="sep">(</span>func<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> my_decorator<span class="sep">(</span>func<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">def</span> wrapper<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
         <span class="bu">print</span><span class="sep">(</span><span class="str">"Before function"</span><span class="sep">)</span>
         func<span class="sep">(</span><span class="sep">)</span>
@@ -27,9 +27,9 @@
 say_hello<span class="sep">(</span><span class="sep">)</span>
 <span class="cm"># Before function</span>
 <span class="cm"># Hello!</span>
-<span class="cm"># After function&lt;/code&gt;</span></pre>
+<span class="cm"># After function</span></code></pre>
         <h2>Decorators with Arguments</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> repeat<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+        <pre><code><span class="kw">def</span> repeat<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">def</span> decorator<span class="sep">(</span>func<span class="sep">)</span><span class="sep">:</span>
         <span class="kw">def</span> wrapper<span class="sep">(</span><span class="op">*</span>args<span class="sep">,</span> <span class="op">**</span>kwargs<span class="sep">)</span><span class="sep">:</span>
             <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
@@ -44,9 +44,9 @@ say_hello<span class="sep">(</span><span class="sep">)</span>
 greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>
 <span class="cm"># Hello, Alice!</span>
 <span class="cm"># Hello, Alice!</span>
-<span class="cm"># Hello, Alice!&lt;/code&gt;</span></pre>
+<span class="cm"># Hello, Alice!</span></code></pre>
         <h2>Practical: Timing Decorator</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> time
+        <pre><code><span class="kw">import</span> time
 
 <span class="kw">def</span> timer<span class="sep">(</span>func<span class="sep">)</span><span class="sep">:</span>
     <span class="kw">def</span> wrapper<span class="sep">(</span><span class="op">*</span>args<span class="sep">,</span> <span class="op">**</span>kwargs<span class="sep">)</span><span class="sep">:</span>
@@ -64,9 +64,9 @@ greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep"
 
 <span class="bu">print</span><span class="sep">(</span>slow_function<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
 <span class="cm"># slow_function took 1.0002s</span>
-<span class="cm"># Done&lt;/code&gt;</span></pre>
+<span class="cm"># Done</span></code></pre>
         <h2>Built-in Decorators</h2>
-        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> MyClass<span class="sep">:</span>
+        <pre><code><span class="kw">class</span> MyClass<span class="sep">:</span>
 <span class="dec">    @staticmethod</span>
     <span class="kw">def</span> static_method<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
         <span class="kw">return</span> <span class="str">"No self needed"</span>
@@ -77,7 +77,7 @@ greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep"
 <span class="dec">
     @property</span>
     <span class="kw">def</span> name<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
-        <span class="kw">return</span> <span class="str">"Read-only property"</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
+        <span class="kw">return</span> <span class="str">"Read-only property"</span></code></pre>
         <h2>Practice</h2>
         <ol>
             <li>Create a decorator that logs function calls (name, args, kwargs)</li>
