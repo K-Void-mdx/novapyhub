@@ -48,24 +48,25 @@
         <div class="device-modal">
             <h2>Select Your Device</h2>
             <p>Pick your device for tailored lessons &amp; setup guides</p>
-            <div class="device-grid">
-                <div class="device-opt" onclick="selectDevice('pc')">
-                    <span class="icon">🖥</span>
+            <div class="device-options" id="deviceOptions">
+                <div class="device-opt" data-device="pc" onclick="pickDevice('pc')">
+                    <span class="radio-circle"></span>
                     <span class="label">PC</span>
                 </div>
-                <div class="device-opt" onclick="selectDevice('android')">
-                    <span class="icon">📱</span>
+                <div class="device-opt" data-device="android" onclick="pickDevice('android')">
+                    <span class="radio-circle"></span>
                     <span class="label">Android</span>
                 </div>
-                <div class="device-opt" onclick="selectDevice('iphone')">
-                    <span class="icon">🍎</span>
+                <div class="device-opt" data-device="iphone" onclick="pickDevice('iphone')">
+                    <span class="radio-circle"></span>
                     <span class="label">iPhone</span>
                 </div>
-                <div class="device-opt" onclick="selectDevice('tablet')">
-                    <span class="icon">📟</span>
+                <div class="device-opt" data-device="tablet" onclick="pickDevice('tablet')">
+                    <span class="radio-circle"></span>
                     <span class="label">Tablet</span>
                 </div>
             </div>
+            <button class="gate-btn device-continue" id="deviceContinue" onclick="confirmDevice()" disabled>Continue</button>
         </div>
     </div>
 
@@ -81,7 +82,7 @@
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
                 <a href="certificate/index.html" class="btn btn-gold" style="padding:.5rem 1rem;font-size:.8rem">Certificate</a>
-                <a href="#" onclick="showDeviceSwitcher();return false" style="font-size:.8rem">📱 Device</a>
+                <a href="#" onclick="showDeviceSwitcher();return false" style="font-size:.8rem">Device</a>
                 <button class="theme-toggle" id="themeToggle">☀</button>
             </div>
         </div>

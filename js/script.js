@@ -122,9 +122,33 @@ function showDeviceSwitcher() {
 
 window.showDeviceSwitcher = showDeviceSwitcher
 
+let pendingDevice = null
+
+function pickDevice(type) {
+  pendingDevice = type
+  document.querySelectorAll('.device-opt').forEach(o => {
+    o.classList.toggle('selected', o.dataset.device === type)
+  })
+  const btn = document.getElementById('deviceContinue')
+  if (btn) btn.disabled = false
+}
+
+window.pickDevice = pickDevice
+
+function confirmDevice() {
+  if (!pendingDevice) return
+  selectDevice(pendingDevice)
+}
+
+window.confirmDevice = confirmDevice
+
 function selectDevice(type) {
   ls.set('device', type)
   document.getElementById('deviceModal').classList.remove('active')
+  pendingDevice = null
+  document.querySelectorAll('.device-opt').forEach(o => o.classList.remove('selected'))
+  const btn = document.getElementById('deviceContinue')
+  if (btn) btn.disabled = true
   initDeviceTips()
   const tips = document.getElementById('deviceTips')
   if (tips) tips.style.display = 'block'
@@ -346,18 +370,43 @@ function initQuizzes() {
   } catch(e) { console.error('Quiz error:', e) }
 }
 
+function appImageBase() {
+  const depth = (window.location.pathname.split('/').filter(Boolean) || []).length
+  return '../'.repeat(Math.max(0, depth - 1)) + 'images/apps/'
+}
+
+function appCard(img, name, role) {
+  return `<div class="app-card"><img src="${appImageBase()}${img}" alt="${name}" loading="lazy"><div class="app-info"><strong>${name}</strong><span>${role}</span></div></div>`
+}
+
 function initDeviceTips() {
   const device = getDeviceType()
   const tips = document.getElementById('deviceTips')
   if (!tips) return
   const msgs = {
-    pc: { title: '🖥 PC User', msg: 'Download Python from python.org. Install VS Code or PyCharm for the best coding experience. Use the terminal to run your scripts with "python filename.py".' },
-    android: { title: '📱 Android User', msg: 'Install Termux from F-Droid (not Google Play — it\'s outdated). Open Termux and run: pkg update && pkg install python. You get a full Linux terminal on your phone!' },
-    iphone: { title: '🍎 iPhone User', msg: 'Install Pythonista or Pyto from the App Store. Both include a built-in code editor and Python interpreter. You can also use online REPLs like Replit or Google Colab.' },
-    tablet: { title: '📟 Tablet User', msg: 'Use the browser-based REPL at replit.com or install PyDroid 3 (Android) / Pythonista (iPad). Tablets work great with a Bluetooth keyboard for coding.' }
+    pc: {
+      title: '🖥 PC User',
+      msg: 'Download Python from python.org, then install one of these editors. Run scripts in the terminal with "python filename.py".',
+      apps: [appCard('vscode.png', 'VS Code', 'Best free editor'), appCard('pycharm.png', 'PyCharm', 'Powerful Python IDE'), appCard('thonny.png', 'Thonny', 'Easiest for beginners')]
+    },
+    android: {
+      title: '📱 Android User',
+      msg: 'Install Acode (editor) and PyDroid 3 (runs Python on your phone). For a full Linux terminal, install Termux from F-Droid.',
+      apps: [appCard('acode.png', 'Acode', 'Code editor'), appCard('pydroid3.png', 'PyDroid 3', 'Runs Python'), appCard('termux.png', 'Termux', 'Linux terminal')]
+    },
+    iphone: {
+      title: '🍎 iPhone User',
+      msg: 'Install Pythonista or Pyto from the App Store — both include a built-in code editor and Python interpreter. You can also use online REPLs like Replit or Google Colab.',
+      apps: [appCard('pythonista.png', 'Pythonista', 'Code editor + Python'), appCard('pyto.png', 'Pyto', 'Code editor + Python')]
+    },
+    tablet: {
+      title: '📟 Tablet User',
+      msg: 'Use the browser-based REPL at replit.com or install PyDroid 3 (Android tablets) / Pythonista (iPad). Tablets work great with a Bluetooth keyboard for coding.',
+      apps: [appCard('pydroid3.png', 'PyDroid 3', 'Android tablet'), appCard('pythonista.png', 'Pythonista', 'iPad'), appCard('acode.png', 'Acode', 'Android editor')]
+    }
   }
   const m = msgs[device] || msgs.pc
-  tips.innerHTML = `<h3>${m.title}</h3><p>${m.msg}</p>`
+  tips.innerHTML = `<h3>${m.title}</h3><p>${m.msg}</p><div class="app-list">${m.apps.join('')}</div>`
 }
 
 function initFAQ() {
@@ -409,7 +458,7 @@ function ensureElements() {
   }
   if (!document.getElementById('deviceTips') && document.querySelector('.lesson-page')) {
     const d = document.createElement('div'); d.id = 'deviceTips'; d.style.cssText = 'max-width:800px;margin:0 auto 1.5rem;padding:0 1.2rem'
-    const h = document.querySelector('.lesson-page .lesson-content h1')
+    const h = document.querySelector('.lesson-content h1') || document.querySelector('.lesson-page h1')
     if (h) h.parentNode.insertBefore(d, h.nextSibling)
   }
   if (!document.getElementById('quizContainer') && document.querySelector('.lesson-page')) {

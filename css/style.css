@@ -152,17 +152,32 @@ a { color:var(--gold); text-decoration:none }
   to { opacity:1; transform:scale(1) translateY(0) }
 }
 .device-modal h2 { font-size:1.5rem; margin-bottom:.5rem; color:var(--gold) }
-.device-modal p { color:var(--text2); font-size:.9rem; margin-bottom:1.8rem }
-.device-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem }
+.device-modal p { color:var(--text2); font-size:.9rem; margin-bottom:1.5rem }
+.device-options { display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.4rem }
 .device-opt {
   background:var(--bg3); border:2px solid var(--card-border);
-  border-radius:14px; padding:1.2rem .5rem;
-  cursor:pointer; transition:all .3s;
-  text-align:center;
+  border-radius:12px; padding:.85rem 1.1rem;
+  cursor:pointer; transition:all .25s;
+  display:flex; align-items:center; gap:.9rem;
+  text-align:left; user-select:none;
 }
-.device-opt:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 8px 24px rgba(255,215,0,.15) }
-.device-opt .icon { font-size:1.6rem; margin-bottom:.3rem; display:block }
-.device-opt .label { color:var(--text); font-weight:600; font-size:.82rem }
+.device-opt:hover { border-color:var(--blue) }
+.radio-circle {
+  width:20px; height:20px; flex:0 0 20px;
+  border:2px solid var(--card-border);
+  border-radius:50%; transition:all .25s;
+  position:relative;
+}
+.device-opt.selected { border-color:var(--blue); background:rgba(59,130,246,.12) }
+.device-opt.selected .radio-circle { border-color:var(--blue); background:var(--blue) }
+.device-opt.selected .radio-circle::after {
+  content:''; position:absolute; inset:0; margin:auto;
+  width:8px; height:8px; border-radius:50%; background:#fff;
+}
+.device-opt .label { color:var(--text); font-weight:600; font-size:.95rem }
+.device-continue { width:100%; margin-top:.2rem }
+.device-continue:disabled { opacity:.45; cursor:not-allowed }
+.device-continue:disabled:hover { transform:none; box-shadow:none }
 
 /* Nav */
 nav {
@@ -549,6 +564,16 @@ footer p { color:var(--text2); font-size:.8rem }
 }
 .device-tips h3 { margin-bottom:.5rem; color:var(--gold); font-size:1rem }
 .device-tips p { color:var(--text2); font-size:.88rem }
+.app-list { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:.9rem }
+.app-card {
+  display:flex; align-items:center; gap:.6rem;
+  background:var(--bg3); border:1px solid var(--card-border);
+  border-radius:10px; padding:.5rem .8rem;
+}
+.app-card img { width:40px; height:40px; border-radius:8px; object-fit:contain }
+.app-card .app-info { display:flex; flex-direction:column }
+.app-card strong { color:var(--text); font-size:.85rem; line-height:1.2 }
+.app-card span { color:var(--text2); font-size:.72rem; line-height:1.2 }
 
 /* Responsive */
 @media (max-width:768px) {
@@ -560,7 +585,7 @@ footer p { color:var(--text2); font-size:.8rem }
   .btn { width:100%; max-width:260px; text-align:center }
   .lesson-item { flex-direction:column; text-align:center; gap:.6rem }
   .lesson-nav { flex-direction:column; gap:.8rem }
-  .device-grid { grid-template-columns:repeat(4,1fr); gap:.4rem }
+  .device-options { gap:.5rem }
   .gate-card { padding:2rem 1.5rem }
   .offering-card { padding:1.8rem 1.3rem }
   .whatsapp-fab.left { left:10px; bottom:10px }
@@ -574,7 +599,5 @@ footer p { color:var(--text2); font-size:.8rem }
   .gallery-grid { grid-template-columns:repeat(2,1fr) }
   .about-stats { grid-template-columns:1fr }
   .code-block-wrap pre { font-size:.78rem; padding:1rem .8rem }
-  .device-grid { grid-template-columns:repeat(2,1fr) }
-  .device-opt { padding:1rem .5rem }
-  .device-opt .icon { font-size:1.5rem }
+  .device-opt { padding:.75rem 1rem }
 }
