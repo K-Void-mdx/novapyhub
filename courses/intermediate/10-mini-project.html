@@ -12,55 +12,55 @@
     <div class="lesson-page lesson-content">
         <h1>Lesson 10: Mini Project — To-Do Application</h1>
         <p>Build a command-line to-do list manager with file persistence.</p>
-        <pre><code>import json, os
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json<span class="sep">,</span> os
 
-TODO_FILE = "todos.json"
+TODO_FILE <span class="op">=</span> <span class="str">"todos.json"</span>
 
-def load_todos():
-    if not os.path.exists(TODO_FILE):
-        return []
-    with open(TODO_FILE) as f:
-        return json.load(f)
+<span class="kw">def</span> load_todos<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> <span class="kw">not</span> os.path.exists<span class="sep">(</span>TODO_FILE<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> <span class="sep">[</span><span class="sep">]</span>
+    <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span>TODO_FILE<span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+        <span class="kw">return</span> json.load<span class="sep">(</span>f<span class="sep">)</span>
 
-def save_todos(todos):
-    with open(TODO_FILE, "w") as f:
-        json.dump(todos, f, indent=2)
+<span class="kw">def</span> save_todos<span class="sep">(</span>todos<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span>TODO_FILE<span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+        json.dump<span class="sep">(</span>todos<span class="sep">,</span> f<span class="sep">,</span> indent<span class="op">=</span><span class="num">2</span><span class="sep">)</span>
 
-def show_todos(todos):
-    if not todos:
-        print("No tasks!")
-        return
-    for i, todo in enumerate(todos, 1):
-        status = "✓" if todo["done"] else " "
-        print(f"{i}. [{status}] {todo['task']}")
+<span class="kw">def</span> show_todos<span class="sep">(</span>todos<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> <span class="kw">not</span> todos<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"No tasks!"</span><span class="sep">)</span>
+        <span class="kw">return</span>
+    <span class="kw">for</span> i<span class="sep">,</span> todo <span class="kw">in</span> <span class="bu">enumerate</span><span class="sep">(</span>todos<span class="sep">,</span> <span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
+        status <span class="op">=</span> <span class="str">"✓"</span> <span class="kw">if</span> todo<span class="sep">[</span><span class="str">"done"</span><span class="sep">]</span> <span class="kw">else</span> <span class="str">" "</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{i}. [{status}] {todo['task']}"</span><span class="sep">)</span>
 
-def main():
-    todos = load_todos()
-    while True:
-        print("\n1. Show tasks  2. Add  3. Done  4. Delete  5. Exit")
-        choice = input("Choose: ")
-        if choice == "1":
-            show_todos(todos)
-        elif choice == "2":
-            task = input("Task: ")
-            todos.append({"task": task, "done": False})
-        elif choice == "3":
-            show_todos(todos)
-            idx = int(input("Task # to mark done: ")) - 1
-            if 0 <= idx < len(todos):
-                todos[idx]["done"] = True
-        elif choice == "4":
-            show_todos(todos)
-            idx = int(input("Task # to delete: ")) - 1
-            if 0 <= idx < len(todos):
-                todos.pop(idx)
-        elif choice == "5":
-            save_todos(todos)
-            print("Goodbye!")
-            break
+<span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    todos <span class="op">=</span> load_todos<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"\n1. Show tasks  2. Add  3. Done  4. Delete  5. Exit"</span><span class="sep">)</span>
+        choice <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Choose: "</span><span class="sep">)</span>
+        <span class="kw">if</span> choice <span class="op">==</span> <span class="str">"1"</span><span class="sep">:</span>
+            show_todos<span class="sep">(</span>todos<span class="sep">)</span>
+        <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"2"</span><span class="sep">:</span>
+            task <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Task: "</span><span class="sep">)</span>
+            todos.append<span class="sep">(</span><span class="sep">{</span><span class="str">"task"</span><span class="sep">:</span> task<span class="sep">,</span> <span class="str">"done"</span><span class="sep">:</span> <span class="kw">False</span><span class="sep">}</span><span class="sep">)</span>
+        <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"3"</span><span class="sep">:</span>
+            show_todos<span class="sep">(</span>todos<span class="sep">)</span>
+            idx <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Task # to mark done: "</span><span class="sep">)</span><span class="sep">)</span> <span class="op">-</span> <span class="num">1</span>
+            <span class="kw">if</span> <span class="num">0</span> <span class="op">&lt;=</span> idx <span class="op">&lt;</span> <span class="bu">len</span><span class="sep">(</span>todos<span class="sep">)</span><span class="sep">:</span>
+                todos<span class="sep">[</span>idx<span class="sep">]</span><span class="sep">[</span><span class="str">"done"</span><span class="sep">]</span> <span class="op">=</span> <span class="kw">True</span>
+        <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"4"</span><span class="sep">:</span>
+            show_todos<span class="sep">(</span>todos<span class="sep">)</span>
+            idx <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Task # to delete: "</span><span class="sep">)</span><span class="sep">)</span> <span class="op">-</span> <span class="num">1</span>
+            <span class="kw">if</span> <span class="num">0</span> <span class="op">&lt;=</span> idx <span class="op">&lt;</span> <span class="bu">len</span><span class="sep">(</span>todos<span class="sep">)</span><span class="sep">:</span>
+                todos.pop<span class="sep">(</span>idx<span class="sep">)</span>
+        <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"5"</span><span class="sep">:</span>
+            save_todos<span class="sep">(</span>todos<span class="sep">)</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Goodbye!"</span><span class="sep">)</span>
+            <span class="kw">break</span>
 
-if __name__ == "__main__":
-    main()</code></pre>
+<span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
+    main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="09-iterators-generators.html" class="btn btn-secondary">← Previous</a><a href="../advanced.html" class="btn btn-primary">Continue to Advanced →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

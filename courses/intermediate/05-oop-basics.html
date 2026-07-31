@@ -28,80 +28,80 @@
 
         <h2>Classes and Objects</h2>
         <p>A <strong>class</strong> is a blueprint. An <strong>object</strong> is an instance of that blueprint.</p>
-        <pre><code># Define a class
-class Dog:
-    # Class attribute (shared by all instances)
-    species = "Canis familiaris"
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Define a class</span>
+<span class="kw">class</span> Dog<span class="sep">:</span>
+    <span class="cm"># Class attribute (shared by all instances)</span>
+    species <span class="op">=</span> <span class="str">"Canis familiaris"</span>
 
-    # Initializer (constructor)
-    def __init__(self, name, age):
-        self.name = name  # Instance attribute
-        self.age = age    # Instance attribute
+    <span class="cm"># Initializer (constructor)</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> name<span class="sep">,</span> age<span class="sep">)</span><span class="sep">:</span>
+        self.name <span class="op">=</span> name  <span class="cm"># Instance attribute</span>
+        self.age <span class="op">=</span> age    <span class="cm"># Instance attribute</span>
 
-    # Instance method
-    def bark(self):
-        return f"{self.name} says Woof!"
+    <span class="cm"># Instance method</span>
+    <span class="kw">def</span> bark<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"{self.name} says Woof!"</span>
 
-    def description(self):
-        return f"{self.name} is {self.age} years old"
+    <span class="kw">def</span> description<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"{self.name} is {self.age} years old"</span>
 
-# Create objects (instances)
-dog1 = Dog("Buddy", 3)
-dog2 = Dog("Max", 5)
+<span class="cm"># Create objects (instances)</span>
+dog1 <span class="op">=</span> Dog<span class="sep">(</span><span class="str">"Buddy"</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span>
+dog2 <span class="op">=</span> Dog<span class="sep">(</span><span class="str">"Max"</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span>
 
-print(dog1.name)         # Buddy
-print(dog1.bark())       # Buddy says Woof!
-print(dog2.description()) # Max is 5 years old
-print(dog1.species)      # Canis familiaris</code></pre>
+<span class="bu">print</span><span class="sep">(</span>dog1.name<span class="sep">)</span>         <span class="cm"># Buddy</span>
+<span class="bu">print</span><span class="sep">(</span>dog1.bark<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>       <span class="cm"># Buddy says Woof!</span>
+<span class="bu">print</span><span class="sep">(</span>dog2.description<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># Max is 5 years old</span>
+<span class="bu">print</span><span class="sep">(</span>dog1.species<span class="sep">)</span>      <span class="cm"># Canis familiaris&lt;/code&gt;</span></pre>
 
         <h2>Instance Methods vs Class Methods</h2>
-        <pre><code>class Student:
-    school = "Nova Py-Hub"
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Student<span class="sep">:</span>
+    school <span class="op">=</span> <span class="str">"Nova Py-Hub"</span>
 
-    def __init__(self, name, grade):
-        self.name = name
-        self.grade = grade
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> name<span class="sep">,</span> grade<span class="sep">)</span><span class="sep">:</span>
+        self.name <span class="op">=</span> name
+        self.grade <span class="op">=</span> grade
 
-    # Instance method — uses self
-    def info(self):
-        return f"{self.name} - Grade: {self.grade}"
+    <span class="cm"># Instance method — uses self</span>
+    <span class="kw">def</span> info<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"{self.name} - Grade: {self.grade}"</span>
 
-    # Class method — uses cls
-    @classmethod
-    def from_string(cls, data):
-        name, grade = data.split(",")
-        return cls(name.strip(), int(grade.strip()))
+    <span class="cm"># Class method — uses cls</span>
+<span class="dec">    @classmethod</span>
+    <span class="kw">def</span> from_string<span class="sep">(</span>cls<span class="sep">,</span> data<span class="sep">)</span><span class="sep">:</span>
+        name<span class="sep">,</span> grade <span class="op">=</span> data.split<span class="sep">(</span><span class="str">","</span><span class="sep">)</span>
+        <span class="kw">return</span> cls<span class="sep">(</span>name.strip<span class="sep">(</span><span class="sep">)</span><span class="sep">,</span> <span class="bu">int</span><span class="sep">(</span>grade.strip<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>
 
-    # Static method — no self or cls
-    @staticmethod
-    def is_passing(grade):
-        return grade >= 60
+    <span class="cm"># Static method — no self or cls</span>
+<span class="dec">    @staticmethod</span>
+    <span class="kw">def</span> is_passing<span class="sep">(</span>grade<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> grade <span class="op">&gt;=</span> <span class="num">60</span>
 
-# Using class method as alternative constructor
-s = Student.from_string("Alice, 85")
-print(s.info())  # Alice - Grade: 85</code></pre>
+<span class="cm"># Using class method as alternative constructor</span>
+s <span class="op">=</span> Student.from_string<span class="sep">(</span><span class="str">"Alice, 85"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>s.info<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Alice - Grade: 85&lt;/code&gt;</span></pre>
 
         <h2>Inheritance</h2>
-        <pre><code># Parent class
-class Animal:
-    def __init__(self, name):
-        self.name = name
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Parent class</span>
+<span class="kw">class</span> Animal<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> name<span class="sep">)</span><span class="sep">:</span>
+        self.name <span class="op">=</span> name
 
-    def speak(self):
-        pass  # To be overridden
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">pass</span>  <span class="cm"># To be overridden</span>
 
-# Child class
-class Cat(Animal):
-    def speak(self):
-        return f"{self.name} says Meow!"
+<span class="cm"># Child class</span>
+<span class="kw">class</span> Cat<span class="sep">(</span>Animal<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"{self.name} says Meow!"</span>
 
-class Dog(Animal):
-    def speak(self):
-        return f"{self.name} says Woof!"
+<span class="kw">class</span> Dog<span class="sep">(</span>Animal<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"{self.name} says Woof!"</span>
 
-animals = [Cat("Whiskers"), Dog("Buddy")]
-for animal in animals:
-    print(animal.speak())</code></pre>
+animals <span class="op">=</span> <span class="sep">[</span>Cat<span class="sep">(</span><span class="str">"Whiskers"</span><span class="sep">)</span><span class="sep">,</span> Dog<span class="sep">(</span><span class="str">"Buddy"</span><span class="sep">)</span><span class="sep">]</span>
+<span class="kw">for</span> animal <span class="kw">in</span> animals<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice</h2>
         <ol>

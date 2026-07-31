@@ -27,130 +27,130 @@
         <p>Python makes file operations simple. The built-in <code>open()</code> function is your gateway to file I/O.</p>
 
         <h2>Opening Files</h2>
-        <pre><code># Different modes:
-# "r" — read (default)
-# "w" — write (overwrites!)
-# "a" — append
-# "r+" — read and write
-# "b" — binary mode (add to another mode: "rb", "wb")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Different modes:</span>
+<span class="cm"># "r" — read (default)</span>
+<span class="cm"># "w" — write (overwrites!)</span>
+<span class="cm"># "a" — append</span>
+<span class="cm"># "r+" — read and write</span>
+<span class="cm"># "b" — binary mode (add to another mode: "rb", "wb")</span>
 
-file = open("example.txt", "r")
-content = file.read()
-file.close()</code></pre>
+file <span class="op">=</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span>
+content <span class="op">=</span> file.read<span class="sep">(</span><span class="sep">)</span>
+file.close<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>The with Statement</h2>
         <p>Always use <code>with</code> to automatically close files:</p>
-        <pre><code># Read entire file
-with open("example.txt", "r") as file:
-    content = file.read()
-    print(content)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Read entire file</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> file<span class="sep">:</span>
+    content <span class="op">=</span> file.read<span class="sep">(</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>content<span class="sep">)</span>
 
-# File is automatically closed when block exits</code></pre>
+<span class="cm"># File is automatically closed when block exits&lt;/code&gt;</span></pre>
 
         <h2>Reading Methods</h2>
-        <pre><code># read all
-with open("example.txt", "r") as f:
-    content = f.read()
-    print(content)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># read all</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    content <span class="op">=</span> f.read<span class="sep">(</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>content<span class="sep">)</span>
 
-# read line by line
-with open("example.txt", "r") as f:
-    for line in f:
-        print(line.strip())  # strip removes \n
+<span class="cm"># read line by line</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    <span class="kw">for</span> line <span class="kw">in</span> f<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>line.strip<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># strip removes \n</span>
 
-# read all lines into list
-with open("example.txt", "r") as f:
-    lines = f.readlines()
-    print(lines)  # ['line1\n', 'line2\n', ...]
+<span class="cm"># read all lines into list</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    lines <span class="op">=</span> f.readlines<span class="sep">(</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>lines<span class="sep">)</span>  <span class="cm"># ['line1\n', 'line2\n', ...]</span>
 
-# read specific number of chars
-with open("example.txt", "r") as f:
-    chunk = f.read(100)  # Read 100 characters</code></pre>
+<span class="cm"># read specific number of chars</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    chunk <span class="op">=</span> f.read<span class="sep">(</span><span class="num">100</span><span class="sep">)</span>  <span class="cm"># Read 100 characters&lt;/code&gt;</span></pre>
 
         <h2>Writing to Files</h2>
-        <pre><code># Write (overwrites if file exists)
-with open("output.txt", "w") as f:
-    f.write("Hello, World!\n")
-    f.write("This is a new line.\n")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Write (overwrites if file exists)</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    f.write<span class="sep">(</span><span class="str">"Hello, World!\n"</span><span class="sep">)</span>
+    f.write<span class="sep">(</span><span class="str">"This is a new line.\n"</span><span class="sep">)</span>
 
-# Append (adds to existing content)
-with open("output.txt", "a") as f:
-    f.write("This line is appended.\n")
+<span class="cm"># Append (adds to existing content)</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.txt"</span><span class="sep">,</span> <span class="str">"a"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    f.write<span class="sep">(</span><span class="str">"This line is appended.\n"</span><span class="sep">)</span>
 
-# Write multiple lines
-lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
-with open("output.txt", "w") as f:
-    f.writelines(lines)</code></pre>
+<span class="cm"># Write multiple lines</span>
+lines <span class="op">=</span> <span class="sep">[</span><span class="str">"Line 1\n"</span><span class="sep">,</span> <span class="str">"Line 2\n"</span><span class="sep">,</span> <span class="str">"Line 3\n"</span><span class="sep">]</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    f.writelines<span class="sep">(</span>lines<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Working with Different File Formats</h2>
 
         <h3>CSV Files</h3>
-        <pre><code>import csv
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> csv
 
-# Reading CSV
-with open("data.csv", "r") as f:
-    reader = csv.reader(f)
-    for row in reader:
-        print(row)
+<span class="cm"># Reading CSV</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"data.csv"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    reader <span class="op">=</span> csv.reader<span class="sep">(</span>f<span class="sep">)</span>
+    <span class="kw">for</span> row <span class="kw">in</span> reader<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>row<span class="sep">)</span>
 
-# Writing CSV
-with open("output.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["Name", "Age", "City"])
-    writer.writerow(["Alice", 25, "NYC"])
-    writer.writerow(["Bob", 30, "LA"])</code></pre>
+<span class="cm"># Writing CSV</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.csv"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">,</span> newline<span class="op">=</span><span class="str">""</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    writer <span class="op">=</span> csv.writer<span class="sep">(</span>f<span class="sep">)</span>
+    writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Name"</span><span class="sep">,</span> <span class="str">"Age"</span><span class="sep">,</span> <span class="str">"City"</span><span class="sep">]</span><span class="sep">)</span>
+    writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"NYC"</span><span class="sep">]</span><span class="sep">)</span>
+    writer.writerow<span class="sep">(</span><span class="sep">[</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="num">30</span><span class="sep">,</span> <span class="str">"LA"</span><span class="sep">]</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h3>JSON Files</h3>
-        <pre><code>import json
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json
 
-# Reading JSON
-with open("data.json", "r") as f:
-    data = json.load(f)
-    print(data)
+<span class="cm"># Reading JSON</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"data.json"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    data <span class="op">=</span> json.load<span class="sep">(</span>f<span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>data<span class="sep">)</span>
 
-# Writing JSON
-data = {
-    "name": "Alice",
-    "age": 25,
-    "hobbies": ["reading", "coding"]
-}
-with open("output.json", "w") as f:
-    json.dump(data, f, indent=2)</code></pre>
+<span class="cm"># Writing JSON</span>
+data <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span>
+    <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span>
+    <span class="str">"hobbies"</span><span class="sep">:</span> <span class="sep">[</span><span class="str">"reading"</span><span class="sep">,</span> <span class="str">"coding"</span><span class="sep">]</span>
+<span class="sep">}</span>
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"output.json"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    json.dump<span class="sep">(</span>data<span class="sep">,</span> f<span class="sep">,</span> indent<span class="op">=</span><span class="num">2</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Checking if Files Exist</h2>
-        <pre><code>import os
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
 
-if os.path.exists("example.txt"):
-    print("File exists!")
+<span class="kw">if</span> os.path.exists<span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"File exists!"</span><span class="sep">)</span>
 
-if os.path.isfile("example.txt"):
-    print("It's a file!")
+<span class="kw">if</span> os.path.isfile<span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"It's a file!"</span><span class="sep">)</span>
 
-if os.path.isdir("my_folder"):
-    print("It's a directory!")
+<span class="kw">if</span> os.path.isdir<span class="sep">(</span><span class="str">"my_folder"</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"It's a directory!"</span><span class="sep">)</span>
 
-# Get file size
-size = os.path.getsize("example.txt")
-print(f"File size: {size} bytes")</code></pre>
+<span class="cm"># Get file size</span>
+size <span class="op">=</span> os.path.getsize<span class="sep">(</span><span class="str">"example.txt"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"File size: {size} bytes"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Working with File Paths</h2>
-        <pre><code>import os
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
 
-# Join paths safely
-path = os.path.join("folder", "subfolder", "file.txt")
-print(path)  # folder/subfolder/file.txt
+<span class="cm"># Join paths safely</span>
+path <span class="op">=</span> os.path.join<span class="sep">(</span><span class="str">"folder"</span><span class="sep">,</span> <span class="str">"subfolder"</span><span class="sep">,</span> <span class="str">"file.txt"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>path<span class="sep">)</span>  <span class="cm"># folder/subfolder/file.txt</span>
 
-# Get directory name
-dir_name = os.path.dirname("/home/user/file.txt")
-print(dir_name)  # /home/user
+<span class="cm"># Get directory name</span>
+dir_name <span class="op">=</span> os.path.dirname<span class="sep">(</span><span class="str">"/home/user/file.txt"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>dir_name<span class="sep">)</span>  <span class="cm"># /home/user</span>
 
-# Get file name
-file_name = os.path.basename("/home/user/file.txt")
-print(file_name)  # file.txt
+<span class="cm"># Get file name</span>
+file_name <span class="op">=</span> os.path.basename<span class="sep">(</span><span class="str">"/home/user/file.txt"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>file_name<span class="sep">)</span>  <span class="cm"># file.txt</span>
 
-# Split extension
-name, ext = os.path.splitext("image.jpg")
-print(f"Name: {name}, Extension: {ext}")  # Name: image, Extension: .jpg</code></pre>
+<span class="cm"># Split extension</span>
+name<span class="sep">,</span> ext <span class="op">=</span> os.path.splitext<span class="sep">(</span><span class="str">"image.jpg"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Name: {name}, Extension: {ext}"</span><span class="sep">)</span>  <span class="cm"># Name: image, Extension: .jpg&lt;/code&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

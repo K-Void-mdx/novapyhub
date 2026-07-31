@@ -25,73 +25,73 @@
 
         <h2>Polymorphism</h2>
         <p>Same interface, different implementations:</p>
-        <pre><code>class Shape:
-    def area(self):
-        pass
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Shape<span class="sep">:</span>
+    <span class="kw">def</span> area<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">pass</span>
 
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-    def area(self):
-        return 3.14159 * self.radius ** 2
+<span class="kw">class</span> Circle<span class="sep">(</span>Shape<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> radius<span class="sep">)</span><span class="sep">:</span>
+        self.radius <span class="op">=</span> radius
+    <span class="kw">def</span> area<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> <span class="num">3.14159</span> <span class="op">*</span> self.radius <span class="op">**</span> <span class="num">2</span>
 
-class Rectangle(Shape):
-    def __init__(self, w, h):
-        self.w, self.h = w, h
-    def area(self):
-        return self.w * self.h
+<span class="kw">class</span> Rectangle<span class="sep">(</span>Shape<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> w<span class="sep">,</span> h<span class="sep">)</span><span class="sep">:</span>
+        self.w<span class="sep">,</span> self.h <span class="op">=</span> w<span class="sep">,</span> h
+    <span class="kw">def</span> area<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> self.w <span class="op">*</span> self.h
 
-shapes = [Circle(5), Rectangle(4, 6)]
-for s in shapes:
-    print(s.area())</code></pre>
+shapes <span class="op">=</span> <span class="sep">[</span>Circle<span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">,</span> Rectangle<span class="sep">(</span><span class="num">4</span><span class="sep">,</span> <span class="num">6</span><span class="sep">)</span><span class="sep">]</span>
+<span class="kw">for</span> s <span class="kw">in</span> shapes<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>s.area<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Encapsulation and Properties</h2>
-        <pre><code>class BankAccount:
-    def __init__(self, owner, balance=0):
-        self.owner = owner
-        self._balance = balance  # "Protected" by convention
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> BankAccount<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> owner<span class="sep">,</span> balance<span class="op">=</span><span class="num">0</span><span class="sep">)</span><span class="sep">:</span>
+        self.owner <span class="op">=</span> owner
+        self._balance <span class="op">=</span> balance  <span class="cm"># "Protected" by convention</span>
+<span class="dec">
+    @property</span>
+    <span class="kw">def</span> balance<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> self._balance
+<span class="dec">
+    @balance</span>.setter
+    <span class="kw">def</span> balance<span class="sep">(</span>self<span class="sep">,</span> value<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">if</span> value <span class="op">&lt;</span> <span class="num">0</span><span class="sep">:</span>
+            <span class="kw">raise</span> ValueError<span class="sep">(</span><span class="str">"Balance can't be negative!"</span><span class="sep">)</span>
+        self._balance <span class="op">=</span> value
 
-    @property
-    def balance(self):
-        return self._balance
+    <span class="kw">def</span> deposit<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">if</span> amount <span class="op">&gt;</span> <span class="num">0</span><span class="sep">:</span>
+            self._balance <span class="op">+=</span> amount
 
-    @balance.setter
-    def balance(self, value):
-        if value < 0:
-            raise ValueError("Balance can't be negative!")
-        self._balance = value
-
-    def deposit(self, amount):
-        if amount > 0:
-            self._balance += amount
-
-acc = BankAccount("Alice", 1000)
-print(acc.balance)   # 1000
-acc.deposit(500)
-print(acc.balance)   # 1500
-# acc.balance = -500  # ValueError!</code></pre>
+acc <span class="op">=</span> BankAccount<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">1000</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>acc.balance<span class="sep">)</span>   <span class="cm"># 1000</span>
+acc.deposit<span class="sep">(</span><span class="num">500</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>acc.balance<span class="sep">)</span>   <span class="cm"># 1500</span>
+<span class="cm"># acc.balance = -500  # ValueError!&lt;/code&gt;</span></pre>
 
         <h2>Magic Methods (Dunder Methods)</h2>
-        <pre><code>class Vector:
-    def __init__(self, x, y):
-        self.x, self.y = x, y
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Vector<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> x<span class="sep">,</span> y<span class="sep">)</span><span class="sep">:</span>
+        self.x<span class="sep">,</span> self.y <span class="op">=</span> x<span class="sep">,</span> y
 
-    def __str__(self):
-        return f"Vector({self.x}, {self.y})"
+    <span class="kw">def</span> <span class="bu">__str__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"Vector({self.x}, {self.y})"</span>
 
-    def __add__(self, other):
-        return Vector(self.x + other.x, self.y + other.y)
+    <span class="kw">def</span> <span class="bu">__add__</span><span class="sep">(</span>self<span class="sep">,</span> other<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> Vector<span class="sep">(</span>self.x <span class="op">+</span> other.x<span class="sep">,</span> self.y <span class="op">+</span> other.y<span class="sep">)</span>
 
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
+    <span class="kw">def</span> <span class="bu">__eq__</span><span class="sep">(</span>self<span class="sep">,</span> other<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> self.x <span class="op">==</span> other.x <span class="kw">and</span> self.y <span class="op">==</span> other.y
 
-    def __repr__(self):
-        return f"Vector({self.x}, {self.y})"
+    <span class="kw">def</span> <span class="bu">__repr__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> f<span class="str">"Vector({self.x}, {self.y})"</span>
 
-v1 = Vector(2, 3)
-v2 = Vector(1, 4)
-print(v1 + v2)     # Vector(3, 7)
-print(v1 == Vector(2, 3))  # True</code></pre>
+v1 <span class="op">=</span> Vector<span class="sep">(</span><span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span>
+v2 <span class="op">=</span> Vector<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>v1 <span class="op">+</span> v2<span class="sep">)</span>     <span class="cm"># Vector(3, 7)</span>
+<span class="bu">print</span><span class="sep">(</span>v1 <span class="op">==</span> Vector<span class="sep">(</span><span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># True&lt;/code&gt;</span></pre>
 
         <h2>Practice</h2>
         <ol>

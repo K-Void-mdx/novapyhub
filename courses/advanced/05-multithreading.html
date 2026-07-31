@@ -13,43 +13,43 @@
         <h1>Lesson 5: Multithreading and Concurrency</h1>
         <p>Run multiple tasks concurrently with threads and processes.</p>
         <h2>Threading</h2>
-        <pre><code>import threading, time
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> threading<span class="sep">,</span> time
 
-def worker(name, delay):
-    for i in range(3):
-        print(f"{name}: {i}")
-        time.sleep(delay)
+<span class="kw">def</span> worker<span class="sep">(</span>name<span class="sep">,</span> delay<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">3</span><span class="sep">)</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{name}: {i}"</span><span class="sep">)</span>
+        time.sleep<span class="sep">(</span>delay<span class="sep">)</span>
 
-threads = []
-for name, delay in [("A", 0.5), ("B", 1), ("C", 0.3)]:
-    t = threading.Thread(target=worker, args=(name, delay))
-    threads.append(t)
-    t.start()
+threads <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
+<span class="kw">for</span> name<span class="sep">,</span> delay <span class="kw">in</span> <span class="sep">[</span><span class="sep">(</span><span class="str">"A"</span><span class="sep">,</span> <span class="num">0.5</span><span class="sep">)</span><span class="sep">,</span> <span class="sep">(</span><span class="str">"B"</span><span class="sep">,</span> <span class="num">1</span><span class="sep">)</span><span class="sep">,</span> <span class="sep">(</span><span class="str">"C"</span><span class="sep">,</span> <span class="num">0.3</span><span class="sep">)</span><span class="sep">]</span><span class="sep">:</span>
+    t <span class="op">=</span> threading.Thread<span class="sep">(</span>target<span class="op">=</span>worker<span class="sep">,</span> args<span class="op">=</span><span class="sep">(</span>name<span class="sep">,</span> delay<span class="sep">)</span><span class="sep">)</span>
+    threads.append<span class="sep">(</span>t<span class="sep">)</span>
+    t.start<span class="sep">(</span><span class="sep">)</span>
 
-for t in threads:
-    t.join()
+<span class="kw">for</span> t <span class="kw">in</span> threads<span class="sep">:</span>
+    t.join<span class="sep">(</span><span class="sep">)</span>
 
-print("All done!")</code></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"All done!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Thread Safety with Lock</h2>
-        <pre><code>lock = threading.Lock()
-counter = 0
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>lock <span class="op">=</span> threading.Lock<span class="sep">(</span><span class="sep">)</span>
+counter <span class="op">=</span> <span class="num">0</span>
 
-def increment():
-    global counter
-    for _ in range(100000):
-        with lock:
-            counter += 1</code></pre>
+<span class="kw">def</span> increment<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">global</span> counter
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">100000</span><span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">with</span> lock<span class="sep">:</span>
+            counter <span class="op">+=</span> <span class="num">1</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>concurrent.futures</h2>
-        <pre><code>from concurrent.futures import ThreadPoolExecutor
-import time
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> concurrent.futures <span class="kw">import</span> ThreadPoolExecutor
+<span class="kw">import</span> time
 
-def square(n):
-    time.sleep(0.1)
-    return n * n
+<span class="kw">def</span> square<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+    time.sleep<span class="sep">(</span><span class="num">0.1</span><span class="sep">)</span>
+    <span class="kw">return</span> n <span class="op">*</span> n
 
-with ThreadPoolExecutor(max_workers=4) as executor:
-    results = list(executor.map(square, range(10)))
-    print(results)  # [0, 1, 4, 9, ...]</code></pre>
+<span class="kw">with</span> ThreadPoolExecutor<span class="sep">(</span>max_workers<span class="op">=</span><span class="num">4</span><span class="sep">)</span> <span class="kw">as</span> executor<span class="sep">:</span>
+    results <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span>executor.<span class="bu">map</span><span class="sep">(</span>square<span class="sep">,</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>results<span class="sep">)</span>  <span class="cm"># [0, 1, 4, 9, ...]&lt;/code&gt;</span></pre>
         <div class="lesson-nav"><a href="04-testing.html" class="btn btn-secondary">← Previous</a><a href="06-async-io.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

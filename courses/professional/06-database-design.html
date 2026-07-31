@@ -19,29 +19,29 @@
             <li><strong>3NF:</strong> 2NF + no transitive dependencies</li>
         </ul>
         <h2>Indexes</h2>
-        <pre><code>-- CREATE INDEX idx_users_email ON users(email);
--- Indexes speed up SELECT but slow down INSERT/UPDATE</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;--</span> CREATE INDEX idx_users_email ON users<span class="sep">(</span>email<span class="sep">)</span><span class="sep">;</span>
+<span class="op">--</span> Indexes speed up SELECT but slow down INSERT<span class="op">/</span>UPDATE<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Transactions</h2>
-        <pre><code>import sqlite3
-conn = sqlite3.connect("bank.db")
-cursor = conn.cursor()
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> sqlite3
+conn <span class="op">=</span> sqlite3.connect<span class="sep">(</span><span class="str">"bank.db"</span><span class="sep">)</span>
+cursor <span class="op">=</span> conn.cursor<span class="sep">(</span><span class="sep">)</span>
 
-try:
-    conn.execute("BEGIN")
-    cursor.execute("UPDATE accounts SET balance = balance - 100 WHERE id = 1")
-    cursor.execute("UPDATE accounts SET balance = balance + 100 WHERE id = 2")
-    conn.commit()  # Both succeed or both fail
-except:
-    conn.rollback()  # Revert all changes</code></pre>
+<span class="kw">try</span><span class="sep">:</span>
+    conn.execute<span class="sep">(</span><span class="str">"BEGIN"</span><span class="sep">)</span>
+    cursor.execute<span class="sep">(</span><span class="str">"UPDATE accounts SET balance = balance - 100 WHERE id = 1"</span><span class="sep">)</span>
+    cursor.execute<span class="sep">(</span><span class="str">"UPDATE accounts SET balance = balance + 100 WHERE id = 2"</span><span class="sep">)</span>
+    conn.commit<span class="sep">(</span><span class="sep">)</span>  <span class="cm"># Both succeed or both fail</span>
+<span class="kw">except</span><span class="sep">:</span>
+    conn.rollback<span class="sep">(</span><span class="sep">)</span>  <span class="cm"># Revert all changes&lt;/code&gt;</span></pre>
         <h2>JOIN Types</h2>
-        <pre><code>-- INNER JOIN: only matching rows
--- LEFT JOIN: all from left, NULLs on right
--- RIGHT JOIN: all from right, NULLs on left
--- FULL OUTER JOIN: all from both
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;--</span> INNER JOIN<span class="sep">:</span> only matching rows
+<span class="op">--</span> LEFT JOIN<span class="sep">:</span> all <span class="kw">from</span> left<span class="sep">,</span> NULLs on right
+<span class="op">--</span> RIGHT JOIN<span class="sep">:</span> all <span class="kw">from</span> right<span class="sep">,</span> NULLs on left
+<span class="op">--</span> FULL OUTER JOIN<span class="sep">:</span> all <span class="kw">from</span> both
 
-SELECT u.name, o.amount
+SELECT u.name<span class="sep">,</span> o.amount
 FROM users u
-JOIN orders o ON u.id = o.user_id</code></pre>
+JOIN orders o ON u.id <span class="op">=</span> o.user_id<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="05-api-development.html" class="btn btn-secondary">← Previous</a><a href="07-testing-advanced.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

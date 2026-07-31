@@ -13,84 +13,84 @@
         <h1>Lesson 1: Design Patterns in Python</h1>
         <p>Design patterns are reusable solutions to common software design problems. Here are the most important Gang of Four patterns implemented in Python.</p>
         <h2>Singleton Pattern</h2>
-        <pre><code>class Singleton:
-    _instance = None
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Singleton<span class="sep">:</span>
+    _instance <span class="op">=</span> <span class="kw">None</span>
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
+    <span class="kw">def</span> __new__<span class="sep">(</span>cls<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">if</span> cls._instance <span class="kw">is</span> <span class="kw">None</span><span class="sep">:</span>
+            cls._instance <span class="op">=</span> <span class="bu">super</span><span class="sep">(</span><span class="sep">)</span>.__new__<span class="sep">(</span>cls<span class="sep">)</span>
+        <span class="kw">return</span> cls._instance
 
-s1 = Singleton()
-s2 = Singleton()
-print(s1 is s2)  # True</code></pre>
+s1 <span class="op">=</span> Singleton<span class="sep">(</span><span class="sep">)</span>
+s2 <span class="op">=</span> Singleton<span class="sep">(</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>s1 <span class="kw">is</span> s2<span class="sep">)</span>  <span class="cm"># True&lt;/code&gt;</span></pre>
         <h2>Factory Pattern</h2>
-        <pre><code>from abc import ABC, abstractmethod
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
-class Animal(ABC):
-    @abstractmethod
-    def speak(self): pass
+<span class="kw">class</span> Animal<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
+<span class="dec">    @abstractmethod</span>
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
 
-class Dog(Animal):
-    def speak(self): return "Woof!"
+<span class="kw">class</span> Dog<span class="sep">(</span>Animal<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> <span class="str">"Woof!"</span>
 
-class Cat(Animal):
-    def speak(self): return "Meow!"
+<span class="kw">class</span> Cat<span class="sep">(</span>Animal<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> speak<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> <span class="str">"Meow!"</span>
 
-class AnimalFactory:
-    @staticmethod
-    def create(animal_type):
-        types = {"dog": Dog, "cat": Cat}
-        return types.get(animal_type.lower(), Animal)()
+<span class="kw">class</span> AnimalFactory<span class="sep">:</span>
+<span class="dec">    @staticmethod</span>
+    <span class="kw">def</span> create<span class="sep">(</span>animal_type<span class="sep">)</span><span class="sep">:</span>
+        types <span class="op">=</span> <span class="sep">{</span><span class="str">"dog"</span><span class="sep">:</span> Dog<span class="sep">,</span> <span class="str">"cat"</span><span class="sep">:</span> Cat<span class="sep">}</span>
+        <span class="kw">return</span> types.get<span class="sep">(</span>animal_type.lower<span class="sep">(</span><span class="sep">)</span><span class="sep">,</span> Animal<span class="sep">)</span><span class="sep">(</span><span class="sep">)</span>
 
-factory = AnimalFactory()
-animal = factory.create("dog")
-print(animal.speak())  # Woof!</code></pre>
+factory <span class="op">=</span> AnimalFactory<span class="sep">(</span><span class="sep">)</span>
+animal <span class="op">=</span> factory.create<span class="sep">(</span><span class="str">"dog"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>animal.speak<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Woof!&lt;/code&gt;</span></pre>
         <h2>Observer Pattern</h2>
-        <pre><code>class Subject:
-    def __init__(self):
-        self._observers = []
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Subject<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        self._observers <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
 
-    def attach(self, observer):
-        self._observers.append(observer)
+    <span class="kw">def</span> attach<span class="sep">(</span>self<span class="sep">,</span> observer<span class="sep">)</span><span class="sep">:</span>
+        self._observers.append<span class="sep">(</span>observer<span class="sep">)</span>
 
-    def notify(self, message):
-        for obs in self._observers:
-            obs.update(message)
+    <span class="kw">def</span> notify<span class="sep">(</span>self<span class="sep">,</span> message<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">for</span> obs <span class="kw">in</span> self._observers<span class="sep">:</span>
+            obs.update<span class="sep">(</span>message<span class="sep">)</span>
 
-class Observer:
-    def update(self, message):
-        print(f"Received: {message}")
+<span class="kw">class</span> Observer<span class="sep">:</span>
+    <span class="kw">def</span> update<span class="sep">(</span>self<span class="sep">,</span> message<span class="sep">)</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Received: {message}"</span><span class="sep">)</span>
 
-sub = Subject()
-obs1 = Observer()
-obs2 = Observer()
-sub.attach(obs1)
-sub.attach(obs2)
-sub.notify("Hello!")  # Both observers receive</code></pre>
+sub <span class="op">=</span> Subject<span class="sep">(</span><span class="sep">)</span>
+obs1 <span class="op">=</span> Observer<span class="sep">(</span><span class="sep">)</span>
+obs2 <span class="op">=</span> Observer<span class="sep">(</span><span class="sep">)</span>
+sub.attach<span class="sep">(</span>obs1<span class="sep">)</span>
+sub.attach<span class="sep">(</span>obs2<span class="sep">)</span>
+sub.notify<span class="sep">(</span><span class="str">"Hello!"</span><span class="sep">)</span>  <span class="cm"># Both observers receive&lt;/code&gt;</span></pre>
         <h2>Strategy Pattern</h2>
-        <pre><code>from abc import ABC, abstractmethod
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
-class SortingStrategy(ABC):
-    @abstractmethod
-    def sort(self, data): pass
+<span class="kw">class</span> SortingStrategy<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
+<span class="dec">    @abstractmethod</span>
+    <span class="kw">def</span> sort<span class="sep">(</span>self<span class="sep">,</span> data<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
 
-class BubbleSort(SortingStrategy):
-    def sort(self, data):
-        return sorted(data)  # Simplified
+<span class="kw">class</span> BubbleSort<span class="sep">(</span>SortingStrategy<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> sort<span class="sep">(</span>self<span class="sep">,</span> data<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> <span class="bu">sorted</span><span class="sep">(</span>data<span class="sep">)</span>  <span class="cm"># Simplified</span>
 
-class QuickSort(SortingStrategy):
-    def sort(self, data):
-        return sorted(data)  # Simplified
+<span class="kw">class</span> QuickSort<span class="sep">(</span>SortingStrategy<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> sort<span class="sep">(</span>self<span class="sep">,</span> data<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> <span class="bu">sorted</span><span class="sep">(</span>data<span class="sep">)</span>  <span class="cm"># Simplified</span>
 
-class Sorter:
-    def __init__(self, strategy):
-        self.strategy = strategy
-    def sort(self, data):
-        return self.strategy.sort(data)
+<span class="kw">class</span> Sorter<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> strategy<span class="sep">)</span><span class="sep">:</span>
+        self.strategy <span class="op">=</span> strategy
+    <span class="kw">def</span> sort<span class="sep">(</span>self<span class="sep">,</span> data<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">return</span> self.strategy.sort<span class="sep">(</span>data<span class="sep">)</span>
 
-sorter = Sorter(QuickSort())
-print(sorter.sort([3, 1, 4, 1, 5]))</code></pre>
+sorter <span class="op">=</span> Sorter<span class="sep">(</span>QuickSort<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>sorter.sort<span class="sep">(</span><span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="../professional.html" class="btn btn-secondary">← Back</a><a href="02-solid-principles.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

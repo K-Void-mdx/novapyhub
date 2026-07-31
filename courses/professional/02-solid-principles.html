@@ -14,52 +14,52 @@
         <p>SOLID is an acronym for five design principles that make software more maintainable and scalable.</p>
         <h2>S — Single Responsibility</h2>
         <p>A class should have only one reason to change:</p>
-        <pre><code># BAD — mixed responsibilities
-class Report:
-    def generate(self): pass
-    def save_to_file(self): pass
-    def send_email(self): pass
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># BAD — mixed responsibilities</span>
+<span class="kw">class</span> Report<span class="sep">:</span>
+    <span class="kw">def</span> generate<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
+    <span class="kw">def</span> save_to_file<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
+    <span class="kw">def</span> send_email<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
 
-# GOOD — separated
-class ReportGenerator:
-    def generate(self): pass
-class ReportSaver:
-    def save(self, report): pass
-class EmailService:
-    def send(self, report): pass</code></pre>
+<span class="cm"># GOOD — separated</span>
+<span class="kw">class</span> ReportGenerator<span class="sep">:</span>
+    <span class="kw">def</span> generate<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
+<span class="kw">class</span> ReportSaver<span class="sep">:</span>
+    <span class="kw">def</span> save<span class="sep">(</span>self<span class="sep">,</span> report<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
+<span class="kw">class</span> EmailService<span class="sep">:</span>
+    <span class="kw">def</span> send<span class="sep">(</span>self<span class="sep">,</span> report<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>O — Open/Closed</h2>
         <p>Open for extension, closed for modification:</p>
-        <pre><code>from abc import ABC, abstractmethod
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> abc <span class="kw">import</span> ABC<span class="sep">,</span> abstractmethod
 
-class PaymentMethod(ABC):
-    @abstractmethod
-    def pay(self, amount): pass
+<span class="kw">class</span> PaymentMethod<span class="sep">(</span>ABC<span class="sep">)</span><span class="sep">:</span>
+<span class="dec">    @abstractmethod</span>
+    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="kw">pass</span>
 
-class CreditCard(PaymentMethod):
-    def pay(self, amount): print(f"CC: ${amount}")
+<span class="kw">class</span> CreditCard<span class="sep">(</span>PaymentMethod<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="bu">print</span><span class="sep">(</span>f<span class="str">"CC: ${amount}"</span><span class="sep">)</span>
 
-class PayPal(PaymentMethod):
-    def pay(self, amount): print(f"PayPal: ${amount}")
+<span class="kw">class</span> PayPal<span class="sep">(</span>PaymentMethod<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="bu">print</span><span class="sep">(</span>f<span class="str">"PayPal: ${amount}"</span><span class="sep">)</span>
 
-# New methods can be added without changing existing code
-class Crypto(PaymentMethod):
-    def pay(self, amount): print(f"Crypto: ${amount}")</code></pre>
+<span class="cm"># New methods can be added without changing existing code</span>
+<span class="kw">class</span> Crypto<span class="sep">(</span>PaymentMethod<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> pay<span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span> <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Crypto: ${amount}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>L — Liskov Substitution</h2>
         <p>Subtypes must be substitutable for their base types:</p>
-        <pre><code>class Rectangle:
-    def __init__(self, w, h):
-        self.w, self.h = w, h
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Rectangle<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> w<span class="sep">,</span> h<span class="sep">)</span><span class="sep">:</span>
+        self.w<span class="sep">,</span> self.h <span class="op">=</span> w<span class="sep">,</span> h
 
-class Square(Rectangle):
-    def __init__(self, size):
-        super().__init__(size, size)
+<span class="kw">class</span> Square<span class="sep">(</span>Rectangle<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> size<span class="sep">)</span><span class="sep">:</span>
+        <span class="bu">super</span><span class="sep">(</span><span class="sep">)</span>.<span class="bu">__init__</span><span class="sep">(</span>size<span class="sep">,</span> size<span class="sep">)</span>
 
-# Square IS a Rectangle, so it works
-def area(rect):
-    return rect.w * rect.h
+<span class="cm"># Square IS a Rectangle, so it works</span>
+<span class="kw">def</span> area<span class="sep">(</span>rect<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> rect.w <span class="op">*</span> rect.h
 
-print(area(Rectangle(4, 5)))  # 20
-print(area(Square(4)))        # 16</code></pre>
+<span class="bu">print</span><span class="sep">(</span>area<span class="sep">(</span>Rectangle<span class="sep">(</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 20</span>
+<span class="bu">print</span><span class="sep">(</span>area<span class="sep">(</span>Square<span class="sep">(</span><span class="num">4</span><span class="sep">)</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># 16&lt;/code&gt;</span></pre>
         <h2>I — Interface Segregation</h2>
         <p>Don't force classes to implement interfaces they don't use.</p>
         <h2>D — Dependency Inversion</h2>

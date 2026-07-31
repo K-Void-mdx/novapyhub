@@ -25,140 +25,140 @@
 
         <h2>What is a Dictionary?</h2>
         <p>A dictionary stores data in <strong>key-value pairs</strong>. Each key maps to a value — like a real dictionary where a word (key) has a definition (value).</p>
-        <pre><code># Creating dictionaries
-student = {
-    "name": "Alice",
-    "age": 25,
-    "grade": "A",
-    "subjects": ["Math", "Physics"]
-}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating dictionaries</span>
+student <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span>
+    <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span>
+    <span class="str">"grade"</span><span class="sep">:</span> <span class="str">"A"</span><span class="sep">,</span>
+    <span class="str">"subjects"</span><span class="sep">:</span> <span class="sep">[</span><span class="str">"Math"</span><span class="sep">,</span> <span class="str">"Physics"</span><span class="sep">]</span>
+<span class="sep">}</span>
 
-# Alternative creation
-empty_dict = {}
-grades = dict(alice=95, bob=87, charlie=92)</code></pre>
+<span class="cm"># Alternative creation</span>
+empty_dict <span class="op">=</span> <span class="sep">{</span><span class="sep">}</span>
+grades <span class="op">=</span> <span class="bu">dict</span><span class="sep">(</span>alice<span class="op">=</span><span class="num">95</span><span class="sep">,</span> bob<span class="op">=</span><span class="num">87</span><span class="sep">,</span> charlie<span class="op">=</span><span class="num">92</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Accessing Dictionary Values</h2>
-        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="str">"A"</span><span class="sep">}</span>
 
-# Using square brackets
-print(student["name"])     # "Alice"
-# print(student["city"])   # KeyError!
+<span class="cm"># Using square brackets</span>
+<span class="bu">print</span><span class="sep">(</span>student<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>     <span class="cm"># "Alice"</span>
+<span class="cm"># print(student["city"])   # KeyError!</span>
 
-# Using .get() (safe — returns None if missing)
-print(student.get("name"))     # "Alice"
-print(student.get("city"))     # None
-print(student.get("city", "N/A"))  # "N/A" (default value)</code></pre>
+<span class="cm"># Using .get() (safe — returns None if missing)</span>
+<span class="bu">print</span><span class="sep">(</span>student.get<span class="sep">(</span><span class="str">"name"</span><span class="sep">)</span><span class="sep">)</span>     <span class="cm"># "Alice"</span>
+<span class="bu">print</span><span class="sep">(</span>student.get<span class="sep">(</span><span class="str">"city"</span><span class="sep">)</span><span class="sep">)</span>     <span class="cm"># None</span>
+<span class="bu">print</span><span class="sep">(</span>student.get<span class="sep">(</span><span class="str">"city"</span><span class="sep">,</span> <span class="str">"N/A"</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># "N/A" (default value)&lt;/code&gt;</span></pre>
 
         <h2>Modifying Dictionaries</h2>
-        <pre><code>student = {"name": "Alice", "age": 25}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">}</span>
 
-# Add or update
-student["grade"] = "A"        # Add new key
-student["age"] = 26           # Update existing
+<span class="cm"># Add or update</span>
+student<span class="sep">[</span><span class="str">"grade"</span><span class="sep">]</span> <span class="op">=</span> <span class="str">"A"</span>        <span class="cm"># Add new key</span>
+student<span class="sep">[</span><span class="str">"age"</span><span class="sep">]</span> <span class="op">=</span> <span class="num">26</span>           <span class="cm"># Update existing</span>
 
-# Remove items
-del student["grade"]          # Delete by key
-age = student.pop("age")      # Remove and return value
-student.clear()               # Remove all items</code></pre>
+<span class="cm"># Remove items</span>
+<span class="kw">del</span> student<span class="sep">[</span><span class="str">"grade"</span><span class="sep">]</span>          <span class="cm"># Delete by key</span>
+age <span class="op">=</span> student.pop<span class="sep">(</span><span class="str">"age"</span><span class="sep">)</span>      <span class="cm"># Remove and return value</span>
+student.clear<span class="sep">(</span><span class="sep">)</span>               <span class="cm"># Remove all items&lt;/code&gt;</span></pre>
 
         <h2>Dictionary Methods</h2>
-        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="str">"A"</span><span class="sep">}</span>
 
-# Get all keys
-print(student.keys())    # dict_keys(['name', 'age', 'grade'])
+<span class="cm"># Get all keys</span>
+<span class="bu">print</span><span class="sep">(</span>student.keys<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>    <span class="cm"># dict_keys(['name', 'age', 'grade'])</span>
 
-# Get all values
-print(student.values())  # dict_values(['Alice', 25, 'A'])
+<span class="cm"># Get all values</span>
+<span class="bu">print</span><span class="sep">(</span>student.values<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># dict_values(['Alice', 25, 'A'])</span>
 
-# Get all pairs
-print(student.items())   # dict_items([('name', 'Alice'), ...])
+<span class="cm"># Get all pairs</span>
+<span class="bu">print</span><span class="sep">(</span>student.items<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>   <span class="cm"># dict_items([('name', 'Alice'), ...])</span>
 
-# Loop through dictionary
-for key, value in student.items():
-    print(f"{key}: {value}")
+<span class="cm"># Loop through dictionary</span>
+<span class="kw">for</span> key<span class="sep">,</span> value <span class="kw">in</span> student.items<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{key}: {value}"</span><span class="sep">)</span>
 
-# Check if key exists
-print("name" in student)     # True
-print("city" in student)     # False
+<span class="cm"># Check if key exists</span>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"name"</span> <span class="kw">in</span> student<span class="sep">)</span>     <span class="cm"># True</span>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"city"</span> <span class="kw">in</span> student<span class="sep">)</span>     <span class="cm"># False</span>
 
-# Merge dictionaries
-a = {"x": 1, "y": 2}
-b = {"y": 3, "z": 4}
-a.update(b)
-print(a)  # {'x': 1, 'y': 3, 'z': 4}</code></pre>
+<span class="cm"># Merge dictionaries</span>
+a <span class="op">=</span> <span class="sep">{</span><span class="str">"x"</span><span class="sep">:</span> <span class="num">1</span><span class="sep">,</span> <span class="str">"y"</span><span class="sep">:</span> <span class="num">2</span><span class="sep">}</span>
+b <span class="op">=</span> <span class="sep">{</span><span class="str">"y"</span><span class="sep">:</span> <span class="num">3</span><span class="sep">,</span> <span class="str">"z"</span><span class="sep">:</span> <span class="num">4</span><span class="sep">}</span>
+a.update<span class="sep">(</span>b<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>a<span class="sep">)</span>  <span class="cm"># {'x': 1, 'y': 3, 'z': 4}&lt;/code&gt;</span></pre>
 
         <h2>Dictionary Use Cases</h2>
-        <pre><code># Counting items
-text = "hello world"
-count = {}
-for char in text:
-    if char in count:
-        count[char] += 1
-    else:
-        count[char] = 1
-print(count)
-# {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Counting items</span>
+text <span class="op">=</span> <span class="str">"hello world"</span>
+count <span class="op">=</span> <span class="sep">{</span><span class="sep">}</span>
+<span class="kw">for</span> char <span class="kw">in</span> text<span class="sep">:</span>
+    <span class="kw">if</span> char <span class="kw">in</span> count<span class="sep">:</span>
+        count<span class="sep">[</span>char<span class="sep">]</span> <span class="op">+=</span> <span class="num">1</span>
+    <span class="kw">else</span><span class="sep">:</span>
+        count<span class="sep">[</span>char<span class="sep">]</span> <span class="op">=</span> <span class="num">1</span>
+<span class="bu">print</span><span class="sep">(</span>count<span class="sep">)</span>
+<span class="cm"># {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}</span>
 
-# Phone book
-phone_book = {
-    "Alice": "555-1234",
-    "Bob": "555-5678",
-    "Charlie": "555-9012"
-}
+<span class="cm"># Phone book</span>
+phone_book <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">"Alice"</span><span class="sep">:</span> <span class="str">"555-1234"</span><span class="sep">,</span>
+    <span class="str">"Bob"</span><span class="sep">:</span> <span class="str">"555-5678"</span><span class="sep">,</span>
+    <span class="str">"Charlie"</span><span class="sep">:</span> <span class="str">"555-9012"</span>
+<span class="sep">}</span>
 
-# Nested dictionaries
-users = {
-    "alice123": {"name": "Alice", "age": 25, "email": "alice@email.com"},
-    "bob456": {"name": "Bob", "age": 30, "email": "bob@email.com"}
-}
-print(users["alice123"]["email"])  # "alice@email.com"</code></pre>
+<span class="cm"># Nested dictionaries</span>
+users <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">"alice123"</span><span class="sep">:</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"email"</span><span class="sep">:</span> <span class="str">"alice@email.com"</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">"bob456"</span><span class="sep">:</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">30</span><span class="sep">,</span> <span class="str">"email"</span><span class="sep">:</span> <span class="str">"bob@email.com"</span><span class="sep">}</span>
+<span class="sep">}</span>
+<span class="bu">print</span><span class="sep">(</span>users<span class="sep">[</span><span class="str">"alice123"</span><span class="sep">]</span><span class="sep">[</span><span class="str">"email"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># "alice@email.com"&lt;/code&gt;</span></pre>
 
         <h2>What is a Set?</h2>
         <p>A set is an <strong>unordered</strong> collection of <strong>unique</strong> items. Use curly braces <code>{}</code> but without key-value pairs:</p>
-        <pre><code># Creating sets
-fruits = {"apple", "banana", "orange", "apple"}
-print(fruits)  # {'banana', 'orange', 'apple'} (no duplicates!)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating sets</span>
+fruits <span class="op">=</span> <span class="sep">{</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">,</span> <span class="str">"apple"</span><span class="sep">}</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">)</span>  <span class="cm"># {'banana', 'orange', 'apple'} (no duplicates!)</span>
 
-# From a list
-numbers = set([1, 2, 3, 2, 1])
-print(numbers)  # {1, 2, 3}
+<span class="cm"># From a list</span>
+numbers <span class="op">=</span> <span class="bu">set</span><span class="sep">(</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">1</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>numbers<span class="sep">)</span>  <span class="cm"># {1, 2, 3}</span>
 
-# Empty set (not {} — that's a dict!)
-empty = set()</code></pre>
+<span class="cm"># Empty set (not {} — that's a dict!)</span>
+empty <span class="op">=</span> <span class="bu">set</span><span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Set Operations</h2>
-        <pre><code>a = {1, 2, 3, 4, 5}
-b = {4, 5, 6, 7, 8}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>a <span class="op">=</span> <span class="sep">{</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">}</span>
+b <span class="op">=</span> <span class="sep">{</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">8</span><span class="sep">}</span>
 
-# Union — all items from both sets
-print(a | b)  # {1, 2, 3, 4, 5, 6, 7, 8}
+<span class="cm"># Union — all items from both sets</span>
+<span class="bu">print</span><span class="sep">(</span>a <span class="op">|</span> b<span class="sep">)</span>  <span class="cm"># {1, 2, 3, 4, 5, 6, 7, 8}</span>
 
-# Intersection — items in both
-print(a & b)  # {4, 5}
+<span class="cm"># Intersection — items in both</span>
+<span class="bu">print</span><span class="sep">(</span>a <span class="op">&amp;</span> b<span class="sep">)</span>  <span class="cm"># {4, 5}</span>
 
-# Difference — items in a but not in b
-print(a - b)  # {1, 2, 3}
+<span class="cm"># Difference — items in a but not in b</span>
+<span class="bu">print</span><span class="sep">(</span>a <span class="op">-</span> b<span class="sep">)</span>  <span class="cm"># {1, 2, 3}</span>
 
-# Symmetric difference — items in either but not both
-print(a ^ b)  # {1, 2, 3, 6, 7, 8}
+<span class="cm"># Symmetric difference — items in either but not both</span>
+<span class="bu">print</span><span class="sep">(</span>a <span class="op">^</span> b<span class="sep">)</span>  <span class="cm"># {1, 2, 3, 6, 7, 8}</span>
 
-# Adding and removing
-fruits = {"apple", "banana"}
-fruits.add("orange")
-fruits.remove("banana")
-print(fruits)  # {'apple', 'orange'}</code></pre>
+<span class="cm"># Adding and removing</span>
+fruits <span class="op">=</span> <span class="sep">{</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">}</span>
+fruits.add<span class="sep">(</span><span class="str">"orange"</span><span class="sep">)</span>
+fruits.remove<span class="sep">(</span><span class="str">"banana"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">)</span>  <span class="cm"># {'apple', 'orange'}&lt;/code&gt;</span></pre>
 
         <h2>Set Use Cases</h2>
-        <pre><code># Removing duplicates
-names = ["Alice", "Bob", "Alice", "Charlie", "Bob"]
-unique_names = list(set(names))
-print(unique_names)  # ['Bob', 'Alice', 'Charlie']
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Removing duplicates</span>
+names <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">]</span>
+unique_names <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">set</span><span class="sep">(</span>names<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>unique_names<span class="sep">)</span>  <span class="cm"># ['Bob', 'Alice', 'Charlie']</span>
 
-# Finding common items
-users_a = {"Alice", "Bob", "Charlie"}
-users_b = {"Bob", "David", "Eve"}
-common = users_a & users_b
-print(common)  # {'Bob'}</code></pre>
+<span class="cm"># Finding common items</span>
+users_a <span class="op">=</span> <span class="sep">{</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Charlie"</span><span class="sep">}</span>
+users_b <span class="op">=</span> <span class="sep">{</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"David"</span><span class="sep">,</span> <span class="str">"Eve"</span><span class="sep">}</span>
+common <span class="op">=</span> users_a <span class="op">&amp;</span> users_b
+<span class="bu">print</span><span class="sep">(</span>common<span class="sep">)</span>  <span class="cm"># {'Bob'}&lt;/code&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

@@ -13,38 +13,38 @@
         <h1>Lesson 6: Async IO with asyncio</h1>
         <p>Write concurrent code using async/await syntax for I/O-bound tasks.</p>
         <h2>Basic async/await</h2>
-        <pre><code>import asyncio
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> asyncio
 
-async def say_hello():
-    print("Hello")
-    await asyncio.sleep(1)
-    print("World")
+<span class="kw">async</span> <span class="kw">def</span> say_hello<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Hello"</span><span class="sep">)</span>
+    <span class="kw">await</span> asyncio.sleep<span class="sep">(</span><span class="num">1</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"World"</span><span class="sep">)</span>
 
-asyncio.run(say_hello())</code></pre>
+asyncio.run<span class="sep">(</span>say_hello<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Running Multiple Tasks</h2>
-        <pre><code>async def fetch_data(n):
-    await asyncio.sleep(n)
-    return f"Data {n}"
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">async</span> <span class="kw">def</span> fetch_data<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">await</span> asyncio.sleep<span class="sep">(</span>n<span class="sep">)</span>
+    <span class="kw">return</span> f<span class="str">"Data {n}"</span>
 
-async def main():
-    tasks = [fetch_data(1), fetch_data(2), fetch_data(0.5)]
-    results = await asyncio.gather(*tasks)
-    print(results)  # ['Data 1', 'Data 2', 'Data 0.5']
+<span class="kw">async</span> <span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    tasks <span class="op">=</span> <span class="sep">[</span>fetch_data<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">,</span> fetch_data<span class="sep">(</span><span class="num">2</span><span class="sep">)</span><span class="sep">,</span> fetch_data<span class="sep">(</span><span class="num">0.5</span><span class="sep">)</span><span class="sep">]</span>
+    results <span class="op">=</span> <span class="kw">await</span> asyncio.gather<span class="sep">(</span><span class="op">*</span>tasks<span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>results<span class="sep">)</span>  <span class="cm"># ['Data 1', 'Data 2', 'Data 0.5']</span>
 
-asyncio.run(main())</code></pre>
+asyncio.run<span class="sep">(</span>main<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>aiohttp for Async HTTP</h2>
-        <pre><code>import aiohttp, asyncio
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> aiohttp<span class="sep">,</span> asyncio
 
-async def fetch(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            return await response.text()
+<span class="kw">async</span> <span class="kw">def</span> fetch<span class="sep">(</span>url<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">async</span> <span class="kw">with</span> aiohttp.ClientSession<span class="sep">(</span><span class="sep">)</span> <span class="kw">as</span> session<span class="sep">:</span>
+        <span class="kw">async</span> <span class="kw">with</span> session.get<span class="sep">(</span>url<span class="sep">)</span> <span class="kw">as</span> response<span class="sep">:</span>
+            <span class="kw">return</span> <span class="kw">await</span> response.text<span class="sep">(</span><span class="sep">)</span>
 
-async def main():
-    html = await fetch("https://example.com")
-    print(len(html))
+<span class="kw">async</span> <span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    html <span class="op">=</span> <span class="kw">await</span> fetch<span class="sep">(</span><span class="str">"https://example.com"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="bu">len</span><span class="sep">(</span>html<span class="sep">)</span><span class="sep">)</span>
 
-asyncio.run(main())</code></pre>
+asyncio.run<span class="sep">(</span>main<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="05-multithreading.html" class="btn btn-secondary">← Previous</a><a href="07-data-structures.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

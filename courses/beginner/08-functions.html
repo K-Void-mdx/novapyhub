@@ -27,96 +27,96 @@
         <p>A function is a reusable block of code that performs a specific task. Functions help you organize code, avoid repetition, and make your programs easier to read and maintain.</p>
 
         <h2>Defining and Calling Functions</h2>
-        <pre><code># Define a function
-def greet():
-    print("Hello!")
-    print("Welcome to Nova Py-Hub!")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Define a function</span>
+<span class="kw">def</span> greet<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Hello!"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Welcome to Nova Py-Hub!"</span><span class="sep">)</span>
 
-# Call the function
-greet()
-greet()</code></pre>
+<span class="cm"># Call the function</span>
+greet<span class="sep">(</span><span class="sep">)</span>
+greet<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Function Parameters</h2>
         <p>Pass data into functions using parameters:</p>
-        <pre><code>def greet(name):
-    print(f"Hello, {name}!")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Hello, {name}!"</span><span class="sep">)</span>
 
-greet("Alice")  # Hello, Alice!
-greet("Bob")    # Hello, Bob!</code></pre>
+greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>  <span class="cm"># Hello, Alice!</span>
+greet<span class="sep">(</span><span class="str">"Bob"</span><span class="sep">)</span>    <span class="cm"># Hello, Bob!&lt;/code&gt;</span></pre>
 
         <h2>Multiple Parameters</h2>
-        <pre><code>def introduce(name, age, city):
-    print(f"I'm {name}, {age} years old, from {city}.")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> introduce<span class="sep">(</span>name<span class="sep">,</span> age<span class="sep">,</span> city<span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"I'm {name}, {age} years old, from {city}."</span><span class="sep">)</span>
 
-introduce("Alice", 25, "New York")
-introduce(city="London", name="Bob", age=30)  # Keyword arguments</code></pre>
+introduce<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"New York"</span><span class="sep">)</span>
+introduce<span class="sep">(</span>city<span class="op">=</span><span class="str">"London"</span><span class="sep">,</span> name<span class="op">=</span><span class="str">"Bob"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">30</span><span class="sep">)</span>  <span class="cm"># Keyword arguments&lt;/code&gt;</span></pre>
 
         <h2>Return Values</h2>
         <p>Functions can return results using <code>return</code>:</p>
-        <pre><code>def add(a, b):
-    return a + b
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">+</span> b
 
-result = add(5, 3)
-print(result)  # 8
+result <span class="op">=</span> add<span class="sep">(</span><span class="num">5</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>result<span class="sep">)</span>  <span class="cm"># 8</span>
 
-# Multiple return values
-def get_min_max(numbers):
-    return min(numbers), max(numbers)
+<span class="cm"># Multiple return values</span>
+<span class="kw">def</span> get_min_max<span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> <span class="bu">min</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">,</span> <span class="bu">max</span><span class="sep">(</span>numbers<span class="sep">)</span>
 
-low, high = get_min_max([3, 1, 7, 2, 9])
-print(f"Low: {low}, High: {high}")</code></pre>
+low<span class="sep">,</span> high <span class="op">=</span> get_min_max<span class="sep">(</span><span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Low: {low}, High: {high}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Default Parameters</h2>
-        <pre><code>def greet(name, greeting="Hello"):
-    print(f"{greeting}, {name}!")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">,</span> greeting<span class="op">=</span><span class="str">"Hello"</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{greeting}, {name}!"</span><span class="sep">)</span>
 
-greet("Alice")          # Hello, Alice!
-greet("Bob", "Hi")      # Hi, Bob!
-greet("Charlie", "Hey")  # Hey, Charlie!</code></pre>
+greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>          <span class="cm"># Hello, Alice!</span>
+greet<span class="sep">(</span><span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Hi"</span><span class="sep">)</span>      <span class="cm"># Hi, Bob!</span>
+greet<span class="sep">(</span><span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"Hey"</span><span class="sep">)</span>  <span class="cm"># Hey, Charlie!&lt;/code&gt;</span></pre>
 
         <h2>Scope — Local vs Global Variables</h2>
-        <pre><code># Global variable
-message = "Hello"
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Global variable</span>
+message <span class="op">=</span> <span class="str">"Hello"</span>
 
-def greet(name):
-    # Local variable
-    greeting = f"{message}, {name}!"
-    print(greeting)
+<span class="kw">def</span> greet<span class="sep">(</span>name<span class="sep">)</span><span class="sep">:</span>
+    <span class="cm"># Local variable</span>
+    greeting <span class="op">=</span> f<span class="str">"{message}, {name}!"</span>
+    <span class="bu">print</span><span class="sep">(</span>greeting<span class="sep">)</span>
 
-greet("Alice")  # Hello, Alice!
-print(message)  # Works (global)
-# print(greeting)  # Error! (local variable)</code></pre>
+greet<span class="sep">(</span><span class="str">"Alice"</span><span class="sep">)</span>  <span class="cm"># Hello, Alice!</span>
+<span class="bu">print</span><span class="sep">(</span>message<span class="sep">)</span>  <span class="cm"># Works (global)</span>
+<span class="cm"># print(greeting)  # Error! (local variable)&lt;/code&gt;</span></pre>
 
         <h2>Docstrings</h2>
         <p>Document what your function does with a docstring:</p>
-        <pre><code>def calculate_bmi(weight, height):
-    """Calculate BMI given weight (kg) and height (m)."""
-    return weight / (height ** 2)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
+    <span class="str">""</span><span class="str">"Calculate BMI given weight (kg) and height (m)."</span><span class="str">""</span>
+    <span class="kw">return</span> weight <span class="op">/</span> <span class="sep">(</span>height <span class="op">**</span> <span class="num">2</span><span class="sep">)</span>
 
-print(calculate_bmi(70, 1.75))
-print(calculate_bmi.__doc__)  # Access the docstring</code></pre>
+<span class="bu">print</span><span class="sep">(</span>calculate_bmi<span class="sep">(</span><span class="num">70</span><span class="sep">,</span> <span class="num">1.75</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>calculate_bmi.__doc__<span class="sep">)</span>  <span class="cm"># Access the docstring&lt;/code&gt;</span></pre>
 
         <h2>Function Examples</h2>
-        <pre><code># Check if a number is even
-def is_even(n):
-    return n % 2 == 0
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Check if a number is even</span>
+<span class="kw">def</span> is_even<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> n <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>
 
-print(is_even(4))   # True
-print(is_even(7))   # False
+<span class="bu">print</span><span class="sep">(</span>is_even<span class="sep">(</span><span class="num">4</span><span class="sep">)</span><span class="sep">)</span>   <span class="cm"># True</span>
+<span class="bu">print</span><span class="sep">(</span>is_even<span class="sep">(</span><span class="num">7</span><span class="sep">)</span><span class="sep">)</span>   <span class="cm"># False</span>
 
-# Convert temperature
-def celsius_to_fahrenheit(c):
-    return (c * 9/5) + 32
+<span class="cm"># Convert temperature</span>
+<span class="kw">def</span> celsius_to_fahrenheit<span class="sep">(</span>c<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> <span class="sep">(</span>c <span class="op">*</span> <span class="num">9</span><span class="op">/</span><span class="num">5</span><span class="sep">)</span> <span class="op">+</span> <span class="num">32</span>
 
-print(celsius_to_fahrenheit(0))    # 32.0
-print(celsius_to_fahrenheit(100))  # 212.0
+<span class="bu">print</span><span class="sep">(</span>celsius_to_fahrenheit<span class="sep">(</span><span class="num">0</span><span class="sep">)</span><span class="sep">)</span>    <span class="cm"># 32.0</span>
+<span class="bu">print</span><span class="sep">(</span>celsius_to_fahrenheit<span class="sep">(</span><span class="num">100</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 212.0</span>
 
-# Validate password length
-def is_valid_password(password):
-    return len(password) >= 8
+<span class="cm"># Validate password length</span>
+<span class="kw">def</span> is_valid_password<span class="sep">(</span>password<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> <span class="bu">len</span><span class="sep">(</span>password<span class="sep">)</span> <span class="op">&gt;=</span> <span class="num">8</span>
 
-print(is_valid_password("short"))      # False
-print(is_valid_password("longenough")) # True</code></pre>
+<span class="bu">print</span><span class="sep">(</span>is_valid_password<span class="sep">(</span><span class="str">"short"</span><span class="sep">)</span><span class="sep">)</span>      <span class="cm"># False</span>
+<span class="bu">print</span><span class="sep">(</span>is_valid_password<span class="sep">(</span><span class="str">"longenough"</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># True&lt;/code&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

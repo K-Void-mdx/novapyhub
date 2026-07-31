@@ -13,79 +13,79 @@
         <h1>Lesson 3: Advanced Algorithms</h1>
         <p>Graph algorithms, dynamic programming, greedy algorithms.</p>
         <h2>Graph BFS/DFS</h2>
-        <pre><code>from collections import deque
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> collections <span class="kw">import</span> deque
 
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
+graph <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">'A'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'B'</span><span class="sep">,</span> <span class="str">'C'</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">'B'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'A'</span><span class="sep">,</span> <span class="str">'D'</span><span class="sep">,</span> <span class="str">'E'</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">'C'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'A'</span><span class="sep">,</span> <span class="str">'F'</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">'D'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'B'</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">'E'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'B'</span><span class="sep">,</span> <span class="str">'F'</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">'F'</span><span class="sep">:</span> <span class="sep">[</span><span class="str">'C'</span><span class="sep">,</span> <span class="str">'E'</span><span class="sep">]</span>
+<span class="sep">}</span>
 
-def bfs(start):
-    visited = set()
-    queue = deque([start])
-    while queue:
-        node = queue.popleft()
-        if node not in visited:
-            visited.add(node)
-            queue.extend(graph[node])
-    return visited
+<span class="kw">def</span> bfs<span class="sep">(</span>start<span class="sep">)</span><span class="sep">:</span>
+    visited <span class="op">=</span> <span class="bu">set</span><span class="sep">(</span><span class="sep">)</span>
+    queue <span class="op">=</span> deque<span class="sep">(</span><span class="sep">[</span>start<span class="sep">]</span><span class="sep">)</span>
+    <span class="kw">while</span> queue<span class="sep">:</span>
+        node <span class="op">=</span> queue.popleft<span class="sep">(</span><span class="sep">)</span>
+        <span class="kw">if</span> node <span class="kw">not</span> <span class="kw">in</span> visited<span class="sep">:</span>
+            visited.add<span class="sep">(</span>node<span class="sep">)</span>
+            queue.extend<span class="sep">(</span>graph<span class="sep">[</span>node<span class="sep">]</span><span class="sep">)</span>
+    <span class="kw">return</span> visited
 
-def dfs(start, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    for neighbor in graph[start]:
-        if neighbor not in visited:
-            dfs(neighbor, visited)
-    return visited
+<span class="kw">def</span> dfs<span class="sep">(</span>start<span class="sep">,</span> visited<span class="op">=</span><span class="kw">None</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> visited <span class="kw">is</span> <span class="kw">None</span><span class="sep">:</span>
+        visited <span class="op">=</span> <span class="bu">set</span><span class="sep">(</span><span class="sep">)</span>
+    visited.add<span class="sep">(</span>start<span class="sep">)</span>
+    <span class="kw">for</span> neighbor <span class="kw">in</span> graph<span class="sep">[</span>start<span class="sep">]</span><span class="sep">:</span>
+        <span class="kw">if</span> neighbor <span class="kw">not</span> <span class="kw">in</span> visited<span class="sep">:</span>
+            dfs<span class="sep">(</span>neighbor<span class="sep">,</span> visited<span class="sep">)</span>
+    <span class="kw">return</span> visited
 
-print(bfs('A'))
-print(dfs('A'))</code></pre>
+<span class="bu">print</span><span class="sep">(</span>bfs<span class="sep">(</span><span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>dfs<span class="sep">(</span><span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Dijkstra's Algorithm</h2>
-        <pre><code>import heapq
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> heapq
 
-def dijkstra(graph, start):
-    distances = {node: float('inf') for node in graph}
-    distances[start] = 0
-    pq = [(0, start)]
+<span class="kw">def</span> dijkstra<span class="sep">(</span>graph<span class="sep">,</span> start<span class="sep">)</span><span class="sep">:</span>
+    distances <span class="op">=</span> <span class="sep">{</span>node<span class="sep">:</span> <span class="bu">float</span><span class="sep">(</span><span class="str">'inf'</span><span class="sep">)</span> <span class="kw">for</span> node <span class="kw">in</span> graph<span class="sep">}</span>
+    distances<span class="sep">[</span>start<span class="sep">]</span> <span class="op">=</span> <span class="num">0</span>
+    pq <span class="op">=</span> <span class="sep">[</span><span class="sep">(</span><span class="num">0</span><span class="sep">,</span> start<span class="sep">)</span><span class="sep">]</span>
 
-    while pq:
-        current_dist, current = heapq.heappop(pq)
-        if current_dist > distances[current]:
-            continue
-        for neighbor, weight in graph[current].items():
-            distance = current_dist + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(pq, (distance, neighbor))
-    return distances
+    <span class="kw">while</span> pq<span class="sep">:</span>
+        current_dist<span class="sep">,</span> current <span class="op">=</span> heapq.heappop<span class="sep">(</span>pq<span class="sep">)</span>
+        <span class="kw">if</span> current_dist <span class="op">&gt;</span> distances<span class="sep">[</span>current<span class="sep">]</span><span class="sep">:</span>
+            <span class="kw">continue</span>
+        <span class="kw">for</span> neighbor<span class="sep">,</span> weight <span class="kw">in</span> graph<span class="sep">[</span>current<span class="sep">]</span>.items<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+            distance <span class="op">=</span> current_dist <span class="op">+</span> weight
+            <span class="kw">if</span> distance <span class="op">&lt;</span> distances<span class="sep">[</span>neighbor<span class="sep">]</span><span class="sep">:</span>
+                distances<span class="sep">[</span>neighbor<span class="sep">]</span> <span class="op">=</span> distance
+                heapq.heappush<span class="sep">(</span>pq<span class="sep">,</span> <span class="sep">(</span>distance<span class="sep">,</span> neighbor<span class="sep">)</span><span class="sep">)</span>
+    <span class="kw">return</span> distances
 
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'D': 2, 'E': 5},
-    'C': {'A': 4, 'F': 3},
-    'D': {'B': 2},
-    'E': {'B': 5, 'F': 1},
-    'F': {'C': 3, 'E': 1}
-}
-print(dijkstra(graph, 'A'))</code></pre>
+graph <span class="op">=</span> <span class="sep">{</span>
+    <span class="str">'A'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'B'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">,</span> <span class="str">'C'</span><span class="sep">:</span> <span class="num">4</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">'B'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'A'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">,</span> <span class="str">'D'</span><span class="sep">:</span> <span class="num">2</span><span class="sep">,</span> <span class="str">'E'</span><span class="sep">:</span> <span class="num">5</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">'C'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'A'</span><span class="sep">:</span> <span class="num">4</span><span class="sep">,</span> <span class="str">'F'</span><span class="sep">:</span> <span class="num">3</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">'D'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'B'</span><span class="sep">:</span> <span class="num">2</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">'E'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'B'</span><span class="sep">:</span> <span class="num">5</span><span class="sep">,</span> <span class="str">'F'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="str">'F'</span><span class="sep">:</span> <span class="sep">{</span><span class="str">'C'</span><span class="sep">:</span> <span class="num">3</span><span class="sep">,</span> <span class="str">'E'</span><span class="sep">:</span> <span class="num">1</span><span class="sep">}</span>
+<span class="sep">}</span>
+<span class="bu">print</span><span class="sep">(</span>dijkstra<span class="sep">(</span>graph<span class="sep">,</span> <span class="str">'A'</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Dynamic Programming: Knapsack</h2>
-        <pre><code>def knapsack(weights, values, capacity):
-    n = len(weights)
-    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
-    for i in range(1, n + 1):
-        for w in range(1, capacity + 1):
-            if weights[i-1] <= w:
-                dp[i][w] = max(values[i-1] + dp[i-1][w-weights[i-1]], dp[i-1][w])
-            else:
-                dp[i][w] = dp[i-1][w]
-    return dp[n][capacity]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> knapsack<span class="sep">(</span>weights<span class="sep">,</span> values<span class="sep">,</span> capacity<span class="sep">)</span><span class="sep">:</span>
+    n <span class="op">=</span> <span class="bu">len</span><span class="sep">(</span>weights<span class="sep">)</span>
+    dp <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">0</span><span class="sep">]</span> <span class="op">*</span> <span class="sep">(</span>capacity <span class="op">+</span> <span class="num">1</span><span class="sep">)</span> <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span>n <span class="op">+</span> <span class="num">1</span><span class="sep">)</span><span class="sep">]</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> n <span class="op">+</span> <span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">for</span> w <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> capacity <span class="op">+</span> <span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
+            <span class="kw">if</span> weights<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span> <span class="op">&lt;=</span> w<span class="sep">:</span>
+                dp<span class="sep">[</span>i<span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span> <span class="op">=</span> <span class="bu">max</span><span class="sep">(</span>values<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span> <span class="op">+</span> dp<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">[</span>w<span class="op">-</span>weights<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">]</span><span class="sep">,</span> dp<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span><span class="sep">)</span>
+            <span class="kw">else</span><span class="sep">:</span>
+                dp<span class="sep">[</span>i<span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span> <span class="op">=</span> dp<span class="sep">[</span>i<span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">[</span>w<span class="sep">]</span>
+    <span class="kw">return</span> dp<span class="sep">[</span>n<span class="sep">]</span><span class="sep">[</span>capacity<span class="sep">]</span>
 
-print(knapsack([2, 3, 4, 5], [3, 4, 5, 6], 5))  # 7</code></pre>
+<span class="bu">print</span><span class="sep">(</span>knapsack<span class="sep">(</span><span class="sep">[</span><span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7&lt;/code&gt;</span></pre>
         <div class="lesson-nav"><a href="02-solid-principles.html" class="btn btn-secondary">← Previous</a><a href="04-system-design.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

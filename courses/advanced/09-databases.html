@@ -13,40 +13,40 @@
         <h1>Lesson 9: Working with Databases</h1>
         <p>Use SQLite and SQLAlchemy to persist data.</p>
         <h2>SQLite</h2>
-        <pre><code>import sqlite3
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> sqlite3
 
-conn = sqlite3.connect("example.db")
-cursor = conn.cursor()
+conn <span class="op">=</span> sqlite3.connect<span class="sep">(</span><span class="str">"example.db"</span><span class="sep">)</span>
+cursor <span class="op">=</span> conn.cursor<span class="sep">(</span><span class="sep">)</span>
 
-cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)")
-cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Alice", 25))
-cursor.execute("SELECT * FROM users")
-print(cursor.fetchall())  # [(1, 'Alice', 25)]
+cursor.execute<span class="sep">(</span><span class="str">"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)"</span><span class="sep">)</span>
+cursor.execute<span class="sep">(</span><span class="str">"INSERT INTO users (name, age) VALUES (?, ?)"</span><span class="sep">,</span> <span class="sep">(</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">)</span><span class="sep">)</span>
+cursor.execute<span class="sep">(</span><span class="str">"SELECT * FROM users"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>cursor.fetchall<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># [(1, 'Alice', 25)]</span>
 
-conn.commit()
-conn.close()</code></pre>
+conn.commit<span class="sep">(</span><span class="sep">)</span>
+conn.close<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>SQLAlchemy ORM</h2>
-        <pre><code>from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import declarative_base, Session
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> sqlalchemy <span class="kw">import</span> create_engine<span class="sep">,</span> Column<span class="sep">,</span> Integer<span class="sep">,</span> String
+<span class="kw">from</span> sqlalchemy.orm <span class="kw">import</span> declarative_base<span class="sep">,</span> Session
 
-Base = declarative_base()
+Base <span class="op">=</span> declarative_base<span class="sep">(</span><span class="sep">)</span>
 
-class User(Base):
-    __tablename__ = "users"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    age = Column(Integer)
+<span class="kw">class</span> User<span class="sep">(</span>Base<span class="sep">)</span><span class="sep">:</span>
+    __tablename__ <span class="op">=</span> <span class="str">"users"</span>
+    id <span class="op">=</span> Column<span class="sep">(</span>Integer<span class="sep">,</span> primary_key<span class="op">=</span><span class="kw">True</span><span class="sep">)</span>
+    name <span class="op">=</span> Column<span class="sep">(</span>String<span class="sep">)</span>
+    age <span class="op">=</span> Column<span class="sep">(</span>Integer<span class="sep">)</span>
 
-engine = create_engine("sqlite:///example.db")
-Base.metadata.create_all(engine)
+engine <span class="op">=</span> create_engine<span class="sep">(</span><span class="str">"sqlite:///example.db"</span><span class="sep">)</span>
+Base.metadata.create_all<span class="sep">(</span>engine<span class="sep">)</span>
 
-with Session(engine) as session:
-    user = User(name="Bob", age=30)
-    session.add(user)
-    session.commit()
-    users = session.query(User).all()
-    for u in users:
-        print(u.name, u.age)</code></pre>
+<span class="kw">with</span> Session<span class="sep">(</span>engine<span class="sep">)</span> <span class="kw">as</span> session<span class="sep">:</span>
+    user <span class="op">=</span> User<span class="sep">(</span>name<span class="op">=</span><span class="str">"Bob"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">30</span><span class="sep">)</span>
+    session.add<span class="sep">(</span>user<span class="sep">)</span>
+    session.commit<span class="sep">(</span><span class="sep">)</span>
+    users <span class="op">=</span> session.query<span class="sep">(</span>User<span class="sep">)</span>.all<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">for</span> u <span class="kw">in</span> users<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>u.name<span class="sep">,</span> u.age<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="08-algorithms.html" class="btn btn-secondary">← Previous</a><a href="10-web-basics.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

@@ -13,58 +13,58 @@
         <h1>Lesson 2: Context Managers</h1>
         <p>Context managers let you set up and tear down resources automatically using the <code>with</code> statement.</p>
         <h2>Class-based Context Manager</h2>
-        <pre><code>class FileManager:
-    def __init__(self, filename, mode):
-        self.filename = filename
-        self.mode = mode
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> FileManager<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> filename<span class="sep">,</span> mode<span class="sep">)</span><span class="sep">:</span>
+        self.filename <span class="op">=</span> filename
+        self.mode <span class="op">=</span> mode
 
-    def __enter__(self):
-        self.file = open(self.filename, self.mode)
-        return self.file
+    <span class="kw">def</span> __enter__<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span>
+        self.file <span class="op">=</span> <span class="bu">open</span><span class="sep">(</span>self.filename<span class="sep">,</span> self.mode<span class="sep">)</span>
+        <span class="kw">return</span> self.file
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.file.close()
-        # Return False to propagate exceptions, True to suppress
-        return False
+    <span class="kw">def</span> __exit__<span class="sep">(</span>self<span class="sep">,</span> exc_type<span class="sep">,</span> exc_val<span class="sep">,</span> exc_tb<span class="sep">)</span><span class="sep">:</span>
+        self.file.close<span class="sep">(</span><span class="sep">)</span>
+        <span class="cm"># Return False to propagate exceptions, True to suppress</span>
+        <span class="kw">return</span> <span class="kw">False</span>
 
-with FileManager("test.txt", "w") as f:
-    f.write("Hello, World!")
-# File automatically closed</code></pre>
+<span class="kw">with</span> FileManager<span class="sep">(</span><span class="str">"test.txt"</span><span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    f.write<span class="sep">(</span><span class="str">"Hello, World!"</span><span class="sep">)</span>
+<span class="cm"># File automatically closed&lt;/code&gt;</span></pre>
         <h2>contextlib — @contextmanager</h2>
-        <pre><code>from contextlib import contextmanager
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> contextlib <span class="kw">import</span> contextmanager
+<span class="dec">
+@contextmanager</span>
+<span class="kw">def</span> open_file<span class="sep">(</span>filename<span class="sep">,</span> mode<span class="sep">)</span><span class="sep">:</span>
+    f <span class="op">=</span> <span class="bu">open</span><span class="sep">(</span>filename<span class="sep">,</span> mode<span class="sep">)</span>
+    <span class="kw">try</span><span class="sep">:</span>
+        <span class="kw">yield</span> f
+    <span class="kw">finally</span><span class="sep">:</span>
+        f.close<span class="sep">(</span><span class="sep">)</span>
 
-@contextmanager
-def open_file(filename, mode):
-    f = open(filename, mode)
-    try:
-        yield f
-    finally:
-        f.close()
-
-with open_file("test.txt", "r") as f:
-    print(f.read())</code></pre>
+<span class="kw">with</span> open_file<span class="sep">(</span><span class="str">"test.txt"</span><span class="sep">,</span> <span class="str">"r"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f.read<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Practical Examples</h2>
-        <pre><code>@contextmanager
-def timer(message):
-    import time
-    start = time.time()
-    yield
-    end = time.time()
-    print(f"{message}: {end-start:.3f}s")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>@contextmanager
+<span class="kw">def</span> timer<span class="sep">(</span>message<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">import</span> time
+    start <span class="op">=</span> time.time<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">yield</span>
+    end <span class="op">=</span> time.time<span class="sep">(</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{message}: {end-start:.3f}s"</span><span class="sep">)</span>
 
-with timer("Processing"):
-    sum(range(1000000))
-
-@contextmanager
-def redirect_output(filepath):
-    import sys
-    old = sys.stdout
-    sys.stdout = open(filepath, "w")
-    try:
-        yield
-    finally:
-        sys.stdout.close()
-        sys.stdout = old</code></pre>
+<span class="kw">with</span> timer<span class="sep">(</span><span class="str">"Processing"</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">sum</span><span class="sep">(</span><span class="bu">range</span><span class="sep">(</span><span class="num">1000000</span><span class="sep">)</span><span class="sep">)</span>
+<span class="dec">
+@contextmanager</span>
+<span class="kw">def</span> redirect_output<span class="sep">(</span>filepath<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">import</span> sys
+    old <span class="op">=</span> sys.stdout
+    sys.stdout <span class="op">=</span> <span class="bu">open</span><span class="sep">(</span>filepath<span class="sep">,</span> <span class="str">"w"</span><span class="sep">)</span>
+    <span class="kw">try</span><span class="sep">:</span>
+        <span class="kw">yield</span>
+    <span class="kw">finally</span><span class="sep">:</span>
+        sys.stdout.close<span class="sep">(</span><span class="sep">)</span>
+        sys.stdout <span class="op">=</span> old<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="01-decorators.html" class="btn btn-secondary">← Previous</a><a href="03-regular-expressions.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

@@ -13,37 +13,37 @@
         <h1>Lesson 10: Machine Learning Fundamentals</h1>
         <p>Introduction to ML with scikit-learn: regression, classification, clustering.</p>
         <h2>Linear Regression</h2>
-        <pre><code>from sklearn.linear_model import LinearRegression
-import numpy as np
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">import</span> numpy <span class="kw">as</span> np
 
-X = np.array([[1], [2], [3], [4], [5]])
-y = np.array([2, 4, 6, 8, 10])
+X <span class="op">=</span> np.array<span class="sep">(</span><span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">4</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">5</span><span class="sep">]</span><span class="sep">]</span><span class="sep">)</span>
+y <span class="op">=</span> np.array<span class="sep">(</span><span class="sep">[</span><span class="num">2</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">6</span><span class="sep">,</span> <span class="num">8</span><span class="sep">,</span> <span class="num">10</span><span class="sep">]</span><span class="sep">)</span>
 
-model = LinearRegression()
-model.fit(X, y)
-print(model.predict([[6]]))  # ~12
-print(f"Slope: {model.coef_[0]:.2f}")</code></pre>
+model <span class="op">=</span> LinearRegression<span class="sep">(</span><span class="sep">)</span>
+model.fit<span class="sep">(</span>X<span class="sep">,</span> y<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>model.predict<span class="sep">(</span><span class="sep">[</span><span class="sep">[</span><span class="num">6</span><span class="sep">]</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># ~12</span>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Slope: {model.coef_[0]:.2f}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Classification</h2>
-        <pre><code>from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_iris
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score
 
-iris = load_iris()
-X_train, X_test, y_train, y_test = train_test_split(
-    iris.data, iris.target, test_size=0.2
-)
+iris <span class="op">=</span> load_iris<span class="sep">(</span><span class="sep">)</span>
+X_train<span class="sep">,</span> X_test<span class="sep">,</span> y_train<span class="sep">,</span> y_test <span class="op">=</span> train_test_split<span class="sep">(</span>
+    iris.data<span class="sep">,</span> iris.target<span class="sep">,</span> test_size<span class="op">=</span><span class="num">0.2</span>
+<span class="sep">)</span>
 
-clf = RandomForestClassifier()
-clf.fit(X_train, y_train)
-predictions = clf.predict(X_test)
-print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")</code></pre>
+clf <span class="op">=</span> RandomForestClassifier<span class="sep">(</span><span class="sep">)</span>
+clf.fit<span class="sep">(</span>X_train<span class="sep">,</span> y_train<span class="sep">)</span>
+predictions <span class="op">=</span> clf.predict<span class="sep">(</span>X_test<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Accuracy: {accuracy_score(y_test, predictions):.2f}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>K-Means Clustering</h2>
-        <pre><code>from sklearn.cluster import KMeans
-X = np.array([[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]])
-kmeans = KMeans(n_clusters=2)
-kmeans.fit(X)
-print(kmeans.labels_)  # [0 0 0 1 1 1]</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> sklearn.cluster <span class="kw">import</span> KMeans
+X <span class="op">=</span> np.array<span class="sep">(</span><span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">0</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">10</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">10</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">10</span><span class="sep">,</span> <span class="num">0</span><span class="sep">]</span><span class="sep">]</span><span class="sep">)</span>
+kmeans <span class="op">=</span> KMeans<span class="sep">(</span>n_clusters<span class="op">=</span><span class="num">2</span><span class="sep">)</span>
+kmeans.fit<span class="sep">(</span>X<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>kmeans.labels_<span class="sep">)</span>  <span class="cm"># [0 0 0 1 1 1]&lt;/code&gt;</span></pre>
         <div class="lesson-nav"><a href="09-data-science-intro.html" class="btn btn-secondary">← Previous</a><a href="11-capstone-planning.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

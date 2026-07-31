@@ -13,31 +13,31 @@
         <h1>Lesson 8: Working with Data</h1>
         <p>Master JSON, CSV, and the powerful collections module.</p>
         <h2>JSON</h2>
-        <pre><code>import json
-data = '{"name": "Alice", "age": 25}'
-parsed = json.loads(data)
-print(parsed["name"])  # Alice</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json
+data <span class="op">=</span> <span class="str">'{"name": "Alice", "age": 25}'</span>
+parsed <span class="op">=</span> json.loads<span class="sep">(</span>data<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>parsed<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># Alice&lt;/code&gt;</span></pre>
         <h2>CSV</h2>
-        <pre><code>import csv
-with open("data.csv") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        print(row["Name"], row["Age"])</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> csv
+<span class="kw">with</span> <span class="bu">open</span><span class="sep">(</span><span class="str">"data.csv"</span><span class="sep">)</span> <span class="kw">as</span> f<span class="sep">:</span>
+    reader <span class="op">=</span> csv.DictReader<span class="sep">(</span>f<span class="sep">)</span>
+    <span class="kw">for</span> row <span class="kw">in</span> reader<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>row<span class="sep">[</span><span class="str">"Name"</span><span class="sep">]</span><span class="sep">,</span> row<span class="sep">[</span><span class="str">"Age"</span><span class="sep">]</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Collections Module</h2>
-        <pre><code>from collections import Counter, defaultdict, namedtuple
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> collections <span class="kw">import</span> Counter<span class="sep">,</span> defaultdict<span class="sep">,</span> namedtuple
 
-# Counter
-counts = Counter("hello world")
-print(counts)  # Counter({'l': 3, 'o': 2, ...})
+<span class="cm"># Counter</span>
+counts <span class="op">=</span> Counter<span class="sep">(</span><span class="str">"hello world"</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>counts<span class="sep">)</span>  <span class="cm"># Counter({'l': 3, 'o': 2, ...})</span>
 
-# defaultdict
-groups = defaultdict(list)
-groups["a"].append(1)  # No KeyError!
+<span class="cm"># defaultdict</span>
+groups <span class="op">=</span> defaultdict<span class="sep">(</span><span class="bu">list</span><span class="sep">)</span>
+groups<span class="sep">[</span><span class="str">"a"</span><span class="sep">]</span>.append<span class="sep">(</span><span class="num">1</span><span class="sep">)</span>  <span class="cm"># No KeyError!</span>
 
-# namedtuple
-Point = namedtuple("Point", ["x", "y"])
-p = Point(10, 20)
-print(p.x, p.y)  # 10 20</code></pre>
+<span class="cm"># namedtuple</span>
+Point <span class="op">=</span> namedtuple<span class="sep">(</span><span class="str">"Point"</span><span class="sep">,</span> <span class="sep">[</span><span class="str">"x"</span><span class="sep">,</span> <span class="str">"y"</span><span class="sep">]</span><span class="sep">)</span>
+p <span class="op">=</span> Point<span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">20</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>p.x<span class="sep">,</span> p.y<span class="sep">)</span>  <span class="cm"># 10 20&lt;/code&gt;</span></pre>
         <h2>Practice</h2>
         <ol>
             <li>Read a JSON file and extract specific fields</li>

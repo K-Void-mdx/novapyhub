@@ -14,18 +14,18 @@
         <p>Learn to organize code into modules and packages, manage imports, and use pip for third-party packages.</p>
         <h2>Creating Packages</h2>
         <p>A package is a folder with an <code>__init__.py</code> file containing multiple modules:</p>
-        <pre><code>my_package/
-    __init__.py
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>my_package<span class="op">/</span>
+    <span class="bu">__init__</span>.py
     math_ops.py
-    string_ops.py</code></pre>
+    string_ops.py<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Import Types</h2>
-        <pre><code>import my_package.math_ops
-from my_package import math_ops
-from my_package.math_ops import add, subtract</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> my_package.math_ops
+<span class="kw">from</span> my_package <span class="kw">import</span> math_ops
+<span class="kw">from</span> my_package.math_ops <span class="kw">import</span> add<span class="sep">,</span> subtract<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Using pip</h2>
-        <pre><code>pip install requests
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>pip install requests
 pip install numpy pandas matplotlib
-pip freeze > requirements.txt</code></pre>
+pip freeze <span class="op">&gt;</span> requirements.txt<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Practice</h2>
         <ol>
             <li>Create a package with 3 modules and import them in different ways</li>

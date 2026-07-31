@@ -27,120 +27,120 @@
         <p>Exceptions are errors that occur during program execution. Instead of crashing your program, you can catch and handle them gracefully.</p>
 
         <h2>Common Exception Types</h2>
-        <pre><code># ZeroDivisionError
-print(10 / 0)  # ZeroDivisionError: division by zero
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># ZeroDivisionError</span>
+<span class="bu">print</span><span class="sep">(</span><span class="num">10</span> <span class="op">/</span> <span class="num">0</span><span class="sep">)</span>  <span class="cm"># ZeroDivisionError: division by zero</span>
 
-# ValueError
-int("hello")  # ValueError: invalid literal for int()
+<span class="cm"># ValueError</span>
+<span class="bu">int</span><span class="sep">(</span><span class="str">"hello"</span><span class="sep">)</span>  <span class="cm"># ValueError: invalid literal for int()</span>
 
-# TypeError
-"5" + 3  # TypeError: can only concatenate str (not "int") to str
+<span class="cm"># TypeError</span>
+<span class="str">"5"</span> <span class="op">+</span> <span class="num">3</span>  <span class="cm"># TypeError: can only concatenate str (not "int") to str</span>
 
-# IndexError
-nums = [1, 2, 3]
-print(nums[10])  # IndexError: list index out of range
+<span class="cm"># IndexError</span>
+nums <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">]</span>
+<span class="bu">print</span><span class="sep">(</span>nums<span class="sep">[</span><span class="num">10</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># IndexError: list index out of range</span>
 
-# KeyError
-person = {"name": "Alice"}
-print(person["age"])  # KeyError: 'age'
+<span class="cm"># KeyError</span>
+person <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">}</span>
+<span class="bu">print</span><span class="sep">(</span>person<span class="sep">[</span><span class="str">"age"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># KeyError: 'age'</span>
 
-# FileNotFoundError
-open("nonexistent.txt")  # FileNotFoundError</code></pre>
+<span class="cm"># FileNotFoundError</span>
+<span class="bu">open</span><span class="sep">(</span><span class="str">"nonexistent.txt"</span><span class="sep">)</span>  <span class="cm"># FileNotFoundError&lt;/code&gt;</span></pre>
 
         <h2>Try/Except Blocks</h2>
-        <pre><code>try:
-    number = int(input("Enter a number: "))
-    result = 10 / number
-    print(f"Result: {result}")
-except ValueError:
-    print("Please enter a valid number!")
-except ZeroDivisionError:
-    print("Cannot divide by zero!")</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">try</span><span class="sep">:</span>
+    number <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
+    result <span class="op">=</span> <span class="num">10</span> <span class="op">/</span> number
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Result: {result}"</span><span class="sep">)</span>
+<span class="kw">except</span> ValueError<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Please enter a valid number!"</span><span class="sep">)</span>
+<span class="kw">except</span> ZeroDivisionError<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Cannot divide by zero!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Catching Multiple Exceptions</h2>
-        <pre><code># Multiple except blocks
-try:
-    num = int(input("Enter a number: "))
-    result = 100 / num
-    print(result)
-except (ValueError, ZeroDivisionError):
-    print("Invalid input or division by zero!")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Multiple except blocks</span>
+<span class="kw">try</span><span class="sep">:</span>
+    num <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
+    result <span class="op">=</span> <span class="num">100</span> <span class="op">/</span> num
+    <span class="bu">print</span><span class="sep">(</span>result<span class="sep">)</span>
+<span class="kw">except</span> <span class="sep">(</span>ValueError<span class="sep">,</span> ZeroDivisionError<span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid input or division by zero!"</span><span class="sep">)</span>
 
-# Catching all exceptions (use carefully!)
-try:
-    x = int("hello")
-except Exception as e:
-    print(f"An error occurred: {e}")</code></pre>
+<span class="cm"># Catching all exceptions (use carefully!)</span>
+<span class="kw">try</span><span class="sep">:</span>
+    x <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="str">"hello"</span><span class="sep">)</span>
+<span class="kw">except</span> Exception <span class="kw">as</span> e<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"An error occurred: {e}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Else and Finally</h2>
         <p><code>else</code> runs if no exception occurred. <code>finally</code> always runs:</p>
-        <pre><code>try:
-    num = int(input("Enter a number: "))
-    result = 100 / num
-except ValueError:
-    print("Not a number!")
-except ZeroDivisionError:
-    print("Can't divide by zero!")
-else:
-    print(f"Result: {result}")  # Runs only if no error
-finally:
-    print("This always runs.")  # Cleanup code</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">try</span><span class="sep">:</span>
+    num <span class="op">=</span> <span class="bu">int</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span><span class="str">"Enter a number: "</span><span class="sep">)</span><span class="sep">)</span>
+    result <span class="op">=</span> <span class="num">100</span> <span class="op">/</span> num
+<span class="kw">except</span> ValueError<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Not a number!"</span><span class="sep">)</span>
+<span class="kw">except</span> ZeroDivisionError<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Can't divide by zero!"</span><span class="sep">)</span>
+<span class="kw">else</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Result: {result}"</span><span class="sep">)</span>  <span class="cm"># Runs only if no error</span>
+<span class="kw">finally</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"This always runs."</span><span class="sep">)</span>  <span class="cm"># Cleanup code&lt;/code&gt;</span></pre>
 
         <h2>Raising Exceptions</h2>
         <p>You can manually raise exceptions with <code>raise</code>:</p>
-        <pre><code>def withdraw(balance, amount):
-    if amount <= 0:
-        raise ValueError("Amount must be positive!")
-    if amount > balance:
-        raise ValueError("Insufficient funds!")
-    return balance - amount
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> withdraw<span class="sep">(</span>balance<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> amount <span class="op">&lt;=</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="kw">raise</span> ValueError<span class="sep">(</span><span class="str">"Amount must be positive!"</span><span class="sep">)</span>
+    <span class="kw">if</span> amount <span class="op">&gt;</span> balance<span class="sep">:</span>
+        <span class="kw">raise</span> ValueError<span class="sep">(</span><span class="str">"Insufficient funds!"</span><span class="sep">)</span>
+    <span class="kw">return</span> balance <span class="op">-</span> amount
 
-try:
-    new_balance = withdraw(100, 150)
-except ValueError as e:
-    print(f"Error: {e}")
+<span class="kw">try</span><span class="sep">:</span>
+    new_balance <span class="op">=</span> withdraw<span class="sep">(</span><span class="num">100</span><span class="sep">,</span> <span class="num">150</span><span class="sep">)</span>
+<span class="kw">except</span> ValueError <span class="kw">as</span> e<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Error: {e}"</span><span class="sep">)</span>
 
-# Re-raising
-def safe_divide(a, b):
-    try:
-        return a / b
-    except ZeroDivisionError:
-        print("Logging error...")
-        raise  # Re-raise the same exception</code></pre>
+<span class="cm"># Re-raising</span>
+<span class="kw">def</span> safe_divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">try</span><span class="sep">:</span>
+        <span class="kw">return</span> a <span class="op">/</span> b
+    <span class="kw">except</span> ZeroDivisionError<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"Logging error..."</span><span class="sep">)</span>
+        <span class="kw">raise</span>  <span class="cm"># Re-raise the same exception&lt;/code&gt;</span></pre>
 
         <h2>Creating Custom Exceptions</h2>
-        <pre><code>class InsufficientFundsError(Exception):
-    """Raised when account balance is insufficient."""
-    pass
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> InsufficientFundsError<span class="sep">(</span>Exception<span class="sep">)</span><span class="sep">:</span>
+    <span class="str">""</span><span class="str">"Raised when account balance is insufficient."</span><span class="str">""</span>
+    <span class="kw">pass</span>
 
-class NegativeAmountError(Exception):
-    """Raised when amount is negative."""
-    def __init__(self, amount):
-        self.amount = amount
-        super().__init__(f"Amount cannot be negative: {amount}")
+<span class="kw">class</span> NegativeAmountError<span class="sep">(</span>Exception<span class="sep">)</span><span class="sep">:</span>
+    <span class="str">""</span><span class="str">"Raised when amount is negative."</span><span class="str">""</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
+        self.amount <span class="op">=</span> amount
+        <span class="bu">super</span><span class="sep">(</span><span class="sep">)</span>.<span class="bu">__init__</span><span class="sep">(</span>f<span class="str">"Amount cannot be negative: {amount}"</span><span class="sep">)</span>
 
-def transfer(balance, amount):
-    if amount < 0:
-        raise NegativeAmountError(amount)
-    if amount > balance:
-        raise InsufficientFundsError("Not enough money!")
-    return balance - amount
+<span class="kw">def</span> transfer<span class="sep">(</span>balance<span class="sep">,</span> amount<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> amount <span class="op">&lt;</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="kw">raise</span> NegativeAmountError<span class="sep">(</span>amount<span class="sep">)</span>
+    <span class="kw">if</span> amount <span class="op">&gt;</span> balance<span class="sep">:</span>
+        <span class="kw">raise</span> InsufficientFundsError<span class="sep">(</span><span class="str">"Not enough money!"</span><span class="sep">)</span>
+    <span class="kw">return</span> balance <span class="op">-</span> amount
 
-try:
-    transfer(500, -50)
-except NegativeAmountError as e:
-    print(e)
-except InsufficientFundsError as e:
-    print(e)</code></pre>
+<span class="kw">try</span><span class="sep">:</span>
+    transfer<span class="sep">(</span><span class="num">500</span><span class="sep">,</span> <span class="op">-</span><span class="num">50</span><span class="sep">)</span>
+<span class="kw">except</span> NegativeAmountError <span class="kw">as</span> e<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>e<span class="sep">)</span>
+<span class="kw">except</span> InsufficientFundsError <span class="kw">as</span> e<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>e<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Assertions</h2>
         <p>Use <code>assert</code> for debugging — it raises AssertionError if the condition is False:</p>
-        <pre><code>def calculate_bmi(weight, height):
-    assert weight > 0, "Weight must be positive"
-    assert height > 0, "Height must be positive"
-    return weight / (height ** 2)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> calculate_bmi<span class="sep">(</span>weight<span class="sep">,</span> height<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">assert</span> weight <span class="op">&gt;</span> <span class="num">0</span><span class="sep">,</span> <span class="str">"Weight must be positive"</span>
+    <span class="kw">assert</span> height <span class="op">&gt;</span> <span class="num">0</span><span class="sep">,</span> <span class="str">"Height must be positive"</span>
+    <span class="kw">return</span> weight <span class="op">/</span> <span class="sep">(</span>height <span class="op">**</span> <span class="num">2</span><span class="sep">)</span>
 
-# Can be disabled with -O flag when running Python</code></pre>
+<span class="cm"># Can be disabled with -O flag when running Python&lt;/code&gt;</span></pre>
 
         <h2>Best Practices</h2>
         <ul>

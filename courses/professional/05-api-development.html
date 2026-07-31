@@ -13,53 +13,53 @@
         <h1>Lesson 5: API Development with FastAPI</h1>
         <p>Build production-ready REST APIs with FastAPI.</p>
         <h2>Full CRUD API</h2>
-        <pre><code>from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI<span class="sep">,</span> HTTPException
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+<span class="kw">from</span> typing <span class="kw">import</span> List
 
-app = FastAPI(title="Nova Py-Hub API")
+app <span class="op">=</span> FastAPI<span class="sep">(</span>title<span class="op">=</span><span class="str">"Nova Py-Hub API"</span><span class="sep">)</span>
 
-class Item(BaseModel):
-    id: int
-    name: str
-    price: float
+<span class="kw">class</span> Item<span class="sep">(</span>BaseModel<span class="sep">)</span><span class="sep">:</span>
+    id<span class="sep">:</span> <span class="bu">int</span>
+    name<span class="sep">:</span> <span class="bu">str</span>
+    price<span class="sep">:</span> <span class="bu">float</span>
 
-db: List[Item] = []
+db<span class="sep">:</span> List<span class="sep">[</span>Item<span class="sep">]</span> <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
+<span class="dec">
+@app</span>.get<span class="sep">(</span><span class="str">"/items"</span><span class="sep">,</span> response_model<span class="op">=</span>List<span class="sep">[</span>Item<span class="sep">]</span><span class="sep">)</span>
+<span class="kw">def</span> list_items<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> db
+<span class="dec">
+@app</span>.get<span class="sep">(</span><span class="str">"/items/{item_id}"</span><span class="sep">,</span> response_model<span class="op">=</span>Item<span class="sep">)</span>
+<span class="kw">def</span> get_item<span class="sep">(</span>item_id<span class="sep">:</span> <span class="bu">int</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> item <span class="kw">in</span> db<span class="sep">:</span>
+        <span class="kw">if</span> item.id <span class="op">==</span> item_id<span class="sep">:</span>
+            <span class="kw">return</span> item
+    <span class="kw">raise</span> HTTPException<span class="sep">(</span><span class="num">404</span><span class="sep">,</span> <span class="str">"Item not found"</span><span class="sep">)</span>
+<span class="dec">
+@app</span>.post<span class="sep">(</span><span class="str">"/items"</span><span class="sep">,</span> response_model<span class="op">=</span>Item<span class="sep">)</span>
+<span class="kw">def</span> create_item<span class="sep">(</span>item<span class="sep">:</span> Item<span class="sep">)</span><span class="sep">:</span>
+    db.append<span class="sep">(</span>item<span class="sep">)</span>
+    <span class="kw">return</span> item
+<span class="dec">
+@app</span>.put<span class="sep">(</span><span class="str">"/items/{item_id}"</span><span class="sep">,</span> response_model<span class="op">=</span>Item<span class="sep">)</span>
+<span class="kw">def</span> update_item<span class="sep">(</span>item_id<span class="sep">:</span> <span class="bu">int</span><span class="sep">,</span> item<span class="sep">:</span> Item<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> i<span class="sep">,</span> existing <span class="kw">in</span> <span class="bu">enumerate</span><span class="sep">(</span>db<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">if</span> existing.id <span class="op">==</span> item_id<span class="sep">:</span>
+            db<span class="sep">[</span>i<span class="sep">]</span> <span class="op">=</span> item
+            <span class="kw">return</span> item
+    <span class="kw">raise</span> HTTPException<span class="sep">(</span><span class="num">404</span><span class="sep">,</span> <span class="str">"Item not found"</span><span class="sep">)</span>
+<span class="dec">
+@app</span>.delete<span class="sep">(</span><span class="str">"/items/{item_id}"</span><span class="sep">)</span>
+<span class="kw">def</span> delete_item<span class="sep">(</span>item_id<span class="sep">:</span> <span class="bu">int</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> i<span class="sep">,</span> item <span class="kw">in</span> <span class="bu">enumerate</span><span class="sep">(</span>db<span class="sep">)</span><span class="sep">:</span>
+        <span class="kw">if</span> item.id <span class="op">==</span> item_id<span class="sep">:</span>
+            db.pop<span class="sep">(</span>i<span class="sep">)</span>
+            <span class="kw">return</span> <span class="sep">{</span><span class="str">"message"</span><span class="sep">:</span> <span class="str">"Deleted"</span><span class="sep">}</span>
+    <span class="kw">raise</span> HTTPException<span class="sep">(</span><span class="num">404</span><span class="sep">,</span> <span class="str">"Item not found"</span><span class="sep">)</span>
 
-@app.get("/items", response_model=List[Item])
-def list_items():
-    return db
-
-@app.get("/items/{item_id}", response_model=Item)
-def get_item(item_id: int):
-    for item in db:
-        if item.id == item_id:
-            return item
-    raise HTTPException(404, "Item not found")
-
-@app.post("/items", response_model=Item)
-def create_item(item: Item):
-    db.append(item)
-    return item
-
-@app.put("/items/{item_id}", response_model=Item)
-def update_item(item_id: int, item: Item):
-    for i, existing in enumerate(db):
-        if existing.id == item_id:
-            db[i] = item
-            return item
-    raise HTTPException(404, "Item not found")
-
-@app.delete("/items/{item_id}")
-def delete_item(item_id: int):
-    for i, item in enumerate(db):
-        if item.id == item_id:
-            db.pop(i)
-            return {"message": "Deleted"}
-    raise HTTPException(404, "Item not found")
-
-# Run: uvicorn main:app --reload
-# Docs: http://localhost:8000/docs</code></pre>
+<span class="cm"># Run: uvicorn main:app --reload</span>
+<span class="cm"># Docs: http://localhost:8000/docs&lt;/code&gt;</span></pre>
         <div class="lesson-nav"><a href="04-system-design.html" class="btn btn-secondary">← Previous</a><a href="06-database-design.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

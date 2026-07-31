@@ -28,115 +28,115 @@
 
         <h2>The for Loop</h2>
         <p>The <code>for</code> loop iterates over a sequence (list, string, range, etc.):</p>
-        <pre><code># Loop through a list
-fruits = ["apple", "banana", "orange"]
-for fruit in fruits:
-    print(f"I like {fruit}")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Loop through a list</span>
+fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
+<span class="kw">for</span> fruit <span class="kw">in</span> fruits<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"I like {fruit}"</span><span class="sep">)</span>
 
-# Loop through a string
-for char in "Python":
-    print(char)</code></pre>
+<span class="cm"># Loop through a string</span>
+<span class="kw">for</span> char <span class="kw">in</span> <span class="str">"Python"</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>char<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>The range() Function</h2>
         <p><code>range()</code> generates a sequence of numbers:</p>
-        <pre><code># range(stop) — 0 to stop-1
-for i in range(5):
-    print(i)  # 0, 1, 2, 3, 4
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># range(stop) — 0 to stop-1</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>  <span class="cm"># 0, 1, 2, 3, 4</span>
 
-# range(start, stop)
-for i in range(2, 7):
-    print(i)  # 2, 3, 4, 5, 6
+<span class="cm"># range(start, stop)</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">2</span><span class="sep">,</span> <span class="num">7</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>  <span class="cm"># 2, 3, 4, 5, 6</span>
 
-# range(start, stop, step)
-for i in range(0, 10, 2):
-    print(i)  # 0, 2, 4, 6, 8
+<span class="cm"># range(start, stop, step)</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">0</span><span class="sep">,</span> <span class="num">10</span><span class="sep">,</span> <span class="num">2</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>  <span class="cm"># 0, 2, 4, 6, 8</span>
 
-# Counting down
-for i in range(10, 0, -1):
-    print(i)  # 10, 9, 8, ... 1
-print("Blast off!")</code></pre>
+<span class="cm"># Counting down</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">0</span><span class="sep">,</span> <span class="op">-</span><span class="num">1</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>  <span class="cm"># 10, 9, 8, ... 1</span>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"Blast off!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Looping with enumerate()</h2>
         <p>When you need both index and value:</p>
-        <pre><code>fruits = ["apple", "banana", "orange"]
-for index, fruit in enumerate(fruits):
-    print(f"{index + 1}. {fruit}")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
+<span class="kw">for</span> index<span class="sep">,</span> fruit <span class="kw">in</span> <span class="bu">enumerate</span><span class="sep">(</span>fruits<span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{index + 1}. {fruit}"</span><span class="sep">)</span>
 
-# Output:
-# 1. apple
-# 2. banana
-# 3. orange</code></pre>
+<span class="cm"># Output:</span>
+<span class="cm"># 1. apple</span>
+<span class="cm"># 2. banana</span>
+<span class="cm"># 3. orange&lt;/code&gt;</span></pre>
 
         <h2>The while Loop</h2>
         <p>The <code>while</code> loop repeats as long as a condition is True:</p>
-        <pre><code># Count from 1 to 5
-count = 1
-while count <= 5:
-    print(count)
-    count += 1  # IMPORTANT: don't forget this!
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Count from 1 to 5</span>
+count <span class="op">=</span> <span class="num">1</span>
+<span class="kw">while</span> count <span class="op">&lt;=</span> <span class="num">5</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>count<span class="sep">)</span>
+    count <span class="op">+=</span> <span class="num">1</span>  <span class="cm"># IMPORTANT: don't forget this!</span>
 
-# User input loop
-secret = "python"
-guess = ""
-while guess != secret:
-    guess = input("Guess the secret word: ")
-print("You got it!")</code></pre>
+<span class="cm"># User input loop</span>
+secret <span class="op">=</span> <span class="str">"python"</span>
+guess <span class="op">=</span> <span class="str">""</span>
+<span class="kw">while</span> guess <span class="op">!=</span> secret<span class="sep">:</span>
+    guess <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Guess the secret word: "</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"You got it!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <p><strong>Warning:</strong> Make sure the condition eventually becomes False, or you'll get an infinite loop!</p>
 
         <h2>break and continue</h2>
         <p><code>break</code> exits the loop immediately. <code>continue</code> skips to the next iteration:</p>
-        <pre><code># break — stop the loop
-for i in range(10):
-    if i == 5:
-        break  # Stop when i is 5
-    print(i)   # Prints: 0, 1, 2, 3, 4
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># break — stop the loop</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> i <span class="op">==</span> <span class="num">5</span><span class="sep">:</span>
+        <span class="kw">break</span>  <span class="cm"># Stop when i is 5</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>   <span class="cm"># Prints: 0, 1, 2, 3, 4</span>
 
-# continue — skip this iteration
-for i in range(10):
-    if i % 2 == 0:
-        continue  # Skip even numbers
-    print(i)      # Prints: 1, 3, 5, 7, 9
+<span class="cm"># continue — skip this iteration</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> i <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="kw">continue</span>  <span class="cm"># Skip even numbers</span>
+    <span class="bu">print</span><span class="sep">(</span>i<span class="sep">)</span>      <span class="cm"># Prints: 1, 3, 5, 7, 9</span>
 
-# Practical: find first even number
-numbers = [3, 7, 9, 12, 15, 18]
-for num in numbers:
-    if num % 2 == 0:
-        print(f"First even: {num}")
-        break</code></pre>
+<span class="cm"># Practical: find first even number</span>
+numbers <span class="op">=</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">9</span><span class="sep">,</span> <span class="num">12</span><span class="sep">,</span> <span class="num">15</span><span class="sep">,</span> <span class="num">18</span><span class="sep">]</span>
+<span class="kw">for</span> num <span class="kw">in</span> numbers<span class="sep">:</span>
+    <span class="kw">if</span> num <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"First even: {num}"</span><span class="sep">)</span>
+        <span class="kw">break</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>The else Clause with Loops</h2>
         <p>Loops can have an <code>else</code> that runs when the loop finishes normally (not via break):</p>
-        <pre><code># else runs when NO break happened
-numbers = [1, 3, 5, 7, 9]
-for num in numbers:
-    if num % 2 == 0:
-        print("Found even number!")
-        break
-else:
-    print("No even numbers found.")  # This runs</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># else runs when NO break happened</span>
+numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">9</span><span class="sep">]</span>
+<span class="kw">for</span> num <span class="kw">in</span> numbers<span class="sep">:</span>
+    <span class="kw">if</span> num <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"Found even number!"</span><span class="sep">)</span>
+        <span class="kw">break</span>
+<span class="kw">else</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"No even numbers found."</span><span class="sep">)</span>  <span class="cm"># This runs&lt;/code&gt;</span></pre>
 
         <h2>Nested Loops</h2>
         <p>Loops inside loops:</p>
-        <pre><code># Multiplication table
-for i in range(1, 4):
-    for j in range(1, 4):
-        print(f"{i} x {j} = {i * j}")
-    print()  # Blank line after each row</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Multiplication table</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> j <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{i} x {j} = {i * j}"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="sep">)</span>  <span class="cm"># Blank line after each row&lt;/code&gt;</span></pre>
 
         <h2>Looping Through Dictionaries</h2>
-        <pre><code>student = {"name": "Alice", "age": 25, "grade": "A"}
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="str">"A"</span><span class="sep">}</span>
 
-# Loop through keys
-for key in student:
-    print(key)
+<span class="cm"># Loop through keys</span>
+<span class="kw">for</span> key <span class="kw">in</span> student<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>key<span class="sep">)</span>
 
-# Loop through values
-for value in student.values():
-    print(value)
+<span class="cm"># Loop through values</span>
+<span class="kw">for</span> value <span class="kw">in</span> student.values<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>value<span class="sep">)</span>
 
-# Loop through both
-for key, value in student.items():
-    print(f"{key}: {value}")</code></pre>
+<span class="cm"># Loop through both</span>
+<span class="kw">for</span> key<span class="sep">,</span> value <span class="kw">in</span> student.items<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{key}: {value}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

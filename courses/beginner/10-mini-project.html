@@ -36,121 +36,121 @@
         </ul>
 
         <h2>Step 1: Basic Structure</h2>
-        <pre><code>def add(a, b):
-    return a + b
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">+</span> b
 
-def subtract(a, b):
-    return a - b
+<span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">-</span> b
 
-def multiply(a, b):
-    return a * b
+<span class="kw">def</span> multiply<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">*</span> b
 
-def divide(a, b):
-    if b == 0:
-        return "Error: Division by zero!"
-    return a / b</code></pre>
+<span class="kw">def</span> divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span><span class="sep">:</span>
+        <span class="kw">return</span> <span class="str">"Error: Division by zero!"</span>
+    <span class="kw">return</span> a <span class="op">/</span> b<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Step 2: Display Menu</h2>
-        <pre><code>def show_menu():
-    print("\n" + "="*30)
-    print("    NOVA PY-HUB CALCULATOR")
-    print("="*30)
-    print("1. Add (+)")
-    print("2. Subtract (-)")
-    print("3. Multiply (*)")
-    print("4. Divide (/)")
-    print("5. Exit")
-    print("="*30)</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> show_menu<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"\n"</span> <span class="op">+</span> <span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"    NOVA PY-HUB CALCULATOR"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"1. Add (+)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"2. Subtract (-)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"3. Multiply (*)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"4. Divide (/)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"5. Exit"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Step 3: Get User Input</h2>
-        <pre><code>def get_number(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Invalid input! Please enter a number.")</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> get_number<span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
+        <span class="kw">try</span><span class="sep">:</span>
+            <span class="kw">return</span> <span class="bu">float</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">)</span>
+        <span class="kw">except</span> ValueError<span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid input! Please enter a number."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Step 4: Main Program Loop</h2>
-        <pre><code>def main():
-    while True:
-        show_menu()
-        choice = input("Choose an option (1-5): ")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
+        show_menu<span class="sep">(</span><span class="sep">)</span>
+        choice <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Choose an option (1-5): "</span><span class="sep">)</span>
 
-        if choice == "5":
-            print("Thank you for using Nova Py-Hub Calculator!")
-            print("Goodbye!")
-            break
+        <span class="kw">if</span> choice <span class="op">==</span> <span class="str">"5"</span><span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Thank you for using Nova Py-Hub Calculator!"</span><span class="sep">)</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Goodbye!"</span><span class="sep">)</span>
+            <span class="kw">break</span>
 
-        if choice in ("1", "2", "3", "4"):
-            num1 = get_number("Enter first number: ")
-            num2 = get_number("Enter second number: ")
+        <span class="kw">if</span> choice <span class="kw">in</span> <span class="sep">(</span><span class="str">"1"</span><span class="sep">,</span> <span class="str">"2"</span><span class="sep">,</span> <span class="str">"3"</span><span class="sep">,</span> <span class="str">"4"</span><span class="sep">)</span><span class="sep">:</span>
+            num1 <span class="op">=</span> get_number<span class="sep">(</span><span class="str">"Enter first number: "</span><span class="sep">)</span>
+            num2 <span class="op">=</span> get_number<span class="sep">(</span><span class="str">"Enter second number: "</span><span class="sep">)</span>
 
-            if choice == "1":
-                result = add(num1, num2)
-                operation = "+"
-            elif choice == "2":
-                result = subtract(num1, num2)
-                operation = "-"
-            elif choice == "3":
-                result = multiply(num1, num2)
-                operation = "*"
-            elif choice == "4":
-                result = divide(num1, num2)
-                operation = "/"
+            <span class="kw">if</span> choice <span class="op">==</span> <span class="str">"1"</span><span class="sep">:</span>
+                result <span class="op">=</span> add<span class="sep">(</span>num1<span class="sep">,</span> num2<span class="sep">)</span>
+                operation <span class="op">=</span> <span class="str">"+"</span>
+            <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"2"</span><span class="sep">:</span>
+                result <span class="op">=</span> subtract<span class="sep">(</span>num1<span class="sep">,</span> num2<span class="sep">)</span>
+                operation <span class="op">=</span> <span class="str">"-"</span>
+            <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"3"</span><span class="sep">:</span>
+                result <span class="op">=</span> multiply<span class="sep">(</span>num1<span class="sep">,</span> num2<span class="sep">)</span>
+                operation <span class="op">=</span> <span class="str">"*"</span>
+            <span class="kw">elif</span> choice <span class="op">==</span> <span class="str">"4"</span><span class="sep">:</span>
+                result <span class="op">=</span> divide<span class="sep">(</span>num1<span class="sep">,</span> num2<span class="sep">)</span>
+                operation <span class="op">=</span> <span class="str">"/"</span>
 
-            print(f"\n{num1} {operation} {num2} = {result}")
-        else:
-            print("Invalid choice! Please select 1-5.")
+            <span class="bu">print</span><span class="sep">(</span>f<span class="str">"\n{num1} {operation} {num2} = {result}"</span><span class="sep">)</span>
+        <span class="kw">else</span><span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid choice! Please select 1-5."</span><span class="sep">)</span>
 
-if __name__ == "__main__":
-    main()</code></pre>
+<span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
+    main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Complete Program</h2>
         <p>Save this as <code>calculator.py</code> and run it:</p>
-        <pre><code>def add(a, b): return a + b
-def subtract(a, b): return a - b
-def multiply(a, b): return a * b
-def divide(a, b):
-    if b == 0: return "Error: Division by zero!"
-    return a / b
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">+</span> b
+<span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">-</span> b
+<span class="kw">def</span> multiply<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> a <span class="op">*</span> b
+<span class="kw">def</span> divide<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span><span class="sep">:</span> <span class="kw">return</span> <span class="str">"Error: Division by zero!"</span>
+    <span class="kw">return</span> a <span class="op">/</span> b
 
-def show_menu():
-    print("\n" + "="*30)
-    print("    NOVA PY-HUB CALCULATOR")
-    print("="*30)
-    print("1. Add (+)")
-    print("2. Subtract (-)")
-    print("3. Multiply (*)")
-    print("4. Divide (/)")
-    print("5. Exit")
-    print("="*30)
+<span class="kw">def</span> show_menu<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"\n"</span> <span class="op">+</span> <span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"    NOVA PY-HUB CALCULATOR"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"1. Add (+)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"2. Subtract (-)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"3. Multiply (*)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"4. Divide (/)"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"5. Exit"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"="</span><span class="op">*</span><span class="num">30</span><span class="sep">)</span>
 
-def get_number(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Invalid input! Please enter a number.")
+<span class="kw">def</span> get_number<span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
+        <span class="kw">try</span><span class="sep">:</span>
+            <span class="kw">return</span> <span class="bu">float</span><span class="sep">(</span><span class="bu">input</span><span class="sep">(</span>prompt<span class="sep">)</span><span class="sep">)</span>
+        <span class="kw">except</span> ValueError<span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid input! Please enter a number."</span><span class="sep">)</span>
 
-def main():
-    while True:
-        show_menu()
-        choice = input("Choose an option (1-5): ")
-        if choice == "5":
-            print("Goodbye!")
-            break
-        if choice in ("1", "2", "3", "4"):
-            num1 = get_number("Enter first number: ")
-            num2 = get_number("Enter second number: ")
-            ops = {"1": ("+", add), "2": ("-", subtract),
-                   "3": ("*", multiply), "4": ("/", divide)}
-            op, func = ops[choice]
-            print(f"\n{num1} {op} {num2} = {func(num1, num2)}")
-        else:
-            print("Invalid choice! Select 1-5.")
+<span class="kw">def</span> main<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">while</span> <span class="kw">True</span><span class="sep">:</span>
+        show_menu<span class="sep">(</span><span class="sep">)</span>
+        choice <span class="op">=</span> <span class="bu">input</span><span class="sep">(</span><span class="str">"Choose an option (1-5): "</span><span class="sep">)</span>
+        <span class="kw">if</span> choice <span class="op">==</span> <span class="str">"5"</span><span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Goodbye!"</span><span class="sep">)</span>
+            <span class="kw">break</span>
+        <span class="kw">if</span> choice <span class="kw">in</span> <span class="sep">(</span><span class="str">"1"</span><span class="sep">,</span> <span class="str">"2"</span><span class="sep">,</span> <span class="str">"3"</span><span class="sep">,</span> <span class="str">"4"</span><span class="sep">)</span><span class="sep">:</span>
+            num1 <span class="op">=</span> get_number<span class="sep">(</span><span class="str">"Enter first number: "</span><span class="sep">)</span>
+            num2 <span class="op">=</span> get_number<span class="sep">(</span><span class="str">"Enter second number: "</span><span class="sep">)</span>
+            ops <span class="op">=</span> <span class="sep">{</span><span class="str">"1"</span><span class="sep">:</span> <span class="sep">(</span><span class="str">"+"</span><span class="sep">,</span> add<span class="sep">)</span><span class="sep">,</span> <span class="str">"2"</span><span class="sep">:</span> <span class="sep">(</span><span class="str">"-"</span><span class="sep">,</span> subtract<span class="sep">)</span><span class="sep">,</span>
+                   <span class="str">"3"</span><span class="sep">:</span> <span class="sep">(</span><span class="str">"*"</span><span class="sep">,</span> multiply<span class="sep">)</span><span class="sep">,</span> <span class="str">"4"</span><span class="sep">:</span> <span class="sep">(</span><span class="str">"/"</span><span class="sep">,</span> divide<span class="sep">)</span><span class="sep">}</span>
+            op<span class="sep">,</span> func <span class="op">=</span> ops<span class="sep">[</span>choice<span class="sep">]</span>
+            <span class="bu">print</span><span class="sep">(</span>f<span class="str">"\n{num1} {op} {num2} = {func(num1, num2)}"</span><span class="sep">)</span>
+        <span class="kw">else</span><span class="sep">:</span>
+            <span class="bu">print</span><span class="sep">(</span><span class="str">"Invalid choice! Select 1-5."</span><span class="sep">)</span>
 
-if __name__ == "__main__":
-    main()</code></pre>
+<span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
+    main<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Challenge Extensions</h2>
         <p>Once your basic calculator works, try adding:</p>

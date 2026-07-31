@@ -25,92 +25,92 @@
 
         <h2>What is a List?</h2>
         <p>A list is an ordered, mutable collection of items. Lists can hold items of any type, and you can change them after creation.</p>
-        <pre><code># Creating lists
-numbers = [1, 2, 3, 4, 5]
-mixed = [1, "hello", 3.14, True]
-empty = []
-nested = [[1, 2], [3, 4]]</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating lists</span>
+numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span>
+mixed <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="str">"hello"</span><span class="sep">,</span> <span class="num">3.14</span><span class="sep">,</span> <span class="kw">True</span><span class="sep">]</span>
+empty <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
+nested <span class="op">=</span> <span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">]</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Accessing List Items</h2>
-        <pre><code>fruits = ["apple", "banana", "orange", "grape"]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">,</span> <span class="str">"grape"</span><span class="sep">]</span>
 
-print(fruits[0])    # "apple"
-print(fruits[-1])   # "grape" (last item)
-print(fruits[1:3])  # ["banana", "orange"] (slicing)
-print(fruits[::-1]) # reversed list</code></pre>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="num">0</span><span class="sep">]</span><span class="sep">)</span>    <span class="cm"># "apple"</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span>   <span class="cm"># "grape" (last item)</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="num">1</span><span class="sep">:</span><span class="num">3</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># ["banana", "orange"] (slicing)</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">[</span><span class="sep">:</span><span class="sep">:</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span> <span class="cm"># reversed list&lt;/code&gt;</span></pre>
 
         <h2>Modifying Lists</h2>
-        <pre><code>fruits = ["apple", "banana", "orange"]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
 
-# Change an item
-fruits[1] = "blueberry"
-print(fruits)  # ["apple", "blueberry", "orange"]
+<span class="cm"># Change an item</span>
+fruits<span class="sep">[</span><span class="num">1</span><span class="sep">]</span> <span class="op">=</span> <span class="str">"blueberry"</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">)</span>  <span class="cm"># ["apple", "blueberry", "orange"]</span>
 
-# Add items
-fruits.append("grape")       # Add to end
-fruits.insert(1, "mango")    # Insert at index 1
-print(fruits)
+<span class="cm"># Add items</span>
+fruits.append<span class="sep">(</span><span class="str">"grape"</span><span class="sep">)</span>       <span class="cm"># Add to end</span>
+fruits.insert<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="str">"mango"</span><span class="sep">)</span>    <span class="cm"># Insert at index 1</span>
+<span class="bu">print</span><span class="sep">(</span>fruits<span class="sep">)</span>
 
-# Remove items
-fruits.remove("apple")       # Remove by value
-last = fruits.pop()          # Remove and return last
-first = fruits.pop(0)        # Remove and return first
-del fruits[0]               # Delete by index
-fruits.clear()               # Remove all items</code></pre>
+<span class="cm"># Remove items</span>
+fruits.remove<span class="sep">(</span><span class="str">"apple"</span><span class="sep">)</span>       <span class="cm"># Remove by value</span>
+last <span class="op">=</span> fruits.pop<span class="sep">(</span><span class="sep">)</span>          <span class="cm"># Remove and return last</span>
+first <span class="op">=</span> fruits.pop<span class="sep">(</span><span class="num">0</span><span class="sep">)</span>        <span class="cm"># Remove and return first</span>
+<span class="kw">del</span> fruits<span class="sep">[</span><span class="num">0</span><span class="sep">]</span>               <span class="cm"># Delete by index</span>
+fruits.clear<span class="sep">(</span><span class="sep">)</span>               <span class="cm"># Remove all items&lt;/code&gt;</span></pre>
 
         <h2>List Methods</h2>
-        <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>numbers <span class="op">=</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">1</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">9</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span>
 
-numbers.sort()           # Sort in place
-print(numbers)           # [1, 1, 2, 3, 4, 5, 6, 9]
+numbers.sort<span class="sep">(</span><span class="sep">)</span>           <span class="cm"># Sort in place</span>
+<span class="bu">print</span><span class="sep">(</span>numbers<span class="sep">)</span>           <span class="cm"># [1, 1, 2, 3, 4, 5, 6, 9]</span>
 
-numbers.reverse()        # Reverse in place
-print(numbers)           # [9, 6, 5, 4, 3, 2, 1, 1]
+numbers.reverse<span class="sep">(</span><span class="sep">)</span>        <span class="cm"># Reverse in place</span>
+<span class="bu">print</span><span class="sep">(</span>numbers<span class="sep">)</span>           <span class="cm"># [9, 6, 5, 4, 3, 2, 1, 1]</span>
 
-print(len(numbers))      # 8 (number of items)
-print(max(numbers))      # 9
-print(min(numbers))      # 1
-print(sum(numbers))      # 31
-print(numbers.count(1))  # 2 (how many times 1 appears)
-print(5 in numbers)      # True (check if exists)</code></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="bu">len</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 8 (number of items)</span>
+<span class="bu">print</span><span class="sep">(</span><span class="bu">max</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 9</span>
+<span class="bu">print</span><span class="sep">(</span><span class="bu">min</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 1</span>
+<span class="bu">print</span><span class="sep">(</span><span class="bu">sum</span><span class="sep">(</span>numbers<span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 31</span>
+<span class="bu">print</span><span class="sep">(</span>numbers.count<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 2 (how many times 1 appears)</span>
+<span class="bu">print</span><span class="sep">(</span><span class="num">5</span> <span class="kw">in</span> numbers<span class="sep">)</span>      <span class="cm"># True (check if exists)&lt;/code&gt;</span></pre>
 
         <h2>List Operations</h2>
-        <pre><code># Concatenation
-a = [1, 2, 3]
-b = [4, 5, 6]
-c = a + b
-print(c)  # [1, 2, 3, 4, 5, 6]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Concatenation</span>
+a <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">]</span>
+b <span class="op">=</span> <span class="sep">[</span><span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">]</span>
+c <span class="op">=</span> a <span class="op">+</span> b
+<span class="bu">print</span><span class="sep">(</span>c<span class="sep">)</span>  <span class="cm"># [1, 2, 3, 4, 5, 6]</span>
 
-# Repetition
-d = [0] * 5
-print(d)  # [0, 0, 0, 0, 0]
+<span class="cm"># Repetition</span>
+d <span class="op">=</span> <span class="sep">[</span><span class="num">0</span><span class="sep">]</span> <span class="op">*</span> <span class="num">5</span>
+<span class="bu">print</span><span class="sep">(</span>d<span class="sep">)</span>  <span class="cm"># [0, 0, 0, 0, 0]</span>
 
-# Unpacking
-first, second, third = [10, 20, 30]
-print(first, second, third)  # 10 20 30</code></pre>
+<span class="cm"># Unpacking</span>
+first<span class="sep">,</span> second<span class="sep">,</span> third <span class="op">=</span> <span class="sep">[</span><span class="num">10</span><span class="sep">,</span> <span class="num">20</span><span class="sep">,</span> <span class="num">30</span><span class="sep">]</span>
+<span class="bu">print</span><span class="sep">(</span>first<span class="sep">,</span> second<span class="sep">,</span> third<span class="sep">)</span>  <span class="cm"># 10 20 30&lt;/code&gt;</span></pre>
 
         <h2>Tuples</h2>
         <p>Tuples are like lists but <strong>immutable</strong> — you cannot change them after creation. Use parentheses <code>()</code>:</p>
-        <pre><code># Creating tuples
-point = (3, 4)
-colors = ("red", "green", "blue")
-single = (1,)  # Comma needed for single-item tuple
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Creating tuples</span>
+point <span class="op">=</span> <span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span>
+colors <span class="op">=</span> <span class="sep">(</span><span class="str">"red"</span><span class="sep">,</span> <span class="str">"green"</span><span class="sep">,</span> <span class="str">"blue"</span><span class="sep">)</span>
+single <span class="op">=</span> <span class="sep">(</span><span class="num">1</span><span class="sep">,</span><span class="sep">)</span>  <span class="cm"># Comma needed for single-item tuple</span>
 
-# Accessing (same as lists)
-print(point[0])   # 3
-print(point[-1])  # 4
+<span class="cm"># Accessing (same as lists)</span>
+<span class="bu">print</span><span class="sep">(</span>point<span class="sep">[</span><span class="num">0</span><span class="sep">]</span><span class="sep">)</span>   <span class="cm"># 3</span>
+<span class="bu">print</span><span class="sep">(</span>point<span class="sep">[</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># 4</span>
 
-# Tuple unpacking
-x, y = point
-print(f"x={x}, y={y}")
+<span class="cm"># Tuple unpacking</span>
+x<span class="sep">,</span> y <span class="op">=</span> point
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"x={x}, y={y}"</span><span class="sep">)</span>
 
-# Cannot modify!
-# point[0] = 5  # TypeError!
+<span class="cm"># Cannot modify!</span>
+<span class="cm"># point[0] = 5  # TypeError!</span>
 
-# Why use tuples?
-# - Faster than lists
-# - Used as dictionary keys
-# - Data that shouldn't change</code></pre>
+<span class="cm"># Why use tuples?</span>
+<span class="cm"># - Faster than lists</span>
+<span class="cm"># - Used as dictionary keys</span>
+<span class="cm"># - Data that shouldn't change&lt;/code&gt;</span></pre>
 
         <h2>When to Use Lists vs Tuples</h2>
         <ul>
@@ -119,9 +119,9 @@ print(f"x={x}, y={y}")
         </ul>
 
         <h2>Lists with Different Types</h2>
-        <pre><code>student = ["Alice", 25, 3.8, True]
-name, age, gpa, is_enrolled = student
-print(f"{name} is {age}, GPA: {gpa}")</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>student <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="num">25</span><span class="sep">,</span> <span class="num">3.8</span><span class="sep">,</span> <span class="kw">True</span><span class="sep">]</span>
+name<span class="sep">,</span> age<span class="sep">,</span> gpa<span class="sep">,</span> is_enrolled <span class="op">=</span> student
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"{name} is {age}, GPA: {gpa}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

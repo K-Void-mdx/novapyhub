@@ -13,45 +13,45 @@
         <h1>Lesson 7: Advanced Data Structures</h1>
         <p>Implement classic data structures in Python.</p>
         <h2>Stack (LIFO)</h2>
-        <pre><code>class Stack:
-    def __init__(self): self.items = []
-    def push(self, item): self.items.append(item)
-    def pop(self): return self.items.pop()
-    def peek(self): return self.items[-1]
-    def is_empty(self): return len(self.items) == 0
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> Stack<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> self.items <span class="op">=</span> <span class="sep">[</span><span class="sep">]</span>
+    <span class="kw">def</span> push<span class="sep">(</span>self<span class="sep">,</span> item<span class="sep">)</span><span class="sep">:</span> self.items.append<span class="sep">(</span>item<span class="sep">)</span>
+    <span class="kw">def</span> pop<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> self.items.pop<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">def</span> peek<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> self.items<span class="sep">[</span><span class="op">-</span><span class="num">1</span><span class="sep">]</span>
+    <span class="kw">def</span> is_empty<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> <span class="bu">len</span><span class="sep">(</span>self.items<span class="sep">)</span> <span class="op">==</span> <span class="num">0</span>
 
-s = Stack()
-s.push(1); s.push(2); s.push(3)
-print(s.pop())  # 3</code></pre>
+s <span class="op">=</span> Stack<span class="sep">(</span><span class="sep">)</span>
+s.push<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">;</span> s.push<span class="sep">(</span><span class="num">2</span><span class="sep">)</span><span class="sep">;</span> s.push<span class="sep">(</span><span class="num">3</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>s.pop<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 3&lt;/code&gt;</span></pre>
         <h2>Queue (FIFO)</h2>
-        <pre><code>from collections import deque
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> collections <span class="kw">import</span> deque
 
-class Queue:
-    def __init__(self): self.items = deque()
-    def enqueue(self, item): self.items.append(item)
-    def dequeue(self): return self.items.popleft()
-    def is_empty(self): return len(self.items) == 0
+<span class="kw">class</span> Queue<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> self.items <span class="op">=</span> deque<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">def</span> enqueue<span class="sep">(</span>self<span class="sep">,</span> item<span class="sep">)</span><span class="sep">:</span> self.items.append<span class="sep">(</span>item<span class="sep">)</span>
+    <span class="kw">def</span> dequeue<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> self.items.popleft<span class="sep">(</span><span class="sep">)</span>
+    <span class="kw">def</span> is_empty<span class="sep">(</span>self<span class="sep">)</span><span class="sep">:</span> <span class="kw">return</span> <span class="bu">len</span><span class="sep">(</span>self.items<span class="sep">)</span> <span class="op">==</span> <span class="num">0</span>
 
-q = Queue()
-q.enqueue(1); q.enqueue(2); q.enqueue(3)
-print(q.dequeue())  # 1</code></pre>
+q <span class="op">=</span> Queue<span class="sep">(</span><span class="sep">)</span>
+q.enqueue<span class="sep">(</span><span class="num">1</span><span class="sep">)</span><span class="sep">;</span> q.enqueue<span class="sep">(</span><span class="num">2</span><span class="sep">)</span><span class="sep">;</span> q.enqueue<span class="sep">(</span><span class="num">3</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>q.dequeue<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 1&lt;/code&gt;</span></pre>
         <h2>Binary Tree</h2>
-        <pre><code>class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">class</span> TreeNode<span class="sep">:</span>
+    <span class="kw">def</span> <span class="bu">__init__</span><span class="sep">(</span>self<span class="sep">,</span> val<span class="sep">)</span><span class="sep">:</span>
+        self.val <span class="op">=</span> val
+        self.left <span class="op">=</span> <span class="kw">None</span>
+        self.right <span class="op">=</span> <span class="kw">None</span>
 
-def inorder(node):
-    if node:
-        inorder(node.left)
-        print(node.val, end=" ")
-        inorder(node.right)
+<span class="kw">def</span> inorder<span class="sep">(</span>node<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">if</span> node<span class="sep">:</span>
+        inorder<span class="sep">(</span>node.left<span class="sep">)</span>
+        <span class="bu">print</span><span class="sep">(</span>node.val<span class="sep">,</span> end<span class="op">=</span><span class="str">" "</span><span class="sep">)</span>
+        inorder<span class="sep">(</span>node.right<span class="sep">)</span>
 
-root = TreeNode(2)
-root.left = TreeNode(1)
-root.right = TreeNode(3)
-inorder(root)  # 1 2 3</code></pre>
+root <span class="op">=</span> TreeNode<span class="sep">(</span><span class="num">2</span><span class="sep">)</span>
+root.left <span class="op">=</span> TreeNode<span class="sep">(</span><span class="num">1</span><span class="sep">)</span>
+root.right <span class="op">=</span> TreeNode<span class="sep">(</span><span class="num">3</span><span class="sep">)</span>
+inorder<span class="sep">(</span>root<span class="sep">)</span>  <span class="cm"># 1 2 3&lt;/code&gt;</span></pre>
         <div class="lesson-nav"><a href="06-async-io.html" class="btn btn-secondary">← Previous</a><a href="08-algorithms.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>

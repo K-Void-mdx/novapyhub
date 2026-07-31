@@ -28,132 +28,132 @@
 
         <h2>*args — Variable Positional Arguments</h2>
         <p><code>*args</code> allows a function to accept any number of positional arguments. The <code>*</code> collects them into a tuple:</p>
-        <pre><code>def sum_all(*args):
-    return sum(args)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> sum_all<span class="sep">(</span><span class="op">*</span>args<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> <span class="bu">sum</span><span class="sep">(</span>args<span class="sep">)</span>
 
-print(sum_all(1, 2, 3))        # 6
-print(sum_all(10, 20, 30, 40)) # 100
-print(sum_all())                # 0</code></pre>
+<span class="bu">print</span><span class="sep">(</span>sum_all<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># 6</span>
+<span class="bu">print</span><span class="sep">(</span>sum_all<span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">20</span><span class="sep">,</span> <span class="num">30</span><span class="sep">,</span> <span class="num">40</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># 100</span>
+<span class="bu">print</span><span class="sep">(</span>sum_all<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>                <span class="cm"># 0&lt;/code&gt;</span></pre>
 
         <h2>**kwargs — Variable Keyword Arguments</h2>
         <p><code>**kwargs</code> collects keyword arguments into a dictionary:</p>
-        <pre><code>def print_info(**kwargs):
-    for key, value in kwargs.items():
-        print(f"{key}: {value}")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> print_info<span class="sep">(</span><span class="op">**</span>kwargs<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">for</span> key<span class="sep">,</span> value <span class="kw">in</span> kwargs.items<span class="sep">(</span><span class="sep">)</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span>f<span class="str">"{key}: {value}"</span><span class="sep">)</span>
 
-print_info(name="Alice", age=25, city="New York")
-# Output:
-# name: Alice
-# age: 25
-# city: New York</code></pre>
+print_info<span class="sep">(</span>name<span class="op">=</span><span class="str">"Alice"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">25</span><span class="sep">,</span> city<span class="op">=</span><span class="str">"New York"</span><span class="sep">)</span>
+<span class="cm"># Output:</span>
+<span class="cm"># name: Alice</span>
+<span class="cm"># age: 25</span>
+<span class="cm"># city: New York&lt;/code&gt;</span></pre>
 
         <h2>Using Both Together</h2>
-        <pre><code>def display(*args, **kwargs):
-    print("Positional:", args)
-    print("Keyword:", kwargs)
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> display<span class="sep">(</span><span class="op">*</span>args<span class="sep">,</span> <span class="op">**</span>kwargs<span class="sep">)</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Positional:"</span><span class="sep">,</span> args<span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Keyword:"</span><span class="sep">,</span> kwargs<span class="sep">)</span>
 
-display(1, 2, 3, name="Alice", age=25)
-# Positional: (1, 2, 3)
-# Keyword: {'name': 'Alice', 'age': 25}</code></pre>
+display<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> name<span class="op">=</span><span class="str">"Alice"</span><span class="sep">,</span> age<span class="op">=</span><span class="num">25</span><span class="sep">)</span>
+<span class="cm"># Positional: (1, 2, 3)</span>
+<span class="cm"># Keyword: {'name': 'Alice', 'age': 25}&lt;/code&gt;</span></pre>
 
         <h2>Lambda Functions</h2>
         <p>Lambda functions are small, anonymous functions defined with <code>lambda</code> instead of <code>def</code>. They can only have one expression:</p>
-        <pre><code># Regular function
-def square(x):
-    return x ** 2
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Regular function</span>
+<span class="kw">def</span> square<span class="sep">(</span>x<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> x <span class="op">**</span> <span class="num">2</span>
 
-# Lambda equivalent
-square_lambda = lambda x: x ** 2
+<span class="cm"># Lambda equivalent</span>
+square_lambda <span class="op">=</span> <span class="kw">lambda</span> x<span class="sep">:</span> x <span class="op">**</span> <span class="num">2</span>
 
-print(square(5))        # 25
-print(square_lambda(5)) # 25
+<span class="bu">print</span><span class="sep">(</span>square<span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># 25</span>
+<span class="bu">print</span><span class="sep">(</span>square_lambda<span class="sep">(</span><span class="num">5</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># 25</span>
 
-# Lambda is often used inline without assigning to a variable
-result = (lambda x, y: x + y)(3, 4)
-print(result)  # 7</code></pre>
+<span class="cm"># Lambda is often used inline without assigning to a variable</span>
+result <span class="op">=</span> <span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">,</span> y<span class="sep">:</span> x <span class="op">+</span> y<span class="sep">)</span><span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>result<span class="sep">)</span>  <span class="cm"># 7&lt;/code&gt;</span></pre>
 
         <h2>map() — Apply Function to Every Item</h2>
         <p><code>map()</code> applies a function to every item in an iterable:</p>
-        <pre><code>numbers = [1, 2, 3, 4, 5]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span>
 
-# Using a regular function
-def double(x):
-    return x * 2
+<span class="cm"># Using a regular function</span>
+<span class="kw">def</span> double<span class="sep">(</span>x<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> x <span class="op">*</span> <span class="num">2</span>
 
-doubled = list(map(double, numbers))
-print(doubled)  # [2, 4, 6, 8, 10]
+doubled <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">map</span><span class="sep">(</span>double<span class="sep">,</span> numbers<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>doubled<span class="sep">)</span>  <span class="cm"># [2, 4, 6, 8, 10]</span>
 
-# Using lambda (cleaner)
-doubled = list(map(lambda x: x * 2, numbers))
-print(doubled)  # [2, 4, 6, 8, 10]
+<span class="cm"># Using lambda (cleaner)</span>
+doubled <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">map</span><span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">:</span> x <span class="op">*</span> <span class="num">2</span><span class="sep">,</span> numbers<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>doubled<span class="sep">)</span>  <span class="cm"># [2, 4, 6, 8, 10]</span>
 
-# Convert strings to integers
-str_nums = ["1", "2", "3"]
-int_nums = list(map(int, str_nums))
-print(int_nums)  # [1, 2, 3]</code></pre>
+<span class="cm"># Convert strings to integers</span>
+str_nums <span class="op">=</span> <span class="sep">[</span><span class="str">"1"</span><span class="sep">,</span> <span class="str">"2"</span><span class="sep">,</span> <span class="str">"3"</span><span class="sep">]</span>
+int_nums <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">map</span><span class="sep">(</span><span class="bu">int</span><span class="sep">,</span> str_nums<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>int_nums<span class="sep">)</span>  <span class="cm"># [1, 2, 3]&lt;/code&gt;</span></pre>
 
         <h2>filter() — Filter Items by Condition</h2>
-        <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">,</span> <span class="num">6</span><span class="sep">,</span> <span class="num">7</span><span class="sep">,</span> <span class="num">8</span><span class="sep">,</span> <span class="num">9</span><span class="sep">,</span> <span class="num">10</span><span class="sep">]</span>
 
-# Keep only even numbers
-evens = list(filter(lambda x: x % 2 == 0, numbers))
-print(evens)  # [2, 4, 6, 8, 10]
+<span class="cm"># Keep only even numbers</span>
+evens <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">filter</span><span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">:</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span><span class="sep">,</span> numbers<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>evens<span class="sep">)</span>  <span class="cm"># [2, 4, 6, 8, 10]</span>
 
-# Keep names longer than 5 characters
-names = ["Alice", "Bob", "Charlie", "David", "Eve"]
-long_names = list(filter(lambda name: len(name) > 5, names))
-print(long_names)  # ['Charlie']</code></pre>
+<span class="cm"># Keep names longer than 5 characters</span>
+names <span class="op">=</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"David"</span><span class="sep">,</span> <span class="str">"Eve"</span><span class="sep">]</span>
+long_names <span class="op">=</span> <span class="bu">list</span><span class="sep">(</span><span class="bu">filter</span><span class="sep">(</span><span class="kw">lambda</span> name<span class="sep">:</span> <span class="bu">len</span><span class="sep">(</span>name<span class="sep">)</span> <span class="op">&gt;</span> <span class="num">5</span><span class="sep">,</span> names<span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>long_names<span class="sep">)</span>  <span class="cm"># ['Charlie']&lt;/code&gt;</span></pre>
 
         <h2>reduce() — Accumulate Values</h2>
         <p><code>reduce()</code> is in the <code>functools</code> module. It repeatedly applies a function to accumulate a result:</p>
-        <pre><code>from functools import reduce
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> functools <span class="kw">import</span> <span class="bu">reduce</span>
 
-numbers = [1, 2, 3, 4, 5]
+numbers <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span>
 
-# Sum all numbers
-total = reduce(lambda x, y: x + y, numbers)
-print(total)  # 15
+<span class="cm"># Sum all numbers</span>
+total <span class="op">=</span> <span class="bu">reduce</span><span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">,</span> y<span class="sep">:</span> x <span class="op">+</span> y<span class="sep">,</span> numbers<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>total<span class="sep">)</span>  <span class="cm"># 15</span>
 
-# Find the maximum
-maximum = reduce(lambda x, y: x if x > y else y, numbers)
-print(maximum)  # 5
+<span class="cm"># Find the maximum</span>
+maximum <span class="op">=</span> <span class="bu">reduce</span><span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">,</span> y<span class="sep">:</span> x <span class="kw">if</span> x <span class="op">&gt;</span> y <span class="kw">else</span> y<span class="sep">,</span> numbers<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>maximum<span class="sep">)</span>  <span class="cm"># 5</span>
 
-# Factorial
-factorial = reduce(lambda x, y: x * y, range(1, 6))
-print(factorial)  # 120</code></pre>
+<span class="cm"># Factorial</span>
+factorial <span class="op">=</span> <span class="bu">reduce</span><span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">,</span> y<span class="sep">:</span> x <span class="op">*</span> y<span class="sep">,</span> <span class="bu">range</span><span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">6</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>factorial<span class="sep">)</span>  <span class="cm"># 120&lt;/code&gt;</span></pre>
 
         <h2>Higher-Order Functions</h2>
         <p>Functions that take other functions as arguments or return functions:</p>
-        <pre><code>def apply_twice(func, value):
-    return func(func(value))
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">def</span> apply_twice<span class="sep">(</span>func<span class="sep">,</span> value<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> func<span class="sep">(</span>func<span class="sep">(</span>value<span class="sep">)</span><span class="sep">)</span>
 
-result = apply_twice(lambda x: x + 3, 5)
-print(result)  # 11 (5+3=8, 8+3=11)
+result <span class="op">=</span> apply_twice<span class="sep">(</span><span class="kw">lambda</span> x<span class="sep">:</span> x <span class="op">+</span> <span class="num">3</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>result<span class="sep">)</span>  <span class="cm"># 11 (5+3=8, 8+3=11)</span>
 
-# Function returning a function
-def make_multiplier(n):
-    return lambda x: x * n
+<span class="cm"># Function returning a function</span>
+<span class="kw">def</span> make_multiplier<span class="sep">(</span>n<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> <span class="kw">lambda</span> x<span class="sep">:</span> x <span class="op">*</span> n
 
-double = make_multiplier(2)
-triple = make_multiplier(3)
+double <span class="op">=</span> make_multiplier<span class="sep">(</span><span class="num">2</span><span class="sep">)</span>
+triple <span class="op">=</span> make_multiplier<span class="sep">(</span><span class="num">3</span><span class="sep">)</span>
 
-print(double(10))  # 20
-print(triple(10))  # 30</code></pre>
+<span class="bu">print</span><span class="sep">(</span>double<span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 20</span>
+<span class="bu">print</span><span class="sep">(</span>triple<span class="sep">(</span><span class="num">10</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 30&lt;/code&gt;</span></pre>
 
         <h2>sorted() with Key</h2>
-        <pre><code>students = [
-    {"name": "Alice", "grade": 85},
-    {"name": "Bob", "grade": 92},
-    {"name": "Charlie", "grade": 78}
-]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>students <span class="op">=</span> <span class="sep">[</span>
+    <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="num">85</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="num">92</span><span class="sep">}</span><span class="sep">,</span>
+    <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Charlie"</span><span class="sep">,</span> <span class="str">"grade"</span><span class="sep">:</span> <span class="num">78</span><span class="sep">}</span>
+<span class="sep">]</span>
 
-# Sort by grade
-sorted_students = sorted(students, key=lambda s: s["grade"])
-print(sorted_students)
+<span class="cm"># Sort by grade</span>
+sorted_students <span class="op">=</span> <span class="bu">sorted</span><span class="sep">(</span>students<span class="sep">,</span> key<span class="op">=</span><span class="kw">lambda</span> s<span class="sep">:</span> s<span class="sep">[</span><span class="str">"grade"</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>sorted_students<span class="sep">)</span>
 
-# Sort by name
-sorted_by_name = sorted(students, key=lambda s: s["name"])
-print(sorted_by_name)</code></pre>
+<span class="cm"># Sort by name</span>
+sorted_by_name <span class="op">=</span> <span class="bu">sorted</span><span class="sep">(</span>students<span class="sep">,</span> key<span class="op">=</span><span class="kw">lambda</span> s<span class="sep">:</span> s<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>sorted_by_name<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

@@ -27,25 +27,25 @@
             <li>CI/CD pipeline</li>
         </ul>
         <h3>Architecture</h3>
-        <pre><code>task_manager/
-├── app/
-│   ├── __init__.py
-│   ├── main.py          # FastAPI app
-│   ├── models.py        # SQLAlchemy models
-│   ├── schemas.py       # Pydantic schemas
-│   ├── crud.py          # Database operations
-│   ├── auth.py          # JWT authentication
-│   └── dependencies.py  # Dependency injection
-├── tests/
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>task_manager<span class="op">/</span>
+├── app<span class="op">/</span>
+│   ├── <span class="bu">__init__</span>.py
+│   ├── main.py          <span class="cm"># FastAPI app</span>
+│   ├── models.py        <span class="cm"># SQLAlchemy models</span>
+│   ├── schemas.py       <span class="cm"># Pydantic schemas</span>
+│   ├── crud.py          <span class="cm"># Database operations</span>
+│   ├── auth.py          <span class="cm"># JWT authentication</span>
+│   └── dependencies.py  <span class="cm"># Dependency injection</span>
+├── tests<span class="op">/</span>
 │   ├── test_api.py
 │   └── test_models.py
 ├── Dockerfile
 ├── requirements.txt
-└── README.md</code></pre>
+└── README.md<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h3>Database Schema</h3>
-        <pre><code>User: id, username, email, hashed_password, created_at
-Task: id, title, description, status, priority, user_id (FK), category_id (FK), created_at, updated_at
-Category: id, name, user_id (FK)</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>User<span class="sep">:</span> id<span class="sep">,</span> username<span class="sep">,</span> email<span class="sep">,</span> hashed_password<span class="sep">,</span> created_at
+Task<span class="sep">:</span> id<span class="sep">,</span> title<span class="sep">,</span> description<span class="sep">,</span> status<span class="sep">,</span> priority<span class="sep">,</span> user_id <span class="sep">(</span>FK<span class="sep">)</span><span class="sep">,</span> category_id <span class="sep">(</span>FK<span class="sep">)</span><span class="sep">,</span> created_at<span class="sep">,</span> updated_at
+Category<span class="sep">:</span> id<span class="sep">,</span> name<span class="sep">,</span> user_id <span class="sep">(</span>FK<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <p>Your task this lesson is to design the complete system and start implementing models and schemas.</p>
         <div class="lesson-nav"><a href="10-machine-learning.html" class="btn btn-secondary">← Previous</a><a href="12-capstone-build.html" class="btn btn-primary">Next →</a></div>
     </div>

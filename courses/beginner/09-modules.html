@@ -27,137 +27,137 @@
         <p>Modules are Python files containing functions, classes, and variables that you can reuse. Python's standard library includes hundreds of modules for everything from math to web development.</p>
 
         <h2>Importing Modules</h2>
-        <pre><code># Import the whole module
-import math
-print(math.pi)       # 3.141592653589793
-print(math.sqrt(16)) # 4.0
-print(math.floor(3.7))  # 3
-print(math.ceil(3.2))   # 4
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># Import the whole module</span>
+<span class="kw">import</span> math
+<span class="bu">print</span><span class="sep">(</span>math.pi<span class="sep">)</span>       <span class="cm"># 3.141592653589793</span>
+<span class="bu">print</span><span class="sep">(</span>math.sqrt<span class="sep">(</span><span class="num">16</span><span class="sep">)</span><span class="sep">)</span> <span class="cm"># 4.0</span>
+<span class="bu">print</span><span class="sep">(</span>math.floor<span class="sep">(</span><span class="num">3.7</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 3</span>
+<span class="bu">print</span><span class="sep">(</span>math.ceil<span class="sep">(</span><span class="num">3.2</span><span class="sep">)</span><span class="sep">)</span>   <span class="cm"># 4</span>
 
-# Import specific items
-from math import pi, sqrt
-print(pi)           # 3.141592653589793
-print(sqrt(25))     # 5.0
+<span class="cm"># Import specific items</span>
+<span class="kw">from</span> math <span class="kw">import</span> pi<span class="sep">,</span> sqrt
+<span class="bu">print</span><span class="sep">(</span>pi<span class="sep">)</span>           <span class="cm"># 3.141592653589793</span>
+<span class="bu">print</span><span class="sep">(</span>sqrt<span class="sep">(</span><span class="num">25</span><span class="sep">)</span><span class="sep">)</span>     <span class="cm"># 5.0</span>
 
-# Import with alias
-import math as m
-print(m.sin(m.pi/2))  # 1.0
+<span class="cm"># Import with alias</span>
+<span class="kw">import</span> math <span class="kw">as</span> m
+<span class="bu">print</span><span class="sep">(</span>m.sin<span class="sep">(</span>m.pi<span class="op">/</span><span class="num">2</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 1.0</span>
 
-# Import everything (not recommended)
-from math import *</code></pre>
+<span class="cm"># Import everything (not recommended)</span>
+<span class="kw">from</span> math <span class="kw">import</span> <span class="op">*&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Useful Standard Library Modules</h2>
 
         <h3>random — Random Numbers</h3>
-        <pre><code>import random
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> random
 
-print(random.random())       # Random float 0.0 to 1.0
-print(random.randint(1, 10))  # Random integer between 1 and 10
-print(random.choice(["a", "b", "c"]))  # Random choice from list
+<span class="bu">print</span><span class="sep">(</span>random.random<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>       <span class="cm"># Random float 0.0 to 1.0</span>
+<span class="bu">print</span><span class="sep">(</span>random.randint<span class="sep">(</span><span class="num">1</span><span class="sep">,</span> <span class="num">10</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Random integer between 1 and 10</span>
+<span class="bu">print</span><span class="sep">(</span>random.choice<span class="sep">(</span><span class="sep">[</span><span class="str">"a"</span><span class="sep">,</span> <span class="str">"b"</span><span class="sep">,</span> <span class="str">"c"</span><span class="sep">]</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># Random choice from list</span>
 
-# Shuffle a list
-cards = ["A", "K", "Q", "J", "10"]
-random.shuffle(cards)
-print(cards)
+<span class="cm"># Shuffle a list</span>
+cards <span class="op">=</span> <span class="sep">[</span><span class="str">"A"</span><span class="sep">,</span> <span class="str">"K"</span><span class="sep">,</span> <span class="str">"Q"</span><span class="sep">,</span> <span class="str">"J"</span><span class="sep">,</span> <span class="str">"10"</span><span class="sep">]</span>
+random.shuffle<span class="sep">(</span>cards<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>cards<span class="sep">)</span>
 
-# Generate a random password
-import string
-chars = string.ascii_letters + string.digits
-password = ''.join(random.choice(chars) for _ in range(8))
-print(password)</code></pre>
+<span class="cm"># Generate a random password</span>
+<span class="kw">import</span> string
+chars <span class="op">=</span> string.ascii_letters <span class="op">+</span> string.digits
+password <span class="op">=</span> <span class="str">''</span>.join<span class="sep">(</span>random.choice<span class="sep">(</span>chars<span class="sep">)</span> <span class="kw">for</span> _ <span class="kw">in</span> <span class="bu">range</span><span class="sep">(</span><span class="num">8</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>password<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h3>datetime — Dates and Times</h3>
-        <pre><code>from datetime import datetime, date, timedelta
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">from</span> datetime <span class="kw">import</span> datetime<span class="sep">,</span> date<span class="sep">,</span> timedelta
 
-# Current date and time
-now = datetime.now()
-print(now)          # 2026-07-30 15:30:00...
-print(now.year)     # 2026
-print(now.month)    # 7
+<span class="cm"># Current date and time</span>
+now <span class="op">=</span> datetime.now<span class="sep">(</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>now<span class="sep">)</span>          <span class="cm"># 2026-07-30 15:30:00...</span>
+<span class="bu">print</span><span class="sep">(</span>now.year<span class="sep">)</span>     <span class="cm"># 2026</span>
+<span class="bu">print</span><span class="sep">(</span>now.month<span class="sep">)</span>    <span class="cm"># 7</span>
 
-# Formatting dates
-print(now.strftime("%Y-%m-%d"))         # 2026-07-30
-print(now.strftime("%B %d, %Y"))        # July 30, 2026
+<span class="cm"># Formatting dates</span>
+<span class="bu">print</span><span class="sep">(</span>now.strftime<span class="sep">(</span><span class="str">"%Y-%m-%d"</span><span class="sep">)</span><span class="sep">)</span>         <span class="cm"># 2026-07-30</span>
+<span class="bu">print</span><span class="sep">(</span>now.strftime<span class="sep">(</span><span class="str">"%B %d, %Y"</span><span class="sep">)</span><span class="sep">)</span>        <span class="cm"># July 30, 2026</span>
 
-# Date arithmetic
-today = date.today()
-tomorrow = today + timedelta(days=1)
-print(tomorrow)</code></pre>
+<span class="cm"># Date arithmetic</span>
+today <span class="op">=</span> date.today<span class="sep">(</span><span class="sep">)</span>
+tomorrow <span class="op">=</span> today <span class="op">+</span> timedelta<span class="sep">(</span>days<span class="op">=</span><span class="num">1</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>tomorrow<span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h3>os and sys — System Operations</h3>
-        <pre><code>import os
-import sys
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> os
+<span class="kw">import</span> sys
 
-# Get current directory
-print(os.getcwd())
+<span class="cm"># Get current directory</span>
+<span class="bu">print</span><span class="sep">(</span>os.getcwd<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
 
-# List files in directory
-print(os.listdir("."))
+<span class="cm"># List files in directory</span>
+<span class="bu">print</span><span class="sep">(</span>os.listdir<span class="sep">(</span><span class="str">"."</span><span class="sep">)</span><span class="sep">)</span>
 
-# Create directory
-# os.mkdir("new_folder")
+<span class="cm"># Create directory</span>
+<span class="cm"># os.mkdir("new_folder")</span>
 
-# System info
-print(sys.version)       # Python version
-print(sys.platform)      # Operating system
+<span class="cm"># System info</span>
+<span class="bu">print</span><span class="sep">(</span>sys.version<span class="sep">)</span>       <span class="cm"># Python version</span>
+<span class="bu">print</span><span class="sep">(</span>sys.platform<span class="sep">)</span>      <span class="cm"># Operating system</span>
 
-# Command line arguments
-# print(sys.argv)</code></pre>
+<span class="cm"># Command line arguments</span>
+<span class="cm"># print(sys.argv)&lt;/code&gt;</span></pre>
 
         <h3>json — Working with JSON</h3>
-        <pre><code>import json
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> json
 
-# Convert Python to JSON string
-data = {"name": "Alice", "age": 25, "city": "New York"}
-json_string = json.dumps(data, indent=2)
-print(json_string)
+<span class="cm"># Convert Python to JSON string</span>
+data <span class="op">=</span> <span class="sep">{</span><span class="str">"name"</span><span class="sep">:</span> <span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"age"</span><span class="sep">:</span> <span class="num">25</span><span class="sep">,</span> <span class="str">"city"</span><span class="sep">:</span> <span class="str">"New York"</span><span class="sep">}</span>
+json_string <span class="op">=</span> json.dumps<span class="sep">(</span>data<span class="sep">,</span> indent<span class="op">=</span><span class="num">2</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>json_string<span class="sep">)</span>
 
-# Convert JSON string to Python
-parsed = json.loads(json_string)
-print(parsed["name"])  # Alice</code></pre>
+<span class="cm"># Convert JSON string to Python</span>
+parsed <span class="op">=</span> json.loads<span class="sep">(</span>json_string<span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>parsed<span class="sep">[</span><span class="str">"name"</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># Alice&lt;/code&gt;</span></pre>
 
         <h2>Creating Your Own Module</h2>
         <p>Create a file <code>my_utils.py</code>:</p>
-        <pre><code># my_utils.py
-def add(a, b):
-    return a + b
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># my_utils.py</span>
+<span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">+</span> b
 
-def subtract(a, b):
-    return a - b
+<span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">-</span> b
 
-PI = 3.14159</code></pre>
+PI <span class="op">=</span> <span class="num">3.14159</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <p>Then use it in another file:</p>
-        <pre><code># main.py
-import my_utils
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># main.py</span>
+<span class="kw">import</span> my_utils
 
-print(my_utils.add(10, 5))      # 15
-print(my_utils.PI)              # 3.14159
+<span class="bu">print</span><span class="sep">(</span>my_utils.add<span class="sep">(</span><span class="num">10</span><span class="sep">,</span> <span class="num">5</span><span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 15</span>
+<span class="bu">print</span><span class="sep">(</span>my_utils.PI<span class="sep">)</span>              <span class="cm"># 3.14159</span>
 
-# Or
-from my_utils import add, PI
-print(add(3, 4))  # 7</code></pre>
+<span class="cm"># Or</span>
+<span class="kw">from</span> my_utils <span class="kw">import</span> add<span class="sep">,</span> PI
+<span class="bu">print</span><span class="sep">(</span>add<span class="sep">(</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">)</span><span class="sep">)</span>  <span class="cm"># 7&lt;/code&gt;</span></pre>
 
         <h2>The if __name__ Block</h2>
         <p>This pattern lets a file be both imported as a module AND run as a script:</p>
-        <pre><code># calculator.py
-def add(a, b):
-    return a + b
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># calculator.py</span>
+<span class="kw">def</span> add<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">+</span> b
 
-def subtract(a, b):
-    return a - b
+<span class="kw">def</span> subtract<span class="sep">(</span>a<span class="sep">,</span> b<span class="sep">)</span><span class="sep">:</span>
+    <span class="kw">return</span> a <span class="op">-</span> b
 
-if __name__ == "__main__":
-    # This only runs when the file is executed directly
-    print("Testing calculator:")
-    print(f"5 + 3 = {add(5, 3)}")
-    print(f"10 - 4 = {subtract(10, 4)}")</code></pre>
+<span class="kw">if</span> __name__ <span class="op">==</span> <span class="str">"__main__"</span><span class="sep">:</span>
+    <span class="cm"># This only runs when the file is executed directly</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Testing calculator:"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"5 + 3 = {add(5, 3)}"</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"10 - 4 = {subtract(10, 4)}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Installing Third-Party Modules</h2>
         <p>Use <code>pip</code> to install packages from PyPI:</p>
-        <pre><code>pip install requests
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>pip install requests
 pip install flask
-pip install numpy pandas matplotlib</code></pre>
+pip install numpy pandas matplotlib<span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

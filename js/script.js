@@ -162,34 +162,40 @@ const PY_KEYWORDS = 'and|as|assert|async|await|break|class|continue|def|del|elif
 const PY_BUILTINS = 'print|len|range|type|int|str|float|bool|list|dict|set|tuple|input|open|sum|min|max|abs|sorted|enumerate|zip|map|filter|reduce|isinstance|hasattr|getattr|setattr|super|property|staticmethod|classmethod|object|super|__init__|__str__|__repr__|__add__|__eq__|__len__|__getitem__|__setitem__'
 
 function highlightPython(code) {
-  const kw = new RegExp('\\b(' + PY_KEYWORDS + ')\\b', 'g')
-  const bu = new RegExp('\\b(' + PY_BUILTINS + ')\\b', 'g')
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  const kw = new RegExp('\\b('+PY_KEYWORDS+')\\b','g')
+  const bu = new RegExp('\\b('+PY_BUILTINS+')\\b','g')
   const dec = /^(\s*@\w+)/gm
-  const fn = /\b([a-zA-Z_]\w*)\s*\(/g
   const num = /\b(\d+\.?\d*)\b/g
   const str = /("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g
   const cm = /(#.*)$/gm
   const op = /([+\-*/%=<>!&|^~]+)/g
   const sep = /([\(\)\[\]\{\},:;])/g
-
-  let h = code
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  h = h.replace(str, '<span class="str">$1</span>')
-  h = h.replace(cm, '<span class="cm">$1</span>')
-  h = h.replace(dec, '<span class="dec">$1</span>')
-  h = h.replace(kw, '<span class="kw">$1</span>')
-  h = h.replace(bu, '<span class="bu">$1</span>')
-  h = h.replace(fn, '<span class="fn">$1</span>(')
-  h = h.replace(num, '<span class="num">$1</span>')
-  h = h.replace(op, '<span class="op">$1</span>')
-  h = h.replace(sep, '<span class="sep">$1</span>')
-  return h
+  const patterns = [
+    {re:str,cl:'str'},{re:cm,cl:'cm'},{re:dec,cl:'dec'},
+    {re:kw,cl:'kw'},{re:bu,cl:'bu'},{re:num,cl:'num'},
+    {re:op,cl:'op'},{re:sep,cl:'sep'}
+  ]
+  let tokens = []
+  for (const p of patterns) {
+    const r = new RegExp(p.re.source, p.re.flags)
+    let m; while ((m = r.exec(code)) !== null)
+      tokens.push({s:m.index,e:m.index+m[0].length,c:p.cl,t:m[0]})
+  }
+  tokens.sort((a,b) => a.s-b.s || (b.e-b.s)-(a.e-a.s))
+  let out = '', last = 0
+  for (const t of tokens) {
+    if (t.s < last) continue
+    if (t.s > last) out += esc(code.slice(last, t.s))
+    out += '<span class="'+t.c+'">'+esc(t.t)+'</span>'
+    last = t.e
+  }
+  if (last < code.length) out += esc(code.slice(last))
+  return out
 }
 
 function initCodeBlocks() {
   document.querySelectorAll('pre:not([data-highlighted])').forEach(pre => {
-    const code = pre.textContent
-    pre.innerHTML = highlightPython(code)
     pre.dataset.highlighted = 'true'
     if (!pre.closest('.code-block-wrap')) {
       const wrap = document.createElement('div')

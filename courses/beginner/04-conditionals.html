@@ -28,114 +28,114 @@
 
         <h2>The if Statement</h2>
         <p>The simplest conditional: if the condition is True, the indented code runs:</p>
-        <pre><code>age = 18
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>age <span class="op">=</span> <span class="num">18</span>
 
-if age >= 18:
-    print("You are an adult.")
-    print("You can vote!")
+<span class="kw">if</span> age <span class="op">&gt;=</span> <span class="num">18</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"You are an adult."</span><span class="sep">)</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"You can vote!"</span><span class="sep">)</span>
 
-print("This always runs.")</code></pre>
+<span class="bu">print</span><span class="sep">(</span><span class="str">"This always runs."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <p><strong>Important:</strong> Python uses indentation (4 spaces) to define blocks of code.</p>
 
         <h2>Comparison Operators</h2>
-        <pre><code>==    # Equal to
-!=    # Not equal to
-<     # Less than
->     # Greater than
-<=    # Less than or equal to
->=    # Greater than or equal to</code></pre>
-        <pre><code>x = 10
-print(x == 10)   # True
-print(x != 5)    # True
-print(x > 20)    # False
-print(x <= 10)   # True</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;==</span>    <span class="cm"># Equal to</span>
+<span class="op">!=</span>    <span class="cm"># Not equal to</span>
+<span class="op">&lt;</span>     <span class="cm"># Less than</span>
+<span class="op">&gt;</span>     <span class="cm"># Greater than</span>
+<span class="op">&lt;=</span>    <span class="cm"># Less than or equal to</span>
+<span class="op">&gt;=</span>    <span class="cm"># Greater than or equal to&lt;/code&gt;</span></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>x <span class="op">=</span> <span class="num">10</span>
+<span class="bu">print</span><span class="sep">(</span>x <span class="op">==</span> <span class="num">10</span><span class="sep">)</span>   <span class="cm"># True</span>
+<span class="bu">print</span><span class="sep">(</span>x <span class="op">!=</span> <span class="num">5</span><span class="sep">)</span>    <span class="cm"># True</span>
+<span class="bu">print</span><span class="sep">(</span>x <span class="op">&gt;</span> <span class="num">20</span><span class="sep">)</span>    <span class="cm"># False</span>
+<span class="bu">print</span><span class="sep">(</span>x <span class="op">&lt;=</span> <span class="num">10</span><span class="sep">)</span>   <span class="cm"># True&lt;/code&gt;</span></pre>
 
         <h2>if-else Statements</h2>
         <p>Run one block if True, another if False:</p>
-        <pre><code>temperature = 30
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>temperature <span class="op">=</span> <span class="num">30</span>
 
-if temperature > 25:
-    print("It's hot outside!")
-else:
-    print("It's cool outside.")</code></pre>
+<span class="kw">if</span> temperature <span class="op">&gt;</span> <span class="num">25</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"It's hot outside!"</span><span class="sep">)</span>
+<span class="kw">else</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"It's cool outside."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>if-elif-else Chains</h2>
         <p>For multiple conditions, use <code>elif</code> (short for "else if"):</p>
-        <pre><code>score = 85
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>score <span class="op">=</span> <span class="num">85</span>
 
-if score >= 90:
-    grade = "A"
-elif score >= 80:
-    grade = "B"
-elif score >= 70:
-    grade = "C"
-elif score >= 60:
-    grade = "D"
-else:
-    grade = "F"
+<span class="kw">if</span> score <span class="op">&gt;=</span> <span class="num">90</span><span class="sep">:</span>
+    grade <span class="op">=</span> <span class="str">"A"</span>
+<span class="kw">elif</span> score <span class="op">&gt;=</span> <span class="num">80</span><span class="sep">:</span>
+    grade <span class="op">=</span> <span class="str">"B"</span>
+<span class="kw">elif</span> score <span class="op">&gt;=</span> <span class="num">70</span><span class="sep">:</span>
+    grade <span class="op">=</span> <span class="str">"C"</span>
+<span class="kw">elif</span> score <span class="op">&gt;=</span> <span class="num">60</span><span class="sep">:</span>
+    grade <span class="op">=</span> <span class="str">"D"</span>
+<span class="kw">else</span><span class="sep">:</span>
+    grade <span class="op">=</span> <span class="str">"F"</span>
 
-print(f"Your grade is: {grade}")</code></pre>
+<span class="bu">print</span><span class="sep">(</span>f<span class="str">"Your grade is: {grade}"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Logical Operators</h2>
         <p>Combine multiple conditions with <code>and</code>, <code>or</code>, and <code>not</code>:</p>
-        <pre><code>age = 22
-has_license = True
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>age <span class="op">=</span> <span class="num">22</span>
+has_license <span class="op">=</span> <span class="kw">True</span>
 
-# Both conditions must be True
-if age >= 18 and has_license:
-    print("You can drive!")
+<span class="cm"># Both conditions must be True</span>
+<span class="kw">if</span> age <span class="op">&gt;=</span> <span class="num">18</span> <span class="kw">and</span> has_license<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"You can drive!"</span><span class="sep">)</span>
 
-# At least one must be True
-if age < 12 or age > 80:
-    print("Special rate applies.")
+<span class="cm"># At least one must be True</span>
+<span class="kw">if</span> age <span class="op">&lt;</span> <span class="num">12</span> <span class="kw">or</span> age <span class="op">&gt;</span> <span class="num">80</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Special rate applies."</span><span class="sep">)</span>
 
-# Negate a condition
-if not has_license:
-    print("You need a license to drive.")</code></pre>
+<span class="cm"># Negate a condition</span>
+<span class="kw">if</span> <span class="kw">not</span> has_license<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"You need a license to drive."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>The in Operator</h2>
         <p>Check if a value exists in a collection:</p>
-        <pre><code>fruits = ["apple", "banana", "orange"]
-if "banana" in fruits:
-    print("Banana is in the list!")
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>fruits <span class="op">=</span> <span class="sep">[</span><span class="str">"apple"</span><span class="sep">,</span> <span class="str">"banana"</span><span class="sep">,</span> <span class="str">"orange"</span><span class="sep">]</span>
+<span class="kw">if</span> <span class="str">"banana"</span> <span class="kw">in</span> fruits<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Banana is in the list!"</span><span class="sep">)</span>
 
-name = "David"
-if "Dav" in name:
-    print("Name contains 'Dav'")</code></pre>
+name <span class="op">=</span> <span class="str">"David"</span>
+<span class="kw">if</span> <span class="str">"Dav"</span> <span class="kw">in</span> name<span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Name contains 'Dav'"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Truthy and Falsy Values</h2>
         <p>In Python, some values are considered "falsy" (False-like):</p>
-        <pre><code># These are FALSY:
-bool(0)       # False
-bool("")      # False (empty string)
-bool([])      # False (empty list)
-bool(None)    # False (none)
-bool(False)   # False
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="cm"># These are FALSY:</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="num">0</span><span class="sep">)</span>       <span class="cm"># False</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="str">""</span><span class="sep">)</span>      <span class="cm"># False (empty string)</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="sep">[</span><span class="sep">]</span><span class="sep">)</span>      <span class="cm"># False (empty list)</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="kw">None</span><span class="sep">)</span>    <span class="cm"># False (none)</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="kw">False</span><span class="sep">)</span>   <span class="cm"># False</span>
 
-# Everything else is TRUTHY:
-bool(1)       # True
-bool("abc")   # True
-bool([1, 2])  # True
+<span class="cm"># Everything else is TRUTHY:</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="num">1</span><span class="sep">)</span>       <span class="cm"># True</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="str">"abc"</span><span class="sep">)</span>   <span class="cm"># True</span>
+<span class="bu">bool</span><span class="sep">(</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># True</span>
 
-# Useful pattern:
-name = ""
-if name:  # Only runs if name is not empty
-    print(f"Hello, {name}!")
-else:
-    print("Name is empty!")</code></pre>
+<span class="cm"># Useful pattern:</span>
+name <span class="op">=</span> <span class="str">""</span>
+<span class="kw">if</span> name<span class="sep">:</span>  <span class="cm"># Only runs if name is not empty</span>
+    <span class="bu">print</span><span class="sep">(</span>f<span class="str">"Hello, {name}!"</span><span class="sep">)</span>
+<span class="kw">else</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"Name is empty!"</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Nested Conditionals</h2>
         <p>You can put conditionals inside conditionals:</p>
-        <pre><code>age = 20
-has_ticket = True
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span>age <span class="op">=</span> <span class="num">20</span>
+has_ticket <span class="op">=</span> <span class="kw">True</span>
 
-if age >= 18:
-    if has_ticket:
-        print("Welcome to the concert!")
-    else:
-        print("You need a ticket.")
-else:
-    print("You are too young.")</code></pre>
+<span class="kw">if</span> age <span class="op">&gt;=</span> <span class="num">18</span><span class="sep">:</span>
+    <span class="kw">if</span> has_ticket<span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"Welcome to the concert!"</span><span class="sep">)</span>
+    <span class="kw">else</span><span class="sep">:</span>
+        <span class="bu">print</span><span class="sep">(</span><span class="str">"You need a ticket."</span><span class="sep">)</span>
+<span class="kw">else</span><span class="sep">:</span>
+    <span class="bu">print</span><span class="sep">(</span><span class="str">"You are too young."</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
 
         <h2>Practice Exercises</h2>
         <ol>

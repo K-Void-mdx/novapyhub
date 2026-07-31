@@ -13,34 +13,34 @@
         <h1>Lesson 9: Introduction to Data Science</h1>
         <p>NumPy, pandas, and matplotlib for data analysis.</p>
         <h2>NumPy</h2>
-        <pre><code>import numpy as np
-arr = np.array([1, 2, 3, 4, 5])
-print(arr.mean())     # 3.0
-print(arr.sum())      # 15
-print(arr * 2)        # [2, 4, 6, 8, 10]
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> numpy <span class="kw">as</span> np
+arr <span class="op">=</span> np.array<span class="sep">(</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>arr.mean<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>     <span class="cm"># 3.0</span>
+<span class="bu">print</span><span class="sep">(</span>arr.<span class="bu">sum</span><span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>      <span class="cm"># 15</span>
+<span class="bu">print</span><span class="sep">(</span>arr <span class="op">*</span> <span class="num">2</span><span class="sep">)</span>        <span class="cm"># [2, 4, 6, 8, 10]</span>
 
-matrix = np.array([[1, 2], [3, 4]])
-print(matrix.T)  # Transpose</code></pre>
+matrix <span class="op">=</span> np.array<span class="sep">(</span><span class="sep">[</span><span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">]</span><span class="sep">,</span> <span class="sep">[</span><span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">]</span><span class="sep">]</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>matrix.T<span class="sep">)</span>  <span class="cm"># Transpose&lt;/code&gt;</span></pre>
         <h2>Pandas</h2>
-        <pre><code>import pandas as pd
-df = pd.DataFrame({
-    "name": ["Alice", "Bob", "Charlie"],
-    "age": [25, 30, 35],
-    "salary": [50000, 60000, 70000]
-})
-print(df.head())
-print(df.describe())
-print(df[df.age > 28])  # Filter
-print(df.groupby("age").mean())</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> pandas <span class="kw">as</span> pd
+df <span class="op">=</span> pd.DataFrame<span class="sep">(</span><span class="sep">{</span>
+    <span class="str">"name"</span><span class="sep">:</span> <span class="sep">[</span><span class="str">"Alice"</span><span class="sep">,</span> <span class="str">"Bob"</span><span class="sep">,</span> <span class="str">"Charlie"</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">"age"</span><span class="sep">:</span> <span class="sep">[</span><span class="num">25</span><span class="sep">,</span> <span class="num">30</span><span class="sep">,</span> <span class="num">35</span><span class="sep">]</span><span class="sep">,</span>
+    <span class="str">"salary"</span><span class="sep">:</span> <span class="sep">[</span><span class="num">50000</span><span class="sep">,</span> <span class="num">60000</span><span class="sep">,</span> <span class="num">70000</span><span class="sep">]</span>
+<span class="sep">}</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>df.head<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>df.describe<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span>
+<span class="bu">print</span><span class="sep">(</span>df<span class="sep">[</span>df.age <span class="op">&gt;</span> <span class="num">28</span><span class="sep">]</span><span class="sep">)</span>  <span class="cm"># Filter</span>
+<span class="bu">print</span><span class="sep">(</span>df.groupby<span class="sep">(</span><span class="str">"age"</span><span class="sep">)</span>.mean<span class="sep">(</span><span class="sep">)</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <h2>Matplotlib</h2>
-        <pre><code>import matplotlib.pyplot as plt
-x = [1, 2, 3, 4, 5]
-y = [2, 4, 6, 8, 10]
-plt.plot(x, y)
-plt.title("Simple Plot")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.show()</code></pre>
+        <pre><span class="op">&lt;</span>code<span class="op">&gt;</span><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+x <span class="op">=</span> <span class="sep">[</span><span class="num">1</span><span class="sep">,</span> <span class="num">2</span><span class="sep">,</span> <span class="num">3</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">5</span><span class="sep">]</span>
+y <span class="op">=</span> <span class="sep">[</span><span class="num">2</span><span class="sep">,</span> <span class="num">4</span><span class="sep">,</span> <span class="num">6</span><span class="sep">,</span> <span class="num">8</span><span class="sep">,</span> <span class="num">10</span><span class="sep">]</span>
+plt.plot<span class="sep">(</span>x<span class="sep">,</span> y<span class="sep">)</span>
+plt.title<span class="sep">(</span><span class="str">"Simple Plot"</span><span class="sep">)</span>
+plt.xlabel<span class="sep">(</span><span class="str">"X"</span><span class="sep">)</span>
+plt.ylabel<span class="sep">(</span><span class="str">"Y"</span><span class="sep">)</span>
+plt.show<span class="sep">(</span><span class="sep">)</span><span class="op">&lt;/</span>code<span class="op">&gt;</span></pre>
         <div class="lesson-nav"><a href="08-packaging-deployment.html" class="btn btn-secondary">← Previous</a><a href="10-machine-learning.html" class="btn btn-primary">Next →</a></div>
     </div>
     <footer><div class="footer-content"><p>Nova Py-Hub — Master Python Step-by-Step</p><p>© 2026 Nova Py-Hub</p></div></footer>
