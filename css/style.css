@@ -256,6 +256,10 @@ nav {
 .btn-outline:hover { border-color:var(--gold); transform:translateY(-3px) }
 .btn-blue { background:linear-gradient(135deg, #2196F3, #1565C0); color:#fff }
 .btn-blue:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(33,150,243,.3) }
+.btn-primary { background:linear-gradient(135deg, #FFD700, #FFA500); color:#000 }
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(255,215,0,.3) }
+.btn-secondary { background:transparent; color:var(--text); border:1px solid var(--card-border) }
+.btn-secondary:hover { border-color:var(--gold); transform:translateY(-3px) }
 
 /* 3D Card */
 .card-3d {

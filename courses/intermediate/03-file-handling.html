@@ -180,5 +180,6 @@ name<span class="sep">,</span> ext <span class="op">=</span> os.path.splitext<sp
         </div>
     </footer>
 <script src="../../js/script.js"></script>
+<script id="quizData" type="application/json">[{"q":"Which statement safely opens and auto-closes a file?","options":["with open('f.txt') as f:","file('f.txt').open()","open('f.txt').with:","import open"],"a":0,"e":"The with statement ensures the file is closed automatically when the block ends, even if errors occur."},{"q":"What mode string opens a file for writing?","options":["'r'","'w'","'a'","'x'"],"a":1,"e":"'w' opens a file for writing (overwriting existing content). 'r' reads, 'a' appends."},{"q":"Which method reads all lines of a file into a list?","options":["readline()","readlines()","readall()","lines()"],"a":1,"e":"readlines() returns a list where each element is one line of the file."},{"q":"What does the 'a' mode do?","options":["Overwrites the file","Appends to the end of the file","Reads only","Creates a new file each time"],"a":1,"e":"'a' (append) writes new content to the end of the file without erasing existing data."},{"q":"What module helps check if a file exists?","options":["os.path","fileops","pathlib","sys"],"a":0,"e":"os.path.exists('file.txt') returns True if the file exists. (pathlib also works, but os.path is the classic answer.)"}]</script>
 </body>
 </html>

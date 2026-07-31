@@ -233,6 +233,10 @@ function addCopyButtons() {
   })
 }
 /* Quiz Engine */
+function escHTML(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+}
+
 class QuizEngine {
   constructor(containerId, questions) {
     this.el = document.getElementById(containerId)
@@ -253,11 +257,11 @@ class QuizEngine {
     this.el.innerHTML = `
       <div class="quiz-title">📝 Quick Quiz</div>
       <div class="quiz-counter">Question ${this.current + 1} of ${this.questions.length}</div>
-      <div class="quiz-question">${q.q}</div>
+      <div class="quiz-question">${escHTML(q.q)}</div>
       <div class="quiz-options">${q.options.map((o, i) => `
         <div class="quiz-opt" data-idx="${i}">
           <span class="opt-letter">${letters[i]}</span>
-          <span>${o}</span>
+          <span>${escHTML(o)}</span>
         </div>`).join('')}
       </div>
       <div class="quiz-explain" id="quizExplain"></div>
@@ -329,6 +333,13 @@ class QuizEngine {
 function initQuizzes() {
   const quizData = document.getElementById('quizData')
   if (!quizData) return
+  let container = document.getElementById('quizContainer')
+  if (!container) {
+    container = document.createElement('div')
+    container.id = 'quizContainer'
+    container.className = 'quiz-section'
+    quizData.parentNode.insertBefore(container, quizData)
+  }
   try {
     const questions = JSON.parse(quizData.textContent)
     new QuizEngine('quizContainer', questions)
@@ -429,7 +440,7 @@ function ensureQuizFallback() {
       { q:"Which data type would you use for a whole number?", options:["float","string","int","bool"], a:2, e:"int (integer) is used for whole numbers like 42, -7, or 0." },
       { q:"What does the len() function return?", options:["The last element","The length of a sequence","The largest number","A random number"], a:1, e:"len() returns the number of items in a sequence (string, list, tuple, etc.)." },
       { q:"Which operator is used for exponentiation?", options:["^","**","*","^^"], a:1, e:"** is the exponentiation operator. 2**3 equals 8." },
-      { q:"What is the output of print(type(3.14))?", options:["<class 'int'>","<class 'float'>","<class 'str'>","<class 'decimal'>"], a:1, e:"3.14 is a float (decimal number), so type(3.14) returns <class 'float'>." }
+      { q:"What is the output of print(type(3.14))?", options:["class 'int'","class 'float'","class 'str'","class 'decimal'"], a:1, e:"3.14 is a float (decimal number), so type(3.14) returns <class 'float'>." }
     ],
     intermediate: [
       { q:"What does *args allow a function to do?", options:["Accept keyword arguments","Accept any number of positional arguments","Create a new list","Return multiple values"], a:1, e:"*args collects any number of positional arguments into a tuple." },
