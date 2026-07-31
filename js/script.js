@@ -385,22 +385,22 @@ function initDeviceTips() {
   if (!tips) return
   const msgs = {
     pc: {
-      title: '🖥 PC User',
+      title: 'PC User',
       msg: 'Download Python from python.org, then install one of these editors. Run scripts in the terminal with "python filename.py".',
       apps: [appCard('vscode.png', 'VS Code', 'Best free editor'), appCard('pycharm.png', 'PyCharm', 'Powerful Python IDE'), appCard('thonny.png', 'Thonny', 'Easiest for beginners')]
     },
     android: {
-      title: '📱 Android User',
+      title: 'Android User',
       msg: 'Install Acode (editor) and PyDroid 3 (runs Python on your phone). For a full Linux terminal, install Termux from F-Droid.',
       apps: [appCard('acode.png', 'Acode', 'Code editor'), appCard('pydroid3.png', 'PyDroid 3', 'Runs Python'), appCard('termux.png', 'Termux', 'Linux terminal')]
     },
     iphone: {
-      title: '🍎 iPhone User',
+      title: 'iPhone User',
       msg: 'Install Pythonista or Pyto from the App Store — both include a built-in code editor and Python interpreter. You can also use online REPLs like Replit or Google Colab.',
       apps: [appCard('pythonista.png', 'Pythonista', 'Code editor + Python'), appCard('pyto.png', 'Pyto', 'Code editor + Python')]
     },
     tablet: {
-      title: '📟 Tablet User',
+      title: 'Tablet User',
       msg: 'Use the browser-based REPL at replit.com or install PyDroid 3 (Android tablets) / Pythonista (iPad). Tablets work great with a Bluetooth keyboard for coding.',
       apps: [appCard('pydroid3.png', 'PyDroid 3', 'Android tablet'), appCard('pythonista.png', 'Pythonista', 'iPad'), appCard('acode.png', 'Acode', 'Android editor')]
     }
